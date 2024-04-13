@@ -5,75 +5,118 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public float speed = 12f;
-    public float gravity = -9.81f;
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-    public float jumpHeight = 5f;
-    private Animator animator;
-    private bool canMove = true;
+    //Input
+    [SerializeField] protected float horizontalInput;
+    [SerializeField] protected float verticalInput;
+    //Their code
+    [Header("Movement")]
+    public float moveSpeed = 10f;
+    public float groundDrag;
+    public float jumpForce;
+    public float jumpCoolDown;
 
-    Vector3 velocity;
-    bool isGrounded;
+    //
+    public float airMutiple;
+    public bool readyTojump;
+    [HideInInspector] public float walkSpeed;
+    [HideInInspector] public float sprintSpeed;
 
-    private void Start()
+    [Header("KeyBinds")]
+    public KeyCode jumpKey = KeyCode.Space;
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    public bool grounded;
+
+
+    public Transform orientation;
+    Vector3 moveDirection;
+    Rigidbody rb;
+    
+
+    private NavMeshAgent agent;
+    void Start()
     {
-        controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
+        rb.freezeRotation = true;
+        readyTojump = true;
+
+
     }
+
+    // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        isGrounded = controller.isGrounded;
-        Debug.Log("IsGrounded :" + isGrounded);
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-       
-        animator.SetBool("Jump", false);
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        MyInput();
+        SpeedControl();
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
-        Vector3 moveDestination = transform.position + move;
-        if (moveDestination.x > 0 || moveDestination.z >0)
-        {
-           
-            animator.SetBool("Walk", true);
-        }
+        if (grounded)
+            rb.drag = groundDrag;
+        else
+            rb.drag = 0;
 
-
-        if (isGrounded == true)
-        {
-            animator.SetBool("Jump", false);
-        }
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            isGrounded = false;
-            canMove = false;
-
-            animator.SetBool("Jump", true);
-            Debug.Log("Jump");
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-         
-        }
-        velocity.y += gravity * Time.deltaTime;
-
-        GetComponent<NavMeshAgent>().destination = moveDestination;
-        controller.Move(velocity * Time.deltaTime);
-
-        StartCoroutine(CanMove());
     }
-   
-    IEnumerator CanMove()
+    private void FixedUpdate()
     {
-        animator.SetBool("Walk", false);
-        yield return new WaitForSeconds(2f);
-        canMove = true;
-}
+        MovePlayer();
+        if (grounded && readyTojump)
+        {
+            agent.enabled = true;
+            //  moveSpeed = 100f;
+        }
+    }
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+        Debug.Log(grounded);
+
+        if (Input.GetKey(jumpKey) && readyTojump && grounded)
+        {
+            readyTojump = false;
+
+            Jump();
+            Invoke(nameof(ResetJump), jumpCoolDown);
+
+        }
+    }
+    private void MovePlayer()
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        if (grounded)
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        else if (!grounded)
+            rb.AddForce(moveDirection.normalized * moveSpeed * airMutiple, ForceMode.Force);
+    }
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        if (flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitVel.x, rb.velocity.y, limitVel.z);
+
+        }
+      
+    }
+
+    private void Jump()
+    {
+        agent.enabled = false;
+        moveSpeed = 10f;
+
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+    }
+    private void ResetJump()
+    {
+        readyTojump = true;
+
+
+
+    }
 }
