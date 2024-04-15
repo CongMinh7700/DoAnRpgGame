@@ -5,75 +5,38 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //Input
-    [SerializeField] protected float horizontalInput;
-    [SerializeField] protected float verticalInput;
-    //Their code
-    [Header("Movement")]
-    public float moveSpeed = 10f;
-    public float groundDrag;
-    public float jumpForce;
-    public float jumpCoolDown;
-
-    //
-    public float airMutiple;
-    public bool readyTojump;
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
-
-    [Header("KeyBinds")]
-    public KeyCode jumpKey = KeyCode.Space;
-    [Header("Ground Check")]
-    public float playerHeight;
+    Rigidbody rb;
+    float speed = 10.0f;
+    float rotationSpeed = 50.0f;
+    Animator animator;
     public LayerMask whatIsGround;
     public bool grounded;
-
-
-    public Transform orientation;
-    Vector3 moveDirection;
-    Rigidbody rb;
-    
-
-    private NavMeshAgent agent;
+    public float playerHeight = 2f;
+    public float groundDrag = 5f;
+    public float jumpForce = 5f;
+    public float jumpCoolDown = 0.24f;
+    public bool readyTojump;
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        agent = GetComponent<NavMeshAgent>();
-        rb.freezeRotation = true;
+        animator = GetComponent<Animator>();
+        animator.SetBool("Idling", true);
         readyTojump = true;
-
-
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        MyInput();
-        SpeedControl();
-
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f - 0.7f, whatIsGround);
         if (grounded)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
 
-    }
-    private void FixedUpdate()
-    {
-        MovePlayer();
-        if (grounded && readyTojump)
-        {
-            agent.enabled = true;
-            //  moveSpeed = 100f;
-        }
-    }
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-        Debug.Log(grounded);
-
-        if (Input.GetKey(jumpKey) && readyTojump && grounded)
+        Movement();
+        if (Input.GetKey(KeyCode.Space) && readyTojump && grounded)
         {
             readyTojump = false;
 
@@ -82,31 +45,23 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
-    private void MovePlayer()
+    public void Movement()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-        else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * airMutiple, ForceMode.Force);
+        float tranlation = Input.GetAxis("Vertical") * speed;
+        float rotaion = Input.GetAxis("Horizontal") * rotationSpeed;
+        tranlation *= Time.deltaTime;
+        rotaion *= Time.deltaTime;
+        Quaternion turn = Quaternion.Euler(0f, rotaion, 0f);
+        rb.MovePosition(rb.position + transform.forward * tranlation);
+        rb.MoveRotation(rb.rotation * turn);
+
+        if (tranlation != 0)
+            animator.SetBool("Idling", false);
+        else
+            animator.SetBool("Idling", true);
     }
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        if (flatVel.magnitude > moveSpeed)
-        {
-            Vector3 limitVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitVel.x, rb.velocity.y, limitVel.z);
-
-        }
-      
-    }
-
     private void Jump()
     {
-        agent.enabled = false;
-        moveSpeed = 10f;
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
@@ -116,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
     {
         readyTojump = true;
 
-
-
     }
+
 }
