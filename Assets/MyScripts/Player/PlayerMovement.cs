@@ -5,18 +5,20 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody rb;
-    float speed = 10.0f;
-    float rotationSpeed = 50.0f;
-    Animator animator;
-    public LayerMask whatIsGround;
-    public bool grounded;
-    public float playerHeight = 2f;
-    public float groundDrag = 5f;
-    public float jumpForce = 5f;
-    public float jumpCoolDown = 0.24f;
-    public bool readyTojump;
-    // Start is called before the first frame update
+    [SerializeField] protected LayerMask whatIsGround;
+    [SerializeField] protected bool grounded;
+
+    [SerializeField] protected float groundDrag = 5f;
+    [SerializeField] protected float jumpForce = 5f;
+    [SerializeField] protected float jumpCoolDown = 0.24f;
+    [SerializeField] protected bool readyTojump;
+
+    private Rigidbody rb;
+    private float speed = 10.0f;
+    private float rotationSpeed = 50.0f;
+    private Animator animator;
+    private float playerHeight = 2f;
+    public static bool isRunning;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f - 0.7f, whatIsGround);
@@ -44,33 +46,44 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCoolDown);
 
         }
+        
     }
     public void Movement()
     {
-        float tranlation = Input.GetAxis("Vertical") * speed;
-        float rotaion = Input.GetAxis("Horizontal") * rotationSpeed;
-        tranlation *= Time.deltaTime;
-        rotaion *= Time.deltaTime;
-        Quaternion turn = Quaternion.Euler(0f, rotaion, 0f);
-        rb.MovePosition(rb.position + transform.forward * tranlation);
+        float translation = Input.GetAxis("Vertical") * speed;
+        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
+        translation *= Time.deltaTime;
+        rotation *= Time.deltaTime;
+        Quaternion turn = Quaternion.Euler(0f, rotation, 0f);
+        rb.MovePosition(rb.position + transform.forward * translation);
         rb.MoveRotation(rb.rotation * turn);
 
-        if (tranlation != 0)
+        if (translation != 0)
+        {
             animator.SetBool("Idling", false);
+            isRunning = true;
+        }
+
         else
+        {
             animator.SetBool("Idling", true);
+            isRunning = false;
+        }
+     
     }
     private void Jump()
     {
-
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
     }
     private void ResetJump()
     {
         readyTojump = true;
-
     }
 
+    
+
+
 }
+
+

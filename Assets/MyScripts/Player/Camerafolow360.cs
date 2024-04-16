@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Camerafolow360 : MonoBehaviour
 {
-	public Transform player;
-	public Transform orientation;
-	public float distance = 10;
-	public float height = 5;
-	public Vector3 lookOffset = new Vector3(0, 1, 0);
-	float cameraSpeed = 100;
-	float rotSpeed = 100;
+	[SerializeField] protected Transform player;
+	[SerializeField] protected Transform orientation;
+	[SerializeField] protected float distance = 10;
+	[SerializeField] protected float height = 5;
+	[SerializeField] protected Vector3 lookOffset = new Vector3(0, 1, 0);
+	[SerializeField] protected float cameraSpeed = 100;
+	[SerializeField] protected float rotSpeed = 100;
+	[SerializeField] protected float smoothFactor = 0.1f;
+	private bool isRotate;
 
-	void FixedUpdate()
+	void Update()
 	{
+		Debug.Log("IsRunning :" + PlayerMovement.isRunning);
+		Debug.Log("IsRotate :" + isRotate);
 		float mouseX = Input.GetAxis("Mouse X");
 		float mouseY = Input.GetAxis("Mouse Y");
 		if (player)
@@ -27,18 +31,29 @@ public class Camerafolow360 : MonoBehaviour
 			Vector3 targetPos = orientation.transform.position + orientation.transform.up * height - orientation.transform.forward * distance;
 
 			this.transform.position = Vector3.Lerp(this.transform.position, targetPos, Time.deltaTime * cameraSpeed * 0.1f);
-			//player.transform.Rotate(Vector3.up * mouseX * rotSpeed * Time.deltaTime);
-			//orientation.transform.rotation = player.transform.rotation;
 
 		}
-  //      if (Input.GetMouseButton(1))
-  //      {
+        if (Input.GetMouseButton(1))
+        {
+
+
+            // Rotate the camera based on mouse movement
+            player.transform.Rotate(Vector3.up * mouseX * rotSpeed * Time.deltaTime);
+            orientation.transform.Rotate(Vector3.left * mouseY * rotSpeed * Time.deltaTime);
+
+        }else
+        if (Input.GetMouseButtonUp(1) && PlayerMovement.isRunning == true)
+        {
+			isRotate = true;
+			//orientation.transform.rotation = player.transform.rotation;
 			
-
-		//	// Rotate the camera based on mouse movement
-		//	orientation.transform.Rotate(Vector3.up * mouseX * rotSpeed * Time.deltaTime);
-		//	orientation.transform.Rotate(Vector3.left * mouseY * rotSpeed * Time.deltaTime);
-
-		//}
-	}
+		}
+		
+		if(isRotate)
+        {
+			orientation.transform.rotation = Quaternion.Slerp(orientation.transform.rotation, player.transform.rotation, smoothFactor * Time.deltaTime);
+			if (orientation.transform.rotation == player.transform.rotation)
+				isRotate = false;
+		}
+    }
 }
