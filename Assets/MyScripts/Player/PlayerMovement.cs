@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : RPGMonoBehaviour
 {
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected bool grounded;
@@ -40,13 +40,14 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         if (Input.GetKey(KeyCode.Space) && readyTojump && grounded)
         {
+            //animator.SetTrigger("Jump");
             readyTojump = false;
-
             Jump();
             Invoke(nameof(ResetJump), jumpCoolDown);
 
         }
-        
+        animator.SetBool("Grounded",grounded);
+
     }
     public void Movement()
     {

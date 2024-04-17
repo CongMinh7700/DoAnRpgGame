@@ -1753,6 +1753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8659854622577709923}
+  - component: {fileID: 8546684608085336744}
   m_Layer: 0
   m_Name: HouseSmall
   m_TagString: Untagged
@@ -1798,6 +1799,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8546684608085336744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8315381355122035161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 4.0442495, y: 5.853706, z: 4.2043533}
+  m_Center: {x: 1.0173764, y: 2.9479911, z: -1.3917634}
 --- !u!1 &8598392236063138242
 GameObject:
   m_ObjectHideFlags: 0
