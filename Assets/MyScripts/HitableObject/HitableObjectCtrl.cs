@@ -11,6 +11,8 @@ public abstract class HitableObjectCtrl : RPGMonoBehaviour
     public HitableObjectSO HitableObjectSO => hitableObjectSO;
 
 
+
+
     protected override void LoadComponents()
     {
         this.LoadDamageReceiver();

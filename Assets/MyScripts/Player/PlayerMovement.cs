@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+
 
 public class PlayerMovement : RPGMonoBehaviour
 {
@@ -29,13 +29,13 @@ public class PlayerMovement : RPGMonoBehaviour
     {
         if (this.rb != null) return;
         this.rb = GetComponentInParent<Rigidbody>();
-        Debug.Log(transform.name + "||LoadRigidbody", gameObject);
+        Debug.LogWarning(transform.name + "|LoadRigidbody|", gameObject);
     }
     protected void LoadPlayerAnimation()
     {
         if (this.playerAnim != null) return;
         this.playerAnim = transform.parent.GetComponent<PlayerAnim>();
-        Debug.Log(transform.name + "||LoadPlayerAnimation", gameObject);
+        Debug.LogWarning(transform.name + "|LoadPlayerAnimation|", gameObject);
     }
 
     void Start()

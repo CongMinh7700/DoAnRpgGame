@@ -864,9 +864,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAnimation: {fileID: 6300414335718463250}
   navMesh: {fileID: 6300414335718463251}
+  player: {fileID: 0}
   x: 0
   z: 0
-  velocity: 0
+  velocitySpeed: 0
+  attackRange: 2
+  runRange: 50
+  rotateSpeed: 50
 --- !u!1 &4156050411568155459
 GameObject:
   m_ObjectHideFlags: 0

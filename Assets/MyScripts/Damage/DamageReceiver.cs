@@ -5,12 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public abstract class DamageReceiver : RPGMonoBehaviour
 {
-
     [Header("Damage Receiver")]
     [SerializeField] protected BoxCollider boxCollider;
     [SerializeField] protected int hp;
     [SerializeField] protected int hpMax;
     [SerializeField] protected bool isDead = false;
+    [SerializeField] protected bool isAttacked = false;
 
     public int HP => hp;
     public int HPMax => hpMax;
@@ -51,6 +51,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     {
         if (this.isDead) return;
         this.hp -= value;
+        isAttacked = true;
         if (this.hp <= 0) this.hp = 0;
         this.CheckIsDead();
     }
@@ -62,6 +63,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     {
         if (!this.IsDead()) return;
         this.isDead = true;
+        this.isAttacked = false;
         this.OnDead();
     }
     public virtual void SetHpMax(int hpMax)

@@ -21,8 +21,7 @@ public class HitableObjectDamageReceiver : DamageReceiver
     }
     protected override void OnDead()
     {
-        //DespawnObject
-        throw new System.NotImplementedException();
+       //Despawn Object
     }
 
     

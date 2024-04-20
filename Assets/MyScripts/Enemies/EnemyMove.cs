@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,20 +6,19 @@ using UnityEngine.AI;
 public class EnemyMove : RPGMonoBehaviour
 {
     [SerializeField] protected EnemyAnimation enemyAnimation;
-    [SerializeField] protected  NavMeshAgent navMesh;
+    [SerializeField] protected NavMeshAgent navMesh;
     [SerializeField] protected GameObject player;
-    [SerializeField] protected  float x;
-    [SerializeField] protected  float z;
-    [SerializeField] protected  float velocitySpeed;
-    [SerializeField] protected  float attackRange;
-    [SerializeField] protected  float runRange;
-    [SerializeField] protected  float rotateSpeed;
+    [SerializeField] protected float x;
+    [SerializeField] protected float z;
+    [SerializeField] protected float velocitySpeed;
+    [SerializeField] protected float attackRange = 3f;
+    [SerializeField] protected float runRange = 50f;
+    [SerializeField] protected float rotateSpeed = 50f;
 
 
     private AnimatorStateInfo enemyInfo;
     private float distance;
     private bool isAttacking = false;
-    private WaitForSeconds lookTime = new WaitForSeconds(2f);
 
     protected override void LoadComponents()
     {
@@ -48,9 +47,6 @@ public class EnemyMove : RPGMonoBehaviour
     }
     private void Start()
     {
-        this.attackRange = 2f;
-        this.runRange = 50f;
-        this.rotateSpeed = 50f;
         navMesh.avoidancePriority = Random.Range(5, 75);
     }
     private void Update()
@@ -62,54 +58,60 @@ public class EnemyMove : RPGMonoBehaviour
         x = navMesh.velocity.x;
         z = navMesh.velocity.z;
         velocitySpeed = x + z;
-       
-        if(velocitySpeed == 0)
+
+        if (velocitySpeed == 0)
         {
             this.enemyAnimation.WalkAnimation(false);
         }
         else
         {
             this.enemyAnimation.WalkAnimation(true);
-            //
             isAttacking = false;
         }
         enemyInfo = enemyAnimation.Animator.GetCurrentAnimatorStateInfo(0);
-
         distance = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log("Velocity Speed : " + distance);
+
         if (distance < attackRange || distance > runRange)
         {
             navMesh.isStopped = true;
-            if(distance > runRange)
-            {
-                //Destroy(gameObject);
-            }
-            if(distance < attackRange && enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
+            //if(distance > runRange)
+            //{
+            //    //Destroy(gameObject);
+            //}
+            //Kiểm tra trạng thái và có đang chuyển đổi trạng thái hay không
+            if (distance < attackRange && enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
             {
                 if (!isAttacking)
                 {
                     isAttacking = true;//
-                    this.enemyAnimation.AttackAnimation();
-                    //transform.position => 
-                    Vector3 pos = (player.transform.position - transform.position).normalized;
-                    Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
-                    transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);
+                    this.Attack();
                 }
             }
-            if(distance < attackRange && enemyInfo.IsTag("Attack"))
+            if (distance < attackRange && enemyInfo.IsTag("Attack"))
             {
-                if (isAttacking) isAttacking = false;
-                
+                this.StopAttack();
+
             }
-        }else if( distance > attackRange && enemyInfo.IsTag("NonAttack" ) && !enemyAnimation.Animator.IsInTransition(0))
-        {
-            navMesh.destination = player.transform.position;
-            navMesh.isStopped = false;
-            //if (SaveScripts.invisible == false)
-            //{
-            //   
-            //    
-            //}
         }
+        else if (distance > attackRange && enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
+        {
+            this.MoveToPlayer();
+        }
+    }
+    public virtual void Attack()
+    {
+        this.enemyAnimation.AttackAnimation();
+        Vector3 pos = (player.transform.position - transform.position).normalized;
+        Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);
+    }
+    public virtual void MoveToPlayer()
+    {
+        navMesh.isStopped = false;
+        navMesh.destination = player.transform.position;
+    }
+    public virtual void StopAttack()
+    {
+        if (isAttacking) isAttacking = false;
     }
 }

@@ -1144,7 +1144,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3320711435128553980}
-  m_LocalRotation: {x: 0.043199494, y: 0.085711025, z: -0.3985883, w: 0.91209364}
+  m_LocalRotation: {x: 0.0431995, y: 0.085711025, z: -0.39858833, w: 0.91209364}
   m_LocalPosition: {x: -0.26565483, y: -0.018738698, z: 0.080293484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1531,9 +1531,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAnimation: {fileID: 855263428107440726}
   navMesh: {fileID: 855263428107440713}
+  player: {fileID: 0}
   x: 0
   z: 0
-  velocity: 0
+  velocitySpeed: 0
+  attackRange: 3
+  runRange: 50
+  rotateSpeed: 50
 --- !u!1 &4040275583422928160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +1961,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5675638852561222589}
-  m_LocalRotation: {x: 0.6239527, y: -0.31061277, z: 0.64241195, w: -0.31860575}
+  m_LocalRotation: {x: 0.62395275, y: -0.31061277, z: 0.642412, w: -0.31860575}
   m_LocalPosition: {x: -0.05431709, y: 0.055550955, z: -0.107249096}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
