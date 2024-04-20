@@ -16,8 +16,8 @@ public class Camerafolow360 : MonoBehaviour
 
 	void Update()
 	{
-		Debug.Log("IsRunning :" + PlayerMovement.isRunning);
-		Debug.Log("IsRotate :" + isRotate);
+		//Debug.Log("IsRunning :" + PlayerMovement.isRunning);
+		//Debug.Log("IsRotate :" + isRotate);
 		float mouseX = Input.GetAxis("Mouse X");
 		float mouseY = Input.GetAxis("Mouse Y");
 		if (player)

@@ -16,14 +16,31 @@ public class PlayerMovement : RPGMonoBehaviour
     private Rigidbody rb;
     private float speed = 10.0f;
     private float rotationSpeed = 50.0f;
-    private Animator animator;
     private float playerHeight = 2f;
     public static bool isRunning;
+
+    private PlayerAnim playerAnim;
+    protected override void LoadComponents()
+    {
+        this.LoadRigidbody();
+        this.LoadPlayerAnimation();
+    }
+    protected void LoadRigidbody()
+    {
+        if (this.rb != null) return;
+        this.rb = GetComponentInParent<Rigidbody>();
+        Debug.Log(transform.name + "||LoadRigidbody", gameObject);
+    }
+    protected void LoadPlayerAnimation()
+    {
+        if (this.playerAnim != null) return;
+        this.playerAnim = transform.parent.GetComponent<PlayerAnim>();
+        Debug.Log(transform.name + "||LoadPlayerAnimation", gameObject);
+    }
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-        animator.SetBool("Idling", true);
+        playerAnim.IdlingAnimation(true);
         readyTojump = true;
         rb.freezeRotation = true;
     }
@@ -40,13 +57,11 @@ public class PlayerMovement : RPGMonoBehaviour
         Movement();
         if (Input.GetKey(KeyCode.Space) && readyTojump && grounded)
         {
-            //animator.SetTrigger("Jump");
             readyTojump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCoolDown);
-
         }
-        animator.SetBool("Grounded",grounded);
+        playerAnim.FallAnimation(grounded);
 
     }
     public void Movement()
@@ -61,13 +76,13 @@ public class PlayerMovement : RPGMonoBehaviour
 
         if (translation != 0)
         {
-            animator.SetBool("Idling", false);
+            playerAnim.IdlingAnimation(false);
             isRunning = true;
         }
 
         else
         {
-            animator.SetBool("Idling", true);
+            playerAnim.IdlingAnimation(true);
             isRunning = false;
         }
      
@@ -81,10 +96,6 @@ public class PlayerMovement : RPGMonoBehaviour
     {
         readyTojump = true;
     }
-
-    
-
-
 }
 
 

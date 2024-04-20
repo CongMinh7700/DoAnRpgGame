@@ -4,33 +4,35 @@ using UnityEngine;
 
 public class RPGMonoBehaviour : MonoBehaviour
 {
-    public virtual void LoadComponents()
-    {
-
-    }
-    public virtual void Reset()
+    protected virtual void Awake()
     {
         this.LoadComponents();
     }
-    public virtual void ResetValue()
-    {
 
+    
+    protected virtual void Reset()
+    {
+        this.LoadComponents();
+        this.ResetValue();
     }
 
-    public virtual void Start()
+    protected virtual void LoadComponents()
     {
-
+        //For override
     }
-    public virtual void OnDisable()
-    {
 
+    protected virtual void ResetValue()
+    {
+        //For override
     }
-    public virtual void OnEnable()
-    {
 
+    protected virtual void OnEnable()
+    {
+        //For override
     }
-    public virtual void Reborn()
-    {
 
+    protected virtual void OnDisable()
+    {
+        //For override
     }
 }
