@@ -17,9 +17,9 @@ public class EnemyMove : RPGMonoBehaviour
 
 
     private AnimatorStateInfo enemyInfo;
-    private float distance;
-    private bool isAttacking = false;
-
+    [SerializeField] private float distance;
+    [SerializeField] private bool isAttacking = false;
+   
     protected override void LoadComponents()
     {
         this.LoadNavMeshAgent();
@@ -70,7 +70,7 @@ public class EnemyMove : RPGMonoBehaviour
         }
         enemyInfo = enemyAnimation.Animator.GetCurrentAnimatorStateInfo(0);
         distance = Vector3.Distance(transform.position, player.transform.position);
-
+        
         if (distance < attackRange || distance > runRange)
         {
             navMesh.isStopped = true;
@@ -83,10 +83,15 @@ public class EnemyMove : RPGMonoBehaviour
             {
                 if (!isAttacking)
                 {
-                    isAttacking = true;//
+                    isAttacking = true;
                     this.Attack();
+                 
                 }
+            
             }
+         
+           
+          
             if (distance < attackRange && enemyInfo.IsTag("Attack"))
             {
                 this.StopAttack();
@@ -97,6 +102,12 @@ public class EnemyMove : RPGMonoBehaviour
         {
             this.MoveToPlayer();
         }
+        //Mấu chốt là ở đây
+        if (BossAttack.canMove)
+        {
+            MoveToPlayer();
+
+        }
     }
     public virtual void Attack()
     {
@@ -104,6 +115,7 @@ public class EnemyMove : RPGMonoBehaviour
         Vector3 pos = (player.transform.position - transform.position).normalized;
         Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);
+   
     }
     public virtual void MoveToPlayer()
     {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyAnimation : RPGMonoBehaviour
 {
-    protected Animator animator;
-    public Animator Animator => animator;
+    protected  Animator animator;
+    public  Animator Animator => animator;
 
     protected override void LoadComponents()
     {

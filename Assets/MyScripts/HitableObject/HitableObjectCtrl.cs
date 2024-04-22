@@ -12,7 +12,6 @@ public abstract class HitableObjectCtrl : RPGMonoBehaviour
 
 
 
-
     protected override void LoadComponents()
     {
         this.LoadDamageReceiver();
