@@ -24959,6 +24959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 1010929204753397504, guid: 9871e0c66b2c9c14a9eb62c6e44d097b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9871e0c66b2c9c14a9eb62c6e44d097b, type: 3}
 --- !u!1001 &889346769

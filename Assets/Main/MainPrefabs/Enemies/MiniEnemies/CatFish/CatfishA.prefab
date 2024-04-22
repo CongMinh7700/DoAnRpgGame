@@ -2054,7 +2054,9 @@ MonoBehaviour:
   hp: 100
   hpMax: 100
   isDead: 0
+  isAttacked: 0
   hitableObjectCtrl: {fileID: 1942345171}
+  enemyAnimation: {fileID: 0}
 --- !u!1 &6206333876656711017
 GameObject:
   m_ObjectHideFlags: 0
