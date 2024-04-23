@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class EnemyMove : RPGMonoBehaviour
 {
     [SerializeField] protected EnemyAnimation enemyAnimation;
-    [SerializeField] protected NavMeshAgent navMesh;
+    [SerializeField] public NavMeshAgent navMesh;
+
     [SerializeField] protected GameObject player;
     [SerializeField] protected float x;
     [SerializeField] protected float z;
@@ -89,9 +90,7 @@ public class EnemyMove : RPGMonoBehaviour
                 }
             
             }
-         
-           
-          
+
             if (distance < attackRange && enemyInfo.IsTag("Attack"))
             {
                 this.StopAttack();
@@ -108,7 +107,7 @@ public class EnemyMove : RPGMonoBehaviour
             MoveToPlayer();
 
         }
-        Debug.Log("Navemesh Speed" + navMesh.speed);
+      //  Debug.Log("Navemesh Speed" + navMesh.speed);
     }
     public virtual void Attack()
     {
@@ -120,14 +119,13 @@ public class EnemyMove : RPGMonoBehaviour
     }
     public virtual void MoveToPlayer()
     {
-       
-        navMesh.isStopped = false;
-        navMesh.destination = player.transform.position;
-        
+            navMesh.isStopped = false;
+            navMesh.destination = player.transform.position;
     }
     public virtual void StopAttack()
     {
         if (isAttacking) isAttacking = false;
     }
-   
+ 
+
 }

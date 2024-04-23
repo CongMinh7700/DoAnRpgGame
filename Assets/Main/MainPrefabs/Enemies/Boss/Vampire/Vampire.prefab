@@ -2515,7 +2515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6284363338993837675
 Transform:
   m_ObjectHideFlags: 0
@@ -3438,8 +3438,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAnimation: {fileID: 0}
   bossAnimation: {fileID: 8577169005496738153}
+  bossMove: {fileID: 0}
   attackCount: 0
   countLimit: 5
+  isPunch: 0
+  canIncreaseRange: 0
   isCombo: 0
 --- !u!1 &8935548558926256666
 GameObject:

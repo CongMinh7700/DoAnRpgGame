@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: HitableObject
   objType: 3
-  hpMax: 100
+  hpMax: 1000

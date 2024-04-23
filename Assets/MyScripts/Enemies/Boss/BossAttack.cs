@@ -10,6 +10,7 @@ public class BossAttack : EnemyAttack
     [SerializeField] private int countLimit = 5;
     [SerializeField] public static bool canMove ;
     [SerializeField] public  bool isPunch ;
+    [SerializeField] public  bool canIncreaseRange ;
     public  bool isCombo;
     protected override void LoadComponents()
     {
@@ -22,12 +23,15 @@ public class BossAttack : EnemyAttack
         this.bossAnimation = GetComponentInParent<BossAnimation>();
         Debug.LogWarning(transform.name + "|LoadBossAnimation|", gameObject);
     }
-    //test
-    //void Update()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //        Attack();
-    //}
+
+
+    private void Update()
+    {
+        //if (attackCount >= countLimit)
+        //{
+        //    canIncreaseRange = true;
+        //}
+    }
     public void Attack()
     {
         canMove = false;
@@ -40,12 +44,13 @@ public class BossAttack : EnemyAttack
         }
             
         if (attackCount >= countLimit)
-        {
+        { 
             isCombo = true;
             canMove = true;
             bossAnimation.AttackCombo();
             StartCoroutine(ResetAttackCount());
             StartCoroutine(ResetSpeed());
+            
         }
         attackCount++;
 
@@ -54,11 +59,19 @@ public class BossAttack : EnemyAttack
     {
         yield return new WaitForSeconds(1.37f);
         attackCount = 0;
-    }
+       // canIncreaseRange = false;
+    } 
+  
+    //5
+    //warrok 1.25
     IEnumerator ResetSpeed()
     {
-        yield return new WaitForSeconds(5f);
+        
+        yield return new WaitForSeconds(2f);
+  
         isCombo = false;
+       
+
     }
 
 }
