@@ -6,7 +6,6 @@ public class EnemyAnimation : RPGMonoBehaviour
 {
     protected  Animator animator;
     public  Animator Animator => animator;
-
     protected override void LoadComponents()
     {
         this.LoadEnemyAnimator();
@@ -15,7 +14,7 @@ public class EnemyAnimation : RPGMonoBehaviour
     {
         if (this.animator != null) return;
         this.animator = GetComponent<Animator>();
-        Debug.LogWarning(transform.name + "||LoadEnemyAnimator||", gameObject);
+        //Debug.LogWarning(transform.name + "||LoadEnemyAnimator||", gameObject);
 
     }
     public virtual void WalkAnimation(bool run)

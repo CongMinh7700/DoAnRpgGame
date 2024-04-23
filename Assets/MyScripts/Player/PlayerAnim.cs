@@ -16,7 +16,7 @@ public class PlayerAnim : RPGMonoBehaviour
     {
         if (this.animator != null) return;
         this.animator = GetComponent<Animator>();
-        Debug.LogWarning(transform.name + "||LoadAnimator||", gameObject);
+        //Debug.LogWarning(transform.name + "||LoadAnimator||", gameObject);
 
     }
     public virtual void IdlingAnimation(bool idling)

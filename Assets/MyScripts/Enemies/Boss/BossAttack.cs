@@ -10,6 +10,7 @@ public class BossAttack : EnemyAttack
     [SerializeField] private int attackCount = 0;
     [SerializeField] private int countLimit = 5;
     [SerializeField] public static bool canMove ;
+    public  bool isCombo;
     protected override void LoadComponents()
     {
      
@@ -29,16 +30,33 @@ public class BossAttack : EnemyAttack
 
     public void Attack()
     {
-      
-        bossAnimation.AttackAnimation();
-        attackCount++;
+        canMove = false;
+        if (attackCount < countLimit)
+        {      
+            bossAnimation.AttackAnimation();
+
+        }
+            
         if (attackCount >= countLimit)
         {
+            isCombo = true;
             canMove = true;
-            attackCount = 0;
             bossAnimation.AttackCombo();
+            StartCoroutine(ResetAttackCount());
+            StartCoroutine(ResetSpeed());
         }
-       
+        attackCount++;
 
     }
+    IEnumerator ResetAttackCount()
+    {
+        yield return new WaitForSeconds(1.37f);
+        attackCount = 0;
+    }
+    IEnumerator ResetSpeed()
+    {
+        yield return new WaitForSeconds(5f);
+        isCombo = false;
+    }
+
 }

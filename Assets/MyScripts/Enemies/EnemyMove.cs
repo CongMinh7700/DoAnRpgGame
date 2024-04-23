@@ -57,8 +57,8 @@ public class EnemyMove : RPGMonoBehaviour
     {
         x = navMesh.velocity.x;
         z = navMesh.velocity.z;
-        velocitySpeed = x + z;
-
+                   velocitySpeed = x + z;
+                  
         if (velocitySpeed == 0)
         {
             this.enemyAnimation.WalkAnimation(false);
@@ -85,7 +85,7 @@ public class EnemyMove : RPGMonoBehaviour
                 {
                     isAttacking = true;
                     this.Attack();
-                 
+                    
                 }
             
             }
@@ -108,6 +108,7 @@ public class EnemyMove : RPGMonoBehaviour
             MoveToPlayer();
 
         }
+        Debug.Log("Navemesh Speed" + navMesh.speed);
     }
     public virtual void Attack()
     {
@@ -119,11 +120,14 @@ public class EnemyMove : RPGMonoBehaviour
     }
     public virtual void MoveToPlayer()
     {
+       
         navMesh.isStopped = false;
         navMesh.destination = player.transform.position;
+        
     }
     public virtual void StopAttack()
     {
         if (isAttacking) isAttacking = false;
     }
+   
 }

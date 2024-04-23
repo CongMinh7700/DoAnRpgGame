@@ -35,7 +35,7 @@ public class PlayerMovement : RPGMonoBehaviour
     {
         if (this.playerAnim != null) return;
         this.playerAnim = transform.parent.GetComponent<PlayerAnim>();
-        Debug.LogWarning(transform.name + "|LoadPlayerAnimation|", gameObject);
+       // Debug.LogWarning(transform.name + "|LoadPlayerAnimation|", gameObject);
     }
 
     void Start()

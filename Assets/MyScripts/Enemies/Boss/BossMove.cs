@@ -6,7 +6,8 @@ public class BossMove : EnemyMove
 {
     [SerializeField] private BossAttack bossAttack;
     [SerializeField] private Transform model;
-
+    public static bool canAttack = true;
+    private WaitForSeconds delayTime = new WaitForSeconds(2f);
   
     public virtual void LoadBossAttack()
     {
@@ -16,14 +17,27 @@ public class BossMove : EnemyMove
     }
     public override void Attack()
     {
-        this.bossAttack.Attack();
-        Vector3 pos = (player.transform.position - transform.position).normalized;
-        Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);
-        float step = 2f * Time.deltaTime;
-        transform.parent.position = Vector3.MoveTowards(transform.parent.position, model.position, step);
+         
+            this.bossAttack.Attack();
+            Vector3 pos = (player.transform.position - transform.position).normalized;
+            Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);
+            
+    }
+    public override void MoveToPlayer()
+    {
+        if (bossAttack.isCombo)
+        {
+            navMesh.speed = 1.75f;
+        }
+        else
+        {
+            navMesh.speed = 3.5f;
+        }
+        base.MoveToPlayer();
 
     }
    
+    
 }
 
