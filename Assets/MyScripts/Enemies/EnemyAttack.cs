@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : RPGMonoBehaviour
 {
-    [SerializeField] protected EnemyAnimation enemyAnimation;
+    [SerializeField] private EnemyAnimation enemyAnimation;
     protected override void LoadComponents()
     {
         this.LoadEnemyAnimation();

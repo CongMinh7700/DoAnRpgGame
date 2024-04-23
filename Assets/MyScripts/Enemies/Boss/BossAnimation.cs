@@ -9,5 +9,5 @@ public class BossAnimation : EnemyAnimation
         animator.SetTrigger("AttackCombo");
      
     }
-
+  
 }
