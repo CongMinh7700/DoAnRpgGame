@@ -20,6 +20,7 @@ public class EnemyMove : RPGMonoBehaviour
     private AnimatorStateInfo enemyInfo;
     [SerializeField] private float distance;
     [SerializeField] private bool isAttacking = false;
+    [SerializeField] private bool outlineOn = false;
    
     protected override void LoadComponents()
     {
@@ -53,6 +54,24 @@ public class EnemyMove : RPGMonoBehaviour
     private void Update()
     {
         this.EnemyMovement();
+        OutlineControl();
+    }
+    public virtual void OutlineControl()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!outlineOn)
+            {
+                outlineOn = true;
+                transform.parent.GetComponent<Outline>().enabled = true;
+            }
+            else
+            {
+                outlineOn = false;
+                transform.parent.GetComponent<Outline>().enabled = false;
+            }
+        }
+       
     }
     public virtual void EnemyMovement()
     {

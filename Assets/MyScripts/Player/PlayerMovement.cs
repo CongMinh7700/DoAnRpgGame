@@ -12,7 +12,7 @@ public class PlayerMovement : RPGMonoBehaviour
     [SerializeField] protected float jumpForce = 5f;
     [SerializeField] protected float jumpCoolDown = 0.24f;
     [SerializeField] protected bool readyTojump;
-
+  //  [SerializeField] protected RaycastHit raycastHit;
     private Rigidbody rb;
     private float speed = 10.0f;
     private float rotationSpeed = 50.0f;
@@ -64,6 +64,7 @@ public class PlayerMovement : RPGMonoBehaviour
         playerAnim.FallAnimation(grounded);
 
     }
+
     public void Movement()
     {
         float translation = Input.GetAxis("Vertical") * speed;
