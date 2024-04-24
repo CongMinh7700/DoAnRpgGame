@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &728768448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728768449}
+  - component: {fileID: 728768450}
+  m_Layer: 0
+  m_Name: Despawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728768449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728768448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4021162515263115143}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &728768450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728768448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4314d507832b7e14fa0a7d21aedb08e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseTime: 0
+  damageReceiver: {fileID: 6206333876141954103}
 --- !u!1 &1725739279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1485,7 @@ GameObject:
   - component: {fileID: 4361132247268431163}
   - component: {fileID: 4361132247268431164}
   - component: {fileID: 1942345171}
+  - component: {fileID: 1642279572}
   m_Layer: 0
   m_Name: CatfishA
   m_TagString: Enemy
@@ -1463,6 +1510,7 @@ Transform:
   - {fileID: 6206333876656711016}
   - {fileID: 6206333877764614380}
   - {fileID: 6206333876141954104}
+  - {fileID: 728768449}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1534,6 +1582,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageReceiver: {fileID: 6206333876141954103}
   hitableObjectSO: {fileID: 11400000, guid: 50337e13d3ff2134d94a4886d0837d85, type: 2}
+--- !u!114 &1642279572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361132247268431165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4604921135659778143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,6 +2178,7 @@ MonoBehaviour:
   rotateSpeed: 50
   distance: 0
   isAttacking: 0
+  outlineOn: 0
 --- !u!1 &6206333877764614381
 GameObject:
   m_ObjectHideFlags: 0

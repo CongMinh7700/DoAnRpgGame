@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8385496281651953708}
   - component: {fileID: 4993587061572446366}
   - component: {fileID: 4884122821109516426}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_window_2m_1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 6807201859101893500}
   - component: {fileID: 1343845346917430640}
   - component: {fileID: 3909265563862364002}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_2.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 8639667715978519718}
   - component: {fileID: 8282579400933315697}
   - component: {fileID: 3638900141596677797}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 8951060523098777554}
   - component: {fileID: 950586118408451607}
   - component: {fileID: 2925912955833604171}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 4439505653634147288}
   - component: {fileID: 1511636325795533711}
   - component: {fileID: 4234084522163049699}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 5870713285721195000}
   - component: {fileID: 7606346333173866331}
   - component: {fileID: 1974342147898738480}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.105
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 4476106170400810866}
   - component: {fileID: 8297837253489235159}
   - component: {fileID: 92362750438301104}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127878846832546269}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Witch_House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 7702488652425733517}
   - component: {fileID: 562434463748692284}
   - component: {fileID: 2948721847907158941}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_2.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 5778407188545187544}
   - component: {fileID: 1509709068348354732}
   - component: {fileID: 422693914883249088}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.028
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 7058654172338442329}
   - component: {fileID: 1975336306734948808}
   - component: {fileID: 2560802588370213289}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.032
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1027,7 @@ GameObject:
   - component: {fileID: 4228727470914643763}
   - component: {fileID: 6067555060457687198}
   - component: {fileID: 8375668064802264943}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_mezzanine_ground.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 9142855011177263545}
   - component: {fileID: 8460768295423060144}
   - component: {fileID: 8136754316613839556}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_front_narrow.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 2441404010505434454}
   - component: {fileID: 8898377731935171322}
   - component: {fileID: 2915154930759780463}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.104
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1321,7 +1321,7 @@ GameObject:
   - component: {fileID: 5885382573906485510}
   - component: {fileID: 8106574798643267944}
   - component: {fileID: 374004329045638649}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.115
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1419,7 +1419,7 @@ GameObject:
   - component: {fileID: 3841627276742152492}
   - component: {fileID: 304939860822245997}
   - component: {fileID: 8978138226513987238}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1517,7 +1517,7 @@ GameObject:
   - component: {fileID: 6554080442134853110}
   - component: {fileID: 9189041278109382682}
   - component: {fileID: 141953553180748425}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.113
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,7 +1615,7 @@ GameObject:
   - component: {fileID: 1124492486365426591}
   - component: {fileID: 8902080283062786400}
   - component: {fileID: 1908301875403964030}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1713,7 @@ GameObject:
   - component: {fileID: 98273788694074872}
   - component: {fileID: 3003320802009441383}
   - component: {fileID: 8882781340597710276}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: chimney.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1811,7 +1811,7 @@ GameObject:
   - component: {fileID: 2329950689200937834}
   - component: {fileID: 2068120764524608299}
   - component: {fileID: 7538931087093748663}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_entry_1m_1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1909,7 +1909,7 @@ GameObject:
   - component: {fileID: 3780539263172134938}
   - component: {fileID: 3780539263172134939}
   - component: {fileID: 1717275480824795489}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.030_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2007,7 +2007,7 @@ GameObject:
   - component: {fileID: 3780539263248743940}
   - component: {fileID: 3780539263248743941}
   - component: {fileID: 7795688057148815794}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.030_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 3780539263278160774}
   - component: {fileID: 3780539263278160775}
   - component: {fileID: 776474664471499315}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.031
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2203,7 +2203,7 @@ GameObject:
   - component: {fileID: 3780539263338958463}
   - component: {fileID: 3780539263338958460}
   - component: {fileID: 1185570245758385417}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.031_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2301,7 +2301,7 @@ GameObject:
   - component: {fileID: 3780539263376589770}
   - component: {fileID: 3780539263376589771}
   - component: {fileID: 4082103870984990324}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2399,7 +2399,7 @@ GameObject:
   - component: {fileID: 3780539263385221637}
   - component: {fileID: 3780539263385221658}
   - component: {fileID: 5302438331697596767}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.113_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2494,7 +2494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3780539263397003603}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2546,7 +2546,7 @@ GameObject:
   - component: {fileID: 3780539263409003965}
   - component: {fileID: 3780539263409003954}
   - component: {fileID: 1773386013196564030}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.029_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2644,7 +2644,7 @@ GameObject:
   - component: {fileID: 3780539263426411959}
   - component: {fileID: 3780539263426411956}
   - component: {fileID: 4469971976216863945}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_3.002_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2742,7 +2742,7 @@ GameObject:
   - component: {fileID: 3780539263479538792}
   - component: {fileID: 3780539263479538793}
   - component: {fileID: 2361362429355107603}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_end_wide.014_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2840,7 +2840,7 @@ GameObject:
   - component: {fileID: 3780539263506953150}
   - component: {fileID: 3780539263506953151}
   - component: {fileID: 4827923695515063155}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2938,7 +2938,7 @@ GameObject:
   - component: {fileID: 3780539263620864700}
   - component: {fileID: 3780539263620864701}
   - component: {fileID: 8922381519389715322}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.114_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3036,7 +3036,7 @@ GameObject:
   - component: {fileID: 3780539263647797380}
   - component: {fileID: 3780539263647797381}
   - component: {fileID: 7783640671190794976}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_mezzanine_ground.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3134,7 +3134,7 @@ GameObject:
   - component: {fileID: 3780539263758121670}
   - component: {fileID: 3780539263758121671}
   - component: {fileID: 2378795713883953235}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_window_2m_1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3233,7 +3233,7 @@ GameObject:
   - component: {fileID: 3780539263760438992}
   - component: {fileID: 3780539263760438993}
   - component: {fileID: 8585951496166509248}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_1.001_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3331,7 +3331,7 @@ GameObject:
   - component: {fileID: 3780539263800901981}
   - component: {fileID: 3780539263800901970}
   - component: {fileID: 581861952676701469}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.115_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3429,7 +3429,7 @@ GameObject:
   - component: {fileID: 3780539263812544003}
   - component: {fileID: 3780539263812544000}
   - component: {fileID: 3678281567228437254}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3527,7 +3527,7 @@ GameObject:
   - component: {fileID: 3780539263839802207}
   - component: {fileID: 3780539263839802204}
   - component: {fileID: 1565164421917897484}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.113_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3625,7 +3625,7 @@ GameObject:
   - component: {fileID: 3780539263845307937}
   - component: {fileID: 3780539263845307942}
   - component: {fileID: 227205577871542843}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.114_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3723,7 +3723,7 @@ GameObject:
   - component: {fileID: 3780539263847088764}
   - component: {fileID: 3780539263847088765}
   - component: {fileID: 8868523836073681235}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_3.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3821,7 +3821,7 @@ GameObject:
   - component: {fileID: 3780539263862550423}
   - component: {fileID: 3780539263862550420}
   - component: {fileID: 5159540078045729925}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_mezzanine_ground.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3919,7 +3919,7 @@ GameObject:
   - component: {fileID: 3780539263875689946}
   - component: {fileID: 3780539263875689947}
   - component: {fileID: 4075349819258367903}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.029_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4017,7 +4017,7 @@ GameObject:
   - component: {fileID: 3780539263883617517}
   - component: {fileID: 3780539263883617506}
   - component: {fileID: 7781761429024952257}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_end_wide.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4115,7 +4115,7 @@ GameObject:
   - component: {fileID: 3780539263965325024}
   - component: {fileID: 3780539263965325025}
   - component: {fileID: 3899303104208240609}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.115
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4213,7 +4213,7 @@ GameObject:
   - component: {fileID: 3780539263989041924}
   - component: {fileID: 3780539263989041925}
   - component: {fileID: 1823289477755847857}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4311,7 +4311,7 @@ GameObject:
   - component: {fileID: 3780539263992246804}
   - component: {fileID: 3780539263992246805}
   - component: {fileID: 671582330442955513}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.030_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4409,7 +4409,7 @@ GameObject:
   - component: {fileID: 3780539264002273472}
   - component: {fileID: 3780539264002273473}
   - component: {fileID: 6954105832710307909}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.031_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4507,7 +4507,7 @@ GameObject:
   - component: {fileID: 3780539264006204311}
   - component: {fileID: 3780539264006204308}
   - component: {fileID: 8878267033238675464}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.032
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4605,7 +4605,7 @@ GameObject:
   - component: {fileID: 3780539264042210098}
   - component: {fileID: 3780539264042210099}
   - component: {fileID: 4155560462374209652}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_1.001_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4703,7 +4703,7 @@ GameObject:
   - component: {fileID: 3780539264076616127}
   - component: {fileID: 3780539264076616124}
   - component: {fileID: 4452582089206425022}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_entry_1m_1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4801,7 +4801,7 @@ GameObject:
   - component: {fileID: 3780539264110364553}
   - component: {fileID: 3780539264110364558}
   - component: {fileID: 2388449961426155049}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4899,7 +4899,7 @@ GameObject:
   - component: {fileID: 3780539264190779497}
   - component: {fileID: 3780539264190779502}
   - component: {fileID: 8415074051458982997}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.113_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4997,7 +4997,7 @@ GameObject:
   - component: {fileID: 3780539264198565952}
   - component: {fileID: 3780539264198565953}
   - component: {fileID: 5452325184002107089}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5095,7 +5095,7 @@ GameObject:
   - component: {fileID: 3780539264219926341}
   - component: {fileID: 3780539264219926362}
   - component: {fileID: 3096749614217486842}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.114_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5193,7 +5193,7 @@ GameObject:
   - component: {fileID: 3780539264247524916}
   - component: {fileID: 3780539264247524917}
   - component: {fileID: 8473594615211369831}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_3.002_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5291,7 +5291,7 @@ GameObject:
   - component: {fileID: 3780539264271304397}
   - component: {fileID: 3780539264271304386}
   - component: {fileID: 8811943348191633658}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.114
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5389,7 +5389,7 @@ GameObject:
   - component: {fileID: 3780539264320674791}
   - component: {fileID: 3780539264320674788}
   - component: {fileID: 8319298712696868862}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_2.004_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5487,7 +5487,7 @@ GameObject:
   - component: {fileID: 3780539264320754891}
   - component: {fileID: 3780539264320754888}
   - component: {fileID: 2160805931010401850}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.031_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5585,7 +5585,7 @@ GameObject:
   - component: {fileID: 3780539264331632143}
   - component: {fileID: 3780539264331632140}
   - component: {fileID: 3058159895226473550}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: stairs.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5683,7 +5683,7 @@ GameObject:
   - component: {fileID: 3780539264350738581}
   - component: {fileID: 3780539264350738666}
   - component: {fileID: 8967863523154068010}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.031_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5781,7 +5781,7 @@ GameObject:
   - component: {fileID: 3780539264399399035}
   - component: {fileID: 3780539264399399032}
   - component: {fileID: 6964751316954609808}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.114_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5879,7 +5879,7 @@ GameObject:
   - component: {fileID: 3780539264431488695}
   - component: {fileID: 3780539264431488692}
   - component: {fileID: 2526425725900685751}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.029_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5977,7 +5977,7 @@ GameObject:
   - component: {fileID: 3780539264488086359}
   - component: {fileID: 3780539264488086356}
   - component: {fileID: 2735054495491811878}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6075,7 +6075,7 @@ GameObject:
   - component: {fileID: 3780539264510839822}
   - component: {fileID: 3780539264510839823}
   - component: {fileID: 6788851968805564587}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.113_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6173,7 +6173,7 @@ GameObject:
   - component: {fileID: 3780539264687131222}
   - component: {fileID: 3780539264687131223}
   - component: {fileID: 8328721814114430871}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_1m_2.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6271,7 +6271,7 @@ GameObject:
   - component: {fileID: 3780539264700827515}
   - component: {fileID: 3780539264700827512}
   - component: {fileID: 2503337944063803826}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6369,7 +6369,7 @@ GameObject:
   - component: {fileID: 3780539264721618927}
   - component: {fileID: 3780539264721618924}
   - component: {fileID: 7434074924506620102}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_2.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6467,7 +6467,7 @@ GameObject:
   - component: {fileID: 3780539264736596840}
   - component: {fileID: 3780539264736596841}
   - component: {fileID: 2185976509857973261}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.113
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6565,7 +6565,7 @@ GameObject:
   - component: {fileID: 3780539264737452995}
   - component: {fileID: 3780539264737452992}
   - component: {fileID: 7269252043912235165}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6663,7 +6663,7 @@ GameObject:
   - component: {fileID: 3780539264831616413}
   - component: {fileID: 3780539264831616402}
   - component: {fileID: 532839461150901427}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6761,7 +6761,7 @@ GameObject:
   - component: {fileID: 3780539264857146528}
   - component: {fileID: 3780539264857146529}
   - component: {fileID: 5016479701267473306}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.032_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6859,7 +6859,7 @@ GameObject:
   - component: {fileID: 3780539264947272363}
   - component: {fileID: 3780539264947272360}
   - component: {fileID: 6828469284014111286}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_1m_2.002_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6957,7 +6957,7 @@ GameObject:
   - component: {fileID: 3780539264972128111}
   - component: {fileID: 3780539264972128108}
   - component: {fileID: 4278461469974285861}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_window_2m_1.002_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7056,7 +7056,7 @@ GameObject:
   - component: {fileID: 3780539264983023205}
   - component: {fileID: 3780539264983023226}
   - component: {fileID: 4376659382797815065}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_window_2m_1.002_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7155,7 +7155,7 @@ GameObject:
   - component: {fileID: 3780539264996621164}
   - component: {fileID: 3780539264996621165}
   - component: {fileID: 6680401405137342608}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.030_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7253,7 +7253,7 @@ GameObject:
   - component: {fileID: 3780539265009360733}
   - component: {fileID: 3780539265009360722}
   - component: {fileID: 8913522873815226229}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.115_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7348,7 +7348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3780539265106821724}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: AllWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7464,7 +7464,7 @@ GameObject:
   - component: {fileID: 3780539265111236656}
   - component: {fileID: 3780539265111236657}
   - component: {fileID: 7589946327118674751}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_3.004_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7562,7 +7562,7 @@ GameObject:
   - component: {fileID: 3780539265114387161}
   - component: {fileID: 3780539265114387166}
   - component: {fileID: 1876573085743547499}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7660,7 +7660,7 @@ GameObject:
   - component: {fileID: 3780539265117928905}
   - component: {fileID: 3780539265117928910}
   - component: {fileID: 14928587235639516}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.031
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7758,7 +7758,7 @@ GameObject:
   - component: {fileID: 3780539265127764589}
   - component: {fileID: 3780539265127764578}
   - component: {fileID: 9020763939516896522}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.029_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7856,7 +7856,7 @@ GameObject:
   - component: {fileID: 3780539265138806707}
   - component: {fileID: 3780539265138806704}
   - component: {fileID: 6968944897009852660}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.013_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7954,7 +7954,7 @@ GameObject:
   - component: {fileID: 3780539265264479992}
   - component: {fileID: 3780539265264479993}
   - component: {fileID: 7891004181055057912}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_1.001_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8049,7 +8049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4097627774465076330}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8090,7 +8090,7 @@ GameObject:
   - component: {fileID: 1732074593421913737}
   - component: {fileID: 6975099119150454900}
   - component: {fileID: 1788209020741039970}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_3.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8188,7 +8188,7 @@ GameObject:
   - component: {fileID: 479037540598594165}
   - component: {fileID: 6411627626074316448}
   - component: {fileID: 5355479826362589121}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_mezzanine_ground.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8286,7 +8286,7 @@ GameObject:
   - component: {fileID: 8885113641404677968}
   - component: {fileID: 4279742019377567657}
   - component: {fileID: 2862507344613568718}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_intersection2.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8384,7 +8384,7 @@ GameObject:
   - component: {fileID: 1169037660308493224}
   - component: {fileID: 5494379420355644776}
   - component: {fileID: 4463702701436886431}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8482,7 +8482,7 @@ GameObject:
   - component: {fileID: 3154440598012914005}
   - component: {fileID: 7809649871863329695}
   - component: {fileID: 781931133189866046}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_window_2m_1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8581,7 +8581,7 @@ GameObject:
   - component: {fileID: 7688776718822653623}
   - component: {fileID: 3060471193769448777}
   - component: {fileID: 50183292614222390}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: stairs.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8679,7 +8679,7 @@ GameObject:
   - component: {fileID: 170391365149906146}
   - component: {fileID: 6965481764988079457}
   - component: {fileID: 4212032462237958252}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.114
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8777,7 +8777,7 @@ GameObject:
   - component: {fileID: 2605973525363108776}
   - component: {fileID: 6012595673236164187}
   - component: {fileID: 9059388332903603939}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_2.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8875,7 +8875,7 @@ GameObject:
   - component: {fileID: 8947690338011898955}
   - component: {fileID: 4830671036541713303}
   - component: {fileID: 1979826385332074601}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_2.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8973,7 +8973,7 @@ GameObject:
   - component: {fileID: 7392596189323731187}
   - component: {fileID: 3438301825958750398}
   - component: {fileID: 1999839101286256950}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor.112
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9071,7 +9071,7 @@ GameObject:
   - component: {fileID: 5060418130863980294}
   - component: {fileID: 6832929209166995112}
   - component: {fileID: 1964307487492737944}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9169,7 +9169,7 @@ GameObject:
   - component: {fileID: 383742636671841712}
   - component: {fileID: 1221818583058733171}
   - component: {fileID: 3399907827592135480}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_1m_2.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9267,7 +9267,7 @@ GameObject:
   - component: {fileID: 4689973991559805786}
   - component: {fileID: 3385570581865313158}
   - component: {fileID: 2973861338976708551}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_wide3.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9365,7 +9365,7 @@ GameObject:
   - component: {fileID: 1007937423697218833}
   - component: {fileID: 3023459506284531691}
   - component: {fileID: 4519380766267358948}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: floor_rock.031
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9463,7 +9463,7 @@ GameObject:
   - component: {fileID: 68320259120303049}
   - component: {fileID: 3693895531067626775}
   - component: {fileID: 121592257384794597}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.031
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9561,7 +9561,7 @@ GameObject:
   - component: {fileID: 3602629157045228624}
   - component: {fileID: 1187509347506523910}
   - component: {fileID: 1013531007339392886}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_dormer.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9660,7 +9660,7 @@ GameObject:
   - component: {fileID: 5010489492938681846}
   - component: {fileID: 4112302765499610227}
   - component: {fileID: 7075700526854938762}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_end_wide.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9758,7 +9758,7 @@ GameObject:
   - component: {fileID: 2390414763726882519}
   - component: {fileID: 5891553023260178096}
   - component: {fileID: 3910761960157606550}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wooden_post_rock_corner_concave.028
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9856,7 +9856,7 @@ GameObject:
   - component: {fileID: 8438616122983703463}
   - component: {fileID: 8952321339119268314}
   - component: {fileID: 4485792437270574146}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: wall_wood_2m_3.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9954,7 +9954,7 @@ GameObject:
   - component: {fileID: 2161458793358579815}
   - component: {fileID: 1205980815050167640}
   - component: {fileID: 3320263862750289832}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: roof_narrow3.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10048,12 +10048,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 4097627774465076330}
     m_Modifications:
     - target: {fileID: 134252018757766079, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 134252018757766079, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 854047160556898194, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 854047160556898194, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 873354710168213609, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 873354710168213609, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10062,6 +10074,10 @@ PrefabInstance:
     - target: {fileID: 1763672169701312481, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_Name
       value: BookShell
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763672169701312481, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1763672169701312481, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10112,28 +10128,56 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3425208325698534282, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425208325698534282, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769227297640575839, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3769227297640575839, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4048924857314777419, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048924857314777419, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482954730644761742, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4482954730644761742, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5864216653186046428, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864216653186046428, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7657273218145776567, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657273218145776567, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609043461762676075, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8609043461762676075, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10202,6 +10246,10 @@ PrefabInstance:
       value: chair.005
       objectReference: {fileID: 0}
     - target: {fileID: 8208397212265553360, guid: 86f89e1cbab73004d87844ea45543f23, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208397212265553360, guid: 86f89e1cbab73004d87844ea45543f23, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10220,12 +10268,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 4097627774465076330}
     m_Modifications:
     - target: {fileID: 134252018757766079, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 134252018757766079, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 854047160556898194, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 854047160556898194, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 873354710168213609, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 873354710168213609, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10234,6 +10294,10 @@ PrefabInstance:
     - target: {fileID: 1763672169701312481, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_Name
       value: BookShell_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763672169701312481, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1763672169701312481, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10284,28 +10348,56 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3425208325698534282, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425208325698534282, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769227297640575839, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3769227297640575839, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4048924857314777419, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048924857314777419, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482954730644761742, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4482954730644761742, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5864216653186046428, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864216653186046428, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7657273218145776567, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657273218145776567, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609043461762676075, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8609043461762676075, guid: 8398b0573705dd5419ef484f24192fc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10374,6 +10466,10 @@ PrefabInstance:
       value: scroll
       objectReference: {fileID: 0}
     - target: {fileID: 4782216953414347046, guid: 5fca8fc0f35afd845934331daffe25d6, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782216953414347046, guid: 5fca8fc0f35afd845934331daffe25d6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10438,6 +10534,10 @@ PrefabInstance:
     - target: {fileID: 8577762696569461373, guid: 93d25357c09472e4b89ba90b3635ffe5, type: 3}
       propertyPath: m_Name
       value: scrolls
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577762696569461373, guid: 93d25357c09472e4b89ba90b3635ffe5, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8577762696569461373, guid: 93d25357c09472e4b89ba90b3635ffe5, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10506,6 +10606,10 @@ PrefabInstance:
       value: Table 1
       objectReference: {fileID: 0}
     - target: {fileID: 2958260683009791959, guid: d53ed59197521c0439a88a8dadc29d4a, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958260683009791959, guid: d53ed59197521c0439a88a8dadc29d4a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10542,6 +10646,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4097627774465076330}
     m_Modifications:
+    - target: {fileID: 3870407291459708668, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 3870407291459708668, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -10595,12 +10703,24 @@ PrefabInstance:
       value: cauldron
       objectReference: {fileID: 0}
     - target: {fileID: 5215017723119342217, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215017723119342217, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8291429602016548932, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291429602016548932, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360248336369554325, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8360248336369554325, guid: e67a1738d2ccf1441983e7cac435650d, type: 3}
       propertyPath: m_StaticEditorFlags
