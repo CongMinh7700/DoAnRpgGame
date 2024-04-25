@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class HitableObjectCtrl : RPGMonoBehaviour
 {
     //Thieu Despawn ,Spawner
+   
     [SerializeField] protected DamageReceiver damageReceiver;
     public DamageReceiver DamageReceiver => damageReceiver;
     [SerializeField] protected HitableObjectSO hitableObjectSO;

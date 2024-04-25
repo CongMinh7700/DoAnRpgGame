@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyDamageReceiver : HitableObjectDamageReceiver
 {
+    
     [SerializeField] protected EnemyAnimation enemyAnimation;
 
     protected override void LoadComponents()

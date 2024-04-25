@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class SpawnTrigger : MonoBehaviour
 {
-    public  bool canSpawn;
+    [Header("Spawn Trigger")]
+    
+    protected  bool canSpawn;
+
+    public bool CanSpawn => canSpawn;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))

@@ -24,26 +24,31 @@ public class SpawnRandom : RPGMonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
-        if (this.spawnerCtrl.SpawnTrigger.canSpawn)
+        if (this.spawnerCtrl.SpawnTrigger.CanSpawn)
             EnemySpawning();
     }
     protected virtual void EnemySpawning()
     {
         if (RandomReachLimit()) return;
-
+      
         this.randomTimer += Time.fixedDeltaTime;
         if (this.randomTimer < this.randomDelay) return;
         this.randomTimer = 0;
-
+        if (SpawnPoint.canSpawn)
+        {
         Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
         Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
 
         Vector3 position = randomPoint.position;
         Quaternion rotation = randomPoint.rotation;
-
+           
         Transform obj = this.spawnerCtrl.Spawner.Spawn(prefab, position, rotation);
         obj.gameObject.SetActive(true);
-
+        }
+        else
+        {
+            Debug.LogWarning("Can't Spawn");
+        }
     }
 
 

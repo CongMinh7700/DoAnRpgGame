@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyMove : RPGMonoBehaviour
 {
+
     [SerializeField] protected EnemyAnimation enemyAnimation;
     [SerializeField] public NavMeshAgent navMesh;
 
+    [Header("Enemy Move")]
     [SerializeField] protected GameObject player;
     [SerializeField] protected float x;
     [SerializeField] protected float z;
@@ -15,13 +17,13 @@ public class EnemyMove : RPGMonoBehaviour
     [SerializeField] protected float attackRange = 3f;
     [SerializeField] protected float runRange = 50f;
     [SerializeField] protected float rotateSpeed = 50f;
-
-
-    private AnimatorStateInfo enemyInfo;
     [SerializeField] private float distance;
     [SerializeField] private bool isAttacking = false;
     [SerializeField] private bool outlineOn = false;
-   
+
+    [Header("Enemy State Info")]
+    private AnimatorStateInfo enemyInfo;
+
     protected override void LoadComponents()
     {
         this.LoadNavMeshAgent();

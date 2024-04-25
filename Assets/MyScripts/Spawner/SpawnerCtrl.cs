@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnerCtrl : RPGMonoBehaviour
 {
+    [Header("Spawner Controller")]
     [SerializeField] protected Spawner spawner;
     [SerializeField] protected SpawnPoint spawnPoints;
     [SerializeField] protected SpawnTrigger spawnTrigger;

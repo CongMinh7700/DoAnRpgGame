@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Camerafolow360 : MonoBehaviour
 {
+	[Header("Camera Follow 360 ")]
 	[SerializeField] protected Transform player;
 	[SerializeField] protected Transform orientation;
+	[SerializeField] protected Vector3 lookOffset = new Vector3(0, 1, 0);
+
 	[SerializeField] protected float distance = 10;
 	[SerializeField] protected float height = 5;
-	[SerializeField] protected Vector3 lookOffset = new Vector3(0, 1, 0);
 	[SerializeField] protected float cameraSpeed = 100;
 	[SerializeField] protected float rotSpeed = 100;
 	[SerializeField] protected float smoothFactor = 0.1f;

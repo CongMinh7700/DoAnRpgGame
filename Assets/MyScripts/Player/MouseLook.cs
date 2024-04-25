@@ -5,8 +5,8 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 
-    [Header("References")]
-    public Transform orientation;
+    [Header("Mouse Look")]
+    [SerializeField] public Transform orientation;
     public Transform player;
     public Transform playerObj;
     public Rigidbody rb;

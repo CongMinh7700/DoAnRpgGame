@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Spawner : RPGMonoBehaviour
 {
+    [Header("Spawner")]
     [SerializeField] protected List<Transform> prefabs;
     [SerializeField] protected List<Transform> poolObjs;
     [SerializeField] protected int spawnedCount = 0;
+    [SerializeField] protected Transform holder;
 
     public int SpawnedCount => spawnedCount;
-    [SerializeField] protected Transform holder;
+ 
 
     protected override void LoadComponents()
     {
