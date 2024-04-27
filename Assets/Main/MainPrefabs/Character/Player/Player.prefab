@@ -4743,7 +4743,7 @@ GameObject:
   - component: {fileID: 1893325207}
   m_Layer: 0
   m_Name: DamageReceiver
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4789,8 +4789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1893325208}
-  hp: 100
-  hpMax: 100
+  hp: 1000
+  hpMax: 1000
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 6741097169181968110}
@@ -4948,6 +4948,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 33d713fc22667954ba9af3f9422003f2, type: 3}
   m_PrefabInstance: {fileID: 6276401918676157186}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6276401918676059554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 33d713fc22667954ba9af3f9422003f2, type: 3}
+  m_PrefabInstance: {fileID: 6276401918676157186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6276401918549186850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276401918676059554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ceb339997c8304e9354d4ce5ddc9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 5f402d1520e5fa74fa21e08f85b71370, type: 2}
+  _lifeTime: 0.25
+  _colors: []
+  _sizes:
+  - -1
+  - 1
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  subdivisions: 4
+  _base: {fileID: 6276401918676031874}
+  _tip: {fileID: 6276401919273470321}
 --- !u!1001 &6276401918804931613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5009,6 +5041,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a53be385e162ab447900ddbaf1b076c8, type: 3}
+--- !u!1 &3479538671293827661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7445452624599891536, guid: a53be385e162ab447900ddbaf1b076c8, type: 3}
+  m_PrefabInstance: {fileID: 6276401918804931613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6276401918549186848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479538671293827661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ceb339997c8304e9354d4ce5ddc9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 5f402d1520e5fa74fa21e08f85b71370, type: 2}
+  _lifeTime: 0.25
+  _colors: []
+  _sizes:
+  - -1
+  - 1
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  subdivisions: 4
+  _base: {fileID: 4251993231619018999}
+  _tip: {fileID: 6276401918494423870}
 --- !u!4 &4251993231619018999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7789080122890839274, guid: a53be385e162ab447900ddbaf1b076c8, type: 3}
@@ -5021,6 +5085,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 763175330648026274}
     m_Modifications:
+    - target: {fileID: 3039619201548201098, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6276401918998223258, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -5051,7 +5119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6288842522439966075, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6633138527487363009, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
       propertyPath: m_RootOrder
@@ -5099,6 +5167,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
+--- !u!4 &417884761 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6276401918998223205, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
+  m_PrefabInstance: {fileID: 6276401919402472252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &25955891555053127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6288842522439966075, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
+  m_PrefabInstance: {fileID: 6276401919402472252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6276401918549186847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25955891555053127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ceb339997c8304e9354d4ce5ddc9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 5f402d1520e5fa74fa21e08f85b71370, type: 2}
+  _lifeTime: 0.25
+  _colors: []
+  _sizes:
+  - -1
+  - 1
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  subdivisions: 4
+  _base: {fileID: 799360425833002237}
+  _tip: {fileID: 417884761}
 --- !u!4 &799360425833002237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6633138527487363009, guid: bda0d79f4d4adfb4eaef08014476a38f, type: 3}
@@ -5165,6 +5270,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f1cd6faa38270c449338bafe0a4b7ce, type: 3}
+--- !u!1 &6276401920102607305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 1f1cd6faa38270c449338bafe0a4b7ce, type: 3}
+  m_PrefabInstance: {fileID: 6276401920102510441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6276401918549186849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276401920102607305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ceb339997c8304e9354d4ce5ddc9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 5f402d1520e5fa74fa21e08f85b71370, type: 2}
+  _lifeTime: 0.25
+  _colors: []
+  _sizes:
+  - -1
+  - 1
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  subdivisions: 4
+  _base: {fileID: 6276401920102643177}
+  _tip: {fileID: 6276401919459098055}
 --- !u!4 &6276401920102643177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1f1cd6faa38270c449338bafe0a4b7ce, type: 3}

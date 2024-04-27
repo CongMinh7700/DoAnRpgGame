@@ -21,6 +21,7 @@ public class PlayerAttack : RPGMonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerAnim.LoadTrail();
         this.Attacking();
     }
     public void Attacking()

@@ -12995,9 +12995,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2655600392988152188, guid: 6f556a39b49974548a28ef6799804038, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2655600393840955707, guid: 6f556a39b49974548a28ef6799804038, type: 3}
       propertyPath: m_Name
       value: Canvas_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655600393840955707, guid: 6f556a39b49974548a28ef6799804038, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2655600393840955711, guid: 6f556a39b49974548a28ef6799804038, type: 3}
       propertyPath: m_Pivot.x

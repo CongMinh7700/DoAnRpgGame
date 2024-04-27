@@ -122,7 +122,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 1c20f1ed734dc0f4e9f34773bfaa0ec1, type: 2}
+  m_LightingSettings: {fileID: 1335109170}
 --- !u!1 &5
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ Transform:
   m_Children:
   - {fileID: 646}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &539
 Transform:
@@ -204,7 +204,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &646
 Transform:
@@ -353,6 +353,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwooshStandard
       objectReference: {fileID: 0}
+    - target: {fileID: 100210, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400210, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2133905
@@ -381,6 +389,26 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11100000, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11100000, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11400000, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40f3eeb212d927044991e72ad10fc353, type: 3}
 --- !u!1001 &668
@@ -393,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 100210, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
       propertyPath: m_Name
       value: SwooshSizeChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400210, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -422,6 +454,26 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11100000, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11100000, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11400000, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e478aa092a2a516428a5a9f6e7904f72, type: 3}
 --- !u!1001 &669
@@ -434,6 +486,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
       propertyPath: m_Name
       value: SwooshColorChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,5 +519,87 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11100000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11100000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
+    - target: {fileID: 11400002, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 6570033293508851199, guid: 7ef2d512f9ae17f4ba1a3479acb96d5e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77e59703e0eb3f542a8eab68152a9fd0, type: 3}
+--- !u!850595691 &1335109170
+LightingSettings:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Settings.lighting
+  serializedVersion: 4
+  m_GIWorkflowMode: 1
+  m_EnableBakedLightmaps: 1
+  m_EnableRealtimeLightmaps: 0
+  m_RealtimeEnvironmentLighting: 1
+  m_BounceScale: 1
+  m_AlbedoBoost: 1
+  m_IndirectOutputScale: 1
+  m_UsingShadowmask: 0
+  m_BakeBackend: 0
+  m_LightmapMaxSize: 1024
+  m_BakeResolution: 50
+  m_Padding: 2
+  m_LightmapCompression: 0
+  m_AO: 1
+  m_AOMaxDistance: 1
+  m_CompAOExponent: 1
+  m_CompAOExponentDirect: 0
+  m_ExtractAO: 0
+  m_MixedBakeMode: 1
+  m_LightmapsBakeMode: 1
+  m_FilterMode: 1
+  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
+  m_ExportTrainingData: 0
+  m_TrainingDataDestination: TrainingData
+  m_RealtimeResolution: 1
+  m_ForceWhiteAlbedo: 0
+  m_ForceUpdates: 0
+  m_FinalGather: 0
+  m_FinalGatherRayCount: 256
+  m_FinalGatherFiltering: 1
+  m_PVRCulling: 1
+  m_PVRSampling: 1
+  m_PVRDirectSampleCount: 32
+  m_PVRSampleCount: 512
+  m_PVREnvironmentSampleCount: 512
+  m_PVREnvironmentReferencePointCount: 2048
+  m_LightProbeSampleCountMultiplier: 4
+  m_PVRBounces: 2
+  m_PVRMinBounces: 2
+  m_PVREnvironmentMIS: 0
+  m_PVRFilteringMode: 0
+  m_PVRDenoiserTypeDirect: 0
+  m_PVRDenoiserTypeIndirect: 0
+  m_PVRDenoiserTypeAO: 0
+  m_PVRFilterTypeDirect: 0
+  m_PVRFilterTypeIndirect: 0
+  m_PVRFilterTypeAO: 0
+  m_PVRFilteringGaussRadiusDirect: 1
+  m_PVRFilteringGaussRadiusIndirect: 5
+  m_PVRFilteringGaussRadiusAO: 2
+  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+  m_PVRFilteringAtrousPositionSigmaIndirect: 2
+  m_PVRFilteringAtrousPositionSigmaAO: 1
+  m_PVRTiledBaking: 0
