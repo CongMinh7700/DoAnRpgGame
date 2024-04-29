@@ -29,7 +29,7 @@ public class ItemManager : RPGMonoBehaviour
     //UseItem
     public void UseItem(ItemSlot slot)
     {
-        if (slot.isEmpty) return;
+        if (slot.IsEmpty) return;
 
         switch (slot.slotItem.type)
         {

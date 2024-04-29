@@ -14,7 +14,7 @@ public class InteractionSettings : ScriptableObject
         {
             if(current == null)
             {
-                InteractionSettings settings = Utils.FindInteractorSettings();
+                InteractionSettings settings = Utils.FindInteractionSettings();
                 if (settings == null)
                 {
                     Debug.LogError("No interaction settings were found. Please create one.");

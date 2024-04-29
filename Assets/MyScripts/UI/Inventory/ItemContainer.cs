@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 //Inventory
 public class ItemContainer : RPGMonoBehaviour
@@ -36,7 +37,8 @@ public class ItemContainer : RPGMonoBehaviour
         ItemSlotUIEvents.OnSlotDrag -= CloseSlotOptionMenu;
         ContainerPanelDragger.OnContainerPanelDrag -= CloseSlotOptionMenu;
     }
-    protected override void Awake()
+    //Sinh slot <21
+   protected override void Awake()
     {
         isUIInitialized = false;
         InitializeContainer();
@@ -51,10 +53,10 @@ public class ItemContainer : RPGMonoBehaviour
         if (isUIInitialized == false) return;
         CheckForUIToggleInput();
     }
-
+    //Sinh ra 4 option 
     protected virtual void InitializeContainer()
     {
-        InitializeMainUI(transform);
+        InitializeMainUI(transform);    
         CreateSlotOptionMenu(InteractionSettings.Current.internalSlotOptions, containerInteractor);
         isUIInitialized = true;
     }
@@ -62,7 +64,7 @@ public class ItemContainer : RPGMonoBehaviour
     {
         this.containerPanel = containerPanel;
         mainContainerUI = this.containerPanel.Find("MainUI");
-        mainContainerUI.Find("Title").GetComponentInChildren<Text>().text = "Inventory";
+       // mainContainerUI.Find("Title").GetComponentInChildren<Text>().text = "Inventory";
         slotOptionMenu = this.containerPanel.Find("SlotOptions").gameObject;
 
 
@@ -89,7 +91,7 @@ public class ItemContainer : RPGMonoBehaviour
         {
             config = customOptionsMenuConfig;
         }
-        itemInfoPanel = slotOptionMenu.transform.Find("Info Panel").gameObject;
+        itemInfoPanel = slotOptionMenu.transform.Find("InfoPanel").gameObject;
 
         GameObject buttonPrefab = InteractionSettings.Current.optionsMenuButtonPrefabs;
         slotOptionButtonInfosList = new List<SlotOptionButtonInfo>();
@@ -130,7 +132,7 @@ public class ItemContainer : RPGMonoBehaviour
                     break;
                    
             }
-            button.GetComponentInChildren<Text>().text = buttonTitle;
+            button.GetComponentInChildren<TextMeshProUGUI>().text = buttonTitle;
             SlotOptionButtonInfo buttonInfo = new SlotOptionButtonInfo(button, onButtonClicked, OnSlotButtonEventFinished);
             slotOptionButtonInfosList.Add(buttonInfo);
         }
@@ -138,12 +140,12 @@ public class ItemContainer : RPGMonoBehaviour
     }
     private void OnTransferToInventoryClicked(ItemSlot slot,Interactor interactor)
     {
-        Utils.TransferItemQuatity(slot, interactor.inventory, slot.itemCount);
+        Utils.TransferItemQuantity(slot, interactor.inventory, slot.itemCount);
     }
 
     protected void OnSlotClicked(ItemSlot slot,Interactor interactor)
     {
-        if (slot.isEmpty) return;
+        if (slot.IsEmpty) return;
 
         if (!slotOptionMenu.activeSelf)
         {
@@ -189,13 +191,13 @@ public class ItemContainer : RPGMonoBehaviour
 
     private void OnItemInfoClicked(ItemSlot slot, Interactor interactor)
     {
-        itemInfoPanel.GetComponentInChildren<Text>().text = slot.slotItem.itemInformation;
+        itemInfoPanel.GetComponentInChildren<TextMeshProUGUI>().text = slot.slotItem.itemInformation;
         itemInfoPanel.SetActive(!itemInfoPanel.activeSelf);
     }
 
     private void OnSlotButtonEventFinished(ItemSlot slot)
     {
-        if (slot.isEmpty)
+        if (slot.IsEmpty)
         {
             CloseSlotOptionMenu();
         }
@@ -276,7 +278,7 @@ public class ItemContainer : RPGMonoBehaviour
             for (int i = 0; i < slotHolder.childCount; i++)
             {
                 ItemSlot slot = slotHolder.GetChild(i).GetComponent<ItemSlot>();
-                if (!slot.isEmpty)
+                if (!slot.IsEmpty)
                 {
                     info.AddInfo(i, ItemManager.Instance.GetItemIndex(slot.slotItem), slot.itemCount);
                 }

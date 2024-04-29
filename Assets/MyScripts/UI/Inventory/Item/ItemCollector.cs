@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ItemCollector : RPGMonoBehaviour
 {
-    private Item item;
-
+    //public cai nay roi add item vao
+    public Item item;
     private readonly Vector3 rotAxis = new Vector3(0.1f, 1, 0.1f);
 
+  
     private void Update()
     {
         transform.Rotate(rotAxis, Time.deltaTime * 200);
+
     }
     public void Create(Item item)
     {
@@ -18,7 +20,8 @@ public class ItemCollector : RPGMonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Interactor interactor = other.GetComponent<Interactor>();
+       
+        Interactor interactor = other.GetComponentInParent<Interactor>();
         if (interactor != null) interactor.AddToInventory(item, gameObject);
     }
 }

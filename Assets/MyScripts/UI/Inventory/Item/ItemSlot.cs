@@ -9,30 +9,14 @@ public class ItemSlot : RPGMonoBehaviour
     [Header("Item Slot")]
     public Item slotItem;
     public int itemCount;
-    public bool isEmpty { get { return itemCount <= 0; } }
+    public bool IsEmpty { get { return itemCount <= 0; } }
     private Image iconImage;
     private TextMeshProUGUI countText;
 
-    protected override void LoadComponents()
-    {
-        this.LoadIconImage();
-        this.LoadCountText();
-    }
-    public virtual void LoadIconImage()
-    {
-        if (this.iconImage != null) return;
-        this.iconImage = GetComponentInChildren<Image>();
-        Debug.LogWarning(transform.name + "|LoadIconImage|", gameObject);
-    }
-    public virtual void LoadCountText()
-    {
-        if (this.countText != null) return;
-        this.countText = GetComponentInChildren<TextMeshProUGUI>();
-        Debug.LogWarning(transform.name + "|LoadCountText|", gameObject);
-    }
-
     public void Initialize()
     {
+        this.iconImage = transform.Find("IconImage").GetComponent<Image>();
+        this.countText = GetComponentInChildren<TextMeshProUGUI>();
         iconImage.gameObject.SetActive(true);
         countText.text = string.Empty;
     }
@@ -84,7 +68,7 @@ public class ItemSlot : RPGMonoBehaviour
     {
         if(item != null)
         {
-            if (isEmpty) return true;
+            if (IsEmpty) return true;
             else 
             {
                 if (item == slotItem && itemCount < item.itemPerSlot) return true;
@@ -96,9 +80,10 @@ public class ItemSlot : RPGMonoBehaviour
     //Thiết lập itemCount , UI
     private void OnSlotModified()
     {
-        if (!isEmpty)
+        if (!IsEmpty)
         {
             iconImage.sprite = slotItem.icon;
+            iconImage.color =  Color.white;
             countText.text = itemCount.ToString();
             iconImage.gameObject.SetActive(true);
         }

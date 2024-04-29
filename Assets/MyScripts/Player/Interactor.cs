@@ -30,7 +30,7 @@ public class Interactor : RPGMonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (interactionTarget?.gameObject != null) Utils.UnHighlightObject(interactionTarget.gameObject);
+        if (interactionTarget?.gameObject != null) Utils.UnhighlightObject(interactionTarget.gameObject);
 
         if (Physics.Raycast(ray, out hit) && InRange(hit.transform.position))
         {
