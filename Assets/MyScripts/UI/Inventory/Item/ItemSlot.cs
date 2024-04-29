@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +30,7 @@ public class ItemSlot : RPGMonoBehaviour
         this.countText = GetComponentInChildren<TextMeshProUGUI>();
         Debug.LogWarning(transform.name + "|LoadCountText|", gameObject);
     }
+
     public void Initialize()
     {
         iconImage.gameObject.SetActive(true);
@@ -57,12 +58,13 @@ public class ItemSlot : RPGMonoBehaviour
         {
             if(itemCount > 0)
             {
-                //tha item ra ngoai
+                //tha item ra ngoai cách olayer theo offset
                 itemCount--;
             }
         }
         OnSlotModified();
     }
+
     public void Remove(int amount)
     {
         itemCount -= amount > itemCount ? itemCount : amount;
@@ -77,6 +79,7 @@ public class ItemSlot : RPGMonoBehaviour
     {
         RemoveAndDrop(itemCount, dropPosition);
     }
+    //Kiểm tra slot chứa vật phẩm đó có thể thêm vào nữa được không
     private bool IsAddable(Item item)
     {
         if(item != null)
@@ -90,6 +93,7 @@ public class ItemSlot : RPGMonoBehaviour
         }
         return false;
     }
+    //Thiết lập itemCount , UI
     private void OnSlotModified()
     {
         if (!isEmpty)
@@ -107,6 +111,7 @@ public class ItemSlot : RPGMonoBehaviour
             iconImage.gameObject.SetActive(false);
         }
     }
+    //Thiết lập data, UI cho slot
     public void SetData(Item item ,int count)
     {
         slotItem = item;

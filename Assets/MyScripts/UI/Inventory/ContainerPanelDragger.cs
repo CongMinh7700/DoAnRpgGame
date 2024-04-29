@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
+//Drag Inventory
 public class ContainerPanelDragger : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
-
-    public static event System.Action OnContainerPanelDrag;
+    //[Header("Drag Inventory")]
+    public static event Action OnContainerPanelDrag;
     private bool isDragging = false;
     private Vector2 offset;
     private Transform myContainerPanel;
@@ -14,6 +16,7 @@ public class ContainerPanelDragger : MonoBehaviour, IBeginDragHandler, IEndDragH
     {
         myContainerPanel = transform.parent;
     }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         offset = new Vector2(myContainerPanel.localPosition.x, myContainerPanel.localPosition.y) - new Vector2(Input.mousePosition.x, Input.mousePosition.y);
