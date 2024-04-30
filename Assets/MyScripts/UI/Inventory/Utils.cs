@@ -61,7 +61,7 @@ public readonly struct Utils
             {
                 if (!trigger.IsEmpty)
                 {
-                    if (targetContainer.AddItem(trigger.slotItem)) trigger.Remove(1);
+                    if (targetContainer.inventoryEvents.AddItem(trigger.slotItem)) trigger.Remove(1);
                     else return;
                 }
                 else return;

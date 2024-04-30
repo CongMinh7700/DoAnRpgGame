@@ -12,7 +12,7 @@ public class Interactor : RPGMonoBehaviour
 
     public bool AddToInventory(Item item, GameObject instance)
     {
-        if (inventory.AddItem(item))
+        if (inventory.inventoryEvents.AddItem(item))
         {
             if (instance) Destroy(instance);
             return true;
