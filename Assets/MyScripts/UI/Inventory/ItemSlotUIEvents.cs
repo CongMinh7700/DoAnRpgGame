@@ -7,10 +7,10 @@ using System;
 
 public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public static event System.Action OnSlotDrag;
-    private static ItemSlot hoveredSlot; //The ItemSlot that is globally hovered over currently; null if none is hovered.
-    private ItemSlot mySlot; //The ItemSlot object that this script is attached to.
-    private UnityEngine.UI.Image slotUI;
+    public static event Action OnSlotDrag;
+    private static ItemSlot hoveredSlot; 
+    private ItemSlot mySlot; 
+    private Image slotUI;
     private Vector3 dragOffset;
     private Vector3 origin;
     private Color regularColor;
@@ -21,9 +21,8 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void Awake()
     {
-        //All the variables are initialized here.
         mySlot = GetComponent<ItemSlot>();
-        slotUI = GetComponent<UnityEngine.UI.Image>();
+        slotUI = GetComponent<Image>();
         originalSiblingIndex = transform.GetSiblingIndex();
 
         origin = transform.localPosition;
@@ -46,19 +45,15 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
     }
 
-    //This method is called when the mouse cursor enters this slot UI.
     public void OnPointerEnter(PointerEventData eventData)
     {
         hoveredSlot = mySlot;
     }
 
-    //This method is called when the mouse cursor exists this slot UI.
     public void OnPointerExit(PointerEventData eventData)
     {
         hoveredSlot = null;
     }
-
-    //This method is called when the mouse cursor starts dragging this slot UI.
     public void OnBeginDrag(PointerEventData eventData)
     {
         slotUI.transform.SetAsLastSibling();
@@ -69,17 +64,14 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
         isBeingDragged = true;
     }
 
-    //This method is continously called when the mouse cursor is dragging this slot UI.
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;//- dragOffset;
+        transform.position = Input.mousePosition - dragOffset;
         OnSlotDrag?.Invoke();
     }
 
-    //This method is called when the mouse cursor stops dragging this slot UI.
     public void OnEndDrag(PointerEventData eventData)
     {
-        //If there is a slot being hovered over, an attempt to transfer the items from this slot to the hovered slot will be made.
         if (hoveredSlot != null) OnDropToSlot();
 
         transform.SetSiblingIndex(originalSiblingIndex);
@@ -89,7 +81,6 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
         isBeingDragged = false;
     }
 
-    //Tries to transfer the items from this slot to the hoveredSlot. 
     private void OnDropToSlot()
     {
         Utils.TransferItem(mySlot, hoveredSlot);

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,6 +39,7 @@ public class ItemManager : RPGMonoBehaviour
             case ItemType.Consumeable: ConsumeItem(slot); break;
         }
     }
+    //Nơi xử lý chức năng cho item
     private void ConsumeItem(ItemSlot slot)
     {
         Debug.Log("You have consumed" + slot.slotItem.itemName);
@@ -57,6 +58,7 @@ public class ItemManager : RPGMonoBehaviour
     {
         Debug.Log($"Using {slot.slotItem.itemName}");
     }
+    //Chua xai toi
     public Item GetItemByIndex(int index)
     {
         return itemList[index];

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -202,29 +202,23 @@ public class ItemContainer : RPGMonoBehaviour
             CloseSlotOptionMenu();
         }
     }
-
-    //Checks for user inputs and updates the toggle state of the UI accordingly.
     protected void CheckForUIToggleInput()
     {
         if (Input.GetKeyDown(UIToggleKey)) ToggleUI();
     }
 
-    //Returns true if it's able to add the item to the container.
     public bool AddItem(Item item)
     {
         for (int i = 0; i < slots.Length; i++) if (slots[i].Add(item)) return true;
         return false;
     }
-
-    //Returns true if the container contains the passed in item.
+    //Khong dung
     public bool ContainsItem(Item item)
     {
         for (int i = 0; i < slots.Length; i++)
             if (slots[i].slotItem == item) return true;
         return false;
     }
-
-    //Returns true if the container contains the passed in amount of item.
     public bool ContainsItemQuantity(Item item, int amount)
     {
         int count = 0;
@@ -235,8 +229,8 @@ public class ItemContainer : RPGMonoBehaviour
         }
         return false;
     }
-
-    //Updates the UI toggle state.
+    //
+    //Hiệu ứng to dần của các button.
     protected void ToggleUI()
     {
         CloseSlotOptionMenu();
@@ -254,7 +248,7 @@ public class ItemContainer : RPGMonoBehaviour
         }
     }
 
-    //Below is the code for saving/loading/deleting container data using JSON utility.
+    //Hiện tại chưa xài tới
     #region Saving & Loading Data
 
     //This method saves the container data on an unique file path that is aquired based on the passed in id.
