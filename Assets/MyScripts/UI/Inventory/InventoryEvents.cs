@@ -65,7 +65,6 @@ public class InventoryEvents : RPGMonoBehaviour
     {
         ItemManager.Instance.UseItem(slot);
     }
-
     public void OnItemInfoClicked(ItemSlot slot, Interactor interactor)
     {
         itemContainer.itemInfoPanel.GetComponentInChildren<TextMeshProUGUI>().text = slot.slotItem.itemInformation;

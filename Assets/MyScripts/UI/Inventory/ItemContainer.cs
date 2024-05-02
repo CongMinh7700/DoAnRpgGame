@@ -12,16 +12,18 @@ public class ItemContainer : RPGMonoBehaviour
     [SerializeField] private SlotOptions[] customOptionsMenuConfig;
     public KeyCode UIToggleKey = KeyCode.I;
     public bool dropItemGameObjects = true;
- public ItemSlot[] slots;
-  public Transform mainContainerUI; //MainUI
+    public ItemSlot[] slots;
+    public Transform mainContainerUI; //MainUI
     [HideInInspector] public GameObject itemInfoPanel;
     [HideInInspector] public GameObject slotOptionMenu;
     [HideInInspector] public Interactor containerInteractor;
     [HideInInspector] public InventoryEvents inventoryEvents;
     [HideInInspector] public bool isContainerUIOpen = false;
     protected Transform containerPanel;
-    protected bool isUIInitialized ;
+    protected bool isUIInitialized;
     private List<SlotOptionButtonInfo> slotOptionButtonInfosList;
+
+    public static string useName;
 
     protected override void OnEnable()
     {
@@ -55,6 +57,7 @@ public class ItemContainer : RPGMonoBehaviour
         Debug.Log(isUIInitialized);
         if (isUIInitialized == false) return;
         inventoryEvents.CheckForUIToggleInput();
+        useName = ItemManager.isEquipped ? "Unequip" : "Use";
     }
     //Sinh ra 4 option 
     protected virtual void InitializeContainer()
@@ -178,6 +181,19 @@ public class ItemContainer : RPGMonoBehaviour
         internal void UpdateInfo(ItemSlot slot,Interactor interactor)
         {
             optionButton.onClick.RemoveAllListeners();
+            
+
+                if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Use") // Identify the Use button
+                {
+                    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
+
+                }
+                else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Unequip") // Identify the Use button
+                {
+                    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
+
+                }
+
             optionButton.onClick.AddListener(
                 delegate
                 {

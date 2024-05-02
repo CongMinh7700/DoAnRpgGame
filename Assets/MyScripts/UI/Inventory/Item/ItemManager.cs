@@ -5,11 +5,14 @@ using UnityEngine;
 public class ItemManager : RPGMonoBehaviour
 {
     public InteractionSettings interactionSettings;
+    public static bool isEquipped;
 
-    public static ItemManager Instance { get; private set; }
 
     public List<Item> itemList = new List<Item>();
+    public List<GameObject> weapons = new List<GameObject>();
 
+
+    public static ItemManager Instance { get; private set; }
 
     protected override  void Awake()
     {
@@ -34,11 +37,16 @@ public class ItemManager : RPGMonoBehaviour
         switch (slot.slotItem.type)
         {
             default: DefaultItemUse(slot); break;
-            case ItemType.ToolOrWeapon: EquipItem(slot);break;
+            case ItemType.ToolOrWeapon:
+                
+                if (!isEquipped) EquipItem(slot);//Có thể lỗi nếu đặt nhầm chỗ
+                else UnEquip(slot);
+                break;
             case ItemType.Placeable: PlaceItem(slot); break;
             case ItemType.Consumeable: ConsumeItem(slot); break;
         }
     }
+  
     //Nơi xử lý chức năng cho item
     private void ConsumeItem(ItemSlot slot)
     {
@@ -48,7 +56,14 @@ public class ItemManager : RPGMonoBehaviour
     private void EquipItem(ItemSlot slot)
     {
         Debug.Log("Equipping" + slot.slotItem.itemName);
-
+        isEquipped = true;
+        weapons[0].SetActive(true);
+    }
+    private void UnEquip(ItemSlot slot)
+    {
+        Debug.Log("UnEquip" + slot.slotItem.itemName);
+        isEquipped = false;
+        weapons[0].SetActive(false);
     }
     private void PlaceItem(ItemSlot slot)
     {

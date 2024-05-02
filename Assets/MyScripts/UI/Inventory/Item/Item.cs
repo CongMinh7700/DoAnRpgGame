@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +10,9 @@ public class Item : ScriptableObject
     public string itemName;
     public int itemPerSlot;
     public Sprite icon;
-    public GameObject prefab;
-
+    public GameObject prefab;//xử lý drop sau
+    public int effectValue;
+    public bool isFood;
     [TextArea]
     public string itemInformation;
 }
