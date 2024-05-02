@@ -13,7 +13,7 @@ public class ItemSlot : RPGMonoBehaviour
     private Image iconImage;
     private TextMeshProUGUI countText;
 
-    public void Initialize()
+    public virtual void Initialize()
     {
         this.iconImage = transform.Find("IconImage").GetComponent<Image>();
         this.countText = GetComponentInChildren<TextMeshProUGUI>();
@@ -21,7 +21,7 @@ public class ItemSlot : RPGMonoBehaviour
         countText.text = string.Empty;
     }
     //Add Item
-    public bool Add(Item item)
+    public virtual bool Add(Item item)
     {
         if (IsAddable(item))
         {
@@ -36,7 +36,7 @@ public class ItemSlot : RPGMonoBehaviour
 
     }
     //Remove and Drop
-    public void RemoveAndDrop(int amount,Vector3 dropPosition)
+    public  void RemoveAndDrop(int amount,Vector3 dropPosition)
     {
         for(int i =0;i< amount; i++)
         {
@@ -49,7 +49,7 @@ public class ItemSlot : RPGMonoBehaviour
         OnSlotModified();
     }
 
-    public void Remove(int amount)
+    public  void Remove(int amount)
     {
         itemCount -= amount > itemCount ? itemCount : amount;
         OnSlotModified();

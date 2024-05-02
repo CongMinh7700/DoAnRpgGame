@@ -8,9 +8,9 @@ public class ItemManager : RPGMonoBehaviour
     public static bool isEquipped;
 
 
-    public List<Item> itemList = new List<Item>();
+    public List<Item> itemList = new List<Item>();//có thể không xài
     public List<GameObject> weapons = new List<GameObject>();
-
+    [SerializeField] protected CharacterStats slotCharacter;
 
     public static ItemManager Instance { get; private set; }
 
@@ -55,9 +55,12 @@ public class ItemManager : RPGMonoBehaviour
     }
     private void EquipItem(ItemSlot slot)
     {
+        slotCharacter.slots[1].Add(slot.slotItem);
+        slotCharacter.slots[1].UpdateStats();
         Debug.Log("Equipping" + slot.slotItem.itemName);
         isEquipped = true;
         weapons[0].SetActive(true);
+        slot.Remove(1);
     }
     private void UnEquip(ItemSlot slot)
     {
@@ -83,7 +86,6 @@ public class ItemManager : RPGMonoBehaviour
         foreach(Item item in itemList)
         {
             if (item.itemName == name) return item;
-         
         }
         return null;
     }
@@ -93,4 +95,6 @@ public class ItemManager : RPGMonoBehaviour
         for (int i = 0; i < itemList.Count; i++) if (itemList[i] == item) return i;
         return -1;
     }
+
+
 }

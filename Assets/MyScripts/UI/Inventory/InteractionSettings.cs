@@ -28,7 +28,7 @@ public class InteractionSettings : ScriptableObject
     public Color highlightColor;
     public float itemDropHeightOffset = 0.3f;
     public float interactionRange = 5f;
-    public bool autoCloseExternalontainer = true;
+    public bool autoCloseExternalContainer = true;
     public bool forceAddRequiredComponents = true;
 
     public GameObject optionsMenuButtonPrefabs;

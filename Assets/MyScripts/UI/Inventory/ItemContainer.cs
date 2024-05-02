@@ -63,10 +63,10 @@ public class ItemContainer : RPGMonoBehaviour
     protected virtual void InitializeContainer()
     {
         InitializeMainUI(transform);    
-        CreateSlotOptionMenu(InteractionSettings.Current.internalSlotOptions, containerInteractor);
+        CreateSlotOptionsMenu(InteractionSettings.Current.internalSlotOptions, containerInteractor);
         isUIInitialized = true;
     }
-    protected void InitializeMainUI(Transform containerPanel)
+    protected virtual void InitializeMainUI(Transform containerPanel)
     {
         this.containerPanel = containerPanel;
         mainContainerUI = this.containerPanel.Find("MainUI");
@@ -87,13 +87,13 @@ public class ItemContainer : RPGMonoBehaviour
         }
         mainContainerUI.gameObject.SetActive(false);
     }
-    protected void GetCloseButton()
+    protected virtual void GetCloseButton()
     {
         Button containerCloseButton = mainContainerUI.transform.Find("CloseButton").GetComponent<Button>();
         containerCloseButton.onClick.AddListener(() => inventoryEvents.ToggleUI());
     }
     //Create SlotOption
-    protected virtual void CreateSlotOptionMenu(SlotOptions[] config, Interactor interactor)
+    protected virtual void CreateSlotOptionsMenu(SlotOptions[] config, Interactor interactor)
     {
         if (customOptionsMenuConfig != null && customOptionsMenuConfig.Length > 0)
         {
@@ -183,14 +183,19 @@ public class ItemContainer : RPGMonoBehaviour
             optionButton.onClick.RemoveAllListeners();
             
 
-                if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Use") // Identify the Use button
+                if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Use" && !slot.slotItem.isFood) // Identify the Use button
                 {
                     optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
 
                 }
-                else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Unequip") // Identify the Use button
+                else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Unequip" && !slot.slotItem.isFood) // Identify the Use button
                 {
                     optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
+
+                }else if (slot.slotItem.isFood )
+                {
+                 if(optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Use" || optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Unequip")
+                    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = "Use";
 
                 }
 
