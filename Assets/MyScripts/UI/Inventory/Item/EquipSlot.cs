@@ -6,11 +6,9 @@ using TMPro;
 
 public class EquipSlot : ItemSlot
 {
-    [Header("ExternalSLot")]
-
-    private Image iconImage;
-    public PlayerDamageReceiver playerDamageReceiver;
-
+    public PlayerCtrl playerCtrl;
+    public ItemManager itemManager;
+    public ItemContainer inventory;
     public override void Initialize()
     {
         this.iconImage = transform.Find("IconImage").GetComponent<Image>();
@@ -29,32 +27,35 @@ public class EquipSlot : ItemSlot
         else
             return false;
     }
-    //Remove and Drop
-    public virtual void UpdateStats()
+    public virtual void UnEquip()
     {
-        if (slotItem != null && slotItem.type == ItemType.ToolOrWeapon)
+        if (!IsEmpty)
         {
-            int hpMax = playerDamageReceiver.HPMax + slotItem.effectValue;
-            playerDamageReceiver.SetHpMax(hpMax);
+            inventory.inventoryEvents.AddItem(slotItem);
+            Remove(1);
+            ItemManager.isEquipped = false;
+            playerCtrl.DamageReceiver.SetHpMax(playerCtrl.HitableObjectSO.hpMax);
         }
+       
 
     }
-
-
-    //Kiểm tra slot chứa vật phẩm đó có thể thêm vào nữa được không
-    private bool IsAddable(Item item)
+    public void UpdateStats()
     {
-        if (item != null)
+        int hpMax = 0 ;
+        if(slotItem != null && !slotItem.isFood)
         {
-            if (IsEmpty) return true;
-            else
+            foreach (BonusAttribute bonus in slotItem.bonusAttributes)
             {
-                if (item == slotItem && itemCount < item.itemPerSlot) return true;
-                else return false;
+                if (bonus.attributeName == "health")
+                {
+                    hpMax = playerCtrl.DamageReceiver.HPMax + bonus.attributeValue;
+                    playerCtrl.DamageReceiver.SetHpMax(hpMax);
+                }
+               
             }
         }
-        return false;
     }
+
     //Thiết lập itemCount , UI
     private void OnSlotModified()
     {

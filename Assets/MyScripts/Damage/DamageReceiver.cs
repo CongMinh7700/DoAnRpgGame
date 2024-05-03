@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,7 +40,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
         this.isDead = false;
 
     }
-    public virtual void Add(int value)
+    public virtual void Health(int value)
     {
         if (this.isDead) return;
         this.hp += value;
@@ -69,6 +69,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     public virtual void SetHpMax(int hpMax)
     {
         this.hpMax = hpMax;
+        if (this.hp >= hpMax) hp = hpMax;//Mới thêm
     }
     protected abstract void OnDead();
 }

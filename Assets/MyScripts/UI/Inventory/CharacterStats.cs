@@ -29,7 +29,7 @@ public class CharacterStats : RPGMonoBehaviour
     }
     protected  void Update()
     {
-        Debug.Log(isUIInitialized);
+        Debug.Log("Character stats :"+ isContainerUIOpen);
         if (isUIInitialized == false) return;
        CheckForUIToggleInput();
     }
@@ -67,19 +67,22 @@ public class CharacterStats : RPGMonoBehaviour
 
     public void CheckForUIToggleInput()
     {
-        if (Input.GetKeyDown(UIToggleKey)) ToggleUI();
-        Debug.Log("UIToggle");
+        if (Input.GetKeyDown(UIToggleKey))
+        {
+            ToggleUI();
+            Debug.Log("C");
+        }
     }
 
     public void ToggleUI()
     {
         //Close
-        if (mainContainerUI.gameObject.activeSelf &&isContainerUIOpen)
+        if (mainContainerUI.gameObject.activeSelf && isContainerUIOpen)
         {
             isContainerUIOpen = false;
             StartCoroutine(Utils.TweenScaleOut(mainContainerUI.gameObject, 50, false));
         }
-        else if (mainContainerUI.gameObject.activeSelf && isContainerUIOpen)
+        else if (!mainContainerUI.gameObject.activeSelf && !isContainerUIOpen)
         {
             isContainerUIOpen = true;
             StartCoroutine(Utils.TweenScaleIn(mainContainerUI.gameObject, 50, Vector3.one));

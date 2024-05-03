@@ -57,7 +57,7 @@ public class ItemContainer : RPGMonoBehaviour
         Debug.Log(isUIInitialized);
         if (isUIInitialized == false) return;
         inventoryEvents.CheckForUIToggleInput();
-        useName = ItemManager.isEquipped ? "Unequip" : "Use";
+     //   useName = ItemManager.isEquipped ? "Tháo" : "Dùng";
     }
     //Sinh ra 4 option 
     protected virtual void InitializeContainer()
@@ -119,23 +119,23 @@ public class ItemContainer : RPGMonoBehaviour
             switch (option)
             {
                 case SlotOptions.Use:
-                    buttonTitle = "Use";
+                    buttonTitle = "Dùng";
                     onButtonClicked = inventoryEvents.OnUseItemClicked;
                     break;
                 case SlotOptions.ItemInfo:
-                    buttonTitle = "Info.";
+                    buttonTitle = "Thông tin";
                     onButtonClicked = inventoryEvents.OnItemInfoClicked;
                     break;
                 case SlotOptions.Remove:
-                    buttonTitle = "Remove";
+                    buttonTitle = "Xóa";
                     onButtonClicked = inventoryEvents.OnRemoveItemClicked;
                     break;
                 case SlotOptions.RemoveAll:
-                    buttonTitle = "Bulk Remove";
+                    buttonTitle = "Xóa Hết";
                     onButtonClicked = inventoryEvents.OnBulkRemoveItemClicked;
                     break;
                 case SlotOptions.TransferToInventory:
-                    buttonTitle = "Transfer";
+                    buttonTitle = "Chuyển";
                     onButtonClicked = inventoryEvents.OnTransferToInventoryClicked;
                     break;
                    
@@ -183,21 +183,21 @@ public class ItemContainer : RPGMonoBehaviour
             optionButton.onClick.RemoveAllListeners();
             
 
-                if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Use" && !slot.slotItem.isFood) // Identify the Use button
-                {
-                    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
+                //if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" && !slot.slotItem.isFood) // Identify the Use button
+                //{
+                //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
 
-                }
-                else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Unequip" && !slot.slotItem.isFood) // Identify the Use button
-                {
-                    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
+                //}
+                //else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo" && !slot.slotItem.isFood) // Identify the Use button
+                //{
+                //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
 
-                }else if (slot.slotItem.isFood )
-                {
-                 if(optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Use" || optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Unequip")
-                    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = "Use";
+                //}else if (slot.slotItem.isFood )
+                //{
+                // if(optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" || optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo")
+                //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = "Dùng";
 
-                }
+                //}
 
             optionButton.onClick.AddListener(
                 delegate

@@ -10,7 +10,7 @@ public class ItemSlot : RPGMonoBehaviour
     public Item slotItem;
     public int itemCount;
     public bool IsEmpty { get { return itemCount <= 0; } }
-    private Image iconImage;
+    [HideInInspector]public Image iconImage;
     private TextMeshProUGUI countText;
 
     public virtual void Initialize()
@@ -64,7 +64,7 @@ public class ItemSlot : RPGMonoBehaviour
         RemoveAndDrop(itemCount, dropPosition);
     }
     //Kiểm tra slot chứa vật phẩm đó có thể thêm vào nữa được không
-    private bool IsAddable(Item item)
+    public bool IsAddable(Item item)
     {
         if(item != null)
         {
@@ -92,7 +92,10 @@ public class ItemSlot : RPGMonoBehaviour
             itemCount = 0;
             slotItem = null;
             iconImage.sprite = null;
-            countText.text = string.Empty;
+            if(countText != null) {
+                countText.text = string.Empty;
+            }
+   
             iconImage.gameObject.SetActive(false);
         }
     }

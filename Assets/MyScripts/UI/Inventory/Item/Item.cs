@@ -10,41 +10,21 @@ public class Item : ScriptableObject
     public string itemName;
     public int itemPerSlot;
     public Sprite icon;
-    public GameObject prefab;//xử lý drop sau
-    //public int effectValue;
-    public List<ItemEffect> itemEffects;
+    public GameObject prefab;
     public bool isFood;
+    //public int healthBonus;
+    //public int restoreBonus;
+    //public int damageBonus;
+    //public int defendBonus;
+    //public int speedBonus;
     [TextArea]
     public string itemInformation;
-
-    public void ApplyEffects(PlayerCtrl player, int value)
-    {
-        foreach (ItemEffect effect in itemEffects)
-        {
-            effect.ApplyEffect(player);
-        }
-    }
+    public List<BonusAttribute> bonusAttributes = new List<BonusAttribute>();
 
 }
-public class HealthEffect : ItemEffect
+[System.Serializable]
+public class BonusAttribute
 {
-    public int healthValue;
-
-    public override void ApplyEffect(PlayerCtrl player)
-    {
-        //player.damageReceiver.hp += healthValue;
-    }
+    public string attributeName;
+    public int attributeValue;
 }
-
-public class DamageEffect : ItemEffect
-{
-    public int damageValue;
-
-    public override void ApplyEffect(PlayerCtrl player)
-    {
-       // player.damage += damageValue;
-    }
-}
-
-// và các lớp khác nếu cần thiết...
-

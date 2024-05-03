@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
-  m_Name: ShortSword
+  m_Name: Item
   m_EditorClassIdentifier: 
-  type: 1
-  itemName: Spear
-  itemPerSlot: 1
-  icon: {fileID: 21300000, guid: 4ad16adfdf2d1a441879a598de742eb6, type: 3}
+  type: 0
+  itemName: 
+  itemPerSlot: 0
+  icon: {fileID: 0}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "M\u1ED9t thanh ki\u1EBFm c\u0169 k\u0129 v\xE0 v\xF4 d\u1EE5ng\nC\xF4ng
-    : 10"
-  bonusAttributes:
-  - attributeName: health
-    attributeValue: 1000
+  itemInformation: 
