@@ -16,7 +16,7 @@ public class CharacterStats : RPGMonoBehaviour
     [HideInInspector] public bool isContainerUIOpen = false;
     protected Transform containerPanel;
     protected bool isUIInitialized;
-
+  
     protected override void Awake()
     {
         //loi awake

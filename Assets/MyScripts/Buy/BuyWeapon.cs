@@ -14,6 +14,10 @@ public class BuyWeapon : RPGMonoBehaviour
     {
         currencyText.text = "600";
     }
+    private void Update()
+    {
+        Debug.Log("Cost = " + cost);
+    }
     public void BuyWeaponButton()
     {
         inventory.inventoryEvents.AddItem(item);

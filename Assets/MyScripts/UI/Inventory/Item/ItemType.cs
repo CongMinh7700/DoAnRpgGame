@@ -7,8 +7,12 @@
 //}
 public enum ItemType
 {
-    Default,
-    ToolOrWeapon,
-    Placeable,
-    Consumeable
+    Default = 0,
+    Placeable = 1,
+    Consumeable = 2,
+    Weapon = 3,
+    Helmet = 4,
+    Armor = 5,
+    Gloves = 6
+
 }

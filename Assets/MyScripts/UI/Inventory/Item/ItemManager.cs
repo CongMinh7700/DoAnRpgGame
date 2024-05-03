@@ -6,19 +6,26 @@ using UnityEngine;
 public class ItemManager : RPGMonoBehaviour
 {
     public InteractionSettings interactionSettings;
-    public static bool isEquipped;
+    public static bool isEquippedWeapon;
+    public static bool isEquippedArmor;
+    public static bool isEquippedHelmet;
+    public static bool isEquippedGloves;
     public PlayerCtrl playerCtrl;
 
     public List<Item> itemList = new List<Item>();//có thể không xài
     public List<GameObject> weapons = new List<GameObject>();
     [SerializeField] protected CharacterStats slotCharacter;
+    [SerializeField] protected ItemContainer inventory;
 
 
     public static ItemManager Instance { get; private set; }
 
     private void Update()
     {
-        Debug.Log("IsEqquipped :" + isEquipped);
+        Debug.LogWarning("IsEqquippedWeapon :" + isEquippedWeapon);
+        Debug.LogWarning("isEquippedArmor :" + isEquippedArmor);
+        Debug.LogWarning("isEquippedHelmet :" + isEquippedHelmet);
+        Debug.LogWarning("isEquippedGloves :" + isEquippedGloves);
         
     }
     protected override void Awake()
@@ -44,13 +51,14 @@ public class ItemManager : RPGMonoBehaviour
         switch (slot.slotItem.type)
         {
             default: DefaultItemUse(slot); break;
-            case ItemType.ToolOrWeapon:
-                EquipItem(slot);//Có thể lỗi nếu đặt nhầm chỗ
-                //if (!isEquipped) 
-                //else UnEquip(slot);
-                break;
             case ItemType.Placeable: PlaceItem(slot); break;
             case ItemType.Consumeable: ConsumeItem(slot); break;
+            case ItemType.Helmet:
+            case ItemType.Armor:
+            case ItemType.Gloves:
+            case ItemType.Weapon:
+                EquipItem(slot); // Gọi phương thức EquipItem để xử lý việc trang bị
+                break;
         }
     }
 
@@ -66,24 +74,56 @@ public class ItemManager : RPGMonoBehaviour
         Debug.Log("You have consumed" + slot.slotItem.itemName);
         slot.Remove(1);
     }
+   
     private void EquipItem(ItemSlot slot)
-    {
-        slotCharacter.slots[1].Add(slot.slotItem);
+    {       
+        ItemType type = slot.slotItem.type;
+        int slotIndex = -1;
+        switch (type)
+        {
+            case ItemType.Helmet:
+                slotIndex = 0; // Vị trí của mũ
+                isEquippedHelmet = true;
+                break;
+            case ItemType.Armor:
+                slotIndex = 1; // Vị trí của giáp
+                isEquippedArmor = true;
+                break;
+            case ItemType.Gloves:
+                slotIndex = 2; // Vị trí của găng tay
+                isEquippedGloves = true;
+                break;
+            case ItemType.Weapon:
+                slotIndex = 3; // Vị trí của vũ khí
+                isEquippedWeapon = true;
+                break;
+            default:
+                break;
+        }
+        if (slotIndex == -1)
+        {
+            return;
+        }
+        slotCharacter.slots[slotIndex].Add(slot.slotItem);
         UpdateStats();
         Debug.Log("Equipping" + slot.slotItem.itemName);
-        isEquipped = true;
-        weapons[0].SetActive(true);
+        foreach (GameObject weapon in weapons)
+        {
+            // Kiểm tra xem vũ khí này có trùng với mục trang bị hay không
+            if (weapon.name == slot.slotItem.itemName)
+            {
+                // Nếu trùng, kích hoạt GameObject của vũ khí đó
+                weapon.SetActive(true);
+            }
+            else
+            {
+                // Nếu không trùng, vô hiệu hóa GameObject của vũ khí
+                weapon.SetActive(false);
+            }
+        }
         slot.Remove(1);
     }
-    //public void UnEquip(ItemSlot slot)
-    //{
-    //    Debug.Log("UnEquip" + slot.slotItem.itemName);
-    //    isEquipped = false;
-    //    slot.Add(slot.slotItem);
-    //    weapons[0].SetActive(false);
-    //    slotCharacter.slots[1].UnEquip();
-
-    //}
+    
     private void PlaceItem(ItemSlot slot)
     {
         Debug.Log("Placing" + slot.slotItem.itemName);
@@ -119,6 +159,9 @@ public class ItemManager : RPGMonoBehaviour
 
         }
     }
+
+
+  
     //Chua xai toi
     public Item GetItemByIndex(int index)
     {

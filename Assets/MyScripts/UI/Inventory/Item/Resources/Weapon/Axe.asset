@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
+  m_Name: Axe
+  m_EditorClassIdentifier: 
+  type: 3
+  itemName: Spear
+  itemPerSlot: 1
+  icon: {fileID: 21300000, guid: 926ea162ed5f9dd498aa2007e9c4a551, type: 3}
+  prefab: {fileID: 0}
+  isFood: 0
+  itemInformation: "M\u1ED9t c\xE1i r\xECu c\u0169 v\xE0 n\u1EB7ng\nC\xF4ng : 10"
+  bonusAttributes:
+  - attributeName: attack
+    attributeValue: 30

@@ -15,6 +15,7 @@ public class EquipSlot : ItemSlot
         iconImage.gameObject.SetActive(true);
     }
     //Add Item
+   
     public override bool Add(Item item)
     {
         if (IsAddable(item))
@@ -33,8 +34,26 @@ public class EquipSlot : ItemSlot
         {
             inventory.inventoryEvents.AddItem(slotItem);
             Remove(1);
-            ItemManager.isEquipped = false;
+           
+            switch (slotItem.type)
+            {
+                case ItemType.Helmet:
+                    ItemManager.isEquippedHelmet = false;
+                    break;
+                case ItemType.Armor:
+                    ItemManager.isEquippedArmor = false;
+                    break;
+                case ItemType.Gloves:
+                    ItemManager.isEquippedGloves = false;
+                    break;
+                case ItemType.Weapon:
+                    ItemManager.isEquippedWeapon = false;
+                    break;
+                default:
+                    break;
+            }
             playerCtrl.DamageReceiver.SetHpMax(playerCtrl.HitableObjectSO.hpMax);
+
         }
        
 
