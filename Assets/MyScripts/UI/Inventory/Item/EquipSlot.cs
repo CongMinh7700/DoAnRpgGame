@@ -7,6 +7,7 @@ using TMPro;
 public class EquipSlot : ItemSlot
 {
     public PlayerCtrl playerCtrl;
+    public WeaponCtrl weaponCtrl;
     public ItemManager itemManager;
     public ItemContainer inventory;
     public override void Initialize()

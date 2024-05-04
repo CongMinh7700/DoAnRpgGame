@@ -15,7 +15,8 @@ public class StatsUpdate : RPGMonoBehaviour
     [SerializeField] protected TextMeshProUGUI staminaText;
 
     [SerializeField] protected PlayerCtrl playerCtrl;
-    protected string name = "";
+    [SerializeField] protected WeaponCtrl weaponCtrl;
+ //   protected string name = "";
     private void Start()
     {
         nameText.text = "Tên : " +"AintCming1";
@@ -23,10 +24,10 @@ public class StatsUpdate : RPGMonoBehaviour
     private void Update()
     {
         hpText.text = "Máu : "+ playerCtrl.DamageReceiver.HPMax.ToString();
-        attackText.text = "Công : "+ playerCtrl.DamageReceiver.HPMax.ToString();
-        defendText.text = "Thủ : "+ playerCtrl.DamageReceiver.HPMax.ToString();
-        manaText.text = "Mana : "+ playerCtrl.DamageReceiver.HPMax.ToString();
-        staminaText.text = "Stamina : "+ playerCtrl.DamageReceiver.HPMax.ToString();
-        
+        attackText.text = "Công : "+ playerCtrl.playerSO.damage.ToString();
+        defendText.text = "Thủ : " + playerCtrl.playerSO.defense.ToString();
+        manaText.text = "Mana : "+ playerCtrl.playerSO.mana.ToString();
+        staminaText.text = "Stamina : "+ playerCtrl.playerSO.stamina.ToString();
+
     }
 }

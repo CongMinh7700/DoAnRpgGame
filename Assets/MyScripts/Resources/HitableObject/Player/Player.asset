@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dbfa5961ae974c458b8966503c3368a, type: 3}
+  m_Script: {fileID: 11500000, guid: 80192af480b18a148b98876231d72ff9, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  objName: HitableObject
+  objName: Player
   objType: 3
-  hpMax: 1000
+  hpMax: 500
+  damage: 10
+  stamina: 100
+  mana: 100
+  defense: 5

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponDamageSender : DamageSender
 {
     [SerializeField] protected WeaponCtrl weaponCtrl;
-
+    //SetDamage
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -23,4 +23,5 @@ public class WeaponDamageSender : DamageSender
         base.Send(damageReceiver);
         
     }
+    
 }

@@ -26,6 +26,7 @@ public abstract class HitableObjectCtrl : RPGMonoBehaviour
         Debug.LogWarning(transform.name + "|LoadDamageReceiver|", gameObject);
 
     }
+
     public virtual void LoadSO()
     {
         if (this.hitableObjectSO != null) return;
