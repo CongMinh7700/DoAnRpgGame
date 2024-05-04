@@ -11,7 +11,7 @@ public abstract class HitableObjectCtrl : RPGMonoBehaviour
     [SerializeField] protected HitableObjectSO hitableObjectSO;
     public HitableObjectSO HitableObjectSO => hitableObjectSO;
 
-
+   
 
     protected override void LoadComponents()
     {

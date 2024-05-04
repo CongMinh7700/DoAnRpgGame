@@ -54,7 +54,7 @@ public class ItemContainer : RPGMonoBehaviour
     }
     protected virtual void Update()
     {
-        Debug.Log(isUIInitialized);
+       // Debug.Log(isUIInitialized);
         if (isUIInitialized == false) return;
         inventoryEvents.CheckForUIToggleInput();
      //   useName = ItemManager.isEquipped ? "Tháo" : "Dùng";

@@ -21,5 +21,5 @@ MonoBehaviour:
   itemInformation: "M\u1ED9t thanh ki\u1EBFm c\u0169 k\u0129 v\xE0 v\xF4 d\u1EE5ng\nC\xF4ng
     : 10"
   bonusAttributes:
-  - attributeName: health
-    attributeValue: 1000
+  - attributeName: attack
+    attributeValue: 10

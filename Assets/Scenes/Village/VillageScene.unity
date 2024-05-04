@@ -16655,7 +16655,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1368756470}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -75014,6 +75014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1634081589}
     m_Modifications:
+    - target: {fileID: 1725739281, guid: 686244ab6c64c6b478c6910180619299, type: 3}
+      propertyPath: weaponCtrl
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4021162515263115143, guid: 686244ab6c64c6b478c6910180619299, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -79176,7 +79180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2051184830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88372,6 +88376,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1893325207, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: hp
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893325207, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: hpMax
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893325207, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: defense
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 25955891555053127, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
       propertyPath: m_Name
       value: Spear
@@ -88449,6 +88465,10 @@ PrefabInstance:
       value: Axe
       objectReference: {fileID: 0}
     - target: {fileID: 5453505701653332519, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: playerCtrl
+      value: 
+      objectReference: {fileID: 6741097169181968106}
+    - target: {fileID: 5453505701653332519, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
       propertyPath: hitableObjectCtrl
       value: 
       objectReference: {fileID: 6741097169181968106}
@@ -88473,11 +88493,38 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194227}
     - target: {fileID: 6741097169181968110, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: playerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: a3b7c65e7e402a74d942ff70a2f77c52, type: 2}
+    - target: {fileID: 6741097169181968110, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
       propertyPath: hitableObjectSO
       value: 
       objectReference: {fileID: 11400000, guid: a3b7c65e7e402a74d942ff70a2f77c52, type: 2}
+    - target: {fileID: 9022020420515979190, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022020420515979190, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: weaponCtrl
+      value: 
+      objectReference: {fileID: 6276401918549186843}
+    - target: {fileID: 9022020420515979190, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+      propertyPath: hitableObjectCtrl
+      value: 
+      objectReference: {fileID: 6741097169181968106}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+--- !u!114 &6276401918549186843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5453505701653332519, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
+  m_PrefabInstance: {fileID: 6276401918549186842}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572419756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d485d0b1549f44e854acf21da82b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6741097169181968104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 763204428501082098, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}

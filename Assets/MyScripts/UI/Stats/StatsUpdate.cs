@@ -25,7 +25,7 @@ public class StatsUpdate : RPGMonoBehaviour
     {
         hpText.text = "Máu : "+ playerCtrl.DamageReceiver.HPMax.ToString();
         attackText.text = "Công : "+ playerCtrl.playerSO.damage.ToString();
-        defendText.text = "Thủ : " + playerCtrl.playerSO.defense.ToString();
+        defendText.text = "Thủ : " + playerCtrl.DamageReceiver.Defense.ToString();
         manaText.text = "Mana : "+ playerCtrl.playerSO.mana.ToString();
         staminaText.text = "Stamina : "+ playerCtrl.playerSO.stamina.ToString();
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   objName: Player
   objType: 3
   hpMax: 500
-  damage: 10
+  damage: 20
+  defense: 10
   stamina: 100
   mana: 100
-  defense: 5

@@ -29,7 +29,7 @@ public class CharacterStats : RPGMonoBehaviour
     }
     protected  void Update()
     {
-        Debug.Log("Character stats :"+ isContainerUIOpen);
+       // Debug.Log("Character stats :"+ isContainerUIOpen);
         if (isUIInitialized == false) return;
        CheckForUIToggleInput();
     }

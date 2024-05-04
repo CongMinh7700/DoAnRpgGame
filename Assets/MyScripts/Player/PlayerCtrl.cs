@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCtrl : HitableObjectCtrl
 {
+    [Header("PlayerSO")]
     public PlayerSO playerSO;
     protected override void LoadComponents()
     {

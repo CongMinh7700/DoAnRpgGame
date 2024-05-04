@@ -9,11 +9,13 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     [SerializeField] protected BoxCollider boxCollider;
     [SerializeField] protected int hp;
     [SerializeField] protected int hpMax;
+    [SerializeField] protected int defense;
     [SerializeField] protected bool isDead = false;
     [SerializeField] protected bool isAttacked = false;
 
     public int HP => hp;
     public int HPMax => hpMax;
+    public int Defense => defense;
     protected override void LoadComponents()
     {
         this.LoadBoxCollider();
@@ -50,7 +52,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     public virtual void Deduct(int value)
     {
         if (this.isDead) return;
-        this.hp -= value;
+        this.hp -= value * (defense * -1);
         isAttacked = true;
         if (this.hp <= 0) this.hp = 0;
         this.CheckIsDead();
@@ -70,6 +72,10 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     {
         this.hpMax = hpMax;
         if (this.hp >= hpMax) hp = hpMax;//Mới thêm
+    }
+    public virtual void SetDefense(int defense)
+    {
+        this.defense = defense;
     }
     protected abstract void OnDead();
 }

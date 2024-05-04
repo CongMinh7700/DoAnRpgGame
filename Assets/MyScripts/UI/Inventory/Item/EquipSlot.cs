@@ -7,7 +7,6 @@ using TMPro;
 public class EquipSlot : ItemSlot
 {
     public PlayerCtrl playerCtrl;
-    public WeaponCtrl weaponCtrl;
     public ItemManager itemManager;
     public ItemContainer inventory;
     public override void Initialize()
@@ -54,6 +53,7 @@ public class EquipSlot : ItemSlot
                     break;
             }
             playerCtrl.DamageReceiver.SetHpMax(playerCtrl.HitableObjectSO.hpMax);
+            playerCtrl.DamageReceiver.SetDefense(playerCtrl.HitableObjectSO.defense);
 
         }
        

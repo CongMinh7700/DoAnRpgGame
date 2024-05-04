@@ -9,6 +9,7 @@ public class HitableObjectSO : ScriptableObject
     public string objName = "HitableObject";
     public ObjectType objType;
     public int hpMax = 2;
-    
-   // public List<ItemDropRate> dropList;
+    public int damage = 2;
+    public int defense = 2;
+    // public List<ItemDropRate> dropList;
 }

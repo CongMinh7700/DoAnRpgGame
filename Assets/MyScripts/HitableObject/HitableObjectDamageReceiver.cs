@@ -17,6 +17,7 @@ public class HitableObjectDamageReceiver : DamageReceiver
         if (this.hitableObjectCtrl != null) return;
         this.hitableObjectCtrl = GetComponentInParent<HitableObjectCtrl>();
         this.hpMax = hitableObjectCtrl.HitableObjectSO.hpMax;
+        this.defense = hitableObjectCtrl.HitableObjectSO.defense;
         Debug.Log(transform.name + "|LoadHitableObjectCtrl|", gameObject);
     }
     protected override void OnDead()

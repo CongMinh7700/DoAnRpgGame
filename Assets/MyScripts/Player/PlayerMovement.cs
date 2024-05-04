@@ -30,7 +30,7 @@ public class PlayerMovement : RPGMonoBehaviour
     {
         if (this.rb != null) return;
         this.rb = GetComponentInParent<Rigidbody>();
-        Debug.LogWarning(transform.name + "|LoadRigidbody|", gameObject);
+        //Debug.LogWarning(transform.name + "|LoadRigidbody|", gameObject);
     }
     protected void LoadPlayerAnimation()
     {

@@ -12,6 +12,12 @@ public class ItemManager : RPGMonoBehaviour
     public static bool isEquippedGloves;
     public PlayerCtrl playerCtrl;
 
+    public static int hpMaxBonus;
+    public static int healBonus;
+    public static int attackBonus;
+    public static int defenseBonus;
+    public static int manaBonus;
+    public static int staminaBonus;
     public List<Item> itemList = new List<Item>();//có thể không xài
     public List<GameObject> weapons = new List<GameObject>();
     [SerializeField] protected CharacterStats slotCharacter;
@@ -22,11 +28,11 @@ public class ItemManager : RPGMonoBehaviour
 
     private void Update()
     {
-        Debug.LogWarning("IsEqquippedWeapon :" + isEquippedWeapon);
-        Debug.LogWarning("isEquippedArmor :" + isEquippedArmor);
-        Debug.LogWarning("isEquippedHelmet :" + isEquippedHelmet);
-        Debug.LogWarning("isEquippedGloves :" + isEquippedGloves);
-        
+        //Debug.LogWarning("IsEqquippedWeapon :" + isEquippedWeapon);
+        //Debug.LogWarning("isEquippedArmor :" + isEquippedArmor);
+        //Debug.LogWarning("isEquippedHelmet :" + isEquippedHelmet);
+        //Debug.LogWarning("isEquippedGloves :" + isEquippedGloves);
+        Debug.LogWarning("HpBonus : " + hpMaxBonus);
     }
     protected override void Awake()
     {
@@ -136,6 +142,9 @@ public class ItemManager : RPGMonoBehaviour
     public void UpdateStats()
     {
         int hpMax = playerCtrl.DamageReceiver.HPMax;
+        int attack = playerCtrl.HitableObjectSO.damage;
+        int defense = playerCtrl.DamageReceiver.Defense; 
+        int mana = playerCtrl.playerSO.mana;
         foreach (EquipSlot slot in slotCharacter.slots)
         {
            
@@ -143,21 +152,43 @@ public class ItemManager : RPGMonoBehaviour
             {
                 if (!slot.slotItem.isFood)
                 {
-                    BonusAttribute healthBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
-                    
-                    if (healthBonus != null  )
+                    BonusAttribute hpBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
+                    BonusAttribute attackBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "attack");
+                    BonusAttribute defenseBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "defense");
+                    BonusAttribute manaBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
+
+                    if (hpBonus != null  )
                     {
                       
-                        hpMax += healthBonus.attributeValue;
+                        hpMax += hpBonus.attributeValue;
                     }
-                    
+                    if (attackBonus != null)
+                    {
+
+                        attack += attackBonus.attributeValue;
+                    }
+                    if (defenseBonus != null)
+                    {
+
+                        defense += defenseBonus.attributeValue;
+                    }
+                    if (manaBonus != null)
+                    {
+
+                        mana += manaBonus.attributeValue;
+                    }
+
+                    hpMaxBonus = hpBonus.attributeValue;
                 }
             }
             
             playerCtrl.DamageReceiver.SetHpMax(hpMax);
-
+            Debug.LogWarning("Defense :" + defense);
+            playerCtrl.DamageReceiver.SetDefense(defense);
+     
 
         }
+    
     }
 
 
