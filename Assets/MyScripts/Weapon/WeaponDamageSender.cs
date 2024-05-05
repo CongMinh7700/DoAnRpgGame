@@ -13,7 +13,7 @@ public class WeaponDamageSender : DamageSender
         base.LoadComponents();
         this.LoadWeaponCtrl();
         this.LoadHitableObjectCtrl();
-        SetDamage();
+        this.damage = ItemManager.bonusAttack;
     }
     public virtual void LoadWeaponCtrl()
     {
@@ -27,15 +27,21 @@ public class WeaponDamageSender : DamageSender
         this.hitableObjectCtrl = transform.root.GetComponent<HitableObjectCtrl>();
         Debug.LogWarning(transform.name + "|LoadHitableObjectCtrl|", gameObject);
     }
-
+    private void Update()
+    {
+        if (ItemManager.isEquippedWeapon == false)
+        {
+            SetDamage(hitableObjectCtrl.HitableObjectSO.damage);
+        }
+        else
+        {
+            SetDamage(hitableObjectCtrl.HitableObjectSO.damage + ItemManager.bonusAttack);
+        }
+    }
     public override void Send(DamageReceiver damageReceiver)
     {
         base.Send(damageReceiver);
         
     }
-    public void SetDamage()
-    {
-        weaponCtrl.WeaponDamageSender.SetDamage(hitableObjectCtrl.HitableObjectSO.damage );
-    }
-   
+
 }

@@ -6,6 +6,7 @@ public class PlayerCtrl : HitableObjectCtrl
 {
     [Header("PlayerSO")]
     public PlayerSO playerSO;
+    public List<WeaponCtrl> damageSenders;
     protected override void LoadComponents()
     {
         base.LoadComponents();

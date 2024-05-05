@@ -12,4 +12,6 @@ public class HitableObjectSO : ScriptableObject
     public int damage = 2;
     public int defense = 2;
     // public List<ItemDropRate> dropList;
+
+  
 }

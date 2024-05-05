@@ -2923,7 +2923,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageReceiver: {fileID: 1893325207}
-  hitableObjectSO: {fileID: 11400000, guid: f7ff0bf2b9d840a45874e14d859c6ef5, type: 2}
+  hitableObjectSO: {fileID: 11400000, guid: a3b7c65e7e402a74d942ff70a2f77c52, type: 2}
+  playerSO: {fileID: 11400000, guid: a3b7c65e7e402a74d942ff70a2f77c52, type: 2}
+  damageSenders: []
 --- !u!114 &6741097169181968105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4806,6 +4808,7 @@ MonoBehaviour:
   boxCollider: {fileID: 1893325208}
   hp: 1000
   hpMax: 1000
+  defense: 0
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 6741097169181968110}

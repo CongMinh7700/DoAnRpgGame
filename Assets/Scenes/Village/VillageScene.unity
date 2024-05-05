@@ -16655,7 +16655,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1368756470}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -39868,12 +39868,15 @@ MonoBehaviour:
   playerCtrl: {fileID: 6741097169181968106}
   itemList:
   - {fileID: 11400000, guid: 674df491e41e3d646bbb45c69937a997, type: 2}
+  - {fileID: 11400000, guid: ae026a8c22847f541846fa8f72641457, type: 2}
+  - {fileID: 11400000, guid: 1e57a5751fed91b4fa89914f3056f9e4, type: 2}
+  - {fileID: 11400000, guid: 634faccaf098dac488f707c892e5211f, type: 2}
   weapons:
   - {fileID: 1572419756}
   - {fileID: 410350774}
   - {fileID: 920594865}
   slotCharacter: {fileID: 1416036722}
-  inventory: {fileID: 0}
+  inventory: {fileID: 1018452520}
 --- !u!1001 &1018992161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65535,7 +65538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1720929476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68934,7 +68937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2655600393840955707, guid: 6f556a39b49974548a28ef6799804038, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2655600393840955711, guid: 6f556a39b49974548a28ef6799804038, type: 3}
       propertyPath: m_Pivot.x
@@ -79180,7 +79183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2051184830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80524,14 +80527,14 @@ PrefabInstance:
     - target: {fileID: -6648923025715557616, guid: 576e03c58ab4f524394acf5d0bab85ce, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 9e718fcc6fdb19a4884451e69ffdf1b2, type: 2}
+      objectReference: {fileID: 11400000, guid: 634faccaf098dac488f707c892e5211f, type: 2}
     - target: {fileID: -6648923025715557616, guid: 576e03c58ab4f524394acf5d0bab85ce, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3782700542342047533, guid: 576e03c58ab4f524394acf5d0bab85ce, type: 3}
       propertyPath: m_Name
-      value: Sword
+      value: Spear
       objectReference: {fileID: 0}
     - target: {fileID: 3782700542342047533, guid: 576e03c58ab4f524394acf5d0bab85ce, type: 3}
       propertyPath: m_IsActive
@@ -88502,7 +88505,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a3b7c65e7e402a74d942ff70a2f77c52, type: 2}
     - target: {fileID: 9022020420515979190, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
       propertyPath: damage
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9022020420515979190, guid: de7fbc29c7530cc4db93196ddd5168fb, type: 3}
       propertyPath: weaponCtrl

@@ -30,15 +30,15 @@ public class EquipSlot : ItemSlot
     }
     public virtual void UnEquip()
     {
-        if (!IsEmpty)
+        if (!IsEmpty && slotItem != null)
         {
-            inventory.inventoryEvents.AddItem(slotItem);
-            Remove(1);
+           
            
             switch (slotItem.type)
             {
                 case ItemType.Helmet:
                     ItemManager.isEquippedHelmet = false;
+               
                     break;
                 case ItemType.Armor:
                     ItemManager.isEquippedArmor = false;
@@ -48,32 +48,19 @@ public class EquipSlot : ItemSlot
                     break;
                 case ItemType.Weapon:
                     ItemManager.isEquippedWeapon = false;
+                    ItemManager.bonusAttack = 0;
                     break;
                 default:
                     break;
             }
+            inventory.inventoryEvents.AddItem(slotItem);
+            Remove(1);
             playerCtrl.DamageReceiver.SetHpMax(playerCtrl.HitableObjectSO.hpMax);
             playerCtrl.DamageReceiver.SetDefense(playerCtrl.HitableObjectSO.defense);
 
         }
        
 
-    }
-    public void UpdateStats()
-    {
-        int hpMax = 0 ;
-        if(slotItem != null && !slotItem.isFood)
-        {
-            foreach (BonusAttribute bonus in slotItem.bonusAttributes)
-            {
-                if (bonus.attributeName == "health")
-                {
-                    hpMax = playerCtrl.DamageReceiver.HPMax + bonus.attributeValue;
-                    playerCtrl.DamageReceiver.SetHpMax(hpMax);
-                }
-               
-            }
-        }
     }
 
     //Thiết lập itemCount , UI

@@ -10,29 +10,30 @@ public class ItemManager : RPGMonoBehaviour
     public static bool isEquippedArmor;
     public static bool isEquippedHelmet;
     public static bool isEquippedGloves;
-    public PlayerCtrl playerCtrl;
-
     public static int hpMaxBonus;
     public static int healBonus;
-    public static int attackBonus;
+    public static int bonusAttack;
     public static int defenseBonus;
     public static int manaBonus;
     public static int staminaBonus;
+
+    public PlayerCtrl playerCtrl;
     public List<Item> itemList = new List<Item>();//có thể không xài
     public List<GameObject> weapons = new List<GameObject>();
     [SerializeField] protected CharacterStats slotCharacter;
     [SerializeField] protected ItemContainer inventory;
 
-
     public static ItemManager Instance { get; private set; }
 
     private void Update()
     {
-        //Debug.LogWarning("IsEqquippedWeapon :" + isEquippedWeapon);
+        Debug.LogWarning("IsEqquippedWeapon :" + isEquippedWeapon);
         //Debug.LogWarning("isEquippedArmor :" + isEquippedArmor);
         //Debug.LogWarning("isEquippedHelmet :" + isEquippedHelmet);
         //Debug.LogWarning("isEquippedGloves :" + isEquippedGloves);
         Debug.LogWarning("HpBonus : " + hpMaxBonus);
+        //Debug.LogWarning("Defense :" + defense);
+        Debug.LogWarning("AttackBonus :" + bonusAttack);
     }
     protected override void Awake()
     {
@@ -63,7 +64,7 @@ public class ItemManager : RPGMonoBehaviour
             case ItemType.Armor:
             case ItemType.Gloves:
             case ItemType.Weapon:
-                EquipItem(slot); // Gọi phương thức EquipItem để xử lý việc trang bị
+                EquipItem(slot);
                 break;
         }
     }
@@ -80,27 +81,27 @@ public class ItemManager : RPGMonoBehaviour
         Debug.Log("You have consumed" + slot.slotItem.itemName);
         slot.Remove(1);
     }
-   
+
     private void EquipItem(ItemSlot slot)
-    {       
+    {
         ItemType type = slot.slotItem.type;
         int slotIndex = -1;
         switch (type)
         {
             case ItemType.Helmet:
-                slotIndex = 0; // Vị trí của mũ
+                slotIndex = 0;
                 isEquippedHelmet = true;
                 break;
             case ItemType.Armor:
-                slotIndex = 1; // Vị trí của giáp
+                slotIndex = 1;
                 isEquippedArmor = true;
                 break;
             case ItemType.Gloves:
-                slotIndex = 2; // Vị trí của găng tay
+                slotIndex = 2;
                 isEquippedGloves = true;
                 break;
             case ItemType.Weapon:
-                slotIndex = 3; // Vị trí của vũ khí
+                slotIndex = 3;
                 isEquippedWeapon = true;
                 break;
             default:
@@ -115,21 +116,18 @@ public class ItemManager : RPGMonoBehaviour
         Debug.Log("Equipping" + slot.slotItem.itemName);
         foreach (GameObject weapon in weapons)
         {
-            // Kiểm tra xem vũ khí này có trùng với mục trang bị hay không
             if (weapon.name == slot.slotItem.itemName)
             {
-                // Nếu trùng, kích hoạt GameObject của vũ khí đó
                 weapon.SetActive(true);
             }
-            else
+            else if (!isEquippedWeapon)
             {
-                // Nếu không trùng, vô hiệu hóa GameObject của vũ khí
                 weapon.SetActive(false);
             }
         }
         slot.Remove(1);
     }
-    
+
     private void PlaceItem(ItemSlot slot)
     {
         Debug.Log("Placing" + slot.slotItem.itemName);
@@ -142,12 +140,12 @@ public class ItemManager : RPGMonoBehaviour
     public void UpdateStats()
     {
         int hpMax = playerCtrl.DamageReceiver.HPMax;
-        int attack = playerCtrl.HitableObjectSO.damage;
-        int defense = playerCtrl.DamageReceiver.Defense; 
+        int attack = 0;
+        int defense = playerCtrl.DamageReceiver.Defense;
         int mana = playerCtrl.playerSO.mana;
         foreach (EquipSlot slot in slotCharacter.slots)
         {
-           
+
             if (slot.slotItem != null)
             {
                 if (!slot.slotItem.isFood)
@@ -157,15 +155,21 @@ public class ItemManager : RPGMonoBehaviour
                     BonusAttribute defenseBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "defense");
                     BonusAttribute manaBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
 
-                    if (hpBonus != null  )
+                    if (hpBonus != null)
                     {
-                      
+
                         hpMax += hpBonus.attributeValue;
+                        hpMaxBonus = hpBonus.attributeValue;
                     }
                     if (attackBonus != null)
                     {
 
-                        attack += attackBonus.attributeValue;
+                        attack = attackBonus.attributeValue;
+                        bonusAttack = attackBonus.attributeValue;
+                    }
+                    else
+                    {
+                        bonusAttack = 0;
                     }
                     if (defenseBonus != null)
                     {
@@ -177,41 +181,25 @@ public class ItemManager : RPGMonoBehaviour
 
                         mana += manaBonus.attributeValue;
                     }
-
-                    hpMaxBonus = hpBonus.attributeValue;
                 }
             }
-            
             playerCtrl.DamageReceiver.SetHpMax(hpMax);
-            Debug.LogWarning("Defense :" + defense);
             playerCtrl.DamageReceiver.SetDefense(defense);
-     
-
         }
-    
     }
-
-
-  
-    //Chua xai toi
+    //Xử lý cho Data
     public Item GetItemByIndex(int index)
     {
         return itemList[index];
     }
     public Item GetItemByName(string name)
     {
-        foreach (Item item in itemList)
-        {
-            if (item.itemName == name) return item;
-        }
+        foreach (Item item in itemList) if (item.itemName == name) return item;
         return null;
     }
-
     public int GetItemIndex(Item item)
     {
         for (int i = 0; i < itemList.Count; i++) if (itemList[i] == item) return i;
         return -1;
     }
-
-
 }

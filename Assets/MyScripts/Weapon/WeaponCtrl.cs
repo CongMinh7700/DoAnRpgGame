@@ -28,5 +28,4 @@ public class WeaponCtrl : RPGMonoBehaviour
         this.playerCtrl = transform.root.GetComponent<PlayerCtrl>();
         Debug.LogWarning(transform.name + "|LoadHitableObjectCtrl|", gameObject);
     }
-  
 }
