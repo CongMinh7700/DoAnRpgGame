@@ -10,16 +10,8 @@ public class PlayerDamageReceiver : HitableObjectDamageReceiver
     }
     void UpdateHpMax()
     {
-        if (ItemManager.isEquippedHelmet == false)
-        {
-            SetHpMax(hitableObjectCtrl.HitableObjectSO.hpMax);
-            SetDefense(hitableObjectCtrl.HitableObjectSO.defense);
-        }
-        else
-        {
             SetHpMax(hitableObjectCtrl.HitableObjectSO.hpMax + ItemManager.hpMaxBonus);
             SetDefense(hitableObjectCtrl.HitableObjectSO.defense+ItemManager.bonusDefense);
-        }
     }
     protected override void OnDead()
     {

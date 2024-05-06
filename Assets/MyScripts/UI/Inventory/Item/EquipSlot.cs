@@ -36,7 +36,6 @@ public class EquipSlot : ItemSlot
             {
                 case ItemType.Helmet:
                     ItemManager.isEquippedHelmet = false;
-
                     break;
                 case ItemType.Armor:
                     ItemManager.isEquippedArmor = false;

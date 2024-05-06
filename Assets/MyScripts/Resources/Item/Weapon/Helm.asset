@@ -20,9 +20,9 @@ MonoBehaviour:
   isFood: 0
   itemInformation: "M\u0169 s\u1EAFt kh\xE1 n\u1EB7ng\nM\xE1u : 100"
   bonusAttributes:
-  - attributeName: health
-    attributeValue: 100
   - attributeName: mana
+    attributeValue: 100
+  - attributeName: health
     attributeValue: 100
   - attributeName: defense
     attributeValue: 5
