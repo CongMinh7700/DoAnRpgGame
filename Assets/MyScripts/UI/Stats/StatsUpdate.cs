@@ -25,7 +25,7 @@ public class StatsUpdate : RPGMonoBehaviour
     {
         hpText.text = "Máu : " + playerCtrl.DamageReceiver.HPMax.ToString() + "(" + ItemManager.hpMaxBonus + ")";
         attackText.text = "Công : " + (playerCtrl.playerSO.damage + ItemManager.bonusAttack).ToString() + "(" + ItemManager.bonusAttack + ")";
-        defendText.text = "Thủ : " + playerCtrl.DamageReceiver.Defense.ToString() +"("+ItemManager.defenseBonus+")";
+        defendText.text = "Thủ : " + playerCtrl.DamageReceiver.Defense.ToString() +"("+ItemManager.bonusDefense+")";
 
         //Tạm thời chưa dùng
         manaText.text = "Mana : " + playerCtrl.playerSO.mana.ToString();

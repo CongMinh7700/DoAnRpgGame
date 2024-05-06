@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
   m_Name: Helm
   m_EditorClassIdentifier: 
-  type: 4
+  type: 3
   itemName: Helm
   itemPerSlot: 1
   icon: {fileID: 21300000, guid: 45603c38f879a314bb0baedd8f1f5eba, type: 3}

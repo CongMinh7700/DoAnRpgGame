@@ -28,7 +28,7 @@ public class PlayerAttack : RPGMonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            playerAnim.AttackAnimation("Spear");
+            playerAnim.AttackAnimation(ItemManager.weaponName);
         }
     }
 }

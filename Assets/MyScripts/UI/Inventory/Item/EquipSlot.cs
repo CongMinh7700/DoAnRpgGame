@@ -32,13 +32,11 @@ public class EquipSlot : ItemSlot
     {
         if (!IsEmpty && slotItem != null)
         {
-           
-           
             switch (slotItem.type)
             {
                 case ItemType.Helmet:
                     ItemManager.isEquippedHelmet = false;
-               
+
                     break;
                 case ItemType.Armor:
                     ItemManager.isEquippedArmor = false;
@@ -48,19 +46,39 @@ public class EquipSlot : ItemSlot
                     break;
                 case ItemType.Weapon:
                     ItemManager.isEquippedWeapon = false;
-                    ItemManager.bonusAttack = 0;
                     break;
                 default:
                     break;
             }
+            this.ReculateBonusValue();     
             inventory.inventoryEvents.AddItem(slotItem);
             Remove(1);
-            playerCtrl.DamageReceiver.SetHpMax(playerCtrl.HitableObjectSO.hpMax);
-            playerCtrl.DamageReceiver.SetDefense(playerCtrl.HitableObjectSO.defense);
-
         }
-       
-
+    }
+    public void ReculateBonusValue()
+    {
+        int removedBonusAttack = 0;
+        int removedBonusHealth = 0;
+        int removedBonusDefense = 0;
+        foreach (BonusAttribute bonus in slotItem.bonusAttributes)
+        {
+            switch (bonus.attributeName)
+            {
+                case "health":
+                    removedBonusHealth = bonus.attributeValue;
+                    break;
+                case "defense":
+                    removedBonusDefense = bonus.attributeValue;
+                    break;
+                case "attack":
+                    removedBonusAttack = bonus.attributeValue;
+                    break;
+                    // Thêm các trường hợp xử lý cho các loại bonus khác nếu cần thiết
+            }
+        }
+        ItemManager.bonusAttack -= removedBonusAttack;
+        ItemManager.hpMaxBonus -= removedBonusHealth;
+        ItemManager.bonusDefense -= removedBonusDefense;
     }
 
     //Thiết lập itemCount , UI

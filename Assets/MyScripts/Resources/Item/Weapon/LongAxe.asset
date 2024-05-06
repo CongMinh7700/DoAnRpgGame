@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
-  m_Name: Axe
+  m_Name: LongAxe
   m_EditorClassIdentifier: 
-  type: 3
-  itemName: Spear
+  type: 2
+  itemName: LongAxe
   itemPerSlot: 1
   icon: {fileID: 21300000, guid: 926ea162ed5f9dd498aa2007e9c4a551, type: 3}
   prefab: {fileID: 0}

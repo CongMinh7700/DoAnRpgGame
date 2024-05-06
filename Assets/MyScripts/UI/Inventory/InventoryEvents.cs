@@ -38,6 +38,8 @@ public class InventoryEvents : RPGMonoBehaviour
         if (itemContainer.dropItemGameObjects) slot.RemoveAndDrop(1, itemContainer.containerInteractor.ItemDropPosition);
         else slot.Remove(1);
     }
+    //mới Thêm
+  
     public void OnTransferToInventoryClicked(ItemSlot slot, Interactor interactor)
     {
         Utils.TransferItemQuantity(slot, interactor.inventory, slot.itemCount);

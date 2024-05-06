@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
   m_Name: Chest
   m_EditorClassIdentifier: 
-  type: 5
+  type: 4
   itemName: Chest
   itemPerSlot: 1
   icon: {fileID: 21300000, guid: 40f2d97515d2434418f9dcdd11d438a2, type: 3}

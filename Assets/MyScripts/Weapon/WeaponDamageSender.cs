@@ -29,14 +29,14 @@ public class WeaponDamageSender : DamageSender
     }
     private void Update()
     {
-        if (ItemManager.isEquippedWeapon == false)
-        {
-            SetDamage(hitableObjectCtrl.HitableObjectSO.damage);
-        }
-        else
-        {
+        //if (ItemManager.isEquippedWeapon == false)
+        //{
+        //    SetDamage(hitableObjectCtrl.HitableObjectSO.damage);
+        //}
+        //else
+        //{
             SetDamage(hitableObjectCtrl.HitableObjectSO.damage + ItemManager.bonusAttack);
-        }
+        //}
     }
     public override void Send(DamageReceiver damageReceiver)
     {

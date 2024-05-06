@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
   m_Name: Gloves
   m_EditorClassIdentifier: 
-  type: 6
+  type: 5
   itemName: Gloves
   itemPerSlot: 1
   icon: {fileID: 21300000, guid: 43c039c3ce9d3a94eb99e8c982a7818e, type: 3}
@@ -22,3 +22,5 @@ MonoBehaviour:
   bonusAttributes:
   - attributeName: attack
     attributeValue: 5
+  - attributeName: health
+    attributeValue: 40

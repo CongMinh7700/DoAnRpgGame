@@ -6,22 +6,28 @@ using UnityEngine;
 public class ItemManager : RPGMonoBehaviour
 {
     public InteractionSettings interactionSettings;
+    //Check Equipped
     public static bool isEquippedWeapon;
     public static bool isEquippedArmor;
     public static bool isEquippedHelmet;
     public static bool isEquippedGloves;
+    public static bool isChange;
+    //bonusValue
     public static int hpMaxBonus;
     public static int healBonus;
     public static int bonusAttack;
-    public static int defenseBonus;
+    public static int bonusDefense;
     public static int manaBonus;
     public static int staminaBonus;
+    //WeaponName
+    public static string weaponName;
 
     public PlayerCtrl playerCtrl;
-    public List<Item> itemList = new List<Item>();//có thể không xài
-    public List<GameObject> weapons = new List<GameObject>();
     [SerializeField] protected CharacterStats slotCharacter;
     [SerializeField] protected ItemContainer inventory;
+
+    public List<Item> itemList = new List<Item>();
+    public List<GameObject> weapons = new List<GameObject>();
 
     public static ItemManager Instance { get; private set; }
 
@@ -58,7 +64,6 @@ public class ItemManager : RPGMonoBehaviour
         switch (slot.slotItem.type)
         {
             default: DefaultItemUse(slot); break;
-            case ItemType.Placeable: PlaceItem(slot); break;
             case ItemType.Consumeable: ConsumeItem(slot); break;
             case ItemType.Helmet:
             case ItemType.Armor:
@@ -103,6 +108,7 @@ public class ItemManager : RPGMonoBehaviour
             case ItemType.Weapon:
                 slotIndex = 3;
                 isEquippedWeapon = true;
+
                 break;
             default:
                 break;
@@ -111,82 +117,182 @@ public class ItemManager : RPGMonoBehaviour
         {
             return;
         }
+        SwarpEquipment(slotIndex);
         slotCharacter.slots[slotIndex].Add(slot.slotItem);
+        slot.Remove(1);
         UpdateStats();
-        Debug.Log("Equipping" + slot.slotItem.itemName);
+
         foreach (GameObject weapon in weapons)
         {
-            if (weapon.name == slot.slotItem.itemName)
+            if (weapon.name == slotCharacter.slots[3].slotItem.itemName)
             {
                 weapon.SetActive(true);
+                weaponName = slotCharacter.slots[3].slotItem.itemName;
             }
-            else if (!isEquippedWeapon)
+
+            else if (!isEquippedWeapon || weapon.name != slotCharacter.slots[3].slotItem.itemName)
             {
                 weapon.SetActive(false);
             }
+            else
+            {
+                return;
+            }
         }
-        slot.Remove(1);
+        Debug.Log("Equipping" + slotCharacter.slots[3].slotItem.itemName);
     }
-
-    private void PlaceItem(ItemSlot slot)
+    public void SwarpEquipment(int index)
     {
-        Debug.Log("Placing" + slot.slotItem.itemName);
+        inventory.inventoryEvents.AddItem(slotCharacter.slots[index].slotItem);
+        slotCharacter.slots[index].Remove(1);
     }
     private void DefaultItemUse(ItemSlot slot)
     {
         Debug.Log($"Using {slot.slotItem.itemName}");
     }
-
     public void UpdateStats()
     {
-        int hpMax = playerCtrl.DamageReceiver.HPMax;
-        int attack = 0;
-        int defense = playerCtrl.DamageReceiver.Defense;
-        int mana = playerCtrl.playerSO.mana;
+        //int hpMax = playerCtrl.DamageReceiver.HPMax;
+        //int attack = 0;
+        //int defense = playerCtrl.DamageReceiver.Defense;
+        //int mana = playerCtrl.playerSO.mana;
+        //foreach (EquipSlot slot in slotCharacter.slots)
+        //{
+
+        //    if (slot.slotItem != null)
+        //    {
+        //        if (!slot.slotItem.isFood)
+        //        {
+        //            BonusAttribute hpBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
+        //            BonusAttribute attackBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "attack");
+        //            BonusAttribute defenseBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "defense");
+        //            BonusAttribute manaBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
+
+        //            if (hpBonus != null)
+        //            {
+
+        //                //hpMax += hpBonus.attributeValue;
+        //                hpMaxBonus = hpBonus.attributeValue;
+        //            }
+        //            else
+        //            {
+        //                hpMaxBonus = 0;
+        //            }
+
+        //            if (attackBonus != null)
+        //            {
+
+        //               // attack = attackBonus.attributeValue;
+        //                bonusAttack += attackBonus.attributeValue;
+        //            }
+        //            else
+        //            {
+        //                bonusAttack = 0;
+        //            }
+        //            if (defenseBonus != null)
+        //            {
+
+        //               // defense += defenseBonus.attributeValue;
+        //                bonusDefense = defenseBonus.attributeValue;
+        //            }
+        //            else
+        //            {
+        //                bonusDefense = 0;
+        //            }
+        //            if (manaBonus != null)
+        //            {
+
+        //                //mana += manaBonus.attributeValue;
+        //            }
+        //        }
+        //    }
+        //}        //foreach (EquipSlot slot in slotCharacter.slots)
+        //{
+
+        //    if (slot.slotItem != null)
+        //    {
+        //        if (!slot.slotItem.isFood)
+        //        {
+        //            BonusAttribute hpBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
+        //            BonusAttribute attackBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "attack");
+        //            BonusAttribute defenseBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "defense");
+        //            BonusAttribute manaBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
+
+        //            if (hpBonus != null)
+        //            {
+
+        //                //hpMax += hpBonus.attributeValue;
+        //                hpMaxBonus = hpBonus.attributeValue;
+        //            }
+        //            else
+        //            {
+        //                hpMaxBonus = 0;
+        //            }
+
+        //            if (attackBonus != null)
+        //            {
+
+        //               // attack = attackBonus.attributeValue;
+        //                bonusAttack += attackBonus.attributeValue;
+        //            }
+        //            else
+        //            {
+        //                bonusAttack = 0;
+        //            }
+        //            if (defenseBonus != null)
+        //            {
+
+        //               // defense += defenseBonus.attributeValue;
+        //                bonusDefense = defenseBonus.attributeValue;
+        //            }
+        //            else
+        //            {
+        //                bonusDefense = 0;
+        //            }
+        //            if (manaBonus != null)
+        //            {
+
+        //                //mana += manaBonus.attributeValue;
+        //            }
+        //        }
+        //    }
+        //}
+        hpMaxBonus = 0;
+        bonusAttack = 0;
+        bonusDefense = 0;
+
         foreach (EquipSlot slot in slotCharacter.slots)
         {
-
             if (slot.slotItem != null)
             {
                 if (!slot.slotItem.isFood)
                 {
-                    BonusAttribute hpBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
-                    BonusAttribute attackBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "attack");
-                    BonusAttribute defenseBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "defense");
-                    BonusAttribute manaBonus = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
-
-                    if (hpBonus != null)
+                    foreach (BonusAttribute bonus in slot.slotItem.bonusAttributes)
                     {
-
-                        hpMax += hpBonus.attributeValue;
-                        hpMaxBonus = hpBonus.attributeValue;
-                    }
-                    if (attackBonus != null)
-                    {
-
-                        attack = attackBonus.attributeValue;
-                        bonusAttack = attackBonus.attributeValue;
-                    }
-                    else
-                    {
-                        bonusAttack = 0;
-                    }
-                    if (defenseBonus != null)
-                    {
-
-                        defense += defenseBonus.attributeValue;
-                    }
-                    if (manaBonus != null)
-                    {
-
-                        mana += manaBonus.attributeValue;
+                        switch (bonus.attributeName)
+                        {
+                            case "health":
+                                hpMaxBonus += bonus.attributeValue;
+                                break;
+                            case "attack":
+                                bonusAttack += bonus.attributeValue;
+                                break;
+                            case "defense":
+                                bonusDefense += bonus.attributeValue;
+                                break;
+                            case "mana":
+                                // Handle mana bonus if needed
+                                break;
+                                // Add cases for other attribute names if necessary
+                        }
                     }
                 }
             }
-            playerCtrl.DamageReceiver.SetHpMax(hpMax);
-            playerCtrl.DamageReceiver.SetDefense(defense);
+          
+           
         }
-    }
+
+        }
     //Xử lý cho Data
     public Item GetItemByIndex(int index)
     {
