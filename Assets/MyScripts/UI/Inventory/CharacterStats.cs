@@ -6,10 +6,9 @@ using TMPro;
 
 public class CharacterStats : RPGMonoBehaviour
 {
-    [Header("Inventory")]
+    [Header("Charater Stats")]
     [SerializeField] private SlotOptions[] customOptionsMenuConfig;
     public KeyCode UIToggleKey = KeyCode.C;
-    public bool dropItemGameObjects = true;
     public EquipSlot[] slots;
     public Transform mainContainerUI; //MainUI
     [HideInInspector] public Interactor containerInteractor;
