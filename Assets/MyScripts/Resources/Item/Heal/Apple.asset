@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  type: 3
+  type: 1
   itemName: Apple
   itemPerSlot: 99
-  icon: {fileID: 21300000, guid: 9f69b220176e6964fbd87f5f158d45e3, type: 3}
-  prefab: {fileID: 3782700542342047533, guid: 576e03c58ab4f524394acf5d0bab85ce, type: 3}
+  icon: {fileID: 21300000, guid: 61d77baf765415f49a5a71752d128eac, type: 3}
+  prefab: {fileID: 7734351087016662765, guid: 433856cd8b3f66145ba037a3877ea0c1, type: 3}
   isFood: 1
   itemInformation: "M\u1ED9t qu\u1EA3 t\xE1o t\u01B0\u01A1i\nH\u1ED3i ph\u1EE5c :
     20 HP"
   bonusAttributes:
   - attributeName: health
-    attributeValue: 200
+    attributeValue: 20

@@ -81,7 +81,17 @@ public class ItemManager : RPGMonoBehaviour
         if (slot.slotItem.isFood)
         {
             BonusAttribute heal = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
-            playerCtrl.DamageReceiver.Health(heal.attributeValue);
+            BonusAttribute mana = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
+            if(heal != null)
+            {
+                playerCtrl.DamageReceiver.Health(heal.attributeValue);
+            }
+            if(mana != null)
+            {
+                Debug.Log("Use Mana");
+            }
+
+            //Hồi mana
         }
 
         Debug.Log("You have consumed" + slot.slotItem.itemName);
@@ -189,7 +199,7 @@ public class ItemManager : RPGMonoBehaviour
                                 bonusDefense += bonus.attributeValue;
                                 break;
                             case "mana":
-                                // Handle mana bonus if needed
+                                manaBonus += bonus.attributeValue;
                                 break;
                                 // Add cases for other attribute names if necessary
                         }
