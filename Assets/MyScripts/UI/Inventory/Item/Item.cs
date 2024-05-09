@@ -12,11 +12,6 @@ public class Item : ScriptableObject
     public Sprite icon;
     public GameObject prefab;
     public bool isFood;
-    //public int healthBonus;
-    //public int restoreBonus;
-    //public int damageBonus;
-    //public int defendBonus;
-    //public int speedBonus;
     [TextArea]
     public string itemInformation;
     public List<BonusAttribute> bonusAttributes = new List<BonusAttribute>();

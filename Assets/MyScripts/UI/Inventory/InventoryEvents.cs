@@ -76,6 +76,10 @@ public class InventoryEvents : RPGMonoBehaviour
         itemContainer.itemInfoPanel.GetComponentInChildren<TextMeshProUGUI>().text = slot.slotItem.itemInformation;
         itemContainer.itemInfoPanel.SetActive(!itemContainer.itemInfoPanel.activeSelf);
     }
+    public void OnItemAssignToQuickItem(ItemSlot slot,Interactor interactor)
+    {
+        slot.AssignItem();
+    }
     //Tạo slot Option
     public void OnSlotButtonEventFinished(ItemSlot slot)
     {

@@ -126,6 +126,10 @@ public class ItemContainer : RPGMonoBehaviour
                     buttonTitle = "Thông tin";
                     onButtonClicked = inventoryEvents.OnItemInfoClicked;
                     break;
+                case SlotOptions.Assign:
+                    buttonTitle = "Gán";
+                    onButtonClicked = inventoryEvents.OnItemAssignToQuickItem;
+                    break;
                 case SlotOptions.Remove:
                     buttonTitle = "Xóa";
                     onButtonClicked = inventoryEvents.OnRemoveItemClicked;

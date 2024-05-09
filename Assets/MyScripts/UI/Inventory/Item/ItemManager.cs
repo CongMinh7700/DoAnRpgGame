@@ -33,13 +33,13 @@ public class ItemManager : RPGMonoBehaviour
 
     private void Update()
     {
-        Debug.LogWarning("IsEqquippedWeapon :" + isEquippedWeapon);
+        //Debug.LogWarning("IsEqquippedWeapon :" + isEquippedWeapon);
         //Debug.LogWarning("isEquippedArmor :" + isEquippedArmor);
         //Debug.LogWarning("isEquippedHelmet :" + isEquippedHelmet);
         //Debug.LogWarning("isEquippedGloves :" + isEquippedGloves);
-        Debug.LogWarning("HpBonus : " + hpMaxBonus);
+        //Debug.LogWarning("HpBonus : " + hpMaxBonus);
         //Debug.LogWarning("Defense :" + defense);
-        Debug.LogWarning("AttackBonus :" + bonusAttack);
+        //Debug.LogWarning("AttackBonus :" + bonusAttack);
         EquipWeapon();
     }
     protected override void Awake()

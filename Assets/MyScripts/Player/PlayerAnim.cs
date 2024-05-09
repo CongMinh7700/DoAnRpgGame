@@ -27,7 +27,7 @@ public class PlayerAnim : RPGMonoBehaviour
     {
         if (this.trailObject != null) return;
         this.trailObject = GameObject.Find("Trail");
-        Debug.Log(transform.name +"|LoadTrail|",gameObject);
+       // Debug.Log(transform.name +"|LoadTrail|",gameObject);
     }
     public virtual void IdlingAnimation(bool idling)
     {
@@ -59,6 +59,7 @@ public class PlayerAnim : RPGMonoBehaviour
     }
     public virtual void AttackAnimation(string attackString)
     {
+        if (attackString == "") return;
         animator.SetTrigger(attackString);
     }
 

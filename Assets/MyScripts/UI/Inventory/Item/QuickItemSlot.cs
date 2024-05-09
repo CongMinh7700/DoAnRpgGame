@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
-public class ItemSlot : RPGMonoBehaviour
+public class QuickItemSlot : MonoBehaviour
 {
-    [Header("Item Slot")]
     public Item slotItem;
     public int itemCount;
     public bool IsEmpty { get { return itemCount <= 0; } }
-    [HideInInspector] public Image iconImage;
-    private TextMeshProUGUI countText;
+    [SerializeField] public KeyCode key;
+    [Header("UI Elements")]
+    public Image iconImage;
+    public TextMeshProUGUI countText;
 
+    // Method to initialize the QuickItemSlot
     public virtual void Initialize()
     {
         this.iconImage = transform.Find("IconImage").GetComponent<Image>();
@@ -35,19 +38,42 @@ public class ItemSlot : RPGMonoBehaviour
             return false;
 
     }
-    //Remove and Drop
-    public void RemoveAndDrop(int amount, Vector3 dropPosition)
+    private void Update()
     {
-        for (int i = 0; i < amount; i++)
-        {
-            if (itemCount > 0)
-            {
-                //tha item ra ngoai cách olayer theo offset
-                itemCount--;
-            }
-        }
-        OnSlotModified();
+        UseItem();
     }
+    //Remove and Drop
+    public  virtual void UseItem()
+    {
+        if (Input.GetKeyDown(key))
+        {
+            ConsumeItem();
+            Debug.Log("KeyCode "+ key.ToString());
+        }
+    }
+    private void ConsumeItem()
+    {
+        if (slotItem == null) return;
+        if (slotItem.isFood)
+        {
+            BonusAttribute heal = slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
+            BonusAttribute mana = slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
+            if (heal != null)
+            {
+                // playerCtrl.DamageReceiver.Health(heal.attributeValue);
+                Debug.Log("Heal");
+            }
+            if (mana != null)
+            {
+                Debug.Log("Use Mana");
+            }
+
+            //Hồi mana
+        }
+        Debug.Log("You have consumed" + slotItem.itemName);
+        Remove(1);
+    }
+   
 
     public void Remove(int amount)
     {
@@ -59,10 +85,7 @@ public class ItemSlot : RPGMonoBehaviour
         itemCount = 0;
         OnSlotModified();
     }
-    public void ClearAndDrop(Vector3 dropPosition)
-    {
-        RemoveAndDrop(itemCount, dropPosition);
-    }
+   
     //Kiểm tra slot chứa vật phẩm đó có thể thêm vào nữa được không
     public bool IsAddable(Item item)
     {
@@ -108,28 +131,7 @@ public class ItemSlot : RPGMonoBehaviour
         OnSlotModified();
     }
 
-    public void AssignItem()
-    {
-
-        // Gọi phương thức gán item vào Quick Item Slot
-        if (!IsEmpty && slotItem.isFood)
-        {
-            // Lấy tham chiếu đến QuickItemSlot
-            QuickBar quickBar = FindObjectOfType<QuickBar>();
-            foreach (QuickItemSlot quickItemSlot in quickBar.slots)
-            {
-                if (Input.GetKey(quickItemSlot.key))
-                {
-                    if (quickItemSlot != null)
-                    {
-                        // Gọi phương thức AssignItemFromInventory và truyền vào ItemSlot hiện tại
-                        quickItemSlot.SetData(slotItem, itemCount);
-                        Clear();
-                    }
-                }
-            }
-        }
-
-    }
+  
 
 }
+

@@ -6,4 +6,5 @@ public enum SlotOptions
     RemoveAll = 3,
     ItemInfo = 4,
     TransferToInventory = 5,
+    Assign =6,
 }
