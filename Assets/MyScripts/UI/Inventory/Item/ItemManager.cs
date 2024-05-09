@@ -134,7 +134,7 @@ public class ItemManager : RPGMonoBehaviour
         UpdateStats();
         //EquipWeapon
 
-        Debug.Log("Equipping" + slotCharacter.slots[3].slotItem.itemName);
+        Debug.Log("Equipping" + weaponName);
     }
     public void EquipWeapon()
     {
@@ -201,7 +201,6 @@ public class ItemManager : RPGMonoBehaviour
                             case "mana":
                                 manaBonus += bonus.attributeValue;
                                 break;
-                                // Add cases for other attribute names if necessary
                         }
                     }
                 }

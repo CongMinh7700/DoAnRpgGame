@@ -48,6 +48,7 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerEnter(PointerEventData eventData)
     {
         hoveredSlot = mySlot;
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -62,12 +63,15 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
         hoveredSlot = null;
         dragOffset = Input.mousePosition - transform.position;
         isBeingDragged = true;
+   
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        mySlot.AssignItem();
         transform.position = Input.mousePosition - dragOffset;
         OnSlotDrag?.Invoke();
+  
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -84,5 +88,6 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private void OnDropToSlot()
     {
         Utils.TransferItem(mySlot, hoveredSlot);
+      
     }
 }

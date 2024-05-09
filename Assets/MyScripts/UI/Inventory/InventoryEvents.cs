@@ -47,6 +47,7 @@ public class InventoryEvents : RPGMonoBehaviour
     //Mở slotOption
     public void OpenSlotOptionMenu()
     {
+
         itemContainer.slotOptionMenu.SetActive(false);
         itemContainer.slotOptionMenu.transform.position = Input.mousePosition;
         StartCoroutine(Utils.TweenScaleIn(itemContainer.slotOptionMenu, 50, Vector3.one));
@@ -76,10 +77,6 @@ public class InventoryEvents : RPGMonoBehaviour
         itemContainer.itemInfoPanel.GetComponentInChildren<TextMeshProUGUI>().text = slot.slotItem.itemInformation;
         itemContainer.itemInfoPanel.SetActive(!itemContainer.itemInfoPanel.activeSelf);
     }
-    public void OnItemAssignToQuickItem(ItemSlot slot,Interactor interactor)
-    {
-        slot.AssignItem();
-    }
     //Tạo slot Option
     public void OnSlotButtonEventFinished(ItemSlot slot)
     {
@@ -99,6 +96,18 @@ public class InventoryEvents : RPGMonoBehaviour
         Debug.Log("Length : " + itemContainer.slots.Length);
         for (int i = 0; i < itemContainer.slots.Length; i++) if (itemContainer.slots[i].Add(item)) return true;
         return false;
+    }
+    public void AddAll(Item item,int count)
+    {
+        for (int i = 0; i < itemContainer.slots.Length; i++)
+        {
+            if (itemContainer.slots[i].IsAddable(item))
+            {
+                itemContainer.slots[i].SetData(item, count);
+                break;
+            }
+        
+        }
     }
 
     //Khong dung

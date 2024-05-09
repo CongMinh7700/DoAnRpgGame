@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -68,7 +68,10 @@ public readonly struct Utils
             }
         }
     }
+   
 
+
+    //Đang sử dụng cho việc In Out
     public static IEnumerator TweenScaleIn(GameObject obj, float durationInFrames, Vector3 maxScale)
     {
         Transform tf = obj.transform;

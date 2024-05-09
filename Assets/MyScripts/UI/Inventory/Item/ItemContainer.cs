@@ -38,10 +38,10 @@ public class ItemContainer : RPGMonoBehaviour
     //Sinh slot <21
     protected void LoadInventoryEvents()
     {
-        if (this.inventoryEvents!= null) return;
+        if (this.inventoryEvents != null) return;
         this.inventoryEvents = GetComponent<InventoryEvents>();
     }
-   protected override void Awake()
+    protected override void Awake()
     {
         //loi awake
         isUIInitialized = false;
@@ -54,15 +54,17 @@ public class ItemContainer : RPGMonoBehaviour
     }
     protected virtual void Update()
     {
-       // Debug.Log(isUIInitialized);
+         Debug.Log(isContainerUIOpen);
         if (isUIInitialized == false) return;
         inventoryEvents.CheckForUIToggleInput();
-     //   useName = ItemManager.isEquipped ? "Tháo" : "Dùng";
+        if (isContainerUIOpen) Time.timeScale = 0;
+        else Time.timeScale = 1;
+        //   useName = ItemManager.isEquipped ? "Tháo" : "Dùng";
     }
     //Sinh ra 4 option 
     protected virtual void InitializeContainer()
     {
-        InitializeMainUI(transform);    
+        InitializeMainUI(transform);
         CreateSlotOptionsMenu(InteractionSettings.Current.internalSlotOptions, containerInteractor);
         isUIInitialized = true;
     }
@@ -77,7 +79,7 @@ public class ItemContainer : RPGMonoBehaviour
 
         slots = new ItemSlot[slotHolder.childCount];
 
-        for(int i=0;i< slots.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             ItemSlot slot = slotHolder.GetChild(i).GetComponent<ItemSlot>();
             slots[i] = slot;
@@ -104,46 +106,42 @@ public class ItemContainer : RPGMonoBehaviour
         GameObject buttonPrefab = InteractionSettings.Current.optionsMenuButtonPrefabs;
         slotOptionButtonInfosList = new List<SlotOptionButtonInfo>();
 
-        foreach(Transform child in slotOptionMenu.transform)
+        foreach (Transform child in slotOptionMenu.transform)
         {
             if (child.GetComponent<Button>()) Destroy(child.gameObject);
 
         }
-        foreach(SlotOptions option in config)
+
+        foreach (SlotOptions option in config)
         {
             Button button = Instantiate(buttonPrefab, slotOptionMenu.transform).GetComponent<Button>();
             string buttonTitle = option.ToString();
 
             Action<ItemSlot, Interactor> onButtonClicked = null;
-
-            switch (option)
-            {
-                case SlotOptions.Use:
-                    buttonTitle = "Dùng";
-                    onButtonClicked = inventoryEvents.OnUseItemClicked;
-                    break;
-                case SlotOptions.ItemInfo:
-                    buttonTitle = "Thông tin";
-                    onButtonClicked = inventoryEvents.OnItemInfoClicked;
-                    break;
-                case SlotOptions.Assign:
-                    buttonTitle = "Gán";
-                    onButtonClicked = inventoryEvents.OnItemAssignToQuickItem;
-                    break;
+                switch (option)
+                {
+                    case SlotOptions.Use:
+                        buttonTitle = "Dùng";
+                        onButtonClicked = inventoryEvents.OnUseItemClicked;
+                        break;
+                    case SlotOptions.ItemInfo:
+                        buttonTitle = "Thông tin";
+                        onButtonClicked = inventoryEvents.OnItemInfoClicked;
+                        break;
                 case SlotOptions.Remove:
-                    buttonTitle = "Xóa";
-                    onButtonClicked = inventoryEvents.OnRemoveItemClicked;
-                    break;
-                case SlotOptions.RemoveAll:
-                    buttonTitle = "Xóa Hết";
-                    onButtonClicked = inventoryEvents.OnBulkRemoveItemClicked;
-                    break;
-                case SlotOptions.TransferToInventory:
-                    buttonTitle = "Chuyển";
-                    onButtonClicked = inventoryEvents.OnTransferToInventoryClicked;
-                    break;
-                   
-            }
+                        buttonTitle = "Xóa";
+                        onButtonClicked = inventoryEvents.OnRemoveItemClicked;
+                        break;
+                    case SlotOptions.RemoveAll:
+                        buttonTitle = "Xóa Hết";
+                        onButtonClicked = inventoryEvents.OnBulkRemoveItemClicked;
+                        break;
+                    case SlotOptions.TransferToInventory:
+                        buttonTitle = "Chuyển";
+                        onButtonClicked = inventoryEvents.OnTransferToInventoryClicked;
+                        break;
+                }
+            
             button.GetComponentInChildren<TextMeshProUGUI>().text = buttonTitle;
             SlotOptionButtonInfo buttonInfo = new SlotOptionButtonInfo(button, onButtonClicked, inventoryEvents.OnSlotButtonEventFinished);
             slotOptionButtonInfosList.Add(buttonInfo);
@@ -151,13 +149,13 @@ public class ItemContainer : RPGMonoBehaviour
         inventoryEvents.CloseSlotOptionMenu();
     }
 
-    protected void OnSlotClicked(ItemSlot slot,Interactor interactor)
+    protected void OnSlotClicked(ItemSlot slot, Interactor interactor)
     {
         if (slot.IsEmpty) return;
 
         if (!slotOptionMenu.activeSelf)
         {
-            foreach(SlotOptionButtonInfo buttonInfo in slotOptionButtonInfosList)
+            foreach (SlotOptionButtonInfo buttonInfo in slotOptionButtonInfosList)
             {
                 buttonInfo.UpdateInfo(slot, interactor);
             }
@@ -168,6 +166,7 @@ public class ItemContainer : RPGMonoBehaviour
             inventoryEvents.CloseSlotOptionMenu();
         }
     }
+   
     private class SlotOptionButtonInfo
     {
         internal Button optionButton;
@@ -175,33 +174,33 @@ public class ItemContainer : RPGMonoBehaviour
         internal Action<ItemSlot> onButtonEventFinished;
 
 
-        internal SlotOptionButtonInfo(Button optionButton,Action<ItemSlot,Interactor> onButtonClicked,Action<ItemSlot> onButtonEventFinished)
+        internal SlotOptionButtonInfo(Button optionButton, Action<ItemSlot, Interactor> onButtonClicked, Action<ItemSlot> onButtonEventFinished)
         {
             this.optionButton = optionButton;
             this.onButtonClicked = onButtonClicked;
             this.onButtonEventFinished = onButtonEventFinished;
         }
 
-        internal void UpdateInfo(ItemSlot slot,Interactor interactor)
+        internal void UpdateInfo(ItemSlot slot, Interactor interactor)
         {
             optionButton.onClick.RemoveAllListeners();
-            
 
-                //if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" && !slot.slotItem.isFood) // Identify the Use button
-                //{
-                //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
 
-                //}
-                //else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo" && !slot.slotItem.isFood) // Identify the Use button
-                //{
-                //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
+            //if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" && !slot.slotItem.isFood) // Identify the Use button
+            //{
+            //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
 
-                //}else if (slot.slotItem.isFood )
-                //{
-                // if(optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" || optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo")
-                //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = "Dùng";
+            //}
+            //else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo" && !slot.slotItem.isFood) // Identify the Use button
+            //{
+            //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
 
-                //}
+            //}else if (slot.slotItem.isFood )
+            //{
+            // if(optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" || optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo")
+            //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = "Dùng";
+
+            //}
 
             optionButton.onClick.AddListener(
                 delegate

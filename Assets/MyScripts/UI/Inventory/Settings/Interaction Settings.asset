@@ -19,7 +19,7 @@ MonoBehaviour:
   autoCloseExternalContainer: 1
   forceAddRequiredComponents: 1
   optionsMenuButtonPrefabs: {fileID: 4414401538635583805, guid: d8f900fd550ad484cb9735f43699ea81, type: 3}
-  internalSlotOptions: 0100000004000000060000000200000003000000
+  internalSlotOptions: 01000000040000000200000003000000
   externalSlotOptions: 04000000050000000200000003000000
   transferSingleItem: 324
   transferHalfStack: 304

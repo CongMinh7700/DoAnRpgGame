@@ -20,6 +20,10 @@ public class ItemSlot : RPGMonoBehaviour
         iconImage.gameObject.SetActive(true);
         countText.text = string.Empty;
     }
+    private void Update()
+    {
+        //AssignItem();
+    }
     //Add Item
     public virtual bool Add(Item item)
     {
@@ -108,25 +112,31 @@ public class ItemSlot : RPGMonoBehaviour
         OnSlotModified();
     }
 
-    public void AssignItem()
+    public  void AssignItem()
     {
 
         // Gọi phương thức gán item vào Quick Item Slot
-        if (!IsEmpty && slotItem.isFood)
-        {
+      
             // Lấy tham chiếu đến QuickItemSlot
             QuickBar quickBar = FindObjectOfType<QuickBar>();
             foreach (QuickItemSlot quickItemSlot in quickBar.slots)
             {
                 if (Input.GetKey(quickItemSlot.key))
                 {
+                if (!IsEmpty && slotItem.isFood)
+                {
                     if (quickItemSlot != null)
                     {
                         // Gọi phương thức AssignItemFromInventory và truyền vào ItemSlot hiện tại
+                        quickItemSlot.BackToInventory();
                         quickItemSlot.SetData(slotItem, itemCount);
+               
                         Clear();
+                        break;
                     }
+                   
                 }
+       
             }
         }
 

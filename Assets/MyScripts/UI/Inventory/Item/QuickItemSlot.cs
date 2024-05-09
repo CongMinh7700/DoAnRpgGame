@@ -5,133 +5,82 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-public class QuickItemSlot : MonoBehaviour
+public class QuickItemSlot : ItemSlot
 {
-    public Item slotItem;
-    public int itemCount;
-    public bool IsEmpty { get { return itemCount <= 0; } }
     [SerializeField] public KeyCode key;
-    [Header("UI Elements")]
-    public Image iconImage;
-    public TextMeshProUGUI countText;
+    public ItemContainer inventory;
+    [SerializeField] protected float useTimes = 0.5f;
+    [SerializeField] protected float useDelay = 2f;
+    [SerializeField] protected bool isUse ;
 
-    // Method to initialize the QuickItemSlot
-    public virtual void Initialize()
-    {
-        this.iconImage = transform.Find("IconImage").GetComponent<Image>();
-        this.countText = GetComponentInChildren<TextMeshProUGUI>();
-        iconImage.gameObject.SetActive(true);
-        countText.text = string.Empty;
-    }
-    //Add Item
-    public virtual bool Add(Item item)
-    {
-        if (IsAddable(item))
-        {
-            slotItem = item;
-            itemCount++;
-            OnSlotModified();
-            return true;
-
-        }
-        else
-            return false;
-
-    }
+    public Image fillImage;
     private void Update()
     {
         UseItem();
     }
-    //Remove and Drop
     public  virtual void UseItem()
     {
-        if (Input.GetKeyDown(key))
+        if (Input.GetKeyDown(key) && Time.timeScale == 1 && useDelay <= 0)
         {
+           
             ConsumeItem();
-            Debug.Log("KeyCode "+ key.ToString());
         }
+        this.CoolDown();
     }
     private void ConsumeItem()
     {
         if (slotItem == null) return;
-        if (slotItem.isFood)
+        if (slotItem.isFood )
         {
             BonusAttribute heal = slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
             BonusAttribute mana = slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
             if (heal != null)
             {
-                // playerCtrl.DamageReceiver.Health(heal.attributeValue);
+                //playerCtrl.DamageReceiver.Health(heal.attributeValue);
                 Debug.Log("Heal");
             }
             if (mana != null)
             {
                 Debug.Log("Use Mana");
             }
-
-            //Hồi mana
+            isUse = true;
+            this.useDelay = 2f;
         }
         Debug.Log("You have consumed" + slotItem.itemName);
         Remove(1);
     }
-   
+    protected virtual void CoolDown()
+    {
+         useDelay-= Time.deltaTime;
 
-    public void Remove(int amount)
-    {
-        itemCount -= amount > itemCount ? itemCount : amount;
-        OnSlotModified();
-    }
-    public void Clear()
-    {
-        itemCount = 0;
-        OnSlotModified();
-    }
-   
-    //Kiểm tra slot chứa vật phẩm đó có thể thêm vào nữa được không
-    public bool IsAddable(Item item)
-    {
-        if (item != null)
+        if (useDelay <= 0)
         {
-            if (IsEmpty) return true;
-            else
+            fillImage.fillAmount = 0f;
+            useDelay = 0f;
+            useTimes = 0.5f;
+        }
+        if (isUse == true)
+        {
+            this.useTimes -= Time.deltaTime;
+            if (useTimes <= 0)
             {
-                if (item == slotItem && itemCount < item.itemPerSlot) return true;
-                else return false;
+                isUse = false;
+
             }
         }
-        return false;
+        this.fillImage.fillAmount = this.useDelay / 2f;
     }
-    //Thiết lập itemCount , UI
-    private void OnSlotModified()
+    public virtual void BackToInventory()
     {
-        if (!IsEmpty)
+        if (!IsEmpty && slotItem != null)
         {
-            iconImage.sprite = slotItem.icon;
-            iconImage.color = Color.white;
-            countText.text = itemCount.ToString();
-            iconImage.gameObject.SetActive(true);
-        }
-        else
-        {
-            itemCount = 0;
-            slotItem = null;
-            iconImage.sprite = null;
-            if (countText != null)
+            if (slotItem.isFood)
             {
-                countText.text = string.Empty;
+                inventory.inventoryEvents.AddAll(slotItem,itemCount);
+                Clear();
             }
-
-            iconImage.gameObject.SetActive(false);
+           
         }
     }
-    //Thiết lập data, UI cho slot
-    public void SetData(Item item, int count)
-    {
-        slotItem = item;
-        itemCount = count;
-        OnSlotModified();
-    }
-
-  
-
 }
 

@@ -44,10 +44,4 @@ public class QuickBar : RPGMonoBehaviour
             slotButton.onClick.RemoveAllListeners();
         }
     }
-   
-    public bool AddItem(Item item)
-    {
-        for (int i = 0; i <= slots.Length; i++) if (slots[i].Add(item)) return true;
-        return false;
-    }
 }
