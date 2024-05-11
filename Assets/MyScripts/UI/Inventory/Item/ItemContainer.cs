@@ -54,7 +54,7 @@ public class ItemContainer : RPGMonoBehaviour
     }
     protected virtual void Update()
     {
-         Debug.Log(isContainerUIOpen);
+         //Debug.Log(isContainerUIOpen);
         if (isUIInitialized == false) return;
         inventoryEvents.CheckForUIToggleInput();
         if (isContainerUIOpen) Time.timeScale = 0;

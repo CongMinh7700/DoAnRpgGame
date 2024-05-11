@@ -9,7 +9,7 @@ public class SkillUI : RPGMonoBehaviour
     [Header("Charater Stats")]
     [SerializeField] private SlotOptions[] customOptionsMenuConfig;
     public KeyCode UIToggleKey = KeyCode.C;
-    public EquipSlot[] slots;
+    public SkillSlot[] slots;
     public Transform mainContainerUI; //MainUI
     [HideInInspector] public Interactor containerInteractor;
     [HideInInspector] public bool isContainerUIOpen = false;
@@ -21,7 +21,7 @@ public class SkillUI : RPGMonoBehaviour
         //loi awake
         isUIInitialized = false;
         InitializeContainer();
-        foreach (EquipSlot slot in slots)
+        foreach (SkillSlot slot in slots)
         {
             slot.Initialize();
         }
@@ -46,11 +46,11 @@ public class SkillUI : RPGMonoBehaviour
 
         Transform slotHolder = mainContainerUI.Find("SlotHolder");
 
-        slots = new EquipSlot[slotHolder.childCount];
+        slots = new SkillSlot[slotHolder.childCount];
 
         for (int i = 0; i < slots.Length; i++)
         {
-            EquipSlot slot = slotHolder.GetChild(i).GetComponent<EquipSlot>();
+            SkillSlot slot = slotHolder.GetChild(i).GetComponent<SkillSlot>();
             slots[i] = slot;
             Button slotButton = slot.GetComponent<Button>();
             slotButton.onClick.RemoveAllListeners();

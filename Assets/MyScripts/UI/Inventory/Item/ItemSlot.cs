@@ -18,6 +18,7 @@ public class ItemSlot : RPGMonoBehaviour
         this.iconImage = transform.Find("IconImage").GetComponent<Image>();
         this.countText = GetComponentInChildren<TextMeshProUGUI>();
         iconImage.gameObject.SetActive(true);
+        if (this.countText == null) return;
         countText.text = string.Empty;
     }
     private void Update()
@@ -88,8 +89,9 @@ public class ItemSlot : RPGMonoBehaviour
         {
             iconImage.sprite = slotItem.icon;
             iconImage.color = Color.white;
-            countText.text = itemCount.ToString();
             iconImage.gameObject.SetActive(true);
+            if (this.countText == null) return;
+            countText.text = itemCount.ToString();
         }
         else
         {
@@ -115,11 +117,8 @@ public class ItemSlot : RPGMonoBehaviour
     public  void AssignItem()
     {
 
-        // Gọi phương thức gán item vào Quick Item Slot
-      
-            // Lấy tham chiếu đến QuickItemSlot
             QuickBar quickBar = FindObjectOfType<QuickBar>();
-            foreach (QuickItemSlot quickItemSlot in quickBar.slots)
+            foreach (QuickItemSlot quickItemSlot in quickBar.itemSlots)
             {
                 if (Input.GetKey(quickItemSlot.key))
                 {
@@ -127,19 +126,44 @@ public class ItemSlot : RPGMonoBehaviour
                 {
                     if (quickItemSlot != null)
                     {
-                        // Gọi phương thức AssignItemFromInventory và truyền vào ItemSlot hiện tại
                         quickItemSlot.BackToInventory();
-                        quickItemSlot.SetData(slotItem, itemCount);
+                        quickItemSlot.SetData(slotItem, 1);
                
                         Clear();
                         break;
                     }
                    
                 }
+
        
             }
         }
 
     }
 
+
+    public void AssignSkill()
+    {
+
+        QuickBar quickBar = FindObjectOfType<QuickBar>();
+        foreach (QuickSkillSlot quickSkillSlot in quickBar.skillSlots)
+        {
+            if (Input.GetKey(quickSkillSlot.key))
+            {
+                if (!IsEmpty && slotItem.type == ItemType.Skill)
+                {
+                    if (quickSkillSlot != null)
+                    {
+                       // quickSkillSlot.BackToInventory();
+                        quickSkillSlot.SetData(slotItem, itemCount);
+                        break;
+                    }
+
+                }
+
+
+            }
+        }
+
+    }
 }

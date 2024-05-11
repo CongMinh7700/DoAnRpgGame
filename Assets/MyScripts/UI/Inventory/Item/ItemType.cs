@@ -6,6 +6,7 @@ public enum ItemType
     Weapon = 2,
     Helmet = 3,
     Armor = 4,
-    Gloves = 5
+    Gloves = 5,
+    Skill = 6
 
 }

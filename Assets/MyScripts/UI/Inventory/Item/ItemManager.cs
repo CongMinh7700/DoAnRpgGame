@@ -25,6 +25,7 @@ public class ItemManager : RPGMonoBehaviour
     public PlayerCtrl playerCtrl;
     [SerializeField] protected CharacterStats slotCharacter;
     [SerializeField] protected ItemContainer inventory;
+    [SerializeField] protected SkillUI skillUI;
 
     public List<Item> itemList = new List<Item>();
     public List<GameObject> weapons = new List<GameObject>();
@@ -72,6 +73,9 @@ public class ItemManager : RPGMonoBehaviour
             case ItemType.Weapon:
                 EquipItem(slot);
                 break;
+            case ItemType.Skill:
+                UsingSkill(slot);
+                break;
         }
     }
 
@@ -97,7 +101,29 @@ public class ItemManager : RPGMonoBehaviour
         Debug.Log("You have consumed" + slot.slotItem.itemName);
         slot.Remove(1);
     }
+    private void UsingSkill(ItemSlot slot)
+    {
 
+        if(slot.slotItem.type == ItemType.Skill)
+        {
+            string name = slot.slotItem.itemName;
+            int slotIndex = -1;
+            switch (name)
+            {
+                case "FireBall":
+                    slotIndex = 0;
+                    break;
+                case "Heal":
+                    slotIndex = 1;
+                    break;
+            }
+            skillUI.slots[slotIndex].Add(slot.slotItem);
+            Debug.Log("Learn Skill " + slot.slotItem.itemName);
+            //skillUI.slots[]
+            slot.Remove(1);
+        }
+      
+    }
     private void EquipItem(ItemSlot slot)
     {
         ItemType type = slot.slotItem.type;

@@ -7,9 +7,9 @@ using TMPro;
 public class QuickBar : RPGMonoBehaviour
 {
     [Header("Charater Stats")]
-    public QuickItemSlot[] slots;
+    public QuickItemSlot[] itemSlots;
+    public QuickSkillSlot[] skillSlots;
     // public KeyCode[] key;
-    public Item slotItem;
     public Transform mainContainerUI; //MainUI
     [HideInInspector] public Interactor containerInteractor;
     protected Transform containerPanel; //character Stats
@@ -19,7 +19,11 @@ public class QuickBar : RPGMonoBehaviour
         //loi awake
         isUIInitialized = false;
         InitializeContainer();
-        foreach (QuickItemSlot slot in slots)
+        foreach (QuickItemSlot slot in itemSlots)
+        {
+            slot.Initialize();
+        }
+        foreach (QuickSkillSlot slot in skillSlots)
         {
             slot.Initialize();
         }
@@ -33,15 +37,36 @@ public class QuickBar : RPGMonoBehaviour
     {
         this.containerPanel = containerPanel;
         mainContainerUI = this.containerPanel.Find("MainUI");
+        AddQuickItemSlots();
+        AddQuickSkilSlots();
+       
+    }
+    private void AddQuickItemSlots()
+    {
         Transform quickItemSlot = mainContainerUI.Find("SlotHolder").Find("QuickItemSlot");
-        slots = new QuickItemSlot[quickItemSlot.childCount];
+        itemSlots = new QuickItemSlot[quickItemSlot.childCount];
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
             QuickItemSlot slot = quickItemSlot.GetChild(i).GetComponent<QuickItemSlot>();
-            slots[i] = slot;
+            itemSlots[i] = slot;
+            Button slotButton = slot.GetComponent<Button>();
+            slotButton.onClick.RemoveAllListeners();
+        }
+    }
+    private void AddQuickSkilSlots()
+    {
+        Transform quickSkillSLot = mainContainerUI.Find("SlotHolder").Find("SkillSlot");
+        skillSlots = new QuickSkillSlot[quickSkillSLot.childCount];
+
+        for (int i = 0; i < skillSlots.Length; i++)
+        {
+            QuickSkillSlot slot = quickSkillSLot.GetChild(i).GetComponent<QuickSkillSlot>();
+            skillSlots[i] = slot;
             Button slotButton = slot.GetComponent<Button>();
             slotButton.onClick.RemoveAllListeners();
         }
     }
 }
+
+
