@@ -10,6 +10,8 @@ public class QuickSkillSlot : ItemSlot
     [SerializeField] protected float useTimes = 0.5f;
     [SerializeField] protected float useDelay = 2f;
     [SerializeField] protected bool isUse;
+    [SerializeField] protected GameObject fireBall;
+    [SerializeField] protected QuickBar quickBar;
 
     public Image fillImage;
     private void Update()
@@ -35,6 +37,10 @@ public class QuickSkillSlot : ItemSlot
             this.useDelay = 2f;
         }
       
+    }
+    private void FireBall()
+    {
+       // Instantiate(fireBall,)
     }
     protected virtual void CoolDown()
     {

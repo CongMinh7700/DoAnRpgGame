@@ -7,6 +7,7 @@ public class PlayerCtrl : HitableObjectCtrl
     [Header("PlayerSO")]
     public PlayerSO playerSO;
     public Interactor interactor;
+    public Transform spawnPoint;
     protected override void LoadComponents()
     {
         base.LoadComponents();

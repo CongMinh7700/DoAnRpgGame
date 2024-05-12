@@ -14,6 +14,7 @@ public class QuickBar : RPGMonoBehaviour
     [HideInInspector] public Interactor containerInteractor;
     protected Transform containerPanel; //character Stats
     protected bool isUIInitialized;
+    public PlayerCtrl playerCtrl;
     protected override void Awake()
     {
         //loi awake
