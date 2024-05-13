@@ -15,6 +15,7 @@ public class QuickBar : RPGMonoBehaviour
     protected Transform containerPanel; //character Stats
     protected bool isUIInitialized;
     public PlayerCtrl playerCtrl;
+    //PlayerInfo
     protected override void Awake()
     {
         //loi awake
@@ -67,6 +68,10 @@ public class QuickBar : RPGMonoBehaviour
             Button slotButton = slot.GetComponent<Button>();
             slotButton.onClick.RemoveAllListeners();
         }
+    }
+    private void Update()
+    {
+        
     }
 }
 

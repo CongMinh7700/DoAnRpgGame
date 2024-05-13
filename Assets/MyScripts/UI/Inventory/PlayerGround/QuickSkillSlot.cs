@@ -1,71 +1,111 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.UI;
+    using System.Linq;
 
-public class QuickSkillSlot : ItemSlot
-{
-    [SerializeField] public KeyCode key;
-    [SerializeField] protected float useTimes = 0.5f;
-    [SerializeField] protected float useDelay = 2f;
-    [SerializeField] protected bool isUse;
-    [SerializeField] protected GameObject fireBall;
-    [SerializeField] protected QuickBar quickBar;
+    public class QuickSkillSlot : ItemSlot
+    {
+        [SerializeField] public KeyCode key;
+        [SerializeField] protected float useTimes = 0.5f;
+        [SerializeField] protected float useDelay = 2f;
+        public static bool isUsingFireBall;
+        public static bool canUsingHeal;
+        [SerializeField] protected QuickBar quickBar;
 
-    public Image fillImage;
-    private void Update()
-    {
-        UseItem();
-    }
-    public virtual void UseItem()
-    {
-        if (Input.GetKeyDown(key) && Time.timeScale == 1 && useDelay <= 0)
+        public Image fillImage;
+    
+        private void Update()
         {
-
-            UsingSkill();
+            if (slotItem == null) return;
+            UseItem();
         }
-        this.CoolDown();
-    }
-    private void UsingSkill()
-    {
-        if (slotItem == null) return;
-        if (slotItem.type == ItemType.Skill)
+        public virtual void UseItem()
         {
-            Debug.Log("Using Skill");
-            isUse = true;
-            this.useDelay = 2f;
-        }
-      
-    }
-    private void FireBall()
-    {
-       // Instantiate(fireBall,)
-    }
-    protected virtual void CoolDown()
-    {
-        useDelay -= Time.deltaTime;
-
-        if (useDelay <= 0)
-        {
-            fillImage.fillAmount = 0f;
-            useDelay = 0f;
-            useTimes = 0.5f;
-        }
-        if (isUse == true)
-        {
-            this.useTimes -= Time.deltaTime;
-            if (useTimes <= 0)
+            if(slotItem.itemName == "FireBall")
             {
-                isUse = false;
+                if (Input.GetKeyDown(key) && Time.timeScale == 1 && useDelay <= 0)
+                {
 
+                    UsingFireBall();
+
+                }
+                this.FireBallCoolDown();
+            }
+            if(slotItem.itemName == "Heal")
+            {
+                if (Input.GetKeyDown(key) && Time.timeScale == 1 && useDelay <= 0)
+                {
+                    UsingHeal();
+                
+                }
+                HealCoolDown();
             }
         }
-        this.fillImage.fillAmount = this.useDelay / 2f;
+        private void UsingFireBall()
+        {
+            if (slotItem == null) return;
+            if (slotItem.type == ItemType.Skill)
+            {
+                isUsingFireBall = true;
+                this.useDelay = 2f;
+            }
+      
+        }
+        private void UsingHeal()
+        {
+            if (slotItem == null) return;
+            if (slotItem.type == ItemType.Skill && slotItem.itemName == "Heal")
+            {
+                canUsingHeal = true;
+                this.useDelay = 2f;
+            }
+        }
+        protected virtual void FireBallCoolDown()
+        {
+            useDelay -= Time.deltaTime;
+            if (useDelay <= 0)
+            {
+                fillImage.fillAmount = 0f;
+                useDelay = 0f;
+                useTimes = 0.5f;
+            }
+            if (isUsingFireBall == true)
+            {
+                this.useTimes -= Time.deltaTime;
+                if (useTimes <= 0)
+                {
+                    isUsingFireBall = false;
+
+                }
+            }
+            this.fillImage.fillAmount = this.useDelay / 2f;
+        }
+        protected virtual void HealCoolDown()
+        {
+            useDelay -= Time.deltaTime;
+            if (useDelay <= 0)
+            {
+                fillImage.fillAmount = 0f;
+                useDelay = 0f;
+                useTimes = 0.5f;
+            }
+            if (canUsingHeal == true)
+            {
+                this.useTimes -= Time.deltaTime;
+                if (useTimes <= 0)
+                {
+                    canUsingHeal = false;
+
+                }
+            }
+            this.fillImage.fillAmount = this.useDelay / 2f;
+
+        }
+        public virtual void BackToInventory()
+        {
+            if (!IsEmpty && slotItem != null)
+                Clear();
+        }
+    
     }
-    public virtual void BackToInventory()
-    {
-        if (!IsEmpty && slotItem != null)
-            Clear();
-    }
-}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillDamageSender : DamageSender
 {
-    [SerializeField] protected SkillCtrl skillCtrl;
+    [SerializeField] protected AttackSkillCtrl skillCtrl;
 
     protected override void LoadComponents()
     {
@@ -14,7 +14,7 @@ public class SkillDamageSender : DamageSender
     protected virtual void LoadSkillCtrl()
     {
         if (this.skillCtrl != null) return;
-        this.skillCtrl = GetComponentInParent<SkillCtrl>();
+        this.skillCtrl = GetComponentInParent<AttackSkillCtrl>();
     }
 
     public override void Send(DamageReceiver damageReceiver)

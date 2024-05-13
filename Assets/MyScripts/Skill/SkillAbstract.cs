@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class SkillAbstract : RPGMonoBehaviour
 {
-    [SerializeField] protected SkillCtrl skillCtrl;
+    [SerializeField] protected AttackSkillCtrl skillCtrl;
 
     protected override void LoadComponents()
     {
@@ -13,7 +13,7 @@ public abstract class SkillAbstract : RPGMonoBehaviour
     protected virtual void LoadSkillCtrl()
     {
         if (this.skillCtrl != null) return;
-        this.skillCtrl = GetComponentInParent<SkillCtrl>();
+        this.skillCtrl = GetComponentInParent<AttackSkillCtrl>();
 
     }
 }

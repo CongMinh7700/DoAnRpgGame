@@ -7,7 +7,7 @@ public class SkillSpawner : Spawner
     [SerializeField] protected static SkillSpawner instance;
     public static SkillSpawner Instance => instance;
 
-    public string fireBall = "FireBall";
+    public static string fireBall = "FireBall";
 
 
     protected override void Awake()
