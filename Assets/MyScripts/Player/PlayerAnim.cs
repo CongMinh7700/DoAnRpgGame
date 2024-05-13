@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerAnim : RPGMonoBehaviour
 {
     protected Animator animator;
-    public Animator Animator => Animator;
+    public Animator Animator => animator;
 
     private GameObject trailObject;
     private WaitForSeconds trailOffTime = new WaitForSeconds(0.1f);
-   
-
+    public  bool isAttacking ;
     protected override void LoadComponents()
     {
         this.LoadAnimator();
@@ -61,6 +60,7 @@ public class PlayerAnim : RPGMonoBehaviour
     {
         if (attackString == "") return;
         animator.SetTrigger(attackString);
+        isAttacking = true;
     }
 
     public void TrailOn()
@@ -78,5 +78,17 @@ public class PlayerAnim : RPGMonoBehaviour
         yield return trailOffTime;
         trailObject = GameObject.Find("Trail");
         trailObject.GetComponent<Renderer>().enabled = false;
+    }
+    public bool IsPlayingAttackAnimation()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.1f)
+        {
+            return true;
+        }
+        else
+        {
+            isAttacking = false;
+            return false;
+        }
     }
 }

@@ -10,6 +10,7 @@ public class PlayerCtrl : HitableObjectCtrl
     public Transform spawnPoint;
     public PlayerAttack playerAttack;
     public UsingSkill usingSkill;
+    public PlayerAnim playerAnim;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -17,6 +18,7 @@ public class PlayerCtrl : HitableObjectCtrl
         this.LoadInteractor();
         this.LoadPlayerAttack();
         this.LoadUsingSkill();
+        this.LoadPlayerAnim();
     }
     protected virtual void LoadPlayerSO()
     {
@@ -40,6 +42,11 @@ public class PlayerCtrl : HitableObjectCtrl
         if (this.usingSkill != null) return;
         this.usingSkill = GetComponentInChildren<UsingSkill>();
 
+    }
+    protected virtual void LoadPlayerAnim()
+    {
+        if (this.playerAnim != null) return;
+        this.playerAnim = GetComponent<PlayerAnim>();
     }
     protected override string GetObjectTypeString()
     {

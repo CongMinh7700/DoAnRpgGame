@@ -5,10 +5,10 @@ using UnityEngine;
 public  class UsingSkill : RPGMonoBehaviour
 {
     [SerializeField] protected int manaMax;
-    [SerializeField] protected int currentMana;
+    [SerializeField] protected float currentMana;
     [SerializeField] protected PlayerCtrl playerCtrl;
     public int ManaMax => manaMax;
-    public int CurrentMana => currentMana;
+    public float CurrentMana => currentMana;
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();
@@ -18,6 +18,9 @@ public  class UsingSkill : RPGMonoBehaviour
     {
         if (this.playerCtrl != null) return;
         this.playerCtrl = GetComponentInParent<PlayerCtrl>();
+        this.manaMax = playerCtrl.playerSO.mana;
+        this.currentMana = manaMax;
+        
     }
     protected virtual void FixedUpdate()
     {
@@ -32,8 +35,8 @@ public  class UsingSkill : RPGMonoBehaviour
             this.Heal();
             QuickSkillSlot.canUsingHeal = false;
         }
-        
-   
+
+        ManaRecover();
     }
    public virtual void FireBall()
     {
@@ -47,6 +50,7 @@ public  class UsingSkill : RPGMonoBehaviour
         newFireBall.gameObject.SetActive(true);
         AttackSkillCtrl skillCtrl = newFireBall.GetComponent<AttackSkillCtrl>();
         skillCtrl.SetShooter(transform);
+        ManaDeduct(20);
     } 
     public virtual void Heal()
     {
@@ -58,10 +62,11 @@ public  class UsingSkill : RPGMonoBehaviour
         newHeal.gameObject.SetActive(true);
         EffectSkillCtrl skillCtrl = newHeal.GetComponent<EffectSkillCtrl>();
         skillCtrl.SetPositionEF(transform);
+        ManaDeduct(50);
     }
-    public virtual void ManaRecover(int value)
+    public virtual void ManaRecover()
     {
-        this.currentMana += value;
+        this.currentMana += 0.1f;
         if (this.currentMana > manaMax) currentMana = manaMax;
     }
     public virtual void ManaDeduct(int value)

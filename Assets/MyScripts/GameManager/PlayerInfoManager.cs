@@ -9,6 +9,8 @@ public class PlayerInfoManager : RPGMonoBehaviour
 {
     [SerializeField] protected static PlayerInfoManager instance;
     public static PlayerInfoManager Instance => instance;
+    [SerializeField] protected PlayerCtrl playerCtrl;
+    [Header("Components")]
     [SerializeField] protected TextMeshProUGUI playerName;
     [SerializeField] protected Image healthBar;
     [SerializeField] protected TextMeshProUGUI healText;
@@ -16,9 +18,13 @@ public class PlayerInfoManager : RPGMonoBehaviour
     [SerializeField] protected TextMeshProUGUI staminaText;
     [SerializeField] protected Image manaBar;
     [SerializeField] protected TextMeshProUGUI manaText;
-    [SerializeField] protected PlayerCtrl playerCtrl;
+    [Header("Attributes")]
     [SerializeField] protected int maxHp;
     [SerializeField] protected int currenHp;
+    [SerializeField] protected int maxStamina;
+    [SerializeField] protected float currentStamina;
+    [SerializeField] protected int maxMana;
+    [SerializeField] protected float currentMana;
 
     protected override void LoadComponents()
     {
@@ -30,15 +36,14 @@ public class PlayerInfoManager : RPGMonoBehaviour
         if (this.playerCtrl != null) return;
         this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
     }
-    //private void Start()
-    //{
-
-    //    //SetUI(currenHp,maxHp);
-    //}
     private void Update()
     {
         this.maxHp = playerCtrl.DamageReceiver.HPMax;
         this.currenHp = playerCtrl.DamageReceiver.HP;
+        this.maxStamina = playerCtrl.playerAttack.StaminaMax;
+        this.currentStamina = playerCtrl.playerAttack.CurrentStamina;
+        this.maxMana = playerCtrl.usingSkill.ManaMax;
+        this.currentMana = playerCtrl.usingSkill.CurrentMana;
         SetUI();
 
 
@@ -47,7 +52,11 @@ public class PlayerInfoManager : RPGMonoBehaviour
     {
         this.healthBar.fillAmount = (float)currenHp /maxHp ;
         this.healText.text = currenHp.ToString() + "/" + maxHp.ToString();
-        //this.staminaBar.fillAmount = playerCtrl.playerSO.stamina;
 
+        this.staminaBar.fillAmount = (float)currentStamina / maxStamina;
+        this.staminaText.text = currentStamina.ToString() + "/" + maxStamina.ToString();
+
+        this.manaBar.fillAmount = (float)currentMana / maxMana;
+        this.manaText.text = currentMana.ToString() + "/" +maxMana.ToString();
     }
 }
