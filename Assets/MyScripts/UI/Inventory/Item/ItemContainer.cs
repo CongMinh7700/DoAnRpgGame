@@ -8,6 +8,9 @@ using TMPro;
 //Inventory
 public class ItemContainer : RPGMonoBehaviour
 {
+    [Header("Singleton")]
+    protected static ItemContainer instance;
+    public static ItemContainer Instance => instance;
     [Header("Inventory")]
     [SerializeField] private SlotOptions[] customOptionsMenuConfig;
     public KeyCode UIToggleKey = KeyCode.I;

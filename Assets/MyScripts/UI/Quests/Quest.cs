@@ -1,13 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Quest 
+using System.Linq;
+public class Quest :MonoBehaviour
 {
-    public bool isActive;
-
-    public string title;
-    public string descriptions;
+    public List<Goal> goals = new List<Goal>();
+    public string questName;
+    public string description;
     public int experienceReward;
-    public int goldReward;
+    public Item itemReward;
+    public bool completed;
+
+    public void CheckGoal()
+    {
+        completed = goals.All(g => g.completed);
+        if (completed) GiveReward();
+    }
+    public void GiveReward()
+    {
+        if (itemReward != null)
+            ItemContainer.Instance.inventoryEvents.AddItem(itemReward);
+        //gold,experience
+    }
+    
 }
