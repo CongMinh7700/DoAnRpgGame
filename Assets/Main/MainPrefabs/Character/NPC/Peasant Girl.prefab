@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4738478015022093922}
+  messageBox: {fileID: 0}
+  shopNumber: 2
 --- !u!1 &35770480075058772
 GameObject:
   m_ObjectHideFlags: 0
