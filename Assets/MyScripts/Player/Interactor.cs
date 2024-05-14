@@ -5,7 +5,6 @@ using UnityEngine;
 //Xử lý nhặt đồ
 public class Interactor : RPGMonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
 
     public ItemContainer inventory;
     public Vector3 ItemDropPosition { get { return transform.position + transform.forward; } }
