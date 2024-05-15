@@ -127,7 +127,7 @@ public class ItemSlot : RPGMonoBehaviour
                     if (quickItemSlot != null)
                     {
                         quickItemSlot.BackToInventory();
-                        quickItemSlot.SetData(slotItem, 1);
+                        quickItemSlot.SetData(slotItem, itemCount);
                
                         Clear();
                         break;

@@ -12,12 +12,17 @@ public class BuyWeapon : RPGMonoBehaviour
 
     private void Start()
     {
-        currencyText.text = "600";
+        currencyText.text = MoneyManager.Instance.Gold.ToString();
     }
     public void BuyWeaponButton()
     {
-        inventory.inventoryEvents.AddItem(item);
-        currencyText.text = "300";
-        Debug.Log(transform.name + " Cost = " + cost);
+        if(MoneyManager.Instance.Gold >= cost)
+        {
+            inventory.inventoryEvents.AddItem(item);
+            MoneyManager.Instance.MinusGold(cost);
+            currencyText.text = MoneyManager.Instance.Gold.ToString() +" $";
+            Debug.Log(transform.name + " Cost = " + cost);
+        }
+     
     }
 }

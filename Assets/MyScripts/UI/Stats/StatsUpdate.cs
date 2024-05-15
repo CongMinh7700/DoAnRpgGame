@@ -13,9 +13,10 @@ public class StatsUpdate : RPGMonoBehaviour
     [SerializeField] protected TextMeshProUGUI defendText;
     [SerializeField] protected TextMeshProUGUI manaText;
     [SerializeField] protected TextMeshProUGUI staminaText;
+    [SerializeField] protected TextMeshProUGUI currencyText;
 
     [SerializeField] protected PlayerCtrl playerCtrl;
-    [SerializeField] protected WeaponCtrl weaponCtrl;
+    //[SerializeField] protected WeaponCtrl weaponCtrl;
     //   protected string name = "";
     private void Start()
     {
@@ -30,6 +31,7 @@ public class StatsUpdate : RPGMonoBehaviour
         //Tạm thời chưa dùng
         manaText.text = "Mana : " + playerCtrl.playerSO.mana.ToString();
         staminaText.text = "Stamina : " + playerCtrl.playerSO.stamina.ToString();
+        currencyText.text = MoneyManager.Instance.Gold.ToString() +" $";
 
     }
 }

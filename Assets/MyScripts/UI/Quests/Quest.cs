@@ -1,26 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-public class Quest :MonoBehaviour
-{
-    public List<Goal> goals = new List<Goal>();
-    public string questName;
-    public string description;
-    public int experienceReward;
-    public Item itemReward;
-    public bool completed;
 
-    public void CheckGoal()
-    {
-        completed = goals.All(g => g.completed);
-        if (completed) GiveReward();
-    }
-    public void GiveReward()
-    {
-        if (itemReward != null)
-            ItemContainer.Instance.inventoryEvents.AddItem(itemReward);
-        //gold,experience
-    }
-    
+[CreateAssetMenu(fileName = "New Quest", menuName = "SO/Quest")]
+public class Quest : ScriptableObject
+{
+    public string questTitle;
+    public string description;
+    public bool isCompleted;
+
+    public string targetEnemy;
+    public int targetKillCount;
+    public int currentKillCount;
+    public int experienceReward;
+    public int goldReward;
+    [TextArea]
+    public string[] dialogues;
+    public int dialgueIndex;
 }

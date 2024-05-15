@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dbfa5961ae974c458b8966503c3368a, type: 3}
   m_Name: SKELETON
   m_EditorClassIdentifier: 
-  objName: HitableObject
+  objName: SKELETON
   objType: 1
   hpMax: 200
+  damage: 2
+  defense: 2
