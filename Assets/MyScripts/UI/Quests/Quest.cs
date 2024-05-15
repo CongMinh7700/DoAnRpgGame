@@ -16,5 +16,5 @@ public class Quest : ScriptableObject
     public int goldReward;
     [TextArea]
     public string[] dialogues;
-    public int dialgueIndex;
+    
 }

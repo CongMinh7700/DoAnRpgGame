@@ -9,8 +9,14 @@ public class NPCScripts : RPGMonoBehaviour
     [SerializeField] public int shopNumber;
     public static bool canHide ;
     //Dialogues
+    [Header("Talk & Quest")]
     public Quest[] quests;
-    
+    public int questIndex;
+    public int dialogueIndex ;
+    private bool isAnimatingText = false;
+    private Coroutine textAnimationCoroutine;
+    //Full Text không cho F nữa
+    [SerializeField] private bool isFullText = false;
     //Name của npc
     protected override void LoadComponents()
     {
@@ -34,7 +40,6 @@ public class NPCScripts : RPGMonoBehaviour
         {
             animator.SetBool("Stay", true);
             messageBox.SetActive(true);
-
             canHide = false;
         }
     }
@@ -42,7 +47,9 @@ public class NPCScripts : RPGMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            ShowDialogue();
             messageBox.GetComponent<MessageManager>().firstTask.SetActive(true);
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -54,7 +61,51 @@ public class NPCScripts : RPGMonoBehaviour
             messageBox.GetComponent<MessageManager>().shops[shopNumber].SetActive(false);
             messageBox.GetComponent<MessageManager>().firstTask.SetActive(false);
             messageBox.GetComponent<MessageManager>().questTask.SetActive(false);
+            dialogueIndex = 0;
+            isFullText = false;
+          
         }
     }
 
+    private void Update()
+    {
+        if (messageBox.GetComponent<MessageManager>().questTask.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText && !isFullText)
+            {
+                ShowDialogue();
+            }
+        }
+    }
+    public void ShowDialogue()
+    {
+        if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
+        if (dialogueIndex >= (quests[0].dialogues.Length - 1))
+        {
+            dialogueIndex = (quests[0].dialogues.Length - 1);
+            isFullText = true;
+        }
+        //messageBox.GetComponent<MessageManager>().dialogeText.text = quests[0].dialogues[dialogueIndex];
+        if (textAnimationCoroutine != null)
+            StopCoroutine(textAnimationCoroutine);
+
+        string fullText = quests[0].dialogues[dialogueIndex];
+        textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
+        dialogueIndex++;
+
+       
+    }
+
+    IEnumerator AnimateText(string fullText)
+    {
+        isAnimatingText = true;
+        string displayedText = "";
+        for (int i = 0; i <= fullText.Length; i++)
+        {
+            displayedText = fullText.Substring(0, i);
+            messageBox.GetComponent<MessageManager>().dialogeText.text = displayedText;
+            yield return new WaitForSeconds(0.03f); // Thay đổi giá trị này nếu bạn muốn thay đổi tốc độ hiển thị văn bản.
+        }
+        isAnimatingText = false;
+    }
 }

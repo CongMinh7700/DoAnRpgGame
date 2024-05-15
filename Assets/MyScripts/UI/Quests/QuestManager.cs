@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    protected static QuestManager instance;
+    public static QuestManager Instance => instance;
     public List<Quest> quests;
 
+    private void Awake()
+    {
+        if (QuestManager.instance != null) Debug.LogWarning("Only 1 Quest Manager Allow to exist");
+        QuestManager.instance = this;
+    }
     void Start()
     {
         foreach (Quest quest in quests)
