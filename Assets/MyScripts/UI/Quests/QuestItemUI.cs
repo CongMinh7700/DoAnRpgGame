@@ -7,7 +7,7 @@ using TMPro;
 public class QuestItemUI : RPGMonoBehaviour
 {
     public TextMeshProUGUI questTitleText;
-    private Quest quest;
+    public Quest quest;
     private Button button; 
     protected override void LoadComponents()
     {

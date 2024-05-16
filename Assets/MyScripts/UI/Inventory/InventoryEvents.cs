@@ -93,7 +93,7 @@ public class InventoryEvents : RPGMonoBehaviour
 
     public bool AddItem(Item item)
     {
-        Debug.Log("Length : " + itemContainer.slots.Length);
+        //Debug.Log("Length : " + itemContainer.slots.Length);
         for (int i = 0; i < itemContainer.slots.Length; i++) if (itemContainer.slots[i].Add(item)) return true;
         return false;
     }

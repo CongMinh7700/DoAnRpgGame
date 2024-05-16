@@ -8,6 +8,7 @@ public class QuestManager : RPGMonoBehaviour
     protected static QuestManager instance;
     public static QuestManager Instance => instance;
     public List<Quest> activeQuests = new List<Quest>();
+    public List<Quest> questList = new List<Quest>();
     public Transform questListContent;
     public GameObject questItemPrefab;
 
@@ -22,26 +23,22 @@ public class QuestManager : RPGMonoBehaviour
         if (QuestManager.instance != null) Debug.LogWarning("Only 1 Quest Manager Allow to exist");
         QuestManager.instance = this;
     }
-    void Start()
-    {
-       
-    }
-
     public void CompleteQuest(Quest quest)
     {
-        quest.isCompleted = true;
+        quest.questState = QuestState.Complete;
         Debug.Log(quest.questTitle + " is completed!");
     }
 
     public void OnEnemyKilled(string enemyName)
     {
+        Debug.Log("call OnEnemyKilled");
         foreach (Quest quest in activeQuests)
         {
-            if (quest.targetEnemy == enemyName && !quest.isCompleted)
+            Debug.Log(quest.questTitle +"Name");
+            if (quest.targetEnemy == enemyName && quest.questState != QuestState.Complete)
             {
                 quest.currentKillCount++;
                 Debug.Log($"Killed {quest.currentKillCount}/{quest.targetKillCount} {quest.targetEnemy}");
-
                 if (quest.currentKillCount >= quest.targetKillCount)
                 {
                     CompleteQuest(quest);
@@ -79,6 +76,18 @@ public class QuestManager : RPGMonoBehaviour
                 QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
                 questItemUI.SetQuest(quest);
         }
+        
+    }
+    public void QuestModify(Quest quest)
+    {
+        
+            if(quest.questState == QuestState.InProgress)
+            {
+                GameObject questItem = Instantiate(questItemPrefab, questListContent);
+                QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
+                questItemUI.SetQuest(quest);
+            }
+        activeQuests.Add(quest);
     }
     public void DisplayQuestDetails(Quest quest)
     {
@@ -88,5 +97,15 @@ public class QuestManager : RPGMonoBehaviour
         detailQuestStateText.text = quest.questState.ToString();
         detailQuestKillCountText.text = $"Tiến độ: {quest.currentKillCount}/{quest.targetKillCount}";
         detailRewardText.text = "Kinh Nghiệm : "+quest.experienceReward+" Exp" +"\nTiền : "+quest.goldReward +" $" ;
+    }
+
+    public Quest GetQuestByIndex(int index)
+    {
+        return questList[index];
+    }
+    public int GetQuestIndex(Quest quest)
+    {
+        for (int i = 0; i < questList.Count; i++) if (questList[i] == quest) return i;
+        return -1;
     }
 }

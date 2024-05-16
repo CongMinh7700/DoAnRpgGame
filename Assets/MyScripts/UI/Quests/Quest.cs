@@ -7,7 +7,6 @@ public class Quest : ScriptableObject
 {
     public string questTitle;
     public string description;
-    public bool isCompleted;
 
     public string targetEnemy;//Name
     public int targetKillCount;
@@ -23,7 +22,6 @@ public class Quest : ScriptableObject
 
     public void CompleteQuest()
     {
-        isCompleted = true;
         questState = QuestState.Complete;
     }
     public void UpdateQuestProgress(int killCount)

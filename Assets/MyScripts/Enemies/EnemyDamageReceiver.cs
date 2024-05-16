@@ -7,12 +7,18 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     
     [SerializeField] protected EnemyAnimation enemyAnimation;
 
+    [SerializeField] protected EnemyCtrl enemyCtrl;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadEnemyAnimation();
+        this.LoadEnemyCtrl();
     }
-
+    protected virtual void LoadEnemyCtrl()
+    {
+        if (this.enemyCtrl != null) return;
+        this.enemyCtrl = GetComponentInParent<EnemyCtrl>();
+    }
     private void Update()
     {
         if (isAttacked)
@@ -32,19 +38,16 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         enemyAnimation.DeathAnimation();
         Debug.LogWarning(transform.name + "đã chết");
-        //Despawn
- 
-           
-        
-     
+        string enemyName = enemyCtrl.GetEnemyName();
+        Debug.Log(enemyName);
+        QuestManager.Instance.OnEnemyKilled(enemyName);
     }
     IEnumerator WaitToDestroy()
     {
         yield return new WaitForSeconds(1f);
         transform.parent.gameObject.SetActive(false);
     }
-    //Fill Bar cho thanh mau
-    //Set Outline cho enemy
+
 
 
 }

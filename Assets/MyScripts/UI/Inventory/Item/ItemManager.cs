@@ -160,7 +160,7 @@ public class ItemManager : RPGMonoBehaviour
         UpdateStats();
         //EquipWeapon
 
-        Debug.Log("Equipping" + weaponName);
+       // Debug.Log("Equipping" + weaponName);
     }
     public void EquipWeapon()
     {
@@ -241,11 +241,7 @@ public class ItemManager : RPGMonoBehaviour
     {
         return itemList[index];
     }
-    public Item GetItemByName(string name)
-    {
-        foreach (Item item in itemList) if (item.itemName == name) return item;
-        return null;
-    }
+    
     public int GetItemIndex(Item item)
     {
         for (int i = 0; i < itemList.Count; i++) if (itemList[i] == item) return i;

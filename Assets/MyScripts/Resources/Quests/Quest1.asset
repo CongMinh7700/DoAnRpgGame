@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Ti\xEAu di\u1EC7t Goblin"
   description: "Ti\xEAu di\u1EC7t l\u0169 goblin \u1EDF r\u1EEBng th\xF4ng"
-  isCompleted: 0
   targetEnemy: Goblin
   targetKillCount: 10
   currentKillCount: 0
@@ -27,6 +26,6 @@ MonoBehaviour:
     kh\xF4ng d\xE1m ra ngo\xE0i."
   - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 10 con y\xEAu tinh."
   type: 0
-  questState: 0
+  questState: 1
   requiredItem: []
   rewardItem: []
