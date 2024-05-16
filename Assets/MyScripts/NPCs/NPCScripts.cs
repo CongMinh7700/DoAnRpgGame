@@ -7,7 +7,6 @@ public class NPCScripts : RPGMonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] protected GameObject messageBox;
     [SerializeField] public int shopNumber;
-    public static bool canHide ;
     //Dialogues
     [Header("Talk & Quest")]
     public Quest[] quests;
@@ -40,7 +39,7 @@ public class NPCScripts : RPGMonoBehaviour
         {
             animator.SetBool("Stay", true);
             messageBox.SetActive(true);
-            canHide = false;
+         
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -49,7 +48,9 @@ public class NPCScripts : RPGMonoBehaviour
         {
             ShowDialogue();
             messageBox.GetComponent<MessageManager>().firstTask.SetActive(true);
-
+            isFullText = false;
+            dialogueIndex = 0;
+            messageBox.GetComponent<MessageManager>().HideButton();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -61,8 +62,7 @@ public class NPCScripts : RPGMonoBehaviour
             messageBox.GetComponent<MessageManager>().shops[shopNumber].SetActive(false);
             messageBox.GetComponent<MessageManager>().firstTask.SetActive(false);
             messageBox.GetComponent<MessageManager>().questTask.SetActive(false);
-            dialogueIndex = 0;
-            isFullText = false;
+
           
         }
     }
@@ -84,6 +84,8 @@ public class NPCScripts : RPGMonoBehaviour
         {
             dialogueIndex = (quests[0].dialogues.Length - 1);
             isFullText = true;
+            messageBox.GetComponent<MessageManager>().ShowButton();
+            messageBox.GetComponent<MessageManager>().currentQuest = quests[0];
         }
         //messageBox.GetComponent<MessageManager>().dialogeText.text = quests[0].dialogues[dialogueIndex];
         if (textAnimationCoroutine != null)
@@ -92,10 +94,7 @@ public class NPCScripts : RPGMonoBehaviour
         string fullText = quests[0].dialogues[dialogueIndex];
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
         dialogueIndex++;
-
-       
     }
-
     IEnumerator AnimateText(string fullText)
     {
         isAnimatingText = true;
