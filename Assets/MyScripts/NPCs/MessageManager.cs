@@ -54,7 +54,8 @@ public class MessageManager : MonoBehaviour
             currentQuest = null;
         }
 
-       
+        questTask.SetActive(false);
+        firstTask.SetActive(true);
     }
     public void Refuse()
     {

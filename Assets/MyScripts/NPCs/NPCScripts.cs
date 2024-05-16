@@ -10,12 +10,13 @@ public class NPCScripts : RPGMonoBehaviour
     //Dialogues
     [Header("Talk & Quest")]
     public Quest[] quests;
-    public int questIndex;
-    public int dialogueIndex ;
+    public int questIndex = 0;
+    public int dialogueIndex;
     private bool isAnimatingText = false;
     private Coroutine textAnimationCoroutine;
     //Full Text không cho F nữa
     [SerializeField] private bool isFullText = false;
+    [SerializeField] private bool noQuest = false;
     //Name của npc
     protected override void LoadComponents()
     {
@@ -26,7 +27,7 @@ public class NPCScripts : RPGMonoBehaviour
         if (this.animator != null) return;
         this.animator = GetComponentInParent<Animator>();
         Debug.LogWarning(transform.name + "|LoadNpcAnim|", gameObject);
-        
+
     }
     private void Start()
     {
@@ -39,7 +40,7 @@ public class NPCScripts : RPGMonoBehaviour
         {
             animator.SetBool("Stay", true);
             messageBox.SetActive(true);
-         
+
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -63,7 +64,7 @@ public class NPCScripts : RPGMonoBehaviour
             messageBox.GetComponent<MessageManager>().firstTask.SetActive(false);
             messageBox.GetComponent<MessageManager>().questTask.SetActive(false);
 
-          
+
         }
     }
 
@@ -77,25 +78,28 @@ public class NPCScripts : RPGMonoBehaviour
             }
         }
     }
+
+    //Xử lý back ra FirstTask là oke
+
     public void ShowDialogue()
     {
         if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
-        if (messageBox.GetComponent<MessageManager>().numbShop != shopNumber) return;
         string[] dialogues = new string[0];
-        messageBox.GetComponent<MessageManager>().currentQuest = quests[0];
-        Debug.Log("QuestState : " +quests[0].questState.ToString());
-       
-       
-        switch (quests[0].questState)
+        if (quests[questIndex] == null) return;
+        messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
+        Debug.Log("QuestState : " + quests[questIndex].questState.ToString());
+
+        switch (quests[questIndex].questState)
         {
             case QuestState.NotStarted:
-                dialogues = quests[0].dialogues;
+                dialogues = quests[questIndex].dialogues;
                 break;
             case QuestState.InProgress:
-                dialogues = quests[0].dialoguesInProgress;
+                dialogues = quests[questIndex].dialoguesInProgress;
                 break;
             case QuestState.Complete:
-                dialogues = quests[0].dialoguesComplete;
+                dialogues = quests[questIndex].dialoguesComplete;
+
                 break;
         }
 
@@ -105,19 +109,27 @@ public class NPCScripts : RPGMonoBehaviour
             dialogueIndex = dialogues.Length - 1;
 
         }
-        Debug.Log("IsFullText :" + isFullText);
         if (textAnimationCoroutine != null)
             StopCoroutine(textAnimationCoroutine);
-        Debug.Log("Size : " + dialogueIndex);
-        if (quests[0].questState == QuestState.NotStarted && isFullText)
+        if (quests[questIndex].questState == QuestState.NotStarted && isFullText)
         {
-            Debug.Log("ShowButton");
             messageBox.GetComponent<MessageManager>().ShowButton();
         }
+
         string fullText = dialogues[dialogueIndex];
+        if (noQuest) fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây để mua đồ nhé";
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
         dialogueIndex++;
-       
+        if (isFullText && quests[questIndex].questState == QuestState.Complete)
+        {
+            questIndex++;
+            dialogueIndex = 0;
+        }
+        if (questIndex > quests.Length - 1)
+        {
+            questIndex = questIndex - 1;
+            noQuest = true;
+        }
     }
     IEnumerator AnimateText(string fullText)
     {
@@ -127,7 +139,7 @@ public class NPCScripts : RPGMonoBehaviour
         {
             displayedText = fullText.Substring(0, i);
             messageBox.GetComponent<MessageManager>().dialogeText.text = displayedText;
-            yield return new WaitForSeconds(0.03f); 
+            yield return new WaitForSeconds(0.03f);
         }
         isAnimatingText = false;
     }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +7,6 @@ public class Quest : ScriptableObject
 {
     public string questTitle;
     public string description;
-
-    public string targetEnemy;//Name
-    public int targetKillCount;
-    public int currentKillCount;
     public int experienceReward;
     public int goldReward;
     [TextArea] public string[] dialogues;
@@ -18,21 +14,10 @@ public class Quest : ScriptableObject
     [TextArea] public string[] dialoguesInProgress;
     public QuestType type;
     public QuestState questState;
-    public List<Item> requiredItem;
+    public string targetName;
+    public int targetCount;
+    public int currentCount;
     public List<Item> rewardItem;
-
-    public void CompleteQuest()
-    {
-        questState = QuestState.Complete;
-    }
-    public void UpdateQuestProgress(int killCount)
-    {
-        currentKillCount += killCount;
-        if (currentKillCount >= targetKillCount)
-        {
-            CompleteQuest();
-        }
-    }
 }
 public enum QuestType {
     KillQuest = 0,

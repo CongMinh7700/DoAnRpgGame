@@ -22,6 +22,7 @@ public class BuyWeapon : RPGMonoBehaviour
             MoneyManager.Instance.MinusGold(cost);
             currencyText.text = MoneyManager.Instance.Gold.ToString() +" $";
             Debug.Log(transform.name + " Cost = " + cost);
+            QuestManager.Instance.UpdateQuestProgress(item.itemName);
         }
      
     }

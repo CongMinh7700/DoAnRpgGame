@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Ti\xEAu di\u1EC7t Goblin"
   description: "Ti\xEAu di\u1EC7t l\u0169 goblin \u1EDF r\u1EEBng th\xF4ng"
-  targetEnemy: Goblin
-  targetKillCount: 10
-  currentKillCount: 0
   experienceReward: 20
   goldReward: 100
   dialogues:
@@ -38,6 +35,8 @@ MonoBehaviour:
   - "R\u1ED3i quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn
     \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
   type: 0
-  questState: 1
-  requiredItem: []
+  questState: 0
+  targetName: 
+  targetCount: 0
+  currentCount: 0
   rewardItem: []

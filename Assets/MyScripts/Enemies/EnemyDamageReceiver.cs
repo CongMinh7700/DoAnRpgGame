@@ -39,8 +39,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         enemyAnimation.DeathAnimation();
         Debug.LogWarning(transform.name + "đã chết");
         string enemyName = enemyCtrl.GetEnemyName();
-        Debug.Log(enemyName);
-        QuestManager.Instance.OnEnemyKilled(enemyName);
+        QuestManager.Instance.UpdateQuestProgress(enemyName);
     }
     IEnumerator WaitToDestroy()
     {

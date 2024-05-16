@@ -15,9 +15,6 @@ MonoBehaviour:
   questTitle: "Ti\xEAu di\u1EC7t th\u1EE7y qu\xE1i"
   description: "Ti\xEAu di\u1EC7t b\u1ECDn th\u1EE7y qu\xE1i \u1EDF \u0111\u1EA7m
     l\u1EA7y"
-  targetEnemy: Rake_A
-  targetKillCount: 10
-  currentKillCount: 0
   experienceReward: 20
   goldReward: 100
   dialogues:
@@ -40,5 +37,7 @@ MonoBehaviour:
     \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
   type: 0
   questState: 0
-  requiredItem: []
+  targetName: 
+  targetCount: 0
+  currentCount: 0
   rewardItem: []

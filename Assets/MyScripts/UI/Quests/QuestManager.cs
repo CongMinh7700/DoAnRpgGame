@@ -26,26 +26,28 @@ public class QuestManager : RPGMonoBehaviour
     public void CompleteQuest(Quest quest)
     {
         quest.questState = QuestState.Complete;
+        MoneyManager.Instance.AddGold(quest.goldReward);
         Debug.Log(quest.questTitle + " is completed!");
     }
 
-    public void OnEnemyKilled(string enemyName)
+    public void UpdateQuestProgress(string targetName)
     {
         Debug.Log("call OnEnemyKilled");
         foreach (Quest quest in activeQuests)
         {
             Debug.Log(quest.questTitle +"Name");
-            if (quest.targetEnemy == enemyName && quest.questState != QuestState.Complete)
+            if (quest.targetName == targetName && quest.questState != QuestState.Complete)
             {
-                quest.currentKillCount++;
-                Debug.Log($"Killed {quest.currentKillCount}/{quest.targetKillCount} {quest.targetEnemy}");
-                if (quest.currentKillCount >= quest.targetKillCount)
+                quest.currentCount++;
+                Debug.Log($"Killed {quest.currentCount}/{quest.targetCount} {quest.targetName}");
+                if (quest.currentCount >= quest.targetCount)
                 {
                     CompleteQuest(quest);
                 }
             }
         }
     }
+
     public void AddQuest( Quest newQuest)
     {
         newQuest.questState = QuestState.InProgress;
@@ -95,7 +97,7 @@ public class QuestManager : RPGMonoBehaviour
         detailQuestTitleText.text =   quest.questTitle;
         detailQuestDescriptionText.text = quest.description;
         detailQuestStateText.text = quest.questState.ToString();
-        detailQuestKillCountText.text = $"Tiến độ: {quest.currentKillCount}/{quest.targetKillCount}";
+        detailQuestKillCountText.text = $"Tiến độ: {quest.currentCount}/{quest.targetCount}";
         detailRewardText.text = "Kinh Nghiệm : "+quest.experienceReward+" Exp" +"\nTiền : "+quest.goldReward +" $" ;
     }
 
