@@ -13,8 +13,9 @@ public class Quest : ScriptableObject
     public int currentKillCount;
     public int experienceReward;
     public int goldReward;
-    [TextArea]
-    public string[] dialogues;
+    [TextArea] public string[] dialogues;
+    [TextArea] public string[] dialoguesComplete;
+    [TextArea] public string[] dialoguesInProgress;
     public QuestType type;
     public QuestState questState;
     public List<Item> requiredItem;

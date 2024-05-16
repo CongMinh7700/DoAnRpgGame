@@ -46,10 +46,10 @@ public class NPCScripts : RPGMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            dialogueIndex = 0;
             ShowDialogue();
             messageBox.GetComponent<MessageManager>().firstTask.SetActive(true);
             isFullText = false;
-            dialogueIndex = 0;
             messageBox.GetComponent<MessageManager>().HideButton();
         }
     }
@@ -80,20 +80,44 @@ public class NPCScripts : RPGMonoBehaviour
     public void ShowDialogue()
     {
         if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
-        if (dialogueIndex >= (quests[0].dialogues.Length - 1))
+        if (messageBox.GetComponent<MessageManager>().numbShop != shopNumber) return;
+        string[] dialogues = new string[0];
+        messageBox.GetComponent<MessageManager>().currentQuest = quests[0];
+        Debug.Log("QuestState : " +quests[0].questState.ToString());
+       
+       
+        switch (quests[0].questState)
         {
-            dialogueIndex = (quests[0].dialogues.Length - 1);
-            isFullText = true;
-            messageBox.GetComponent<MessageManager>().ShowButton();
-            messageBox.GetComponent<MessageManager>().currentQuest = quests[0];
+            case QuestState.NotStarted:
+                dialogues = quests[0].dialogues;
+                break;
+            case QuestState.InProgress:
+                dialogues = quests[0].dialoguesInProgress;
+                break;
+            case QuestState.Complete:
+                dialogues = quests[0].dialoguesComplete;
+                break;
         }
-        //messageBox.GetComponent<MessageManager>().dialogeText.text = quests[0].dialogues[dialogueIndex];
+
+        if (dialogueIndex >= dialogues.Length - 1)
+        {
+            isFullText = true;
+            dialogueIndex = dialogues.Length - 1;
+
+        }
+        Debug.Log("IsFullText :" + isFullText);
         if (textAnimationCoroutine != null)
             StopCoroutine(textAnimationCoroutine);
-
-        string fullText = quests[0].dialogues[dialogueIndex];
+        Debug.Log("Size : " + dialogueIndex);
+        if (quests[0].questState == QuestState.NotStarted && isFullText)
+        {
+            Debug.Log("ShowButton");
+            messageBox.GetComponent<MessageManager>().ShowButton();
+        }
+        string fullText = dialogues[dialogueIndex];
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
         dialogueIndex++;
+       
     }
     IEnumerator AnimateText(string fullText)
     {
@@ -103,7 +127,7 @@ public class NPCScripts : RPGMonoBehaviour
         {
             displayedText = fullText.Substring(0, i);
             messageBox.GetComponent<MessageManager>().dialogeText.text = displayedText;
-            yield return new WaitForSeconds(0.03f); // Thay đổi giá trị này nếu bạn muốn thay đổi tốc độ hiển thị văn bản.
+            yield return new WaitForSeconds(0.03f); 
         }
         isAnimatingText = false;
     }

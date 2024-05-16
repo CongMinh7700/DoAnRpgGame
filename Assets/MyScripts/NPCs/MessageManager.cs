@@ -59,6 +59,8 @@ public class MessageManager : MonoBehaviour
     public void Refuse()
     {
         //hide MessageBox 
+        questTask.SetActive(false);
+        firstTask.SetActive(true);
     }
     private void Update()
     {
