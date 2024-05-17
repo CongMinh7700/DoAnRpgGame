@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: QuestBuy
   m_EditorClassIdentifier: 
   questTitle: "Mua \u0111\u1ED3"
-  description: "Ti\xEAu di\u1EC7t b\u1ECDn th\u1EE7y qu\xE1i \u1EDF \u0111\u1EA7m
-    l\u1EA7y"
+  description: "M\u1ED9t l\xE3o \u0103n m\xE0y \u0111ang \u0111\xF3i b\u1EA1n h\xE3y
+    mua 10 qu\u1EA3 t\xE1o cho k\u1EBB \u0103n m\xE0y"
   experienceReward: 20
   goldReward: 100
   dialogues:
@@ -26,8 +26,8 @@ MonoBehaviour:
   dialoguesInProgress:
   - "T\xF4i \u0111ang r\u1EA5t \u0111\xF3i h\xE3y mua cho t\xF4i 1 qu\u1EA3 t\xE1o."
   type: 1
-  questState: 0
-  targetName: 
-  targetCount: 0
+  questState: 1
+  targetName: Apple
+  targetCount: 10
   currentCount: 0
   rewardItem: []

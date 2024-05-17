@@ -37,7 +37,7 @@ MonoBehaviour:
     \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
   type: 0
   questState: 0
-  targetName: 
-  targetCount: 0
+  targetName: Rake_A
+  targetCount: 10
   currentCount: 0
   rewardItem: []

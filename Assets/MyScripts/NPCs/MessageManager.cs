@@ -35,13 +35,13 @@ public class MessageManager : MonoBehaviour
     {
         buttonAccept.SetActive(true);
         buttonRefuse.SetActive(true);
-        Debug.Log("Show");
+        //Debug.Log("Show");
     }
     public void HideButton()
     {
         buttonAccept.SetActive(false);
         buttonRefuse.SetActive(false);
-        Debug.Log("Hide");
+        //Debug.Log("Hide");
     }
     public void Accept()
     {

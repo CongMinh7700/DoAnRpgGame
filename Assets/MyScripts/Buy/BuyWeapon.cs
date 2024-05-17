@@ -10,7 +10,7 @@ public class BuyWeapon : RPGMonoBehaviour
     [SerializeField] protected Item item;
     [SerializeField] protected ItemContainer inventory;
 
-    private void Start()
+    private void Update()
     {
         currencyText.text = MoneyManager.Instance.Gold.ToString();
     }

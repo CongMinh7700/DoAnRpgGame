@@ -17,6 +17,7 @@ public class MoneyManager : RPGMonoBehaviour
     public virtual void AddGold(int value)
     {
         this.gold += value;
+        Debug.Log("Gold :" + value);
     }
     public virtual void MinusGold(int value)
     {

@@ -11,6 +11,7 @@ public class QuestManager : RPGMonoBehaviour
     public List<Quest> questList = new List<Quest>();
     public Transform questListContent;
     public GameObject questItemPrefab;
+    public GameObject mainUI;
 
     //Quest
     public TextMeshProUGUI detailQuestTitleText;
@@ -18,6 +19,7 @@ public class QuestManager : RPGMonoBehaviour
     public TextMeshProUGUI detailQuestStateText;
     public TextMeshProUGUI detailQuestKillCountText;
     public TextMeshProUGUI detailRewardText;
+    protected bool isQuestNull = false;
     protected override void Awake()
     {
         if (QuestManager.instance != null) Debug.LogWarning("Only 1 Quest Manager Allow to exist");
@@ -26,13 +28,12 @@ public class QuestManager : RPGMonoBehaviour
     public void CompleteQuest(Quest quest)
     {
         quest.questState = QuestState.Complete;
-        MoneyManager.Instance.AddGold(quest.goldReward);
         Debug.Log(quest.questTitle + " is completed!");
     }
 
     public void UpdateQuestProgress(string targetName)
     {
-        Debug.Log("call OnEnemyKilled");
+        //Debug.Log("call OnEnemyKilled");
         foreach (Quest quest in activeQuests)
         {
             Debug.Log(quest.questTitle +"Name");
@@ -43,11 +44,19 @@ public class QuestManager : RPGMonoBehaviour
                 if (quest.currentCount >= quest.targetCount)
                 {
                     CompleteQuest(quest);
+                    
                 }
             }
         }
     }
-
+    private void Update()
+    {
+        if (!mainUI.activeSelf)
+        {
+            HideQuestDetails();
+            Debug.Log("Call Active");
+        }
+    }
     public void AddQuest( Quest newQuest)
     {
         newQuest.questState = QuestState.InProgress;
@@ -55,11 +64,13 @@ public class QuestManager : RPGMonoBehaviour
         Debug.Log("Add complete Quest");
 
     }
+
     public void RemoveQuest(Quest quest)
     {
         if(quest.questState == QuestState.Complete)
         {
             activeQuests.Remove(quest);
+            UpdateQuestLog();
             Debug.Log("Remove Quest");
         }
        
@@ -95,12 +106,20 @@ public class QuestManager : RPGMonoBehaviour
     {
         if (quest == null) return;
         detailQuestTitleText.text =   quest.questTitle;
-        detailQuestDescriptionText.text = quest.description;
+        detailQuestDescriptionText.text = "Mô tả : \n"+ quest.description;
         detailQuestStateText.text = quest.questState.ToString();
         detailQuestKillCountText.text = $"Tiến độ: {quest.currentCount}/{quest.targetCount}";
-        detailRewardText.text = "Kinh Nghiệm : "+quest.experienceReward+" Exp" +"\nTiền : "+quest.goldReward +" $" ;
+        detailRewardText.text = "Phần Thưởng \nKinh Nghiệm : "+quest.experienceReward+" Exp" +"\nTiền : "+quest.goldReward +" $" ;
     }
-
+    public void HideQuestDetails()
+    {
+        detailQuestTitleText.text = "";
+        detailQuestDescriptionText.text = "";
+        detailQuestStateText.text = "";
+        detailQuestKillCountText.text = "";
+        detailRewardText.text = "";
+    }
+   
     public Quest GetQuestByIndex(int index)
     {
         return questList[index];
@@ -109,5 +128,12 @@ public class QuestManager : RPGMonoBehaviour
     {
         for (int i = 0; i < questList.Count; i++) if (questList[i] == quest) return i;
         return -1;
+    }
+    public virtual void GiveReward(Quest quest)
+    {
+        MoneyManager.Instance.AddGold(quest.goldReward);
+        //null return;
+        //Add item
+        //Add Exp
     }
 }
