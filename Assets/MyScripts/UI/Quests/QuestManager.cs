@@ -54,7 +54,7 @@ public class QuestManager : RPGMonoBehaviour
         if (!mainUI.activeSelf)
         {
             HideQuestDetails();
-            Debug.Log("Call Active");
+         //   Debug.Log("Call Active");
         }
     }
     public void AddQuest( Quest newQuest)

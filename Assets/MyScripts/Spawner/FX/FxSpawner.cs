@@ -8,6 +8,7 @@ public class FxSpawner : Spawner
     public static FxSpawner Instance => instance;
 
     public static string heal = "Heal";
+    public static string strength = "Strength";
 
 
     protected override void Awake()

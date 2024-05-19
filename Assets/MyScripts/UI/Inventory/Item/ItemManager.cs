@@ -116,6 +116,16 @@ public class ItemManager : RPGMonoBehaviour
                 case "Heal":
                     slotIndex = 1;
                     break;
+                case "Strength":
+                    slotIndex = 2;
+                    break;
+                case "Shield":
+                    slotIndex = 3;
+                    break;
+                case "Flash":
+                    slotIndex = 4;
+                    break;
+            
             }
             skillUI.slots[slotIndex].Add(slot.slotItem);
             Debug.Log("Learn Skill " + slot.slotItem.itemName);

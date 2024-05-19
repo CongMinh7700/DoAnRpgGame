@@ -9,6 +9,7 @@ public  class UsingSkill : RPGMonoBehaviour
     [SerializeField] protected PlayerCtrl playerCtrl;
     public int ManaMax => manaMax;
     public float CurrentMana => currentMana;
+    public static bool canUseSkill;
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();
@@ -24,45 +25,91 @@ public  class UsingSkill : RPGMonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
-        
-        if (QuickSkillSlot.isUsingFireBall)
-        {
-            this.FireBall();
-            QuickSkillSlot.isUsingFireBall = false;
-        }
-        if (QuickSkillSlot.canUsingHeal)
-        {
-            this.Heal();
-            QuickSkillSlot.canUsingHeal = false;
-        }
-
-        ManaRecover();
+            ManaRecover();
+           
+            if (QuickSkillSlot.canUsingFireBall)
+            {
+                this.FireBall();
+                QuickSkillSlot.canUsingFireBall = false;
+            }
+            if (QuickSkillSlot.canUsingHeal)
+            {
+                this.Heal();
+                QuickSkillSlot.canUsingHeal = false;
+            }
+            if (QuickSkillSlot.canUsingStrength)
+            {
+                this.Strength();
+                QuickSkillSlot.canUsingStrength = false;
+            }
     }
    public virtual void FireBall()
     {
-        Vector3 position = transform.position;
-        Quaternion rotation = transform.rotation;
 
-        string prefabName = SkillSpawner.fireBall;
-
-        Transform newFireBall = SkillSpawner.Instance.Spawn(prefabName, position, rotation);
-        if (newFireBall == null) return;
-        newFireBall.gameObject.SetActive(true);
-        AttackSkillCtrl skillCtrl = newFireBall.GetComponent<AttackSkillCtrl>();
-        skillCtrl.SetShooter(transform);
-        ManaDeduct(20);
+        if (currentMana >=20)
+        {
+            canUseSkill = true;
+            ManaDeduct(20);
+            Vector3 position = transform.position;
+            Quaternion rotation = transform.rotation;
+            string prefabName = SkillSpawner.fireBall;
+            Transform newFireBall = SkillSpawner.Instance.Spawn(prefabName, position, rotation);
+            if (newFireBall == null) return;
+            newFireBall.gameObject.SetActive(true);
+            AttackSkillCtrl skillCtrl = newFireBall.GetComponent<AttackSkillCtrl>();
+            skillCtrl.SetShooter(transform);
+        }
+        else
+        {
+            canUseSkill = false;
+            Debug.Log("Cant use FireBall");
+        }
     } 
     public virtual void Heal()
     {
-        Vector3 position = transform.position;
-        Quaternion rotation = transform.rotation;
-        string prefabName = FxSpawner.heal;
-        Transform newHeal = FxSpawner.Instance.Spawn(prefabName, position, rotation);
-        if (newHeal == null) return;
-        newHeal.gameObject.SetActive(true);
-        EffectSkillCtrl skillCtrl = newHeal.GetComponent<EffectSkillCtrl>();
-        skillCtrl.SetPositionEF(transform);
-        ManaDeduct(50);
+       
+        if (currentMana > 50)
+        {
+            canUseSkill = true;
+            ManaDeduct(50);
+            Vector3 position = transform.parent.position;
+            Quaternion rotation = transform.parent.rotation;
+            string prefabName = FxSpawner.heal;
+            Transform newHeal = FxSpawner.Instance.Spawn(prefabName, position, rotation);
+            if (newHeal == null) return;
+            newHeal.gameObject.SetActive(true);
+            EffectSkillCtrl skillCtrl = newHeal.GetComponent<EffectSkillCtrl>();
+            skillCtrl.SetPositionEF(transform);
+        }
+        else
+        {
+            canUseSkill = false;
+            Debug.Log("Cant use Heal");
+        }
+    }
+    public virtual void Strength()
+    {
+        
+        if (currentMana > 30)
+        {
+            canUseSkill = true;
+            ManaDeduct(30);
+            Vector3 position = transform.parent.position;
+            Quaternion rotation = transform.parent.rotation;
+            string prefabName = FxSpawner.strength;
+            Transform newStrength = FxSpawner.Instance.Spawn(prefabName, position, rotation);
+            if (newStrength == null) return;
+            newStrength.gameObject.SetActive(true);
+            EffectSkillCtrl skillCtrl = newStrength.GetComponent<EffectSkillCtrl>();
+            skillCtrl.SetPositionEF(transform);
+        }
+        else
+        {
+            canUseSkill = false;
+            Debug.Log("Cant use Strength");
+        }
+        
+
     }
     public virtual void ManaRecover()
     {
@@ -71,6 +118,12 @@ public  class UsingSkill : RPGMonoBehaviour
     }
     public virtual void ManaDeduct(int value)
     {
+        canUseSkill = true;
+        if (currentMana < value)
+        {
+            canUseSkill = false;
+        }
+
         this.currentMana -= value;
         if (currentMana < 0) currentMana = 0;
     }

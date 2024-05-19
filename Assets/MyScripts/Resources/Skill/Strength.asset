@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
   m_Name: Strength
   m_EditorClassIdentifier: 
-  type: 0
-  itemName: 
-  itemPerSlot: 0
-  icon: {fileID: 0}
+  type: 6
+  itemName: Strength
+  itemPerSlot: 1
+  icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: 
+  itemInformation: "T\u0103ng g\u1EA5p \u0111\xF4i c\xF4ng v\xE0 kh\xF4ng ti\xEAu
+    t\u1ED1n stamina  trong 10 gi\xE2y"
   bonusAttributes: []
