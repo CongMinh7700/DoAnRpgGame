@@ -6,7 +6,7 @@ public class WImpactForEnemy : WeaponImpact
 {
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerCtrl.shieldOn)
         {
             this.weaponCtrl.WeaponDamageSender.Send(other.transform);
 

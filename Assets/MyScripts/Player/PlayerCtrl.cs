@@ -11,6 +11,7 @@ public class PlayerCtrl : HitableObjectCtrl
     public PlayerAttack playerAttack;
     public UsingSkill usingSkill;
     public PlayerAnim playerAnim;
+    public static bool shieldOn;
     protected override void LoadComponents()
     {
         base.LoadComponents();

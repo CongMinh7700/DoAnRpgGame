@@ -129,7 +129,6 @@ public class ItemManager : RPGMonoBehaviour
             }
             skillUI.slots[slotIndex].Add(slot.slotItem);
             Debug.Log("Learn Skill " + slot.slotItem.itemName);
-            //skillUI.slots[]
             slot.Remove(1);
         }
       

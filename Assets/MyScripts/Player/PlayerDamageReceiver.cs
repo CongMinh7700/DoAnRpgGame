@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerDamageReceiver : HitableObjectDamageReceiver
 {
+
     private void Update()
     {
         UpdateHpMax();

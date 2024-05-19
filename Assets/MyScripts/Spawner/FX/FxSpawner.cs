@@ -9,6 +9,7 @@ public class FxSpawner : Spawner
 
     public static string heal = "Heal";
     public static string strength = "Strength";
+    public static string shield = "Shield";
 
 
     protected override void Awake()
