@@ -8,6 +8,7 @@ public class SkillSpawner : Spawner
     public static SkillSpawner Instance => instance;
 
     public static string fireBall = "FireBall";
+    public static string iceShard = "IceShard";
 
 
     protected override void Awake()

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
+  m_Name: BuyHelm
+  m_EditorClassIdentifier: 
+  questTitle: "Mua \u0111\u1ED3"
+  description: "H\xE3y mua v\xE0 trang b\u1ECB m\u0169"
+  experienceReward: 20
+  goldReward: 100
+  dialogues:
+  - "\u0110\u1EC3 tr\u1EDF n\xEAn m\u1EA1nh m\u1EBD b\u1EA1n h\xE3y mua m\u0169 v\xE0
+    trang b\u1ECB \u1EDF th\u1EE3 r\xE8n trong th\u1ECB tr\u1EA5n."
+  - "Nhi\u1EC7m v\u1EE5 : Mua v\xE0 trang b\u1ECB m\u0169."
+  dialoguesComplete:
+  - "L\xE0m t\u1ED1t l\u1EAFm ."
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
+    l\u1EA5y nh\xE9 !"
+  dialoguesInProgress:
+  - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
+  type: 1
+  questState: 0
+  targetName: Helm
+  targetCount: 1
+  currentCount: 0
+  rewardItem: []

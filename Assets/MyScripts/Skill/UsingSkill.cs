@@ -39,11 +39,14 @@ public class UsingSkill : RPGMonoBehaviour
     {
        return  SpawnAtackSkill(20, SkillSpawner.fireBall);
     }
-
+    public virtual bool IceShard()
+    {
+        return SpawnAtackSkill(20, SkillSpawner.iceShard);
+    }
     public virtual bool Heal()
     {
         if (currentMana < 30) return false;
-        playerCtrl.DamageReceiver.Health(30);//Tính toán cho được 30% hp
+        playerCtrl.DamageReceiver.Health((playerCtrl.DamageReceiver.HPMax*20)/100);//Tính toán cho được 30% hp
         return SpawnEffectSkill(30, FxSpawner.heal);
 
     }

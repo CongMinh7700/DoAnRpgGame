@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
+  m_Name: GoblinQuest
+  m_EditorClassIdentifier: 
+  questTitle: "Ti\xEAu di\u1EC7t Goblin"
+  description: "Ti\xEAu di\u1EC7t l\u0169 goblin \u1EDF r\u1EEBng th\xF4ng"
+  experienceReward: 20
+  goldReward: 100
+  dialogues:
+  - "Ch\xE0o ch\xE0ng anh h\xF9ng tr\u1EBB c\u1EE7a ch\xFAng ta !"
+  - "Xin h\xE3y gi\xFAp ch\xFAng t\xF4i ti\xEAu di\u1EC7t l\u0169 y\xEAu tinh \u1EDF
+    r\u1EEBng th\xF4ng. Ng\u01B0\u1EDDi d\xE2n qu\xE1 s\u1EE3 h\xE3i ch\xFAng n\xEAn
+    kh\xF4ng d\xE1m ra ngo\xE0i."
+  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 10 con y\xEAu tinh."
+  dialoguesComplete:
+  - "C\u1EA3m \u01A1n ch\xE0ng trai tr\u1EBB r\u1EA5t nhi\u1EC1u .Nh\u1EDD c\u1EADu
+    \u0111\xE3 ti\xEAu di\u1EC7t b\u1ECDn goblin m\xE0 nh\u1EEFng ng\u01B0\u1EDDi
+    d\xE2n \u1EDF \u0111\xE2y \u0111\xE3 c\xF3 th\u1EC3 sinh ho\u1EA1t b\xECnh th\u01B0\u1EDDng
+    r\u1ED3i."
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
+    l\u1EA5y nh\xE9 !"
+  dialoguesInProgress:
+  - "B\u1ECDn goblin v\u1EABn \u0111ang g\xE2y h\u1EA1i cho ng\u01B0\u1EDDi d\xE2n
+    l\xE0m \u01A1n h\xE3y ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng."
+  - "R\u1ED3i quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn
+    \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
+  type: 0
+  questState: 0
+  targetName: Goblin
+  targetCount: 10
+  currentCount: 0
+  rewardItem: []

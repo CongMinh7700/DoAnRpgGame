@@ -125,6 +125,9 @@ public class ItemManager : RPGMonoBehaviour
                 case "Flash":
                     slotIndex = 4;
                     break;
+                case "IceShard":
+                    slotIndex = 5;
+                    break;
             
             }
             skillUI.slots[slotIndex].Add(slot.slotItem);

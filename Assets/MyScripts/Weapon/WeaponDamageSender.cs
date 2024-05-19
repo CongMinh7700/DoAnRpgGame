@@ -30,6 +30,7 @@ public class WeaponDamageSender : DamageSender
     private void Update()
     {
        SetDamage(hitableObjectCtrl.HitableObjectSO.damage + ItemManager.bonusAttack);
+       //SetDoublDamage neu bat cuong no
 
     }
     public override void Send(DamageReceiver damageReceiver)

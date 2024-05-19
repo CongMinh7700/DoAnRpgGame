@@ -41,6 +41,9 @@ public class QuickSkillSlot : ItemSlot
                     case "Shield":
                         skillUsed = usingSkill.Shield();
                         break;
+                    case "IceShard":
+                        skillUsed = usingSkill.IceShard();
+                        break;
                 }
 
                 if (skillUsed)
