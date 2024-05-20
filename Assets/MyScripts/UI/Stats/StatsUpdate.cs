@@ -25,12 +25,12 @@ public class StatsUpdate : RPGMonoBehaviour
     private void Update()
     {
         hpText.text = "Máu : " + playerCtrl.DamageReceiver.HPMax.ToString() + "(" + ItemManager.hpMaxBonus + ")";
-        attackText.text = "Công : " + (playerCtrl.playerSO.damage + ItemManager.bonusAttack).ToString() + "(" + ItemManager.bonusAttack + ")";
+        attackText.text = "Công : " + (playerCtrl.PlayerSO.damage + ItemManager.bonusAttack).ToString() + "(" + ItemManager.bonusAttack + ")";
         defendText.text = "Thủ : " + playerCtrl.DamageReceiver.Defense.ToString() +"("+ItemManager.bonusDefense+")";
 
         //Tạm thời chưa dùng
-        manaText.text = "Mana : " + playerCtrl.playerSO.mana.ToString();
-        staminaText.text = "Stamina : " + playerCtrl.playerSO.stamina.ToString();
+        manaText.text = "Mana : " + playerCtrl.PlayerSO.mana.ToString();
+        staminaText.text = "Stamina : " + playerCtrl.PlayerSO.stamina.ToString();
         currencyText.text = MoneyManager.Instance.Gold.ToString() +" $";
 
     }

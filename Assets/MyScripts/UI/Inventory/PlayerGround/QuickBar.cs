@@ -69,10 +69,6 @@ public class QuickBar : RPGMonoBehaviour
             slotButton.onClick.RemoveAllListeners();
         }
     }
-    private void Update()
-    {
-        
-    }
 }
 
 

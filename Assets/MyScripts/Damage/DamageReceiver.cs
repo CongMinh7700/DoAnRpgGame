@@ -7,13 +7,13 @@ public abstract class DamageReceiver : RPGMonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected BoxCollider boxCollider;
-    [SerializeField] protected int hp;
+    [SerializeField] protected int currentHp;
     [SerializeField] protected int hpMax;
     [SerializeField] protected int defense;
     [SerializeField] protected bool isDead = false;
     [SerializeField] protected bool isAttacked = false;
 
-    public int HP => hp;
+    public int CurrentHp => currentHp;
     public int HPMax => hpMax;
     public int Defense => defense;
     protected override void LoadComponents()
@@ -38,29 +38,29 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     }
     public virtual void Reborn()
     {
-        this.hp = this.hpMax;
+        this.currentHp = this.hpMax;
         this.isDead = false;
 
     }
     public virtual void Health(int value)
     {
         if (this.isDead) return;
-        this.hp += value;
+        this.currentHp += value;
         Debug.Log("Heal :" + value);
-        if (this.hp >= this.hpMax) this.hp = this.hpMax;
+        if (this.currentHp >= this.hpMax) this.currentHp = this.hpMax;
 
     }
     public virtual void Deduct(int value)
     {
         if (this.isDead) return;
-        this.hp -= value ;//* (defense * -1));
+        this.currentHp -= value ;//* (defense * -1));
         isAttacked = true;
-        if (this.hp <= 0) this.hp = 0;
+        if (this.currentHp <= 0) this.currentHp = 0;
         this.CheckIsDead();
     }
     public virtual bool IsDead()
     {
-        return this.hp <= 0;
+        return this.currentHp <= 0;
     }
     public virtual void CheckIsDead()
     {
@@ -69,10 +69,15 @@ public abstract class DamageReceiver : RPGMonoBehaviour
         this.isAttacked = false;
         this.OnDead();
     }
-    public virtual void SetHpMax(int hpMax)
+    public virtual void SetHpMax(int maxHp)
     {
-        this.hpMax = hpMax;
-        if (this.hp >= hpMax) hp = hpMax;//Mới thêm
+        this.hpMax = maxHp;
+        if (this.currentHp >= hpMax) currentHp = hpMax;//Mới thêm
+    }
+    public virtual void SetCurentHp(int hpValue)
+    {
+        this.currentHp = hpValue;
+        if (this.currentHp >= hpMax) currentHp = hpMax;//Mới thêm
     }
     public virtual void SetDefense(int defense)
     {

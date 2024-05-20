@@ -25,6 +25,9 @@ public class PlayerInfoManager : RPGMonoBehaviour
     [SerializeField] protected float currentStamina;
     [SerializeField] protected int maxMana;
     [SerializeField] protected float currentMana;
+
+
+    
     [Header("Static")]
     public static string playerNameData;
     private void Start()
@@ -44,11 +47,11 @@ public class PlayerInfoManager : RPGMonoBehaviour
     private void Update()
     {
         this.maxHp = playerCtrl.DamageReceiver.HPMax;
-        this.currenHp = playerCtrl.DamageReceiver.HP;
-        this.maxStamina = playerCtrl.playerAttack.StaminaMax;
-        this.currentStamina = playerCtrl.playerAttack.CurrentStamina;
-        this.maxMana = playerCtrl.usingSkill.ManaMax;
-        this.currentMana = playerCtrl.usingSkill.CurrentMana;
+        this.currenHp = playerCtrl.DamageReceiver.CurrentHp;
+        this.maxStamina = playerCtrl.PlayerAttack.StaminaMax;
+        this.currentStamina = playerCtrl.PlayerAttack.CurrentStamina;
+        this.maxMana = playerCtrl.UsingSkill.ManaMax;
+        this.currentMana = playerCtrl.UsingSkill.CurrentMana;
         SetUI();
 
 

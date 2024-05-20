@@ -65,10 +65,12 @@ public class PlayerAnim : RPGMonoBehaviour
 
     public void TrailOn()
     {
+        if (trailObject == null) return;
         trailObject.GetComponent<Renderer>().enabled = true;
     }
     public void TrailOff()
     {
+        if (trailObject == null) return;
         trailObject.GetComponent<Renderer>().enabled = false;
 
     }

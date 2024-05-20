@@ -19,7 +19,7 @@ public class UsingSkill : RPGMonoBehaviour
     {
         if (this.playerCtrl != null) return;
         this.playerCtrl = GetComponentInParent<PlayerCtrl>();
-        this.manaMax = playerCtrl.playerSO.mana;
+        this.manaMax = playerCtrl.PlayerSO.mana;
         this.currentMana = manaMax;
 
     }
@@ -69,10 +69,15 @@ public class UsingSkill : RPGMonoBehaviour
         this.currentMana -= value;
         if (currentMana < 0) currentMana = 0;
     }
-    public virtual void SetManaMax(int staminaMax)
+    public virtual void SetManaMax(int maxMana)
     {
-        this.manaMax = staminaMax;
-        if (this.currentMana >= staminaMax) currentMana = staminaMax;
+        this.manaMax = maxMana;
+        if (this.currentMana >= manaMax) currentMana = manaMax;
+    }
+    public virtual void SetCurrentMana(float manaValue)
+    {
+        this.currentMana = (int)manaValue;
+        if (this.currentMana >= manaMax) currentMana = manaMax;
     }
     private bool SpawnEffectSkill(int manaCost, string prefabName)
     {

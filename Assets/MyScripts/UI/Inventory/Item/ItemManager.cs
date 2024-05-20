@@ -178,9 +178,7 @@ public class ItemManager : RPGMonoBehaviour
     {
         foreach (GameObject weapon in weapons)
         {
-
-
-            if (isEquippedWeapon)
+            if (isEquippedWeapon || !slotCharacter.slots[3].IsEmpty)
             {
                 if (weapon.name == slotCharacter.slots[3].slotItem.itemName)
                 {

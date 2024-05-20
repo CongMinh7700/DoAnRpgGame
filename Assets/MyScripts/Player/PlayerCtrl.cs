@@ -5,12 +5,18 @@ using UnityEngine;
 public class PlayerCtrl : HitableObjectCtrl
 {
     [Header("PlayerSO")]
-    public PlayerSO playerSO;
-    public Interactor interactor;
-    public Transform spawnPoint;
-    public PlayerAttack playerAttack;
-    public UsingSkill usingSkill;
-    public PlayerAnim playerAnim;
+    [SerializeField ]protected PlayerSO playerSO;
+    public PlayerSO PlayerSO => playerSO;
+    [SerializeField] protected Interactor interactor;
+    public Interactor Interactor => interactor;
+    [SerializeField] protected Transform spawnPoint;
+    public Transform SpawnPoint => spawnPoint;
+    [SerializeField] protected PlayerAttack playerAttack;
+    public PlayerAttack PlayerAttack => playerAttack;
+    [SerializeField] protected UsingSkill usingSkill;
+    public UsingSkill UsingSkill => usingSkill;
+    [SerializeField] protected PlayerAnim playerAnim;
+    public PlayerAnim PlayerAnim => playerAnim;
     public static bool shieldOn;
     protected override void LoadComponents()
     {
