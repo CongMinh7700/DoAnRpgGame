@@ -7,8 +7,8 @@ public class MainStory : MonoBehaviour
 {
     private void OnEnable()
     {
-        //SceneManager.LoadScene("MainStory", LoadSceneMode.Single);
-        Debug.Log("Load Scene 1");
-        Application.Quit();
+        SceneManager.LoadScene(2);
+        Debug.Log("Load Scene Village");
+        //Application.Quit();
     }
 }

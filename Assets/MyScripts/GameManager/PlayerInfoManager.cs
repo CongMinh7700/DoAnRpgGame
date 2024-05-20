@@ -25,7 +25,12 @@ public class PlayerInfoManager : RPGMonoBehaviour
     [SerializeField] protected float currentStamina;
     [SerializeField] protected int maxMana;
     [SerializeField] protected float currentMana;
-
+    [Header("Static")]
+    public static string playerNameData;
+    private void Start()
+    {
+        playerName.text = playerNameData;
+    }
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();

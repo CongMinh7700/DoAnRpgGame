@@ -7,9 +7,6 @@ using UnityEngine.EventSystems;
 
 public class SkillSlot : ItemSlot
 {
-    //public PlayerCtrl playerCtrl;
-    //public ItemManager itemManager;
-    //public ItemContainer inventory;
     [SerializeField] protected Button assignButton;
 
     public override void Initialize()
@@ -51,6 +48,7 @@ public class SkillSlot : ItemSlot
             iconImage.gameObject.SetActive(false);
         }
     }
+
     
 
 }
