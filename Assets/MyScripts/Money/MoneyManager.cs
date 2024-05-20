@@ -24,4 +24,9 @@ public class MoneyManager : RPGMonoBehaviour
         this.gold -= value;
         if (gold <= 0) gold = 0;
     }
+    public virtual void SetGold(int value)
+    {
+        this.gold = value;
+        Debug.Log("SetGold :" + value);
+    }
 }

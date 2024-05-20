@@ -27,12 +27,7 @@ public class WeaponDamageSender : DamageSender
         this.hitableObjectCtrl = transform.root.GetComponent<HitableObjectCtrl>();
         Debug.LogWarning(transform.name + "|LoadHitableObjectCtrl|", gameObject);
     }
-    private void Update()
-    {
-       SetDamage(hitableObjectCtrl.HitableObjectSO.damage + ItemManager.bonusAttack);
-       //SetDoublDamage neu bat cuong no
-
-    }
+   
     public override void Send(DamageReceiver damageReceiver)
     {
         base.Send(damageReceiver);

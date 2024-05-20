@@ -9,6 +9,7 @@ public class UsingSkill : RPGMonoBehaviour
     [SerializeField] protected PlayerCtrl playerCtrl;
     public int ManaMax => manaMax;
     public float CurrentMana => currentMana;
+    public static bool manaLow;
 
     protected override void LoadComponents()
     {
@@ -25,6 +26,7 @@ public class UsingSkill : RPGMonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
+       // manaLow = false;
         ManaRecover();
         if (PlayerCtrl.shieldOn)
         {
@@ -32,6 +34,16 @@ public class UsingSkill : RPGMonoBehaviour
             if(currentMana < 0.01f)
             {
                 PlayerCtrl.shieldOn = false;
+                manaLow = true;
+            }
+        }
+        if (PlayerCtrl.strengthOn)
+        {
+            ManaDeduct(5 * Time.deltaTime);
+            if (currentMana < 0.01f)
+            {
+                PlayerCtrl.strengthOn = false;
+                manaLow = true;
             }
         }
     }
@@ -52,7 +64,14 @@ public class UsingSkill : RPGMonoBehaviour
     }
     public virtual bool Strength()
     {
-        return SpawnEffectSkill(30, FxSpawner.strength);
+        if (!PlayerCtrl.strengthOn)
+        {
+            return SpawnEffectSkill(0, FxSpawner.strength);
+        }
+        else
+        {
+            return false;
+        }
     }
     public virtual bool Shield()
     {
@@ -69,6 +88,12 @@ public class UsingSkill : RPGMonoBehaviour
         this.currentMana -= value;
         if (currentMana < 0) currentMana = 0;
     }
+    public virtual void ManaAdd(float value)
+    {
+        this.currentMana += value;
+        if (currentMana > manaMax) currentMana = manaMax;
+    }
+
     public virtual void SetManaMax(int maxMana)
     {
         this.manaMax = maxMana;

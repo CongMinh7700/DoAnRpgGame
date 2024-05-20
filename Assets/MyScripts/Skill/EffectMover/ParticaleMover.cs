@@ -7,11 +7,16 @@ public class ParticaleMover : RPGMonoBehaviour
     // Update is called once per frame
     protected GameObject player;
     public bool Shield;
+    public bool Strength;
     protected override void OnEnable()
     {
         if(Shield == true)
         {
             PlayerCtrl.shieldOn = true;
+        }
+        if(Strength == true)
+        {
+            PlayerCtrl.strengthOn = true;
         }
     }
     protected override void LoadComponents()

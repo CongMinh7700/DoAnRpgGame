@@ -18,6 +18,7 @@ public class PlayerCtrl : HitableObjectCtrl
     [SerializeField] protected PlayerAnim playerAnim;
     public PlayerAnim PlayerAnim => playerAnim;
     public static bool shieldOn;
+    public static bool strengthOn;
     protected override void LoadComponents()
     {
         base.LoadComponents();

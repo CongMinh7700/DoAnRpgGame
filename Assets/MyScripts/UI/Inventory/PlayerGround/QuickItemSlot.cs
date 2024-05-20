@@ -12,7 +12,18 @@ public class QuickItemSlot : ItemSlot
     [SerializeField] protected float useTimes = 0.5f;
     [SerializeField] protected float useDelay = 2f;
     [SerializeField] protected bool isUse ;
+    [SerializeField] protected PlayerCtrl playerCtrl ;
 
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadPlayerCtrl();
+    }
+    protected virtual void LoadPlayerCtrl()
+    {
+        if (this.playerCtrl != null) return;
+        this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
+    }
     public Image fillImage;
     private void Update()
     {
@@ -36,11 +47,12 @@ public class QuickItemSlot : ItemSlot
             BonusAttribute mana = slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
             if (heal != null)
             {
-                //playerCtrl.DamageReceiver.Health(heal.attributeValue);
+                playerCtrl.DamageReceiver.Health(heal.attributeValue);
                 Debug.Log("Heal");
             }
             if (mana != null)
             {
+                playerCtrl.UsingSkill.ManaAdd(mana.attributeValue);
                 Debug.Log("Use Mana");
             }
             isUse = true;

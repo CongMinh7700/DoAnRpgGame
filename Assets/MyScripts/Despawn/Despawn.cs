@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ public abstract class Despawn : RPGMonoBehaviour
     {
         this.Despawning();
     }
+   
     public virtual void Despawning()
     {
         
@@ -18,6 +19,7 @@ public abstract class Despawn : RPGMonoBehaviour
         {
             this.DespawnObject();
             pauseTime = false;
+            UsingSkill.manaLow = false;
         }
 
     }
@@ -25,10 +27,12 @@ public abstract class Despawn : RPGMonoBehaviour
     {
         Destroy(transform.parent.gameObject);
     }
+    //Override lại tại skill không cần thiết
     IEnumerator WaitToDespawn()
     {
         yield return new WaitForSeconds(2f);
         pauseTime = true;
+
     }
     protected abstract bool CanDespawn();
 }

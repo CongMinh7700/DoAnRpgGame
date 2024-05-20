@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class QuickSkillSlot : ItemSlot
 {
     [SerializeField] public KeyCode key;
-    protected float currentCooldown = 0f; 
+    protected float currentCooldown = 0f;
     public Image fillImage;
     public UsingSkill usingSkill;
 
@@ -39,6 +39,7 @@ public class QuickSkillSlot : ItemSlot
                         skillUsed = usingSkill.Strength();
                         break;
                     case "Shield":
+                        
                         skillUsed = usingSkill.Shield();
                         break;
                     case "IceShard":
@@ -48,9 +49,18 @@ public class QuickSkillSlot : ItemSlot
 
                 if (skillUsed)
                 {
-                    currentCooldown = skillCooldown;
+                    if (slotItem.itemName == "Strength")
+                    {
+                        StartCoroutine(WaitForManaLow(skillCooldown));
+                    }
+                    else
+                    {
+                        currentCooldown = skillCooldown;
+                    }
+             
                 }
             }
+
         }
     }
 
@@ -74,7 +84,14 @@ public class QuickSkillSlot : ItemSlot
         }
 
     }
+    private IEnumerator WaitForManaLow(float skillCooldown)
+    {
+        // Wait until manaLow becomes true
+        yield return new WaitUntil(() => UsingSkill.manaLow);
 
+        // Start the cooldown
+        currentCooldown = skillCooldown;
+    }
     public virtual void BackToInventory()
     {
         if (!IsEmpty && slotItem != null)
