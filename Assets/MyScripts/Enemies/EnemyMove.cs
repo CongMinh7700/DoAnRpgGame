@@ -23,7 +23,11 @@ public class EnemyMove : RPGMonoBehaviour
 
     [Header("Enemy State Info")]
     private AnimatorStateInfo enemyInfo;
-
+    public Vector3 originalPosition;
+    protected override void OnEnable()
+    {
+        originalPosition = transform.parent.position;
+    }
     protected override void LoadComponents()
     {
         this.LoadNavMeshAgent();
@@ -79,8 +83,8 @@ public class EnemyMove : RPGMonoBehaviour
     {
         x = navMesh.velocity.x;
         z = navMesh.velocity.z;
-                   velocitySpeed = x + z;
-                  
+        velocitySpeed = x + z;
+
         if (velocitySpeed == 0)
         {
             this.enemyAnimation.WalkAnimation(false);
@@ -90,37 +94,46 @@ public class EnemyMove : RPGMonoBehaviour
             this.enemyAnimation.WalkAnimation(true);
             isAttacking = false;
         }
+
         enemyInfo = enemyAnimation.Animator.GetCurrentAnimatorStateInfo(0);
         distance = Vector3.Distance(transform.position, player.transform.position);
-        
-        if (distance < attackRange || distance > runRange)
+
+        if (distance < attackRange)
         {
             navMesh.isStopped = true;
-            //if(distance > runRange)
-            //{
-            //    //Destroy(gameObject);
-            //}
-            //Kiểm tra trạng thái và có đang chuyển đổi trạng thái hay không
-            if (distance < attackRange && enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
+
+            if (enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
             {
                 if (!isAttacking)
                 {
                     isAttacking = true;
                     this.Attack();
-                    
                 }
-            
             }
 
-            if (distance < attackRange && enemyInfo.IsTag("Attack"))
+            if (enemyInfo.IsTag("Attack"))
             {
                 this.StopAttack();
-
             }
         }
-        else if (distance > attackRange && enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
+        else if (distance <= runRange)
         {
+            navMesh.isStopped = false;
             this.MoveToPlayer();
+        }
+        else
+        {
+            float distanceToOriginalPosition = Vector3.Distance(transform.position, originalPosition);
+            if (distanceToOriginalPosition > 1f) // Giới hạn khoảng cách nhỏ để dừng tại vị trí gốc
+            {
+                navMesh.isStopped = false;
+                MoveToPosition(originalPosition);
+            }
+            else
+            {
+                navMesh.isStopped = true;
+                this.enemyAnimation.WalkAnimation(false);
+            }
         }
         //Mấu chốt là ở đây
         if (BossAttack.canMove)
@@ -142,6 +155,10 @@ public class EnemyMove : RPGMonoBehaviour
     {
             navMesh.isStopped = false;
             navMesh.destination = player.transform.position;
+    }
+    public virtual void MoveToPosition(Vector3 targetPosition)
+    {
+        navMesh.destination = targetPosition;
     }
     public virtual void StopAttack()
     {

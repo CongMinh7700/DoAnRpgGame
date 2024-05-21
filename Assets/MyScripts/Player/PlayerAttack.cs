@@ -9,7 +9,7 @@ public class PlayerAttack : RPGMonoBehaviour
     [SerializeField] protected int staminaMax;
     [SerializeField] protected float currentStamina;
     [SerializeField] protected int staminaCost;
-
+    public static bool canAttack;
     public int StaminaMax => staminaMax;
     public float CurrentStamina => currentStamina;
 
