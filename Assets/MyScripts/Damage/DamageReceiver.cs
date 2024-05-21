@@ -9,13 +9,13 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     [SerializeField] protected BoxCollider boxCollider;
     [SerializeField] protected int currentHp;
     [SerializeField] protected int hpMax;
-    [SerializeField] protected int defense;
+    [SerializeField] protected double defense;
     [SerializeField] protected bool isDead = false;
     [SerializeField] protected bool isAttacked = false;
 
     public int CurrentHp => currentHp;
     public int HPMax => hpMax;
-    public int Defense => defense;
+    public double Defense => defense;
     protected override void LoadComponents()
     {
         this.LoadBoxCollider();
@@ -79,7 +79,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
         this.currentHp = hpValue;
         if (this.currentHp >= hpMax) currentHp = hpMax;//Mới thêm
     }
-    public virtual void SetDefense(int defense)
+    public virtual void SetDefense(double defense)
     {
         this.defense = defense;
     }

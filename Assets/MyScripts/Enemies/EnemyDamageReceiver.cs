@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class EnemyDamageReceiver : HitableObjectDamageReceiver
 {
-    
     [SerializeField] protected EnemyAnimation enemyAnimation;
 
     [SerializeField] protected EnemyCtrl enemyCtrl;
+    [SerializeField] protected int maxExp;
+    [SerializeField] protected int minExp;
+    [SerializeField] protected int exp;
+
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -36,7 +40,12 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     }
     protected override void OnDead()
     {
+        exp = Random.Range(minExp, maxExp);
+        Debug.Log(exp);
         enemyAnimation.DeathAnimation();
+        //Money & Xp
+        LevelSystem.Instance.GainExperienceFlatRate(exp);
+        SpawnMoney();
         Debug.LogWarning(transform.name + "đã chết");
         string enemyName = enemyCtrl.GetEnemyName();
         QuestManager.Instance.UpdateQuestProgress(enemyName);
@@ -47,6 +56,17 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         transform.parent.gameObject.SetActive(false);
     }
 
+    private void SpawnMoney()
+    {
+        Vector3 position = transform.parent.position;
+        Quaternion rotation = transform.parent.rotation;
+
+        Transform newGold = GoldSpawner.Instance.Spawn(GoldSpawner.gold, position, rotation);
+        newGold.gameObject.SetActive(true);
+        MoneyCtrl moneyCtrl = newGold.GetComponent<MoneyCtrl>();
+        moneyCtrl.GoldPickup.SetMoney(exp);
+        moneyCtrl.SetPosition(transform);
+    }
 
 
 }

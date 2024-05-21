@@ -4,23 +4,16 @@ using UnityEngine;
 
 public abstract class Despawn : RPGMonoBehaviour
 {
-    [SerializeField] protected bool pauseTime =false;
-    protected virtual  void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         this.Despawning();
     }
-   
+
     public virtual void Despawning()
     {
-        
         if (!CanDespawn()) return;
-        StartCoroutine(WaitToDespawn());
-        if (pauseTime)
-        {
-            this.DespawnObject();
-            pauseTime = false;
-            UsingSkill.manaLow = false;
-        }
+        this.DespawnObject();
+
 
     }
     public virtual void DespawnObject()
@@ -28,11 +21,6 @@ public abstract class Despawn : RPGMonoBehaviour
         Destroy(transform.parent.gameObject);
     }
     //Override lại tại skill không cần thiết
-    IEnumerator WaitToDespawn()
-    {
-        yield return new WaitForSeconds(2f);
-        pauseTime = true;
 
-    }
     protected abstract bool CanDespawn();
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +18,8 @@ public class PlayerInfoManager : RPGMonoBehaviour
     [SerializeField] protected TextMeshProUGUI staminaText;
     [SerializeField] protected Image manaBar;
     [SerializeField] protected TextMeshProUGUI manaText;
+    [SerializeField] protected Image xpBar;
+    [SerializeField] protected TextMeshProUGUI xpText;
     [Header("Attributes")]
     [SerializeField] protected int maxHp;
     [SerializeField] protected int currenHp;
@@ -25,14 +27,17 @@ public class PlayerInfoManager : RPGMonoBehaviour
     [SerializeField] protected float currentStamina;
     [SerializeField] protected int maxMana;
     [SerializeField] protected float currentMana;
+    [SerializeField] protected int requireXP;
+    [SerializeField] protected float currentXP;
 
 
-    
+
     [Header("Static")]
     public static string playerNameData;
     private void Start()
     {
-        playerName.text = playerNameData;
+        playerNameData = "AintCming";//Text
+        playerName.text = playerNameData + " - Level : " + LevelSystem.Instance.LevelCurrent;//Bỏ vô Update
     }
     protected override void LoadComponents()
     {
@@ -52,19 +57,24 @@ public class PlayerInfoManager : RPGMonoBehaviour
         this.currentStamina = playerCtrl.PlayerAttack.CurrentStamina;
         this.maxMana = playerCtrl.UsingSkill.ManaMax;
         this.currentMana = playerCtrl.UsingSkill.CurrentMana;
+        this.currentXP = LevelSystem.Instance.currentXp;
+        this.requireXP = LevelSystem.Instance.requireXp;
         SetUI();
 
 
     }
     protected virtual void SetUI()
     {
-        this.healthBar.fillAmount = (float)currenHp /maxHp ;
+        this.healthBar.fillAmount = (float)currenHp / maxHp;
         this.healText.text = currenHp.ToString() + "/" + maxHp.ToString();
 
         this.staminaBar.fillAmount = (float)currentStamina / maxStamina;
         this.staminaText.text = currentStamina.ToString() + "/" + maxStamina.ToString();
 
         this.manaBar.fillAmount = (float)currentMana / maxMana;
-        this.manaText.text = currentMana.ToString() + "/" +maxMana.ToString();
+        this.manaText.text = currentMana.ToString() + "/" + maxMana.ToString();
+
+        this.xpBar.fillAmount = (float)currentXP / requireXP;
+        this.xpText.text = currentXP.ToString() + "/" + requireXP.ToString();
     }
 }

@@ -47,13 +47,13 @@ public class PlayerAttack : RPGMonoBehaviour
         switch (name)
         {
             case "Spear":
-                staminaCost = 25;
-                break;
-            case "LongSword":
                 staminaCost = 20;
                 break;
+            case "LongSword":
+                staminaCost = 15;
+                break;
             case "LongAxe":
-                staminaCost = 30;
+                staminaCost = 25;
                 break;
             default:
                 return;
@@ -66,23 +66,23 @@ public class PlayerAttack : RPGMonoBehaviour
                 playerAnim.AttackAnimation(name);
                 StartCoroutine(ApplyStaminaAfterAnimation(staminaCost));
             }
-            
+
         }
     }
 
     public virtual void StaminaRecover()
     {
-        this.currentStamina += 0.1f ;
+        this.currentStamina += 2 * Time.deltaTime;
         if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
     }
     public virtual void StaminaDeduct(int value)
     {
-        if(currentStamina >= value)
+        if (currentStamina >= value)
         {
             this.currentStamina -= value;
             if (currentStamina < 0) currentStamina = 0;
         }
-    
+
     }
     public virtual void SetStaminaMax(int maxStamina)
     {

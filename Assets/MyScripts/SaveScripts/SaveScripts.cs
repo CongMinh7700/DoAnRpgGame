@@ -9,9 +9,10 @@ public class SaveScripts : RPGMonoBehaviour
     public static bool continueData = false;
     private bool checkForLoad = false;
     //Quest,Money
-    
+
     [Header("Save")]
-    public  PlayerCtrl playerCtrl;
+    public PlayerCtrl playerCtrl;
+    public LevelSystem levelSystem;
     [Header("In Game")]
     public static int instance = 0;
 
@@ -25,7 +26,7 @@ public class SaveScripts : RPGMonoBehaviour
         }
         try
         {
-            PlayerData playerData = new PlayerData(); 
+            PlayerData playerData = new PlayerData();
             playerData.playerName = PlayerInfoManager.playerNameData;
             playerData.currentMana = playerCtrl.UsingSkill.CurrentMana;
             playerData.currentHealth = playerCtrl.DamageReceiver.CurrentHp;
@@ -33,10 +34,14 @@ public class SaveScripts : RPGMonoBehaviour
             playerData.manaMax = playerCtrl.UsingSkill.ManaMax;
             playerData.healthMax = playerCtrl.DamageReceiver.HPMax;
             playerData.staminaMax = playerCtrl.PlayerAttack.StaminaMax;
-            playerData.damage = playerCtrl.PlayerSO.damage;
+            playerData.damage = LevelSystem.damageLevel;
             playerData.defense = playerCtrl.DamageReceiver.Defense;
             playerData.position = playerCtrl.transform.position;
             playerData.gold = MoneyManager.Instance.Gold;
+            playerData.currentXp = levelSystem.currentXp;
+            playerData.requireXp = levelSystem.requireXp;
+            playerData.level = levelSystem.LevelCurrent;
+
             //playerData.currentExp = 0;
             //playerData.maxExp = 0;
             string jsonData = JsonUtility.ToJson(playerData);
@@ -53,7 +58,7 @@ public class SaveScripts : RPGMonoBehaviour
     public virtual void LoadData(string id)
     {
         string dataPath = GetIDPath(id);
-        if(!System.IO.File.Exists(dataPath))
+        if (!System.IO.File.Exists(dataPath))
         {
             Debug.LogWarning("No saved data exists for the provided id: " + id);
             return;
@@ -70,12 +75,14 @@ public class SaveScripts : RPGMonoBehaviour
             playerCtrl.UsingSkill.SetManaMax(playerData.manaMax);
             playerCtrl.DamageReceiver.SetHpMax(playerData.healthMax);
             playerCtrl.PlayerAttack.SetStaminaMax(playerData.staminaMax);
-            playerCtrl.PlayerSO.damage = playerData.damage;
+            LevelSystem.damageLevel = playerData.damage;
             playerCtrl.DamageReceiver.SetDefense(playerData.defense);
             playerCtrl.transform.position = playerData.position;
             MoneyManager.Instance.SetGold(playerData.gold);
-            //playerCtrl.PlayerExperience.MaxExp = playerData.maxExp; // Giả sử bạn có thuộc tính này
-            //playerCtrl.PlayerExperience.CurrentExp = playerData.currentExp; // Giả sử bạn có thuộc tính này
+            levelSystem.currentXp = playerData.currentXp;
+            levelSystem.requireXp = playerData.requireXp;
+            levelSystem.SetLevel(playerData.level);
+
 
             Debug.Log("<color=green>Data succesfully loaded! </color>");
         }
@@ -106,8 +113,10 @@ public class PlayerData
     public int staminaMax;
     public int healthMax;
     public int damage;
-    public int defense;
-    public int maxExp;
-    public int killAmount;
+    public double defense;
+
+    public int requireXp;
+    public int currentXp;
+    public int level;
     public int gold;
 }

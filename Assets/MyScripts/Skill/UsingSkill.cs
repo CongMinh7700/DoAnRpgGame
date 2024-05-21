@@ -26,12 +26,12 @@ public class UsingSkill : RPGMonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
-       // manaLow = false;
+        // manaLow = false;
         ManaRecover();
         if (PlayerCtrl.shieldOn)
         {
-            ManaDeduct(5*Time.deltaTime);
-            if(currentMana < 0.01f)
+            ManaDeduct(5 * Time.deltaTime);
+            if (currentMana < 1f)
             {
                 PlayerCtrl.shieldOn = false;
                 manaLow = true;
@@ -40,7 +40,7 @@ public class UsingSkill : RPGMonoBehaviour
         if (PlayerCtrl.strengthOn)
         {
             ManaDeduct(5 * Time.deltaTime);
-            if (currentMana < 0.01f)
+            if (currentMana < 1f)
             {
                 PlayerCtrl.strengthOn = false;
                 manaLow = true;
@@ -49,7 +49,7 @@ public class UsingSkill : RPGMonoBehaviour
     }
     public virtual bool FireBall()
     {
-       return  SpawnAtackSkill(20, SkillSpawner.fireBall);
+        return SpawnAtackSkill(20, SkillSpawner.fireBall);
     }
     public virtual bool IceShard()
     {
@@ -58,7 +58,7 @@ public class UsingSkill : RPGMonoBehaviour
     public virtual bool Heal()
     {
         if (currentMana < 30) return false;
-        playerCtrl.DamageReceiver.Health((playerCtrl.DamageReceiver.HPMax*20)/100);//Tính toán cho được 30% hp
+        playerCtrl.DamageReceiver.Health((playerCtrl.DamageReceiver.HPMax * 20) / 100);//Tính toán cho được 30% hp
         return SpawnEffectSkill(30, FxSpawner.heal);
 
     }
@@ -80,7 +80,7 @@ public class UsingSkill : RPGMonoBehaviour
 
     public virtual void ManaRecover()
     {
-        this.currentMana += 2 * Time.deltaTime;
+        this.currentMana += 2 * Time.deltaTime;//Time.deltaTime
         if (this.currentMana > manaMax) currentMana = manaMax;
     }
     public virtual void ManaDeduct(float value)
