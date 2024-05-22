@@ -15,7 +15,7 @@ public class PlayerMovement : RPGMonoBehaviour
     [SerializeField] protected bool readyTojump;
   //  [SerializeField] protected RaycastHit raycastHit; Sử dụng cho outline
     private Rigidbody rb;
-    private float speed = 10.0f;
+    [SerializeField] private float speed = 5.0f;
     private float rotationSpeed = 50.0f;
     private float playerHeight = 2f;
     public static bool isRunning;

@@ -10,7 +10,7 @@ public class SkillDamageSender : DamageSender
     {
         this.LoadSkillCtrl();
     }
-    private void Start()
+    protected override void OnEnable()
     {
         SetDamage(LevelSystem.damageLevel * 2);
     }
@@ -31,5 +31,5 @@ public class SkillDamageSender : DamageSender
     {
         this.skillCtrl.SkillDespawn.DespawnObject();
     }
-    //MakeFX Like (text)
+    //MakeFX Like (text),Effect Impact
 }
