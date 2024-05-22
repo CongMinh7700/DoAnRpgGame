@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyCtrl : HitableObjectCtrl
 {
+
     public string GetEnemyName()
     {
         return transform.name;

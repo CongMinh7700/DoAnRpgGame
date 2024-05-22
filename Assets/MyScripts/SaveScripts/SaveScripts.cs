@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class SaveScripts : RPGMonoBehaviour
 {
 
@@ -15,6 +14,7 @@ public class SaveScripts : RPGMonoBehaviour
     public LevelSystem levelSystem;
     [Header("In Game")]
     public static int instance = 0;
+
 
     public virtual void SaveData(string id)
     {
@@ -99,6 +99,7 @@ public class SaveScripts : RPGMonoBehaviour
     {
         return Application.persistentDataPath + $"/playerData_{id}.json";
     }
+    
 }
 [System.Serializable]
 public class PlayerData

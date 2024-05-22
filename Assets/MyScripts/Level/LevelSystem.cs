@@ -42,6 +42,10 @@ public class LevelSystem : Level
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            GainExperienceFlatRate(50);
+        }
         if (currentXp < requireXp) return;
         LevelUp();
     }
@@ -78,7 +82,7 @@ public class LevelSystem : Level
     protected virtual void UpdatePlayerStatus(int level)
     {
         playerCtrl.DamageReceiver.SetHpMax(playerCtrl.PlayerSO.hpMax+level * 10);
-        playerCtrl.DamageReceiver.SetDefense(playerCtrl.PlayerSO.defense + level * 0.1f);
+        playerCtrl.DamageReceiver.SetDefense(playerCtrl.PlayerSO.defense + (level * 0.1));
         playerCtrl.PlayerAttack.SetStaminaMax(playerCtrl.PlayerSO.stamina + level * 10);
         playerCtrl.UsingSkill.SetManaMax(playerCtrl.PlayerSO.mana + level * 10);
         damageLevel = playerCtrl.PlayerSO.damage + level;

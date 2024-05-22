@@ -19,7 +19,6 @@ public class EnemyMove : RPGMonoBehaviour
     [SerializeField] protected float rotateSpeed = 50f;
     [SerializeField] private float distance;
     [SerializeField] private bool isAttacking = false;
-    [SerializeField] private bool outlineOn = false;
 
     [Header("Enemy State Info")]
     private AnimatorStateInfo enemyInfo;
@@ -60,24 +59,6 @@ public class EnemyMove : RPGMonoBehaviour
     private void Update()
     {
         this.EnemyMovement();
-        OutlineControl();
-    }
-    public virtual void OutlineControl()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!outlineOn)
-            {
-                outlineOn = true;
-                transform.parent.GetComponent<Outline>().enabled = true;
-            }
-            else
-            {
-                outlineOn = false;
-                transform.parent.GetComponent<Outline>().enabled = false;
-            }
-        }
-       
     }
     public virtual void EnemyMovement()
     {

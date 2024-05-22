@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerAttack : RPGMonoBehaviour
 {
     [SerializeField] protected PlayerAnim playerAnim;
@@ -12,7 +13,6 @@ public class PlayerAttack : RPGMonoBehaviour
     public static bool canAttack;
     public int StaminaMax => staminaMax;
     public float CurrentStamina => currentStamina;
-
     [Header("Player State Info")]
     private AnimatorStateInfo playerInfo;
     protected override void LoadComponents()
@@ -36,6 +36,7 @@ public class PlayerAttack : RPGMonoBehaviour
     }
     void Update()
     {
+
         playerAnim.LoadTrail();
         this.Attacking();
         StaminaRecover();
@@ -69,10 +70,11 @@ public class PlayerAttack : RPGMonoBehaviour
 
         }
     }
+   
 
     public virtual void StaminaRecover()
     {
-        this.currentStamina += 2 * Time.deltaTime;
+        this.currentStamina += 5 * Time.deltaTime;
         if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
     }
     public virtual void StaminaDeduct(int value)

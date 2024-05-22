@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class EnemyDamageReceiver : HitableObjectDamageReceiver
 {
@@ -10,13 +12,23 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     [SerializeField] protected int maxExp;
     [SerializeField] protected int minExp;
     [SerializeField] protected int exp;
-
-
+    [SerializeField] static bool outlineOn = false;
+    [SerializeField] GameObject thisEnemy;
+    [SerializeField] protected Image healthBar;
+   
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadEnemyAnimation();
         this.LoadEnemyCtrl();
+        LoadThisEnemy();
+    }
+
+
+    protected virtual void LoadThisEnemy()
+    {
+        if (thisEnemy != null) return;
+        thisEnemy = gameObject;
     }
     protected virtual void LoadEnemyCtrl()
     {
@@ -25,11 +37,15 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     }
     private void Update()
     {
+        OutlineControl();
+        SetHpUI();
+        Debug.Log("Outline On :" + outlineOn);
         if (isAttacked)
         {
             isAttacked = false;
             enemyAnimation.HitAnimation();
         }
+
     }
 
     public virtual void LoadEnemyAnimation()
@@ -67,6 +83,25 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         moneyCtrl.GoldPickup.SetMoney(exp);
         moneyCtrl.SetPosition(transform);
     }
+    public virtual void OutlineControl()
+    {
 
+        if (!IsDead())
+        {
 
+            if (PlayerCtrl.theTarget == thisEnemy)
+            {
+                transform.parent.GetComponent<Outline>().enabled = true;
+
+            }
+            else
+            {
+                transform.parent.GetComponent<Outline>().enabled = false;
+            }
+        }
+    }
+    protected virtual void SetHpUI()
+    {
+        this.healthBar.fillAmount = (float)currentHp / hpMax;
+    }
 }

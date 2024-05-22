@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerCtrl : HitableObjectCtrl
 {
@@ -19,6 +20,8 @@ public class PlayerCtrl : HitableObjectCtrl
     public PlayerAnim PlayerAnim => playerAnim;
     public static bool shieldOn;
     public static bool strengthOn;
+    public static GameObject theTarget;
+    private RaycastHit raycastHit;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -59,6 +62,33 @@ public class PlayerCtrl : HitableObjectCtrl
     protected override string GetObjectTypeString()
     {
         return ObjectType.Player.ToString();
+    }
+    private void Update()
+    {
+        SlectionTarget();//turn outline and set target
+    }
+    public void SlectionTarget()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Click Mouse");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out raycastHit,50))
+            {
+                if (raycastHit.transform.gameObject.CompareTag("Enemy"))
+                {
+                    theTarget = raycastHit.transform.gameObject;
+                    transform.LookAt(theTarget.transform);//Cho player keke
+                    Debug.Log("Enemy Set Target" + theTarget.name);
+                }
+                else
+                {
+                    theTarget = null;
+
+                }
+            }
+        }
+
     }
 }
 

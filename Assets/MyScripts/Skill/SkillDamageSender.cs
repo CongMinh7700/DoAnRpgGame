@@ -1,16 +1,19 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillDamageSender : DamageSender
 {
     [SerializeField] protected AttackSkillCtrl skillCtrl;
-
+    //true,false hoặc lấy attribute
     protected override void LoadComponents()
     {
         this.LoadSkillCtrl();
     }
-
+    private void Start()
+    {
+        SetDamage(LevelSystem.damageLevel * 2);
+    }
     protected virtual void LoadSkillCtrl()
     {
         if (this.skillCtrl != null) return;

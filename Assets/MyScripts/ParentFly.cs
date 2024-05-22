@@ -6,7 +6,7 @@ public class ParentFly : RPGMonoBehaviour
 {
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected Vector3 direction = Vector3.forward;
-
+    public float Speed => speed;
     protected virtual void Update()
     {
         this.Fly();
