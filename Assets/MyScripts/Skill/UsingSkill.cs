@@ -59,14 +59,14 @@ public class UsingSkill : RPGMonoBehaviour
     {
         if (currentMana < 30) return false;
         playerCtrl.DamageReceiver.Health((playerCtrl.DamageReceiver.HPMax * 20) / 100);//Tính toán cho được 30% hp
-        return SpawnEffectSkill(30, FxSpawner.heal);
+        return SpawnEffectSkill(30, FXSpawner.heal);
 
     }
     public virtual bool Strength()
     {
         if (!PlayerCtrl.strengthOn)
         {
-            return SpawnEffectSkill(0, FxSpawner.strength);
+            return SpawnEffectSkill(0, FXSpawner.strength);
         }
         else
         {
@@ -75,7 +75,7 @@ public class UsingSkill : RPGMonoBehaviour
     }
     public virtual bool Shield()
     {
-        return SpawnEffectSkill(0, FxSpawner.shield);
+        return SpawnEffectSkill(0, FXSpawner.shield);
     }
 
     public virtual void ManaRecover()
@@ -115,7 +115,7 @@ public class UsingSkill : RPGMonoBehaviour
         Vector3 position = transform.parent.position;
         Quaternion rotation = transform.parent.rotation;
 
-        Transform newSkill = FxSpawner.Instance.Spawn(prefabName, position, rotation);
+        Transform newSkill = FXSpawner.Instance.Spawn(prefabName, position, rotation);
         if (newSkill == null) return false;
         newSkill.gameObject.SetActive(true);
         EffectSkillCtrl skillCtrl = newSkill.GetComponent<EffectSkillCtrl>();

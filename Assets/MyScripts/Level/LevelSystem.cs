@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,7 +44,7 @@ public class LevelSystem : Level
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            GainExperienceFlatRate(50);
+            GainExperienceFlatRate(100);
         }
         if (currentXp < requireXp) return;
         LevelUp();
@@ -66,6 +66,7 @@ public class LevelSystem : Level
         bool status = base.LevelUp();
         currentXp = Mathf.RoundToInt(currentXp - requireXp);
         requireXp = RequireXpByNumber();
+        CreateNotificationLevel();
         UpdatePlayerStatus(levelCurrent);
         return status;
     }
@@ -86,6 +87,16 @@ public class LevelSystem : Level
         playerCtrl.PlayerAttack.SetStaminaMax(playerCtrl.PlayerSO.stamina + level * 10);
         playerCtrl.UsingSkill.SetManaMax(playerCtrl.PlayerSO.mana + level * 10);
         damageLevel = playerCtrl.PlayerSO.damage + level;
+    }
+    //Sound nữa thì đẹp
+    protected virtual void CreateNotificationLevel()
+    {
+        string fxName = FXSpawner.notification;
+
+        Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
+        NotificationText nofText = fxObj.GetComponentInChildren<NotificationText>();
+        nofText.SetText("Level Up");
+        fxObj.gameObject.SetActive(true);
     }
 
 }
