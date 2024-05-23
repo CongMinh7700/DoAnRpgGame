@@ -40,7 +40,7 @@ public class QuestManager : RPGMonoBehaviour
             if (quest.targetName == targetName && quest.questState != QuestState.Complete)
             {
                 quest.currentCount++;
-                Debug.Log($"Killed {quest.currentCount}/{quest.targetCount} {quest.targetName}");
+                Debug.Log($"Progress: {quest.currentCount}/{quest.targetCount} {quest.targetName}");
                 if (quest.currentCount >= quest.targetCount)
                 {
                     CompleteQuest(quest);

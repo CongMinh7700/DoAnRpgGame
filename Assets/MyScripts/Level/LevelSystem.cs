@@ -92,10 +92,9 @@ public class LevelSystem : Level
     protected virtual void CreateNotificationLevel()
     {
         string fxName = FXSpawner.notification;
-
         Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
         NotificationText nofText = fxObj.GetComponentInChildren<NotificationText>();
-        nofText.SetText("Level Up");
+        nofText.SetText("Lên Cấp");
         fxObj.gameObject.SetActive(true);
     }
 

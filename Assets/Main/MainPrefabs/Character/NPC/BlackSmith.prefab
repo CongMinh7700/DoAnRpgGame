@@ -81,6 +81,8 @@ MonoBehaviour:
   dialogueIndex: 0
   isFullText: 0
   noQuest: 0
+  canNotification: 0
+  notificated: 0
 --- !u!1 &24238448594794336
 GameObject:
   m_ObjectHideFlags: 0

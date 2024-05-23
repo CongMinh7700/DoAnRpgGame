@@ -6,19 +6,6 @@ public class NPCScripts : RPGMonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private QuestGiver questGiver;
-    //[SerializeField] protected GameObject messageBox;
-    //[SerializeField] public int shopNumber;
-    ////Dialogues
-    //[Header("Talk & Quest")]
-    //public Quest[] quests;
-    //public int questIndex = 0;
-    //public int dialogueIndex;
-    //private bool isAnimatingText = false;
-    //private Coroutine textAnimationCoroutine;
-    ////Full Text không cho F nữa
-    //[SerializeField] private bool isFullText = false;
-    //[SerializeField] private bool noQuest = false;
-    ////Name của npc
     protected override void LoadComponents()
     {
         this.LoadAnimator();

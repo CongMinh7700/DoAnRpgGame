@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Save Quest Index đi :V
 public class QuestGiver : MonoBehaviour
 {
     [SerializeField] public int shopNumber;
@@ -16,6 +17,8 @@ public class QuestGiver : MonoBehaviour
     //Full Text không cho F nữa
     public bool isFullText = false;
     [SerializeField] private bool noQuest = false;
+    [SerializeField] private bool canNotification ;
+    [SerializeField] private bool notificated ;
     //Name của npc
     private void Update()
     {
@@ -25,6 +28,18 @@ public class QuestGiver : MonoBehaviour
             {
                 ShowDialogue();
             }
+        }
+        if(quests[questIndex].questState == QuestState.Complete )
+        {
+            canNotification = true;
+            if (canNotification && !notificated &&!noQuest)
+            {
+                notificated = true;
+                canNotification = false;
+                QuestNotificationComplete();
+            }
+
+            
         }
     }
     public void ShowDialogue()
@@ -97,11 +112,13 @@ public class QuestGiver : MonoBehaviour
             QuestManager.Instance.RemoveQuest(quests[questIndex]);
             questIndex++;
             dialogueIndex = 0;
+            notificated = false;
             isFullText = false;
             if (questIndex >= quests.Length)
             {
-                questIndex = questIndex - 1;
+                questIndex = quests.Length - 1;
                 noQuest = true;
+               // notificated = true;
             }
             messageBox.GetComponent<MessageManager>().Refuse();
         }
@@ -116,5 +133,29 @@ public class QuestGiver : MonoBehaviour
             Debug.Log("Call Check");
 
         }
+    }
+    protected virtual void QuestNotificationComplete()
+    {
+        string fxName = FXSpawner.notification;
+        Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
+        NotificationText nofText = fxObj.GetComponentInChildren<NotificationText>();
+        nofText.SetText("Hoàn thành nhiệm vụ");
+        Debug.Log("Quest Notification Called");
+        fxObj.gameObject.SetActive(true);
+    }
+
+    protected virtual void SaveQuest()
+    {
+        //Save quest Index;
+        //Save quest index theo name (ví dụ black smith thì cho vào 1 cái riêng)
+    }
+
+    protected virtual void QuestPointer()
+    {
+      //Hiển thị trên canvas ,
+      //Hiển thị trên map
+      //if(questComplete) => !
+      //if(haveNextQuest) => ?
+      //if(noquest) => null
     }
 }
