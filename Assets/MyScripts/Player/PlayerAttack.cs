@@ -55,10 +55,12 @@ public class PlayerAttack : RPGMonoBehaviour
                 return;
 
         }
+
         if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost)
         {
             if (!playerCtrl.PlayerAnim.isAttacking)
             {
+                playerCtrl.PlayerSFX.SetWeaponSFX(weaponIndex);
                 playerCtrl.PlayerAnim.AttackAnimation(name);
                 StartCoroutine(ApplyStaminaAfterAnimation(staminaCost));
             }

@@ -55,6 +55,7 @@ public class PlayerCtrl : HitableObjectCtrl
     {
         if (this.usingSkill != null) return;
         this.usingSkill = GetComponentInChildren<UsingSkill>();
+        spawnPoint = usingSkill.transform;
 
     }
     protected virtual void LoadPlayerAnim()
@@ -99,6 +100,10 @@ public class PlayerCtrl : HitableObjectCtrl
             }
         }
 
+    }
+    public virtual void PlaySound()
+    {
+        playerSFX.audioSource.Play();
     }
 }
 

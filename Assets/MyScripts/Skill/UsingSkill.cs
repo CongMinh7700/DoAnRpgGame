@@ -129,6 +129,8 @@ public class UsingSkill : RPGMonoBehaviour
             Debug.Log("Can't use Attack Skill");
             return false;
         }
+        playerCtrl.PlayerSFX.SetSkillSFX();
+        playerCtrl.PlaySound();
         ManaDeduct(manaCost);
         Vector3 position = transform.parent.position;
         Quaternion rotation = transform.parent.rotation;

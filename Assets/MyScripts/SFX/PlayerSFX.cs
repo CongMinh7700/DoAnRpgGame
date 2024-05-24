@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerSFX : RPGMonoBehaviour
 {
-    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] public AudioSource audioSource;
     [SerializeField] protected AudioClip[] weaponSounds;
-    [SerializeField] protected AudioClip[] skillSounds;
+    [SerializeField] protected AudioClip skillSound;
     protected override void LoadComponents()
     {
         LoadAudioSource();
@@ -18,16 +18,13 @@ public class PlayerSFX : RPGMonoBehaviour
         this.audioSource = GetComponent<AudioSource>();
 
     }
-    protected virtual void SetWeaponSFX(int index)
+    public virtual void SetWeaponSFX(int index)
     {
         audioSource.clip = weaponSounds[index];
     }
-    protected virtual void SetSkillSFX(int index)
+    public virtual void SetSkillSFX()
     {
-        audioSource.clip = skillSounds[index];
+        audioSource.clip = skillSound;
     }
-    public virtual void PlaySound()
-    {
-        audioSource.Play();
-    }
+
 }
