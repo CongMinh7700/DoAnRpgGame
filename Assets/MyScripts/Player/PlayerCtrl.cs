@@ -18,6 +18,8 @@ public class PlayerCtrl : HitableObjectCtrl
     public UsingSkill UsingSkill => usingSkill;
     [SerializeField] protected PlayerAnim playerAnim;
     public PlayerAnim PlayerAnim => playerAnim;
+    [SerializeField] protected PlayerSFX playerSFX;
+    public PlayerSFX PlayerSFX => playerSFX;
     public static bool shieldOn;
     public static bool strengthOn;
     public static GameObject theTarget;
@@ -30,6 +32,7 @@ public class PlayerCtrl : HitableObjectCtrl
         this.LoadPlayerAttack();
         this.LoadUsingSkill();
         this.LoadPlayerAnim();
+        this.LoadPlayerSFX();
     }
     protected virtual void LoadPlayerSO()
     {
@@ -59,10 +62,17 @@ public class PlayerCtrl : HitableObjectCtrl
         if (this.playerAnim != null) return;
         this.playerAnim = GetComponent<PlayerAnim>();
     }
+    protected virtual void LoadPlayerSFX()
+    {
+        if (this.playerSFX != null) return;
+        this.playerSFX = GetComponentInChildren<PlayerSFX>();
+    }
     protected override string GetObjectTypeString()
     {
         return ObjectType.Player.ToString();
     }
+
+
     private void Update()
     {
         SlectionTarget();//turn outline and set target

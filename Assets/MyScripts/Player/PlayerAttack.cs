@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerAttack : RPGMonoBehaviour
 {
-    [SerializeField] protected PlayerAnim playerAnim;
     [SerializeField] protected PlayerCtrl playerCtrl;
     [SerializeField] protected int staminaMax;
     [SerializeField] protected float currentStamina;
     [SerializeField] protected int staminaCost;
+    [SerializeField] protected int weaponIndex;
     public static bool canAttack;
     public int StaminaMax => staminaMax;
     public float CurrentStamina => currentStamina;
@@ -17,15 +17,7 @@ public class PlayerAttack : RPGMonoBehaviour
     private AnimatorStateInfo playerInfo;
     protected override void LoadComponents()
     {
-        this.LoadPlayerAnimation();
         this.LoadPlayerCtrl();
-    }
-
-    public virtual void LoadPlayerAnimation()
-    {
-        if (this.playerAnim != null) return;
-        this.playerAnim = transform.GetComponentInParent<PlayerAnim>();
-        Debug.LogWarning(transform.name + "||LoadPlayerAnimation||", gameObject);
     }
     protected virtual void LoadPlayerCtrl()
     {
@@ -37,10 +29,10 @@ public class PlayerAttack : RPGMonoBehaviour
     void Update()
     {
 
-        playerAnim.LoadTrail();
+        playerCtrl.PlayerAnim.LoadTrail();
         this.Attacking();
         StaminaRecover();
-        playerInfo = playerAnim.Animator.GetCurrentAnimatorStateInfo(0);
+        playerInfo = playerCtrl.PlayerAnim.Animator.GetCurrentAnimatorStateInfo(0);
     }
     public void Attacking()
     {
@@ -49,12 +41,15 @@ public class PlayerAttack : RPGMonoBehaviour
         {
             case "Spear":
                 staminaCost = 20;
+                weaponIndex = 0;
                 break;
             case "LongSword":
                 staminaCost = 15;
+                weaponIndex = 1;
                 break;
             case "LongAxe":
                 staminaCost = 25;
+                weaponIndex = 2;
                 break;
             default:
                 return;
@@ -62,9 +57,9 @@ public class PlayerAttack : RPGMonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost)
         {
-            if (!playerAnim.isAttacking)
+            if (!playerCtrl.PlayerAnim.isAttacking)
             {
-                playerAnim.AttackAnimation(name);
+                playerCtrl.PlayerAnim.AttackAnimation(name);
                 StartCoroutine(ApplyStaminaAfterAnimation(staminaCost));
             }
 
@@ -98,8 +93,8 @@ public class PlayerAttack : RPGMonoBehaviour
     }
     IEnumerator ApplyStaminaAfterAnimation(int cost)
     {
-        yield return new WaitUntil(() => !playerAnim.IsPlayingAttackAnimation());
+        yield return new WaitUntil(() => !playerCtrl.PlayerAnim.IsPlayingAttackAnimation());
         StaminaDeduct(cost);
-        playerAnim.isAttacking = false;
+        playerCtrl.PlayerAnim.isAttacking = false;
     }
 }
