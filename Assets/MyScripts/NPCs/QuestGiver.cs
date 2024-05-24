@@ -10,15 +10,15 @@ public class QuestGiver : MonoBehaviour
     //Dialogues
     [Header("Talk & Quest")]
     [SerializeField] protected Quest[] quests;
-    [SerializeField] protected int questIndex = 0;
+    [SerializeField] public int questIndex = 0;
     public int dialogueIndex;
     private bool isAnimatingText = false;
     private Coroutine textAnimationCoroutine;
     //Full Text không cho F nữa
     public bool isFullText = false;
     [SerializeField] private bool noQuest = false;
-    [SerializeField] private bool canNotification ;
-    [SerializeField] private bool notificated ;
+    [SerializeField] private bool canNotification;
+    [SerializeField] private bool notificated;
     //Name của npc
     private void Update()
     {
@@ -29,17 +29,17 @@ public class QuestGiver : MonoBehaviour
                 ShowDialogue();
             }
         }
-        if(quests[questIndex].questState == QuestState.Complete )
+        if (quests[questIndex].questState == QuestState.Complete)
         {
             canNotification = true;
-            if (canNotification && !notificated &&!noQuest)
+            if (canNotification && !notificated && !noQuest)
             {
                 notificated = true;
                 canNotification = false;
                 QuestNotificationComplete();
             }
 
-            
+
         }
     }
     public void ShowDialogue()
@@ -87,10 +87,10 @@ public class QuestGiver : MonoBehaviour
             fullText = dialogues[dialogueIndex];
         }
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
+
         dialogueIndex++;
-
-
         QuestInProgress();
+
     }
     IEnumerator AnimateText(string fullText)
     {
@@ -118,7 +118,7 @@ public class QuestGiver : MonoBehaviour
             {
                 questIndex = quests.Length - 1;
                 noQuest = true;
-               // notificated = true;
+                // notificated = true;
             }
             messageBox.GetComponent<MessageManager>().Refuse();
         }
@@ -131,6 +131,7 @@ public class QuestGiver : MonoBehaviour
             dialogueIndex = 0;
             isFullText = false;
             Debug.Log("Call Check");
+            ShowDialogue();
 
         }
     }
@@ -147,15 +148,15 @@ public class QuestGiver : MonoBehaviour
     protected virtual void SaveQuest()
     {
         //Save quest Index;
-        //Save quest index theo name (ví dụ black smith thì cho vào 1 cái riêng)
+        //Save quest index theo numbshop (ví dụ black smith thì cho vào 1 cái riêng)
     }
 
     protected virtual void QuestPointer()
     {
-      //Hiển thị trên canvas ,
-      //Hiển thị trên map
-      //if(questComplete) => !
-      //if(haveNextQuest) => ?
-      //if(noquest) => null
+        //Hiển thị trên canvas ,
+        //Hiển thị trên map
+        //if(questComplete) => !
+        //if(haveNextQuest) => ?
+        //if(noquest) => null
     }
 }

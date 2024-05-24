@@ -14,7 +14,12 @@ public class LevelSystem : Level
     public float powerMultiple = 2;
     public float divisionMultiple = 7;
     public PlayerCtrl playerCtrl;
+
     public static int damageLevel;
+    public static int hpMaxLevel;
+    public static int staminaLevel;
+    public static double defenseLevel;
+    public static int manaLevel;
     protected override void Awake()
     {
         if (LevelSystem.instance != null) Debug.Log("Only 1 Level System Allow to exits");
@@ -73,19 +78,22 @@ public class LevelSystem : Level
 
     protected int RequireXpByNumber()
     {
-        for(int i=0;i< levelCurrent; i++)
+        for (int i = 0; i < levelCurrent; i++)
         {
             number += (int)Mathf.Floor(i + additionMultiple * Mathf.Pow(powerMultiple, i / divisionMultiple));
         }
 
-        return number/4;
+        return number / 4;
     }
-    protected virtual void UpdatePlayerStatus(int level)
+    public virtual void UpdatePlayerStatus(int level)
     {
-        playerCtrl.DamageReceiver.SetHpMax(playerCtrl.PlayerSO.hpMax+level * 10);
-        playerCtrl.DamageReceiver.SetDefense(playerCtrl.PlayerSO.defense + (level * 0.1));
-        playerCtrl.PlayerAttack.SetStaminaMax(playerCtrl.PlayerSO.stamina + level * 10);
-        playerCtrl.UsingSkill.SetManaMax(playerCtrl.PlayerSO.mana + level * 10);
+        //nếu trang bị không có thuộc tính thì sẽ sử dụng lại 2 cái này
+        //playerCtrl.PlayerAttack.SetStaminaMax(playerCtrl.PlayerSO.stamina + level * 10);
+        //playerCtrl.UsingSkill.SetManaMax(playerCtrl.PlayerSO.mana + level * 10);
+        hpMaxLevel = playerCtrl.PlayerSO.hpMax + (level * 10);
+        staminaLevel = playerCtrl.PlayerSO.stamina + (level * 10);
+        manaLevel = playerCtrl.PlayerSO.mana + (level * 10);
+        defenseLevel = playerCtrl.PlayerSO.defense + (level * 0.1);
         damageLevel = playerCtrl.PlayerSO.damage + level;
     }
     //Sound nữa thì đẹp

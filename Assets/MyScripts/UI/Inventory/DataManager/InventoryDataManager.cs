@@ -15,7 +15,7 @@ public class InventoryDataManager : RPGMonoBehaviour
     public virtual void LoadItemContainer()
     {
         if (this.itemContainer != null) return;
-        this.itemContainer = GetComponent<ItemContainer>();
+        this.itemContainer = FindObjectOfType<ItemContainer>();
     }
         
     #region Saving & Loading Data

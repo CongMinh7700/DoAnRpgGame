@@ -42,10 +42,11 @@ public class NPCScripts : RPGMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            questGiver.ShowDialogue();
             questGiver.messageBox.GetComponent<MessageManager>().firstTask.SetActive(true);
-            questGiver.isFullText = false;
             questGiver.messageBox.GetComponent<MessageManager>().HideButton();
+            questGiver.isFullText = false;
+            questGiver.dialogueIndex = 0;
+            questGiver.ShowDialogue();
         }
     }
     private void OnTriggerExit(Collider other)

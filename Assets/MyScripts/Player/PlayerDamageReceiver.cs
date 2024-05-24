@@ -15,8 +15,8 @@ public class PlayerDamageReceiver : HitableObjectDamageReceiver
 
     void UpdateBase()
     {
-        baseHpMax = hpMax;
-        baseDefense = defense;
+        baseHpMax = LevelSystem.hpMaxLevel;
+        baseDefense = LevelSystem.defenseLevel;
     }
     private void Update()
     {
@@ -26,7 +26,6 @@ public class PlayerDamageReceiver : HitableObjectDamageReceiver
     }
     public void UpdateHpMax()
     {
-
         SetHpMax(baseHpMax + ItemManager.hpMaxBonus);
         SetDefense(baseDefense + ItemManager.bonusDefense);
     }

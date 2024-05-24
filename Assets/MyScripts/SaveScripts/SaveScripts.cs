@@ -82,7 +82,7 @@ public class SaveScripts : RPGMonoBehaviour
             levelSystem.currentXp = playerData.currentXp;
             levelSystem.requireXp = playerData.requireXp;
             levelSystem.SetLevel(playerData.level);
-
+            levelSystem.UpdatePlayerStatus(levelSystem.LevelCurrent);
 
             Debug.Log("<color=green>Data succesfully loaded! </color>");
         }
