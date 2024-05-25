@@ -30,7 +30,7 @@ public class PlayerAttack : RPGMonoBehaviour
     }
     void Update()
     {
-        Debug.Log("IsAttacking : " + playerCtrl.PlayerAnim.isAttacking);
+       // Debug.Log("IsAttacking : " + playerCtrl.PlayerAnim.isAttacking);
 
         playerCtrl.PlayerAnim.LoadTrail();
         this.Attacking();
@@ -44,7 +44,7 @@ public class PlayerAttack : RPGMonoBehaviour
         {
             if (!playerCtrl.PlayerAnim.isAttacking)
             {
-                Debug.Log("Attacking");
+                //Debug.Log("Attacking");
                 StartAttack();
 
             }

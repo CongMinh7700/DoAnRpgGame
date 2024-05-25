@@ -8,8 +8,7 @@ public class PlayerAnim : RPGMonoBehaviour
     public Animator Animator => animator;
 
     private GameObject trailObject;
-    private WaitForSeconds trailOffTime = new WaitForSeconds(0.1f);
-    public  bool isAttacking ;
+    public bool isAttacking;
 
     protected override void LoadComponents()
     {
@@ -27,7 +26,7 @@ public class PlayerAnim : RPGMonoBehaviour
     {
         if (this.trailObject != null) return;
         this.trailObject = GameObject.Find("Trail");
-       // Debug.Log(transform.name +"|LoadTrail|",gameObject);
+        TrailOff();
     }
     public virtual void IdlingAnimation(bool idling)
     {
@@ -76,15 +75,10 @@ public class PlayerAnim : RPGMonoBehaviour
 
     }
     //Sử dụng cho đổi vũ khí
-    IEnumerator TurnOffTrail()
-    {
-        yield return trailOffTime;
-        trailObject = GameObject.Find("Trail");
-        trailObject.GetComponent<Renderer>().enabled = false;
-    }
+
     public bool IsPlayingAttackAnimation()
     {
-       
+
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         bool isPlayingAttack = stateInfo.IsTag("Attack") && stateInfo.normalizedTime < 1f;
         return isPlayingAttack;

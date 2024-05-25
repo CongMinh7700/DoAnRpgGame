@@ -42,11 +42,16 @@ public class NPCScripts : RPGMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //Dialogues
             questGiver.messageBox.GetComponent<MessageManager>().firstTask.SetActive(true);
             questGiver.messageBox.GetComponent<MessageManager>().HideButton();
             questGiver.isFullText = false;
             questGiver.dialogueIndex = 0;
             questGiver.ShowDialogue();
+            //Sound
+            //Cho 1 cái trigger building để compare tag
+            AudioManager.isNpcShop = true;
+            AudioManager.canPlay = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -58,6 +63,8 @@ public class NPCScripts : RPGMonoBehaviour
             questGiver.messageBox.GetComponent<MessageManager>().shops[questGiver.shopNumber].SetActive(false);
             questGiver.messageBox.GetComponent<MessageManager>().firstTask.SetActive(false);
             questGiver.messageBox.GetComponent<MessageManager>().questTask.SetActive(false);
+            AudioManager.isNpcShop = false;
+            AudioManager.canPlay = true;
         }
     }
 
