@@ -10,6 +10,7 @@ public class PlayerAnim : RPGMonoBehaviour
     private GameObject trailObject;
     private WaitForSeconds trailOffTime = new WaitForSeconds(0.1f);
     public  bool isAttacking ;
+
     protected override void LoadComponents()
     {
         this.LoadAnimator();
@@ -83,14 +84,10 @@ public class PlayerAnim : RPGMonoBehaviour
     }
     public bool IsPlayingAttackAnimation()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.1f)
-        {
-            return true;
-        }
-        else
-        {
-            isAttacking = false;
-            return false;
-        }
+       
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        bool isPlayingAttack = stateInfo.IsTag("Attack") && stateInfo.normalizedTime < 1f;
+        return isPlayingAttack;
+
     }
 }

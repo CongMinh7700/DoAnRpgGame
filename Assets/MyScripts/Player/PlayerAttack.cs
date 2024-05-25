@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 
@@ -13,8 +14,9 @@ public class PlayerAttack : RPGMonoBehaviour
     public static bool canAttack;
     public int StaminaMax => staminaMax;
     public float CurrentStamina => currentStamina;
-    [Header("Player State Info")]
-    private AnimatorStateInfo playerInfo;
+    [SerializeField] private bool isStaminaDeducted = false;
+
+
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();
@@ -28,13 +30,28 @@ public class PlayerAttack : RPGMonoBehaviour
     }
     void Update()
     {
+        Debug.Log("IsAttacking : " + playerCtrl.PlayerAnim.isAttacking);
 
         playerCtrl.PlayerAnim.LoadTrail();
         this.Attacking();
         StaminaRecover();
-        playerInfo = playerCtrl.PlayerAnim.Animator.GetCurrentAnimatorStateInfo(0);
+
     }
     public void Attacking()
+    {
+      
+        if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost)
+        {
+            if (!playerCtrl.PlayerAnim.isAttacking)
+            {
+                Debug.Log("Attacking");
+                StartAttack();
+
+            }
+        }
+    }
+
+    public void StartAttack()
     {
         string name = ItemManager.weaponName;
         switch (name)
@@ -55,20 +72,11 @@ public class PlayerAttack : RPGMonoBehaviour
                 return;
 
         }
+        playerCtrl.PlayerSFX.SetWeaponSFX(weaponIndex);
+        playerCtrl.PlayerAnim.AttackAnimation(name);
+        StartCoroutine(ApplyStaminaAfterAnimation(staminaCost));
 
-        if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost)
-        {
-            if (!playerCtrl.PlayerAnim.isAttacking)
-            {
-                playerCtrl.PlayerSFX.SetWeaponSFX(weaponIndex);
-                playerCtrl.PlayerAnim.AttackAnimation(name);
-                StartCoroutine(ApplyStaminaAfterAnimation(staminaCost));
-            }
-
-        }
     }
-   
-
     public virtual void StaminaRecover()
     {
         this.currentStamina += 5 * Time.deltaTime;
@@ -96,7 +104,8 @@ public class PlayerAttack : RPGMonoBehaviour
     IEnumerator ApplyStaminaAfterAnimation(int cost)
     {
         yield return new WaitUntil(() => !playerCtrl.PlayerAnim.IsPlayingAttackAnimation());
-        StaminaDeduct(cost);
+        yield return new WaitForSeconds(0.75f);
+        StaminaDeduct(staminaCost);
         playerCtrl.PlayerAnim.isAttacking = false;
     }
 }

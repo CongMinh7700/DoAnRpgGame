@@ -92,12 +92,9 @@ public class ItemManager : RPGMonoBehaviour
             }
             if(mana != null)
             {
-                Debug.Log("Use Mana");
+                playerCtrl.UsingSkill.ManaAdd(mana.attributeValue);
             }
-
-            //Hồi mana
         }
-
         Debug.Log("You have consumed" + slot.slotItem.itemName);
         slot.Remove(1);
     }
@@ -170,9 +167,6 @@ public class ItemManager : RPGMonoBehaviour
         slotCharacter.slots[slotIndex].Add(slot.slotItem);
         slot.Remove(1);
         UpdateStats();
-        //EquipWeapon
-
-       // Debug.Log("Equipping" + weaponName);
     }
     public void EquipWeapon()
     {
