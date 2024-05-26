@@ -22,48 +22,39 @@ public class QuestGiver : MonoBehaviour
     //Name của npc
     private void Update()
     {
-        if (quests.Length<1)
+        if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
         {
-            return;
-        }
-        else
-        {
-            if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
+            if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText && !isFullText)
             {
-                if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText && !isFullText)
-                {
-                    ShowDialogue();
-                }
-            }
-            if (quests[questIndex].questState == QuestState.Complete)
-            {
-                canNotification = true;
-                if (canNotification && !notificated && !noQuest)
-                {
-                    notificated = true;
-                    canNotification = false;
-                    SpawnNotification();
-                }
+                ShowDialogue();
             }
         }
-        
-        
+        if (quests[questIndex].questState == QuestState.Complete)
+        {
+            canNotification = true;
+            if (canNotification && !notificated && !noQuest)
+            {
+                notificated = true;
+                canNotification = false;
+                SpawnNotification();
+            }
+        }
+
+
+
     }
     public void ShowDialogue()
     {
-        if (quests.Length < 1)
-        {
-            messageBox.GetComponent<MessageManager>().Refuse();
-            return;
-        }
-        messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
-        if (quests[questIndex] == null) Debug.Log("No Quest");
-        
         if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
-        string[] dialogues = new string[0];
-       Debug.Log("QuestState : " + quests[questIndex].questState.ToString()+"QuestName :"+ quests[questIndex].questTitle);
+        messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
+        Debug.Log("Title :" + quests[questIndex]);
+        if (quests[questIndex] == null) Debug.Log("No Quest");
 
-       
+
+        string[] dialogues = new string[0];
+        Debug.Log("QuestState : " + quests[questIndex].questState.ToString() + "QuestName :" + quests[questIndex].questTitle);
+
+
 
         switch (quests[questIndex].questState)
         {
@@ -102,10 +93,10 @@ public class QuestGiver : MonoBehaviour
         {
             fullText = dialogues[dialogueIndex];
         }
-      
+
         dialogueIndex++;
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
-      
+
         QuestInProgress();
 
     }
@@ -127,7 +118,7 @@ public class QuestGiver : MonoBehaviour
         {
             MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
             LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
-            Debug.Log("EXP : "+ quests[questIndex].experienceReward);
+            Debug.Log("EXP : " + quests[questIndex].experienceReward);
             QuestManager.Instance.RemoveQuest(quests[questIndex]);
             questIndex++;
             dialogueIndex = 0;

@@ -27,19 +27,21 @@ public class UsingSkill : RPGMonoBehaviour
     protected virtual void FixedUpdate()
     {
         // manaLow = false;
+        Debug.Log("StrengthOn :" + PlayerCtrl.strengthOn);
         ManaRecover();
         if (PlayerCtrl.shieldOn)
         {
-            ManaDeduct(5 * Time.deltaTime);
+            ManaDeduct((manaMax / 10) * Time.deltaTime);
             if (currentMana < 1f)
             {
                 PlayerCtrl.shieldOn = false;
                 manaLow = true;
             }
         }
+        
         if (PlayerCtrl.strengthOn)
         {
-            ManaDeduct(5 * Time.deltaTime);
+            ManaDeduct((manaMax/10) * Time.deltaTime);
             if (currentMana < 1f)
             {
                 PlayerCtrl.strengthOn = false;

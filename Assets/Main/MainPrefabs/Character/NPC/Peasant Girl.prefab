@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4738478015022093922}
-  questGiver: {fileID: 0}
+  questGiver: {fileID: 262329792}
 --- !u!114 &262329792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,9 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290cbfca0494e944bbece8f8d180fa80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopNumber: 0
+  shopNumber: 2
   messageBox: {fileID: 0}
-  quests: []
+  quests:
+  - {fileID: 11400000, guid: c566ecc07df74754eab2acf6edc0b4ba, type: 2}
   questIndex: 0
   dialogueIndex: 0
   isAnimatingText: 0

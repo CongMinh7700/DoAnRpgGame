@@ -14,7 +14,6 @@ public class PlayerAttack : RPGMonoBehaviour
     public static bool canAttack;
     public int StaminaMax => staminaMax;
     public float CurrentStamina => currentStamina;
-    [SerializeField] private bool isStaminaDeducted = false;
 
 
     protected override void LoadComponents()

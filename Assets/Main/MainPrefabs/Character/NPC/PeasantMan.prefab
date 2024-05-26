@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 955328124}
   - component: {fileID: 955328125}
   - component: {fileID: 1774461921}
+  - component: {fileID: 5326900024025890209}
   m_Layer: 0
   m_Name: TalkTrigger
   m_TagString: Untagged
@@ -76,14 +77,27 @@ MonoBehaviour:
   shopNumber: 1
   messageBox: {fileID: 0}
   quests:
-  - {fileID: 11400000, guid: 6c30d004a8e45494c907a323d607a93b, type: 2}
-  - {fileID: 11400000, guid: de88dc8715cded64783e230846cf30b1, type: 2}
+  - {fileID: 11400000, guid: f6677ab57e9d364449f7fc587b615675, type: 2}
   questIndex: 0
   dialogueIndex: 0
+  isAnimatingText: 0
   isFullText: 0
   noQuest: 0
   canNotification: 0
   notificated: 0
+--- !u!114 &5326900024025890209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955328122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266ad18bbbdaf5b4583be7a69e573cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questGiver: {fileID: 1774461921}
 --- !u!1 &107818547825317971
 GameObject:
   m_ObjectHideFlags: 0

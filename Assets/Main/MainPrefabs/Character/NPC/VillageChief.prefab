@@ -5349,9 +5349,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopNumber: 3
   messageBox: {fileID: 0}
-  quests: []
+  quests:
+  - {fileID: 11400000, guid: 6c30d004a8e45494c907a323d607a93b, type: 2}
+  - {fileID: 11400000, guid: 2396c8114cd3d3d4692af50deb07fb61, type: 2}
+  - {fileID: 11400000, guid: 3ee5cd5fc60b8b54fa8f0e7c12448b1e, type: 2}
+  - {fileID: 11400000, guid: de88dc8715cded64783e230846cf30b1, type: 2}
   questIndex: 0
   dialogueIndex: 0
+  isAnimatingText: 0
   isFullText: 0
   noQuest: 0
   canNotification: 0

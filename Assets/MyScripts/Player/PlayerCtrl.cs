@@ -76,6 +76,7 @@ public class PlayerCtrl : HitableObjectCtrl
 
     private void Update()
     {
+ 
         SlectionTarget();//turn outline and set target
     }
     public void SlectionTarget()

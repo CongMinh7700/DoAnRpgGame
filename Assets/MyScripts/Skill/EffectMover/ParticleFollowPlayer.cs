@@ -20,7 +20,7 @@ public class ParticleFollowPlayer : RPGMonoBehaviour
     }
     protected override void OnEnable()
     {
-        transform.position = player.transform.position;
+       
         if (Shield == true)
         {
             PlayerCtrl.shieldOn = true;
@@ -30,5 +30,8 @@ public class ParticleFollowPlayer : RPGMonoBehaviour
             PlayerCtrl.strengthOn = true;
         }
     }
-
+    private void Update()
+    {
+        transform.position = player.transform.position;
+    }
 }

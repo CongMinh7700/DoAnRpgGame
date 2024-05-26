@@ -9,6 +9,7 @@ public class SaveGame : RPGMonoBehaviour
     [SerializeField] protected QuickSlotDataManager quickData;
     [SerializeField] protected SkillDataManager skillData;
     [SerializeField] protected SaveScripts saveScripts;
+    [SerializeField] protected QuestDataManager questData;
 
     public virtual void Save()
     {
@@ -17,6 +18,7 @@ public class SaveGame : RPGMonoBehaviour
         quickData.SaveData("");
         skillData.SaveData("");
         saveScripts.SaveData("");
+        questData.SaveData("");
 
     }
     public virtual void Load()
@@ -26,6 +28,7 @@ public class SaveGame : RPGMonoBehaviour
         quickData.LoadData("");
         skillData.LoadData("");
         saveScripts.LoadData("");
+        questData.LoadData("");
     }
     protected override void LoadComponents()
     {
@@ -34,6 +37,7 @@ public class SaveGame : RPGMonoBehaviour
         LoadQuickData();
         LoadSkillData();
         LoadPLayerSave();
+        LoadQuestData();
     }
     protected virtual void LoadEquipData()
     {
@@ -59,6 +63,11 @@ public class SaveGame : RPGMonoBehaviour
     {
         if (this.saveScripts != null) return;
         this.saveScripts = GetComponentInChildren<SaveScripts>();
+    }
+    protected virtual void LoadQuestData()
+    {
+        if (this.questData != null) return;
+        this.questData = GetComponentInChildren<QuestDataManager>();
     }
 
 
