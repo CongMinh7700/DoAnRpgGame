@@ -31,7 +31,7 @@ public class NPCScripts : RPGMonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        this.questGiver.messageBox.GetComponent<MessageManager>().numbShop = questGiver.shopNumber;
+        //this.questGiver.messageBox.GetComponent<MessageManager>().numbShop = questGiver.shopNumber;
         if (other.CompareTag("Player"))
         {
             animator.SetBool("Stay", true);
@@ -42,12 +42,25 @@ public class NPCScripts : RPGMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Dialogues
-            questGiver.messageBox.GetComponent<MessageManager>().firstTask.SetActive(true);
+            this.questGiver.messageBox.GetComponent<MessageManager>().numbShop = questGiver.shopNumber;
+
+            if (questGiver.shopNumber > 2)
+            {
+                questGiver.messageBox.GetComponent<MessageManager>().firstTalk.SetActive(true);
+                questGiver.messageBox.GetComponent<MessageManager>().shopTalk.SetActive(false);
+            }
+            else
+            {
+                questGiver.messageBox.GetComponent<MessageManager>().shopTalk.SetActive(true);
+                questGiver.messageBox.GetComponent<MessageManager>().firstTalk.SetActive(false);
+            }
+
             questGiver.messageBox.GetComponent<MessageManager>().HideButton();
+            questGiver.isAnimatingText = false;
             questGiver.isFullText = false;
-            questGiver.dialogueIndex = 0;
+
             questGiver.ShowDialogue();
+
             //Sound
             //Cho 1 cái trigger building để compare tag
             AudioManager.isNpcShop = true;
@@ -60,11 +73,21 @@ public class NPCScripts : RPGMonoBehaviour
         {
             animator.SetBool("Stay", false);
             questGiver.messageBox.SetActive(false);
-            questGiver.messageBox.GetComponent<MessageManager>().shops[questGiver.shopNumber].SetActive(false);
-            questGiver.messageBox.GetComponent<MessageManager>().firstTask.SetActive(false);
-            questGiver.messageBox.GetComponent<MessageManager>().questTask.SetActive(false);
+            if (questGiver.shopNumber > 2)
+            {
+                questGiver.messageBox.GetComponent<MessageManager>().firstTalk.SetActive(false);
+            }
+            else
+            {
+                questGiver.messageBox.GetComponent<MessageManager>().shops[questGiver.shopNumber].SetActive(false);
+                questGiver.messageBox.GetComponent<MessageManager>().shopTalk.SetActive(false);
+            }
+            questGiver.messageBox.GetComponent<MessageManager>().questTalk.SetActive(false);
             AudioManager.isNpcShop = false;
             AudioManager.canPlay = true;
+            questGiver.dialogueIndex = 0;
+
+
         }
     }
 

@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Mua \u0111\u1ED3"
   description: "H\xE3y mua v\xE0 trang b\u1ECB g\u0103ng tay"
-  experienceReward: 20
+  experienceReward: 10
   goldReward: 100
   dialogues:
   - "\u0110\u1EC3 tr\u1EDF n\xEAn m\u1EA1nh m\u1EBD b\u1EA1n h\xE3y mua g\u0103ng
-    tay v\xE0 trang b\u1ECB \u1EDF th\u1EE3 r\xE8n trong th\u1ECB tr\u1EA5n."
-  - "Nhi\u1EC7m v\u1EE5 : Mua v\xE0 trang b\u1ECB g\u0103ng tay"
+    tay  \u1EDF th\u1EE3 r\xE8n trong trong l\xE0ng"
+  - "Nhi\u1EC7m v\u1EE5 : Mua m\u1ED9t c\u1EB7p g\u0103ng tay"
   dialoguesComplete:
-  - "L\xE0m t\u1ED1t l\u1EAFm ."
-  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
+  - "L\xE0m t\u1ED1t l\u1EAFm ch\xE0ng trai tr\u1EBB."
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng d\xE0nh cho c\u1EADu .H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
   - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
   type: 1
-  questState: 0
+  questState: 1
   targetName: Gloves
   targetCount: 1
   currentCount: 0

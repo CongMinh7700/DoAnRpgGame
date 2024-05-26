@@ -7,11 +7,8 @@ public class Spawner : RPGMonoBehaviour
     [Header("Spawner")]
     [SerializeField] protected List<Transform> prefabs;
     [SerializeField] protected List<Transform> poolObjs;
-    [SerializeField] protected int spawnedCount = 0;
+    [SerializeField] public int spawnedCount = 0;
     [SerializeField] protected Transform holder;
-
-    public int SpawnedCount => spawnedCount;
- 
 
     protected override void LoadComponents()
     {
@@ -92,11 +89,12 @@ public class Spawner : RPGMonoBehaviour
     }
     public virtual void Despawn(Transform obj)
     {
+        Debug.Log(transform.name + "Add to pool" + obj.name);
         if (this.poolObjs.Contains(obj)) return;
         obj.gameObject.SetActive(false);
         this.poolObjs.Add(obj);
         this.spawnedCount--;
     }
-  
+
 
 }

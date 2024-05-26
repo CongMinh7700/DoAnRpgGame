@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Mua \u0111\u1ED3"
   description: "H\xE3y mua v\xE0 trang b\u1ECB m\u1ED9t thanh ki\u1EBFm"
-  experienceReward: 20
-  goldReward: 100
+  experienceReward: 10
+  goldReward: 50
   dialogues:
   - "\u0110\u1EC3 tr\u1EDF n\xEAn m\u1EA1nh m\u1EBD b\u1EA1n h\xE3y mua v\u0169 kh\xED
     v\xE0 trang b\u1ECB \u1EDF th\u1EE3 r\xE8n trong th\u1ECB tr\u1EA5n."
@@ -28,7 +28,7 @@ MonoBehaviour:
   - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
   type: 1
   questState: 0
-  targetName: Armor
+  targetName: LongSword
   targetCount: 1
   currentCount: 0
   rewardItem: []

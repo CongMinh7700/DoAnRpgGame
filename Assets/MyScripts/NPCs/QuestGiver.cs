@@ -12,7 +12,7 @@ public class QuestGiver : MonoBehaviour
     [SerializeField] protected Quest[] quests;
     [SerializeField] public int questIndex = 0;
     public int dialogueIndex;
-    private bool isAnimatingText = false;
+    public bool isAnimatingText = false;
     private Coroutine textAnimationCoroutine;
     //Full Text không cho F nữa
     public bool isFullText = false;
@@ -22,33 +22,48 @@ public class QuestGiver : MonoBehaviour
     //Name của npc
     private void Update()
     {
-        if (messageBox.GetComponent<MessageManager>().questTask.activeSelf)
+        if (quests.Length<1)
         {
-            if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText && !isFullText)
+            return;
+        }
+        else
+        {
+            if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
             {
-                ShowDialogue();
+                if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText && !isFullText)
+                {
+                    ShowDialogue();
+                }
+            }
+            if (quests[questIndex].questState == QuestState.Complete)
+            {
+                canNotification = true;
+                if (canNotification && !notificated && !noQuest)
+                {
+                    notificated = true;
+                    canNotification = false;
+                    SpawnNotification();
+                }
             }
         }
-        if (quests[questIndex].questState == QuestState.Complete)
-        {
-            canNotification = true;
-            if (canNotification && !notificated && !noQuest)
-            {
-                notificated = true;
-                canNotification = false;
-                QuestNotificationComplete();
-            }
-
-
-        }
+        
+        
     }
     public void ShowDialogue()
     {
+        if (quests.Length < 1)
+        {
+            messageBox.GetComponent<MessageManager>().Refuse();
+            return;
+        }
+        messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
+        if (quests[questIndex] == null) Debug.Log("No Quest");
+        
         if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
         string[] dialogues = new string[0];
-        if (quests[questIndex] == null) Debug.Log("No Quest");
-        messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
-        Debug.Log("QuestState : " + quests[questIndex].questState.ToString());
+       Debug.Log("QuestState : " + quests[questIndex].questState.ToString()+"QuestName :"+ quests[questIndex].questTitle);
+
+       
 
         switch (quests[questIndex].questState)
         {
@@ -76,19 +91,21 @@ public class QuestGiver : MonoBehaviour
             messageBox.GetComponent<MessageManager>().ShowButton();
         }
         NextQuest();
+
         string fullText = "";
         if (noQuest)
         {
-            fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây để mua đồ nhé";
+            fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây nhé";
             messageBox.GetComponent<MessageManager>().Refuse();
         }
         else
         {
             fullText = dialogues[dialogueIndex];
         }
-        textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
-
+      
         dialogueIndex++;
+        textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
+      
         QuestInProgress();
 
     }
@@ -108,7 +125,9 @@ public class QuestGiver : MonoBehaviour
     {
         if (isFullText && quests[questIndex].questState == QuestState.Complete)
         {
-            MoneyManager.Instance.AddGold(quests[questIndex].goldReward);//GiveReward
+            MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
+            LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
+            Debug.Log("EXP : "+ quests[questIndex].experienceReward);
             QuestManager.Instance.RemoveQuest(quests[questIndex]);
             questIndex++;
             dialogueIndex = 0;
@@ -120,6 +139,7 @@ public class QuestGiver : MonoBehaviour
                 noQuest = true;
                 // notificated = true;
             }
+
             messageBox.GetComponent<MessageManager>().Refuse();
         }
     }
@@ -127,15 +147,14 @@ public class QuestGiver : MonoBehaviour
     {
         if (quests[questIndex].questState == QuestState.InProgress && isFullText)
         {
-            messageBox.GetComponent<MessageManager>().Refuse();
             dialogueIndex = 0;
             isFullText = false;
+            messageBox.GetComponent<MessageManager>().Refuse();
             Debug.Log("Call Check");
-            ShowDialogue();
 
         }
     }
-    protected virtual void QuestNotificationComplete()
+    protected virtual void SpawnNotification()
     {
         string fxName = FXSpawner.notification;
         Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
@@ -143,12 +162,6 @@ public class QuestGiver : MonoBehaviour
         nofText.SetText("Hoàn thành nhiệm vụ");
         Debug.Log("Quest Notification Called");
         fxObj.gameObject.SetActive(true);
-    }
-
-    protected virtual void SaveQuest()
-    {
-        //Save quest Index;
-        //Save quest index theo numbshop (ví dụ black smith thì cho vào 1 cái riêng)
     }
 
     protected virtual void QuestPointer()

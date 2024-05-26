@@ -14,16 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Mua \u0111\u1ED3"
   description: "Mua 1 b\xECnh h\u1ED3i m\xE1u"
-  experienceReward: 20
+  experienceReward: 50
   goldReward: 100
   dialogues:
-  - "Mua 1 b\xECnh h\u1ED3i m\xE1u"
+  - "\u0110\u1EC3 h\u1ED3i ph\u1EE5c m\u1EA1nh m\u1EBD h\u01A1n h\xE3y mua m\u1ED9t
+    b\xECnh m\xE1u. N\xF3 kh\xE1 \u0111\u1EAFt nh\u01B0ng l\u1EA1i r\u1EA5t hi\u1EC7u
+    qu\u1EA3"
+  - "Nhi\u1EC7m v\u1EE5 : Mua m\u1ED9t b\xECnh m\xE1u l\u1EDBn"
   dialoguesComplete:
   - "C\u1EA3m \u01A1n ch\xE0ng trai"
   - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
-  - "T\xF4i \u0111ang b\u1ECB th\u01B0\u01A1ng h\xE3y mua cho t\xF4i 1 b\xECnh m\xE1u"
+  - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3."
   type: 1
   questState: 0
   targetName: PotionHP
