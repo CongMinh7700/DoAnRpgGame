@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,15 +25,16 @@ public class ParticleMoveToEnemy : RPGMonoBehaviour
     }
     private void Update()
     {
-        if(target != null)
+        if (target != null)
         {
-            transform.position = Vector3.LerpUnclamped(transform.position, target.position, 5f * Time.deltaTime);
+            // Tạo một điểm cao hơn trên đầu của mục tiêu
+            Vector3 targetHeadPosition = target.position + Vector3.up * 1f;
+            transform.position = Vector3.LerpUnclamped(transform.position, targetHeadPosition, 5f * Time.deltaTime);
             skillFly.gameObject.SetActive(false);
         }
         else
         {
             skillFly.gameObject.SetActive(true);
         }
-      
     }
 }

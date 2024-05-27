@@ -7,7 +7,7 @@ public class EnemyDespawn : DespawnByHp
     [SerializeField] protected static EnemyDespawn instance;
     public static EnemyDespawn Instance => instance;
     [SerializeField] protected bool pauseTime = false;
-
+    [SerializeField] protected float timeDespawn;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -18,8 +18,10 @@ public class EnemyDespawn : DespawnByHp
 
         if (!CanDespawn()) return;
         StartCoroutine(WaitToDespawn());
+        Debug.LogWarning("PauseTime : " + pauseTime);
         if (pauseTime)
         {
+            Debug.LogWarning("DespawnBoss");
             this.DespawnObject();
             pauseTime = false;
         }
@@ -32,7 +34,7 @@ public class EnemyDespawn : DespawnByHp
     }
     IEnumerator WaitToDespawn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeDespawn);
         pauseTime = true;
 
     }

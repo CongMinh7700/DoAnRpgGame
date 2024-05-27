@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -76,32 +76,34 @@ public class PlayerCtrl : HitableObjectCtrl
 
     private void Update()
     {
- 
-        SlectionTarget();//turn outline and set target
+
+        SelectionTarget();//turn outline and set target
     }
-    public void SlectionTarget()
+    public void SelectionTarget()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Click Mouse");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit,50))
+
+            if (Physics.Raycast(ray, out raycastHit, 50))
             {
                 if (raycastHit.transform.gameObject.CompareTag("Enemy"))
                 {
                     theTarget = raycastHit.transform.gameObject;
-                    transform.LookAt(theTarget.transform);//Cho player keke
-                    Debug.Log("Enemy Set Target" + theTarget.name);
+                    Vector3 targetPosition = new Vector3(theTarget.transform.position.x, transform.position.y, theTarget.transform.position.z);
+                    transform.LookAt(targetPosition); // Chỉ xoay theo trục Y
+                    Debug.LogWarning("Enemy Set Target: " + theTarget.name);
                 }
                 else
                 {
                     theTarget = null;
-
+                    Debug.Log("No target set.");
                 }
             }
         }
-
     }
+
     public virtual void PlaySound()
     {
         playerSFX.audioSource.Play();

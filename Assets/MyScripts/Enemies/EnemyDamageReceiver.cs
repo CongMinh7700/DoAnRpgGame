@@ -39,7 +39,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         OutlineControl();
         SetHpUI();
-        Debug.Log("Outline On :" + outlineOn);
+        Debug.LogWarning("Outline On :" + outlineOn);
         if (isAttacked)
         {
             isAttacked = false;
@@ -66,11 +66,6 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         string enemyName = enemyCtrl.GetEnemyName();
         QuestManager.Instance.UpdateQuestProgress(enemyName);
     }
-    IEnumerator WaitToDestroy()
-    {
-        yield return new WaitForSeconds(1f);
-        transform.parent.gameObject.SetActive(false);
-    }
 
     private void SpawnMoney()
     {
@@ -85,23 +80,25 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     }
     public virtual void OutlineControl()
     {
-
+  
         if (!IsDead())
         {
-
+            Debug.LogWarning(PlayerCtrl.theTarget + " " + thisEnemy);
             if (PlayerCtrl.theTarget == thisEnemy)
             {
                 transform.parent.GetComponent<Outline>().enabled = true;
-
+                Debug.LogWarning("CallOutLineControl");
             }
             else
             {
                 transform.parent.GetComponent<Outline>().enabled = false;
+                Debug.LogWarning("CallOutLineControl FAlse");
             }
         }
     }
     protected virtual void SetHpUI()
     {
         this.healthBar.fillAmount = (float)currentHp / hpMax;
+        Debug.Log("Call SetHPUI");
     }
 }
