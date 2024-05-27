@@ -12,7 +12,6 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     [SerializeField] protected int maxExp;
     [SerializeField] protected int minExp;
     [SerializeField] protected int exp;
-    [SerializeField] static bool outlineOn = false;
     [SerializeField] GameObject thisEnemy;
     [SerializeField] protected Image healthBar;
    
@@ -39,7 +38,6 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         OutlineControl();
         SetHpUI();
-        Debug.LogWarning("Outline On :" + outlineOn);
         if (isAttacked)
         {
             isAttacked = false;
@@ -83,16 +81,16 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
   
         if (!IsDead())
         {
-            Debug.LogWarning(PlayerCtrl.theTarget + " " + thisEnemy);
+           
             if (PlayerCtrl.theTarget == thisEnemy)
             {
                 transform.parent.GetComponent<Outline>().enabled = true;
-                Debug.LogWarning("CallOutLineControl");
+          
             }
             else
             {
                 transform.parent.GetComponent<Outline>().enabled = false;
-                Debug.LogWarning("CallOutLineControl FAlse");
+               
             }
         }
     }

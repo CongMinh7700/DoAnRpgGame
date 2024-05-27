@@ -6,9 +6,6 @@ public class BossMove : EnemyMove
 {
     [SerializeField] private BossAttack bossAttack;
     [SerializeField] private float speedOffset;
-
-
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -32,7 +29,7 @@ public class BossMove : EnemyMove
         Debug.Log("NavMesh" + navMesh.isStopped);
         if (bossAttack.isCombo)
         {
-            navMesh.speed = 1.75f + speedOffset;
+           navMesh.speed = 1.75f + speedOffset;
            
         }
         else
@@ -54,12 +51,12 @@ public class BossMove : EnemyMove
         base.MoveToPlayer();
 
         //warrok
-        //if (bossAttack.isCombo)
-        //{
-          
-        //    StartCoroutine(WaitToMove());
-        //}
-       
+        if (bossAttack.isCombo)
+        {
+
+            StartCoroutine(WaitToMove());
+        }
+
     }
     //warrok
     IEnumerator WaitToMove()

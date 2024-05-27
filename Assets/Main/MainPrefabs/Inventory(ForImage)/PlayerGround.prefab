@@ -208,6 +208,7 @@ MonoBehaviour:
   useTimes: 0.5
   useDelay: 2
   isUse: 0
+  playerCtrl: {fileID: 0}
   fillImage: {fileID: 1288710124595586290}
 --- !u!114 &1288710123411875799
 MonoBehaviour:
@@ -367,6 +368,7 @@ MonoBehaviour:
   useTimes: 0.5
   useDelay: 2
   isUse: 0
+  playerCtrl: {fileID: 0}
   fillImage: {fileID: 1288710124606528357}
 --- !u!114 &1288710123421579555
 MonoBehaviour:
@@ -780,10 +782,8 @@ MonoBehaviour:
   itemCount: 0
   iconImage: {fileID: 0}
   key: 122
-  useTimes: 0.5
-  useDelay: 2
-  quickBar: {fileID: 0}
   fillImage: {fileID: 1288710124371279090}
+  usingSkill: {fileID: 0}
 --- !u!1 &1288710123573989984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,10 +2089,8 @@ MonoBehaviour:
   itemCount: 0
   iconImage: {fileID: 0}
   key: 113
-  useTimes: 0.5
-  useDelay: 2
-  quickBar: {fileID: 1288710124081492808}
   fillImage: {fileID: 1288710124533427764}
+  usingSkill: {fileID: 0}
 --- !u!1 &1288710124001510400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,10 +2530,8 @@ MonoBehaviour:
   itemCount: 0
   iconImage: {fileID: 0}
   key: 101
-  useTimes: 0.5
-  useDelay: 2
-  quickBar: {fileID: 0}
   fillImage: {fileID: 1288710123475925351}
+  usingSkill: {fileID: 0}
 --- !u!1 &1288710124109136670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,6 +2660,7 @@ MonoBehaviour:
   useTimes: 0.5
   useDelay: 2
   isUse: 0
+  playerCtrl: {fileID: 0}
   fillImage: {fileID: 1288710123939028082}
 --- !u!114 &1288710124109136663
 MonoBehaviour:
@@ -4310,10 +4307,8 @@ MonoBehaviour:
   itemCount: 0
   iconImage: {fileID: 0}
   key: 99
-  useTimes: 0.5
-  useDelay: 2
-  quickBar: {fileID: 0}
   fillImage: {fileID: 1288710123684618337}
+  usingSkill: {fileID: 0}
 --- !u!1 &1288710124827608220
 GameObject:
   m_ObjectHideFlags: 0
@@ -6202,6 +6197,7 @@ MonoBehaviour:
   useTimes: 0.5
   useDelay: 2
   isUse: 0
+  playerCtrl: {fileID: 0}
   fillImage: {fileID: 1288710123573989986}
 --- !u!114 &1288710125342825382
 MonoBehaviour:

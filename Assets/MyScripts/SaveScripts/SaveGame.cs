@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SaveGame : RPGMonoBehaviour
 {
+    protected static SaveGame instance;
+    public static SaveGame Instance => instance;
     [SerializeField] protected EquipSlotDataManager equipData;
     [SerializeField] protected InventoryDataManager inventoryData;
     [SerializeField] protected QuickSlotDataManager quickData;
@@ -11,6 +13,11 @@ public class SaveGame : RPGMonoBehaviour
     [SerializeField] protected SaveScripts saveScripts;
     [SerializeField] protected QuestDataManager questData;
 
+    protected override void Awake()
+    {
+        if (SaveGame.instance != null) Debug.LogWarning("Only 1 Save Game allow to exist");
+        SaveGame.instance = this;
+    }
     public virtual void Save()
     {
         equipData.SaveData("");
