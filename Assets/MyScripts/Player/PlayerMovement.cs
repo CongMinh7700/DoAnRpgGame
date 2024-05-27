@@ -75,7 +75,7 @@ public class PlayerMovement : RPGMonoBehaviour
         Quaternion turn = Quaternion.Euler(0f, rotation, 0f);
         rb.MovePosition(rb.position + transform.forward * translation);
         rb.MoveRotation(rb.rotation * turn);
-
+        
         if (translation != 0)
         {
             playerAnim.IdlingAnimation(false);
