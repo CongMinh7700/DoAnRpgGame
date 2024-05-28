@@ -52,7 +52,7 @@ public class SpawnRandom : RPGMonoBehaviour
     }
 
 
-    protected virtual bool RandomReachLimit()
+    public virtual bool RandomReachLimit()
     {
         int currentObjs = this.spawnerCtrl.Spawner.spawnedCount;
         return currentObjs >= this.randomLimit;
