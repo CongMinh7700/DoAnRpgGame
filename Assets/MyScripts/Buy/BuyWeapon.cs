@@ -16,7 +16,8 @@ public class BuyWeapon : RPGMonoBehaviour
     }
     public void BuyWeaponButton()
     {
-        if(MoneyManager.Instance.Gold >= cost)
+        AudioClickManager.Instance.PlaySFXClick();
+        if (MoneyManager.Instance.Gold >= cost)
         {
             inventory.inventoryEvents.AddItem(item);
             MoneyManager.Instance.MinusGold(cost);

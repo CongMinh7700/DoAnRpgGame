@@ -15,7 +15,6 @@ public class SkillUI : RPGMonoBehaviour
     [HideInInspector] public bool isContainerUIOpen = false;
     protected Transform containerPanel;
     protected bool isUIInitialized;
-
     protected override void Awake()
     {
         //loi awake
@@ -76,6 +75,7 @@ public class SkillUI : RPGMonoBehaviour
     public void ToggleUI()
     {
         //Close
+        AudioClickManager.Instance.PlaySFXClick();
         if (mainContainerUI.gameObject.activeSelf && isContainerUIOpen)
         {
             isContainerUIOpen = false;

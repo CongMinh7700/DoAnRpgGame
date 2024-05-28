@@ -15,7 +15,6 @@ public class CharacterStats : RPGMonoBehaviour
     [HideInInspector] public bool isContainerUIOpen = false;
     protected Transform containerPanel;
     protected bool isUIInitialized;
-  
     protected override void Awake()
     {
         //loi awake
@@ -69,13 +68,13 @@ public class CharacterStats : RPGMonoBehaviour
         if (Input.GetKeyDown(UIToggleKey))
         {
             ToggleUI();
-            Debug.Log("C");
         }
     }
 
     public void ToggleUI()
     {
         //Close
+        AudioClickManager.Instance.PlaySFXClick();
         if (mainContainerUI.gameObject.activeSelf && isContainerUIOpen)
         {
             isContainerUIOpen = false;

@@ -6,7 +6,7 @@ public class SaveScripts : RPGMonoBehaviour
 
     public static bool saving = false;
     public static bool continueData = false;
-    private bool checkForLoad = false;
+    //private bool checkForLoad = false;
     //Quest,Money
 
     [Header("Save")]

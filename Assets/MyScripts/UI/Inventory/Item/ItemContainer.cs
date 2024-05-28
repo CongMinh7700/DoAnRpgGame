@@ -26,8 +26,6 @@ public class ItemContainer : RPGMonoBehaviour
     protected bool isUIInitialized;
     private List<SlotOptionButtonInfo> slotOptionButtonInfosList;
 
-    public static string useName;
-
     protected override void OnEnable()
     {
         ItemSlotUIEvents.OnSlotDrag += inventoryEvents.CloseSlotOptionMenu;
@@ -57,7 +55,6 @@ public class ItemContainer : RPGMonoBehaviour
     }
     protected virtual void Update()
     {
-         //Debug.Log(isContainerUIOpen);
         if (isUIInitialized == false) return;
         inventoryEvents.CheckForUIToggleInput();
         if (isContainerUIOpen) Time.timeScale = 0;
@@ -187,24 +184,6 @@ public class ItemContainer : RPGMonoBehaviour
         internal void UpdateInfo(ItemSlot slot, Interactor interactor)
         {
             optionButton.onClick.RemoveAllListeners();
-
-
-            //if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" && !slot.slotItem.isFood) // Identify the Use button
-            //{
-            //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
-
-            //}
-            //else if (optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo" && !slot.slotItem.isFood) // Identify the Use button
-            //{
-            //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = ItemContainer.useName;
-
-            //}else if (slot.slotItem.isFood )
-            //{
-            // if(optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Dùng" || optionButton.GetComponentInChildren<TextMeshProUGUI>().text == "Tháo")
-            //    optionButton.GetComponentInChildren<TextMeshProUGUI>().text = "Dùng";
-
-            //}
-
             optionButton.onClick.AddListener(
                 delegate
                 {

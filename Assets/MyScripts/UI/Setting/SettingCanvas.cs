@@ -24,30 +24,36 @@ public class SettingCanvas : RPGMonoBehaviour
     }
     public virtual void SettingButton()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         Time.timeScale = 0;
         settingUI.SetActive(true);
     }
     public virtual void SaveButton()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         SaveNotification();
         SaveGame.Instance.Save();
     }
     public virtual void HomeButton()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         SceneManager.LoadScene(0);
     }
     public virtual void ExitButton()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         SaveGame.Instance.Save();
         Application.Quit();
     }
     public virtual void ResumeButton()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         Time.timeScale = 1;
         pauseUI.SetActive(false);
     }
     public virtual void OptionButton()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         Time.timeScale = 0;
         pauseUI.SetActive(true);
     }

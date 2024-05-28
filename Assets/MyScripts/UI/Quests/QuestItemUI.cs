@@ -32,6 +32,7 @@ public class QuestItemUI : RPGMonoBehaviour
     }
     public void OnQuestItemClicked()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         QuestManager.Instance.DisplayQuestDetails(quest);
     }
 }

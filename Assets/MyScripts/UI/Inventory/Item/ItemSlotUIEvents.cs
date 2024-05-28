@@ -48,7 +48,6 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerEnter(PointerEventData eventData)
     {
         hoveredSlot = mySlot;
-
     }
 
     public void OnPointerExit(PointerEventData eventData)

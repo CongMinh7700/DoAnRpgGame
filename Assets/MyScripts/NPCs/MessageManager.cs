@@ -26,6 +26,7 @@ public class MessageManager : RPGMonoBehaviour
     }
     public void Message2()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         firstTalk.SetActive(false);
         if (numbShop > 2) return;
         shops[numbShop].SetActive(true);
@@ -34,6 +35,7 @@ public class MessageManager : RPGMonoBehaviour
     }
     public void Message1()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         if (numbShop > 2)
         {
             firstTalk.SetActive(false);
@@ -61,6 +63,7 @@ public class MessageManager : RPGMonoBehaviour
     {
         //Add Quest
         if (currentQuest == null) return;
+        AudioClickManager.Instance.PlaySFXClick();
         if (currentQuest.questState == QuestState.NotStarted && currentQuest != null)
         {
             QuestManager.Instance.AddQuest(currentQuest);
@@ -81,6 +84,7 @@ public class MessageManager : RPGMonoBehaviour
     }
     public void Refuse()
     {
+        AudioClickManager.Instance.PlaySFXClick();
         if (numbShop > 2)
         {
             firstTalk.SetActive(true);
@@ -108,7 +112,7 @@ public class MessageManager : RPGMonoBehaviour
         }
         if (numbShop == 3)
         {
-            ownerText.text = "trưởng làng";
+            ownerText.text = "Trưởng làng";
         }
         else return;
 

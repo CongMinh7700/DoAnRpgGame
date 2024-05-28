@@ -23,7 +23,7 @@ public class ItemSlot : RPGMonoBehaviour
     }
     private void Update()
     {
-        //AssignItem();
+   
     }
     //Add Item
     public virtual bool Add(Item item)
@@ -154,7 +154,7 @@ public class ItemSlot : RPGMonoBehaviour
                 {
                     if (quickSkillSlot != null)
                     {
-                       // quickSkillSlot.BackToInventory();
+                        AudioClickManager.Instance.PlaySFXClick();
                         quickSkillSlot.SetData(slotItem, itemCount);
                         break;
                     }
