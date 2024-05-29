@@ -36,7 +36,7 @@ public class PlayerInfoManager : RPGMonoBehaviour
     public static string playerNameData;
     private void Start()
     {
-        playerNameData = "AintCming";//Text
+        //playerNameData = "AintCming";//Text
         playerName.text = playerNameData + " - Level : " + LevelSystem.Instance.LevelCurrent;//Bỏ vô Update
     }
     protected override void LoadComponents()
