@@ -9728,7 +9728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3163899914498115479}
-  - component: {fileID: 3163899914498115478}
+  - component: {fileID: 1319125855}
   m_Layer: 0
   m_Name: Despawn
   m_TagString: Untagged
@@ -9751,7 +9751,7 @@ Transform:
   m_Father: {fileID: 3163899915635286193}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3163899914498115478
+--- !u!114 &1319125855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9760,12 +9760,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3163899914498115472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b934dd1dd0ab9144b9f4d48d34d707e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 68be0c71f3101c94f8faca70dc927cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseTime: 0
-  delay: 10
-  timer: 0
 --- !u!1 &3163899914576857706
 GameObject:
   m_ObjectHideFlags: 0
@@ -24521,7 +24519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {fileID: 0}
-  skillDespawnByTime: {fileID: 3163899914498115478}
+  despawnByMana: {fileID: 1319125855}
 --- !u!114 &3163899915635286192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24535,6 +24533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shield: 1
+  Strength: 0
 --- !u!1 &3163899916192975059
 GameObject:
   m_ObjectHideFlags: 0

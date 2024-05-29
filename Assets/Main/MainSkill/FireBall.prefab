@@ -9701,7 +9701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524a7d6f4513e2040bc5c62ba1970ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disLimit: 50
+  disLimit: 100
   distance: 0
   player: {fileID: 0}
 --- !u!1 &8980123176489102463
@@ -9826,7 +9826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ec1546492ee154cba1ed13fa723f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 5
   direction: {x: 0, y: 0, z: 1}
 --- !u!1 &8980123176919974831
 GameObject:

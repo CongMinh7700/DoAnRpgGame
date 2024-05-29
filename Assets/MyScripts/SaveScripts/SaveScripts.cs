@@ -7,14 +7,11 @@ public class SaveScripts : RPGMonoBehaviour
     public static bool saving = false;
     public static bool continueData = false;
     //private bool checkForLoad = false;
-    //Quest,Money
-
     [Header("Save")]
     public PlayerCtrl playerCtrl;
     public LevelSystem levelSystem;
-    [Header("In Game")]
-    public static int instance = 0;
-
+    //[Header("In Game")]
+   // public static int instance = 0;
 
     public virtual void SaveData(string id)
     {

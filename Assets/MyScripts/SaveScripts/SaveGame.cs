@@ -18,6 +18,12 @@ public class SaveGame : RPGMonoBehaviour
         if (SaveGame.instance != null) Debug.LogWarning("Only 1 Save Game allow to exist");
         SaveGame.instance = this;
     }
+    private void Start()
+    {
+
+        //62,27,302
+        saveScripts.SaveData("");
+    }
     public virtual void Save()
     {
         equipData.SaveData("");
