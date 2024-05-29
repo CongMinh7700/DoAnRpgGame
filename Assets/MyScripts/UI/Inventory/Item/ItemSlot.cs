@@ -154,7 +154,7 @@ public class ItemSlot : RPGMonoBehaviour
                 {
                     if (quickSkillSlot != null)
                     {
-                        AudioClickManager.Instance.PlaySFXClick();
+                        SFXManager.Instance.PlaySFXClick();
                         quickSkillSlot.SetData(slotItem, itemCount);
                         break;
                     }

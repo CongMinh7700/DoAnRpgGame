@@ -30,7 +30,7 @@ public class EquipSlot : ItemSlot
     }
     public virtual void UnEquip()
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         if (!IsEmpty && slotItem != null)
         {
             switch (slotItem.type)

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
+  m_Name: FriedEgg
+  m_EditorClassIdentifier: 
+  type: 1
+  itemName: FriedEgg
+  itemPerSlot: 99
+  icon: {fileID: 21300000, guid: a2fadacd7e7d91e45b5dd00efdba1991, type: 3}
+  prefab: {fileID: 0}
+  isFood: 1
+  itemInformation: "M\u1ED9t \u0111\u0129a c\u01A1m chi\xEAn tr\u1EE9ng ngon\nH\u1ED3i
+    ph\u1EE5c : 300HP"
+  bonusAttributes:
+  - attributeName: health
+    attributeValue: 300

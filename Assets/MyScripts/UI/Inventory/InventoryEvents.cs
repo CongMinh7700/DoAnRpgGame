@@ -34,7 +34,7 @@ public class InventoryEvents : RPGMonoBehaviour
     //RemoveItem
     public void OnRemoveItemClicked(ItemSlot slot, Interactor interactor)
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         if (itemContainer.dropItemGameObjects) slot.RemoveAndDrop(1, itemContainer.containerInteractor.ItemDropPosition);
         else slot.Remove(1);
     }
@@ -42,7 +42,7 @@ public class InventoryEvents : RPGMonoBehaviour
   
     public void OnTransferToInventoryClicked(ItemSlot slot, Interactor interactor)
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         Utils.TransferItemQuantity(slot, interactor.inventory, slot.itemCount);
     }
     //Mở slotOption
@@ -57,7 +57,7 @@ public class InventoryEvents : RPGMonoBehaviour
     //Đóng slotOption
     public void CloseSlotOptionMenu()
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         itemContainer.slotOptionMenu.SetActive(false);
         itemContainer.itemInfoPanel.SetActive(false);
     }
@@ -65,20 +65,20 @@ public class InventoryEvents : RPGMonoBehaviour
     //DropItem
     public void OnBulkRemoveItemClicked(ItemSlot slot, Interactor interactor)
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         if (itemContainer.dropItemGameObjects) slot.RemoveAndDrop(slot.itemCount, interactor.ItemDropPosition);
         else slot.Remove(slot.itemCount);
     }
     //Sử dụng item
     public void OnUseItemClicked(ItemSlot slot, Interactor interactor)
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         ItemManager.Instance.UseItem(slot);
     }
     //Xem info
     public void OnItemInfoClicked(ItemSlot slot, Interactor interactor)
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         itemContainer.itemInfoPanel.GetComponentInChildren<TextMeshProUGUI>().text = slot.slotItem.itemInformation;
         itemContainer.itemInfoPanel.SetActive(!itemContainer.itemInfoPanel.activeSelf);
     }

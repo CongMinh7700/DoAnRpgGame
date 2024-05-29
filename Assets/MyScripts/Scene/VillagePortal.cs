@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
+using System.Collections.Generic;
 public class VillagePortal : RPGMonoBehaviour
 {
     [SerializeField] protected PlayerCtrl playerCtrl;
@@ -15,10 +16,10 @@ public class VillagePortal : RPGMonoBehaviour
     }
     private void Start()
     {
-        if (!playerCtrl.usingPortal)
+        if (playerCtrl.usingPortal)
         {
-            playerCtrl.transform.position = new Vector3(62, 27, 302);
-            //playerCtrl.usingPortal = false;
+            playerCtrl.transform.position = new Vector3(103, 14, 310);
+            StartCoroutine(WaitToFalse());
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -28,6 +29,11 @@ public class VillagePortal : RPGMonoBehaviour
             SceneManager.LoadScene(3);
             playerCtrl.usingPortal = true;
         }
+    }
+    IEnumerator WaitToFalse()
+    {
+        yield return new WaitForSeconds(2f);
+        playerCtrl.usingPortal = false;
     }
   
 }

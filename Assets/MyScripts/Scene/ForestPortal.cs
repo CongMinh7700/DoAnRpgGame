@@ -15,7 +15,7 @@ public class ForestPortal : RPGMonoBehaviour
         if (!playerCtrl.usingPortal)
         {
             playerCtrl.transform.position = new Vector3(62, 27, 302);
-           // playerCtrl.usingPortal = false;
+            StartCoroutine(WaitToFalse());
         }
     }
     protected virtual void LoadPlayerCtrl()
@@ -31,5 +31,10 @@ public class ForestPortal : RPGMonoBehaviour
             playerCtrl.usingPortal = true;
         }
     }
-  
+    IEnumerator WaitToFalse()
+    {
+        yield return new WaitForSeconds(2f);
+        playerCtrl.usingPortal = false;
+    }
+
 }

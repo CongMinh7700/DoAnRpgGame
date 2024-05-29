@@ -16,9 +16,10 @@ public class BuyWeapon : RPGMonoBehaviour
     }
     public void BuyWeaponButton()
     {
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         if (MoneyManager.Instance.Gold >= cost)
         {
+            SFXManager.Instance.PlaySFXPickUp();
             inventory.inventoryEvents.AddItem(item);
             MoneyManager.Instance.MinusGold(cost);
             currencyText.text = MoneyManager.Instance.Gold.ToString() +" $";

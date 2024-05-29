@@ -31,6 +31,7 @@ public class GoldPickup : RPGMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SFXManager.Instance.PlaySFXPickUp();
             Picked();
         }
     }
@@ -38,6 +39,7 @@ public class GoldPickup : RPGMonoBehaviour
     {
         MoneyManager.Instance.AddGold(money);
         moneyCtrl.DespawnByDistance.DespawnObject();
+        GoldSpawner.Instance.Despawn(transform.parent);
     }
   
     public void SetMoney(int value)

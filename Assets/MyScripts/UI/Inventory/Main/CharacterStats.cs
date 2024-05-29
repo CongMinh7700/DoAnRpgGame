@@ -74,7 +74,7 @@ public class CharacterStats : RPGMonoBehaviour
     public void ToggleUI()
     {
         //Close
-        AudioClickManager.Instance.PlaySFXClick();
+        SFXManager.Instance.PlaySFXClick();
         if (mainContainerUI.gameObject.activeSelf && isContainerUIOpen)
         {
             isContainerUIOpen = false;
