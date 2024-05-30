@@ -86,7 +86,7 @@ public class PlayerCtrl : HitableObjectCtrl
         {
             Debug.Log("Click Mouse");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+            //Debug.DrawRay(ray.origin, ray.direction * 50, Color.red, 2f);
             if (Physics.Raycast(ray, out raycastHit, 50))
             {
                 if (raycastHit.transform.gameObject.CompareTag("Enemy"))
