@@ -57,8 +57,7 @@ public class ItemContainer : RPGMonoBehaviour
     {
         if (isUIInitialized == false) return;
         inventoryEvents.CheckForUIToggleInput();
-        if (isContainerUIOpen) Time.timeScale = 0;
-        else Time.timeScale = 1;
+
         //   useName = ItemManager.isEquipped ? "Tháo" : "Dùng";
     }
     //Sinh ra 4 option 

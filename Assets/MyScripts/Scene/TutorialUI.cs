@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TutorialUI : MonoBehaviour
+public class TutorialUI : RPGMonoBehaviour
 {
     public GameObject tutorialUI;
-    public virtual void ExitButton()
+    protected override void LoadComponents()
+    {
+        LoadTutorialUI();
+    }
+    protected virtual void LoadTutorialUI()
+    {
+        if (this.tutorialUI != null) return;
+        this.tutorialUI = gameObject;
+    }
+    public virtual void CloseButton()
     {
         tutorialUI.SetActive(false);
     }

@@ -23,11 +23,14 @@ public class InventoryEvents : RPGMonoBehaviour
         if (itemContainer.mainContainerUI.gameObject.activeSelf && itemContainer.isContainerUIOpen)
         {
             itemContainer.isContainerUIOpen = false;
+            Time.timeScale = 1;
             StartCoroutine(Utils.TweenScaleOut(itemContainer.mainContainerUI.gameObject, 50, false));
         }
         else if (!itemContainer.mainContainerUI.gameObject.activeSelf && !itemContainer.isContainerUIOpen)
         {
             itemContainer.isContainerUIOpen = true;
+            Time.timeScale = 0;
+         
             StartCoroutine(Utils.TweenScaleIn(itemContainer.mainContainerUI.gameObject, 50, Vector3.one));
         }
     }
