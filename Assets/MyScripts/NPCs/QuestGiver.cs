@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Save Quest Index đi :V
-public class QuestGiver : MonoBehaviour
+public class QuestGiver : RPGMonoBehaviour
 {
     [SerializeField] public int shopNumber;
     public GameObject messageBox;
@@ -20,6 +20,21 @@ public class QuestGiver : MonoBehaviour
     [SerializeField] private bool canNotification;
     [SerializeField] private bool notificated;
     //Name của npc
+    [SerializeField] private QuestIndexManager questIndexManager;
+
+    protected override void LoadComponents()
+    {
+        LoadIndexQuestManager();
+    }
+    protected virtual void LoadIndexQuestManager()
+    {
+        if (this.questIndexManager != null) return;
+        this.questIndexManager = GetComponent<QuestIndexManager>();
+    }
+    private void Start()
+    {
+        questIndexManager.LoadData();
+    }
     private void Update()
     {
         if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
@@ -39,9 +54,6 @@ public class QuestGiver : MonoBehaviour
                 SpawnNotification();
             }
         }
-
-
-
     }
     public void ShowDialogue()
     {
@@ -53,9 +65,6 @@ public class QuestGiver : MonoBehaviour
 
         string[] dialogues = new string[0];
         Debug.Log("QuestState : " + quests[questIndex].questState.ToString() + "QuestName :" + quests[questIndex].questTitle);
-
-
-
         switch (quests[questIndex].questState)
         {
             case QuestState.NotStarted:
@@ -116,11 +125,13 @@ public class QuestGiver : MonoBehaviour
     {
         if (isFullText && quests[questIndex].questState == QuestState.Complete)
         {
+
             MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
             LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
             Debug.Log("EXP : " + quests[questIndex].experienceReward);
             QuestManager.Instance.RemoveQuest(quests[questIndex]);
             questIndex++;
+            questIndexManager.SaveData();//Save QuestIndex
             dialogueIndex = 0;
             notificated = false;
             isFullText = false;

@@ -17,7 +17,7 @@ public class SkillDataManager : RPGMonoBehaviour
         if (System.IO.File.Exists(dataPath))
         {
             System.IO.File.Delete(dataPath);
-            Debug.Log("Exisiting data with id: " + id + "  is overwritten.");
+            Debug.Log("Exisiting Skill data with id: " + id + "  is overwritten.");
         }
 
         try
@@ -34,11 +34,11 @@ public class SkillDataManager : RPGMonoBehaviour
             }
             string jsonData = JsonUtility.ToJson(info);
             System.IO.File.WriteAllText(dataPath, jsonData);
-            Debug.Log("<color=green>Data succesfully saved! </color>");
+            Debug.Log("<color=green>Data Skill succesfully saved! </color>");
         }
         catch
         {
-            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list");
+            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the Skill item list");
         }
     }
 
@@ -48,7 +48,7 @@ public class SkillDataManager : RPGMonoBehaviour
 
         if (!System.IO.File.Exists(dataPath))
         {
-            Debug.LogWarning("No saved data exists for the provided id: " + id);
+            Debug.LogWarning("No saved data Skill exists for the provided id: " + id);
             return;
         }
 
@@ -63,11 +63,11 @@ public class SkillDataManager : RPGMonoBehaviour
                 Item item = GetItemByIndex(info.itemIndexs[i]);
                 slotHolder.GetChild(info.slotIndexs[i]).GetComponent<SkillSlot>().Add(item);
             }
-            Debug.Log("<color=green>Data succesfully loaded! </color>");
+            Debug.Log("<color=green>Data Skill succesfully loaded! </color>");
         }
         catch
         {
-            Debug.LogError("Could not load container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list.");
+            Debug.LogError("Could not load container data! Make sure you have entered a valid id and all the item scriptable objects are added to the SkillManager item list.");
         }
     }
 

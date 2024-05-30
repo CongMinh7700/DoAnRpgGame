@@ -129,11 +129,12 @@ public class QuestManager : RPGMonoBehaviour
         for (int i = 0; i < questList.Count; i++) if (questList[i] == quest) return i;
         return -1;
     }
-    public virtual void GiveReward(Quest quest)
-    {
-        MoneyManager.Instance.AddGold(quest.goldReward);
-        //null return;
-        //Add item
-        //Add Exp
-    }
+    //public virtual void GiveReward(Quest quest)
+    //{
+    //    MoneyManager.Instance.AddGold(quest.goldReward);
+    //    LevelSystem.Instance.GainExperienceFlatRate(quest.experienceReward);
+    //    //null return;
+    //    //Add item
+    //    //Add Exp
+    //}
 }

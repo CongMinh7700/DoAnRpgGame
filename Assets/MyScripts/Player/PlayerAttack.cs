@@ -24,12 +24,11 @@ public class PlayerAttack : RPGMonoBehaviour
         if (this.playerCtrl != null) return;
         this.playerCtrl = GetComponentInParent<PlayerCtrl>();
         this.staminaMax = playerCtrl.PlayerSO.stamina;
-        this.currentStamina = staminaMax;
+        this.currentStamina = this.staminaMax;
     }
+
     void Update()
     {
-       // Debug.Log("IsAttacking : " + playerCtrl.PlayerAnim.isAttacking);
-
         playerCtrl.PlayerAnim.LoadTrail();
         this.Attacking();
         StaminaRecover();
@@ -42,7 +41,6 @@ public class PlayerAttack : RPGMonoBehaviour
         {
             if (!playerCtrl.PlayerAnim.isAttacking)
             {
-                //Debug.Log("Attacking");
                 StartAttack();
 
             }
@@ -92,7 +90,7 @@ public class PlayerAttack : RPGMonoBehaviour
     public virtual void SetStaminaMax(int maxStamina)
     {
         this.staminaMax = maxStamina;
-        if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
+        //if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
     }
     public virtual void SetCurrentStamina(float staminaValue)
     {

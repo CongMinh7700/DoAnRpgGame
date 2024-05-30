@@ -18,7 +18,7 @@ public class EquipSlotDataManager : RPGMonoBehaviour
         if (System.IO.File.Exists(dataPath))
         {
             System.IO.File.Delete(dataPath);
-            Debug.Log("Exisiting data with id: " + id + "  is overwritten.");
+            Debug.Log("Exisiting data EquipSlot with id: " + id + "  is overwritten.");
         }
 
         try
@@ -39,7 +39,7 @@ public class EquipSlotDataManager : RPGMonoBehaviour
         }
         catch
         {
-            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list");
+            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the EquipSlotDataManager item list");
         }
     }
 
@@ -64,12 +64,12 @@ public class EquipSlotDataManager : RPGMonoBehaviour
                 Item item = GetItemByIndex(info.itemIndexs[i]);
                 slotHolder.GetChild(info.slotIndexs[i]).GetComponent<EquipSlot>().SetData(item,1);
             }
-            Debug.Log("<color=green>Data succesfully loaded! </color>");
+            Debug.Log("<color=green>EquipSlotDataManager succesfully loaded! </color>");
             itemManager.UpdateStats();
         }
         catch
         {
-            Debug.LogError("Could not load container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list.");
+            Debug.LogError("Could not load container data! Make sure you have entered a valid id and all the item scriptable objects are added to the EquipSLotDataManager item list.");
         }
     }
 

@@ -14,20 +14,20 @@ public class UsingSkill : RPGMonoBehaviour
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();
+      
     }
-
     protected virtual void LoadPlayerCtrl()
     {
         if (this.playerCtrl != null) return;
         this.playerCtrl = GetComponentInParent<PlayerCtrl>();
         this.manaMax = playerCtrl.PlayerSO.mana;
-        this.currentMana = manaMax;
-
+        this.currentMana = this.manaMax;
     }
     protected virtual void FixedUpdate()
     {
         // manaLow = false;
         Debug.Log("StrengthOn :" + PlayerCtrl.strengthOn);
+        Debug.Log("ShieldOn :" + PlayerCtrl.shieldOn);
         ManaRecover();
         if (PlayerCtrl.shieldOn)
         {
@@ -83,23 +83,24 @@ public class UsingSkill : RPGMonoBehaviour
     public virtual void ManaRecover()
     {
         this.currentMana += 5 * Time.deltaTime;//Time.deltaTime
-        if (this.currentMana > manaMax) currentMana = manaMax;
+        if (this.currentMana >= manaMax) currentMana = manaMax;
     }
     public virtual void ManaDeduct(float value)
     {
+        Debug.Log("ManaDeduct");
         this.currentMana -= value;
         if (currentMana < 0) currentMana = 0;
     }
     public virtual void ManaAdd(float value)
     {
         this.currentMana += value;
-        if (currentMana > manaMax) currentMana = manaMax;
+        if (currentMana >= manaMax) currentMana = manaMax;
     }
 
     public virtual void SetManaMax(int maxMana)
     {
         this.manaMax = maxMana;
-        if (this.currentMana >= manaMax) currentMana = manaMax;
+        //if (this.currentMana >= manaMax) currentMana = manaMax;
     }
     public virtual void SetCurrentMana(float manaValue)
     {

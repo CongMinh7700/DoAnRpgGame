@@ -25,7 +25,7 @@ public class QuestDataManager : RPGMonoBehaviour
         if (System.IO.File.Exists(dataPath))
         {
             System.IO.File.Delete(dataPath);
-            Debug.Log("Exisiting data with id: " + id + "  is overwritten.");
+            Debug.Log("Exisiting Quest data with id: " + id + "  is overwritten.");
         }
 
         try
@@ -40,11 +40,11 @@ public class QuestDataManager : RPGMonoBehaviour
             Debug.Log(questListContent.childCount);
             string jsonData = JsonUtility.ToJson(info);
             System.IO.File.WriteAllText(dataPath, jsonData);
-            Debug.Log("<color=green>Data succesfully saved! </color>");
+            Debug.Log("<color=green>Data Quest succesfully saved! </color>");
         }
         catch
         {
-            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list");
+            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the QuestDataManager item list");
         }
     }
 
@@ -72,7 +72,7 @@ public class QuestDataManager : RPGMonoBehaviour
 
             }
 
-            Debug.Log("<color=green>Data succesfully loaded! </color>");
+            Debug.Log("<color=green>Data Quest succesfully loaded! </color>");
         }
         catch
         {

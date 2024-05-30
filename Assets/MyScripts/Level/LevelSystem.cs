@@ -6,7 +6,7 @@ public class LevelSystem : Level
 {
     protected static LevelSystem instance;
     public static LevelSystem Instance => instance;
-    public int currentXp;
+    public int currentXp =0;
     public int requireXp;
     public int number;
     [Header("Stat")]

@@ -45,11 +45,11 @@ public class QuickSlotDataManager : RPGMonoBehaviour
             }
             string jsonData = JsonUtility.ToJson(info);
             System.IO.File.WriteAllText(dataPath, jsonData);
-            Debug.Log("<color=green>Data succesfully saved! </color>");
+            Debug.Log("<color=green>Data QuickSlot succesfully saved! </color>");
         }
         catch
         {
-            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the ItemManager item list");
+            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the QuickSlot item list");
         }
     }
 
@@ -84,7 +84,7 @@ public class QuickSlotDataManager : RPGMonoBehaviour
                     quickSkillSlotHolder.GetChild(info.slotIndexs[i]).GetComponent<QuickSkillSlot>().SetData(item, info.itemCounts[i]);
                 }
             }
-            Debug.Log("<color=green>Data succesfully loaded! </color>");
+            Debug.Log("<color=green>Data Quick Slot succesfully loaded! </color>");
         }
         catch
         {

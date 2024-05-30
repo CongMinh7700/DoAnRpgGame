@@ -23,6 +23,7 @@ public class StartScene : MonoBehaviour
         PlayerInfoManager.playerNameData = nameInput.text;
         Debug.Log("Main Story Scene Start"); 
         SceneManager.LoadScene(1);
+        SaveGame.newGame = true;
     }
     public void ContinueButton()
     {
@@ -30,6 +31,7 @@ public class StartScene : MonoBehaviour
         //chỉnh lại thành secneIndex khi nếu qua scene 2 thì load scene2
         //Savegame.LoadData();
         //có thể không gọi usingPortal
+        SaveGame.newGame = false;
         SceneManager.LoadScene(3);
     }
     public void TutorialButton()
@@ -40,4 +42,5 @@ public class StartScene : MonoBehaviour
     {
         Application.Quit();
     }
+    //Phải có scene loading để che load scene lâu
 }

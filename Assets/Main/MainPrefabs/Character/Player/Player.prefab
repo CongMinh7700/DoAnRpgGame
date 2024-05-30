@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaMax: 100
-  currentMana: 0
+  currentMana: 100
   playerCtrl: {fileID: 6741097169181968110}
 --- !u!1 &2045460664
 GameObject:
@@ -3349,6 +3349,7 @@ MonoBehaviour:
   usingSkill: {fileID: 1306959860}
   playerAnim: {fileID: 757482836113271219}
   playerSFX: {fileID: 866995977}
+  usingPortal: 0
 --- !u!114 &6741097169181968105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5324,7 +5325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1893325208}
-  currentHp: 0
+  currentHp: 500
   hpMax: 500
   defense: 10
   isDead: 0
@@ -5407,7 +5408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCtrl: {fileID: 6741097169181968110}
   staminaMax: 100
-  currentStamina: 0
+  currentStamina: 100
   staminaCost: 0
   weaponIndex: 0
 --- !u!1001 &6276401918804931613

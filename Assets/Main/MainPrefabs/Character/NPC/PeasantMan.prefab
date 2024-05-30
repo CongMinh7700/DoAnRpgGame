@@ -85,6 +85,7 @@ MonoBehaviour:
   noQuest: 0
   canNotification: 0
   notificated: 0
+  questIndexManager: {fileID: 0}
 --- !u!114 &5326900024025890209
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class SaveGame : RPGMonoBehaviour
     [SerializeField] protected SkillDataManager skillData;
     [SerializeField] protected SaveScripts saveScripts;
     [SerializeField] protected QuestDataManager questData;
-
+    public static bool newGame = false;
     protected override void Awake()
     {
         if (SaveGame.instance != null) Debug.LogWarning("Only 1 Save Game allow to exist");
@@ -20,9 +20,16 @@ public class SaveGame : RPGMonoBehaviour
     }
     private void Start()
     {
-
-        //62,27,302
-        saveScripts.SaveData("");
+        if (!newGame)
+        {
+            saveScripts.LoadData("");
+           
+        }
+        else
+        {
+            StartCoroutine(WaitToFalse());
+        }
+       
     }
     public virtual void Save()
     {
@@ -82,6 +89,10 @@ public class SaveGame : RPGMonoBehaviour
         if (this.questData != null) return;
         this.questData = GetComponentInChildren<QuestDataManager>();
     }
-
+    IEnumerator WaitToFalse()
+    {
+        yield return new WaitForSeconds(2f);
+        newGame = false;
+    }
 
 }

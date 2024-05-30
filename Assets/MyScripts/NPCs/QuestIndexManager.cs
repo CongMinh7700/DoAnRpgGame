@@ -14,22 +14,22 @@ public class QuestIndexManager : RPGMonoBehaviour
         if (questGiver != null) return;
         this.questGiver = GetComponent<QuestGiver>();
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            SaveData();
-        }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.B))
+    //    {
+    //        SaveData();
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadData();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            DeleteData();
-        }
-    }
+    //    if (Input.GetKeyDown(KeyCode.L))
+    //    {
+    //        LoadData();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.D))
+    //    {
+    //        DeleteData();
+    //    }
+    //}
     //Cho start nó tự save là oke lúc thoát game cũng vậy
     #region Saving & Loading Data
     public void SaveData()

@@ -996,6 +996,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1306959860, guid: 9712c8a57a6851d48a117b8e12213ff7, type: 3}
+      propertyPath: currentMana
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893325207, guid: 9712c8a57a6851d48a117b8e12213ff7, type: 3}
+      propertyPath: currentHp
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 757482836113271218, guid: 9712c8a57a6851d48a117b8e12213ff7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1043,6 +1051,10 @@ PrefabInstance:
     - target: {fileID: 763204428501082098, guid: 9712c8a57a6851d48a117b8e12213ff7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276401920440084891, guid: 9712c8a57a6851d48a117b8e12213ff7, type: 3}
+      propertyPath: currentStamina
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6741097169181968105, guid: 9712c8a57a6851d48a117b8e12213ff7, type: 3}
       propertyPath: inventory

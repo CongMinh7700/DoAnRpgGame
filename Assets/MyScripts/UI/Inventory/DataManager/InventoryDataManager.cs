@@ -28,7 +28,7 @@ public class InventoryDataManager : RPGMonoBehaviour
         if (System.IO.File.Exists(dataPath))
         {
             System.IO.File.Delete(dataPath);
-            Debug.Log("Exisiting data with id: " + id + "  is overwritten.");
+            Debug.Log("Exisiting Inventory data with id: " + id + "  is overwritten.");
         }
 
         try
@@ -74,7 +74,7 @@ public class InventoryDataManager : RPGMonoBehaviour
                 Item item = ItemManager.Instance.GetItemByIndex(info.itemIndexs[i]);
                 slotHolder.GetChild(info.slotIndexs[i]).GetComponent<ItemSlot>().SetData(item, info.itemCounts[i]);
             }
-            Debug.Log("<color=green>Data succesfully loaded! </color>");
+            Debug.Log("<color=green>Data Inventory succesfully loaded! </color>");
         }
         catch
         {

@@ -19,7 +19,7 @@ public class SaveScripts : RPGMonoBehaviour
         if (System.IO.File.Exists(dataPath))
         {
             System.IO.File.Delete(dataPath);
-            Debug.Log("Existing data with id : " + id + "is overwriting");
+            Debug.Log("Existing SaveScripts data with id : " + id + "is overwriting");
         }
         try
         {
