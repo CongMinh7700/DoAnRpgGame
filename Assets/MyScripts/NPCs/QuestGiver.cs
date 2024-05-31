@@ -33,7 +33,15 @@ public class QuestGiver : RPGMonoBehaviour
     }
     private void Start()
     {
-        questIndexManager.LoadData();
+        if (!SaveGame.newGame)
+        {
+            questIndexManager.LoadData();
+        }
+        else
+        {
+            ResetAllQuest.Instance.ResetQuests();
+        }
+       
     }
     private void Update()
     {

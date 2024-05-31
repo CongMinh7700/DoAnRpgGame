@@ -9,6 +9,7 @@ public class LevelSystem : Level
     public int currentXp =0;
     public int requireXp;
     public int number;
+    public int bossKill;
     [Header("Stat")]
     public float additionMultiple = 300;
     public float powerMultiple = 2;
@@ -47,6 +48,7 @@ public class LevelSystem : Level
     }
     private void Update()
     {
+        Debug.Log("Boss Kill Count :" + bossKill);
         if (Input.GetKeyDown(KeyCode.V))
         {
             GainExperienceFlatRate(100);
@@ -107,5 +109,13 @@ public class LevelSystem : Level
         nofText.SetText("Lên Cấp");
         fxObj.gameObject.SetActive(true);
     }
-
+    public int BossKilled()
+    {
+        return bossKill++;
+   
+    }
+    public bool CanSummonPortal()
+    {
+        return bossKill >=2;
+    }
 }

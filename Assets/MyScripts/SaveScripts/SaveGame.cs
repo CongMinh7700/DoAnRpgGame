@@ -12,6 +12,7 @@ public class SaveGame : RPGMonoBehaviour
     [SerializeField] protected SkillDataManager skillData;
     [SerializeField] protected SaveScripts saveScripts;
     [SerializeField] protected QuestDataManager questData;
+    [SerializeField] protected LoadSceneManager loadSceneManager;
     public static bool newGame = false;
     protected override void Awake()
     {
@@ -23,11 +24,12 @@ public class SaveGame : RPGMonoBehaviour
         if (!newGame)
         {
             saveScripts.LoadData("");
-           
+            
         }
         else
         {
             StartCoroutine(WaitToFalse());
+            LevelSystem.Instance.bossKill = 0;
         }
        
     }
@@ -39,6 +41,7 @@ public class SaveGame : RPGMonoBehaviour
         skillData.SaveData("");
         saveScripts.SaveData("");
         questData.SaveData("");
+        loadSceneManager.SaveData("");
 
     }
     public virtual void Load()
@@ -49,6 +52,7 @@ public class SaveGame : RPGMonoBehaviour
         skillData.LoadData("");
         saveScripts.LoadData("");
         questData.LoadData("");
+
     }
     protected override void LoadComponents()
     {
@@ -58,6 +62,7 @@ public class SaveGame : RPGMonoBehaviour
         LoadSkillData();
         LoadPLayerSave();
         LoadQuestData();
+        LoadSceneManager();
     }
     protected virtual void LoadEquipData()
     {
@@ -88,6 +93,11 @@ public class SaveGame : RPGMonoBehaviour
     {
         if (this.questData != null) return;
         this.questData = GetComponentInChildren<QuestDataManager>();
+    }
+    protected virtual void LoadSceneManager()
+    {
+        if (this.loadSceneManager != null) return;
+        this.loadSceneManager = GetComponentInChildren<LoadSceneManager>();
     }
     IEnumerator WaitToFalse()
     {

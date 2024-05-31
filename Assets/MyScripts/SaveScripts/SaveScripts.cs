@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class SaveScripts : RPGMonoBehaviour
 {
 
@@ -11,8 +12,7 @@ public class SaveScripts : RPGMonoBehaviour
     public PlayerCtrl playerCtrl;
     public LevelSystem levelSystem;
     //[Header("In Game")]
-   // public static int instance = 0;
-
+    // public static int instance = 0;
     public virtual void SaveData(string id)
     {
         string dataPath = GetIDPath(id);
@@ -38,9 +38,7 @@ public class SaveScripts : RPGMonoBehaviour
             playerData.currentXp = levelSystem.currentXp;
             playerData.requireXp = levelSystem.requireXp;
             playerData.level = levelSystem.LevelCurrent;
-
-            //playerData.currentExp = 0;
-            //playerData.maxExp = 0;
+            playerData.bossKill = levelSystem.bossKill;
             string jsonData = JsonUtility.ToJson(playerData);
             System.IO.File.WriteAllText(dataPath, jsonData);
             Debug.Log("<color=green>Data successfully saved! </color>");
@@ -64,7 +62,6 @@ public class SaveScripts : RPGMonoBehaviour
         {
             string json = System.IO.File.ReadAllText(dataPath);
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
-
             PlayerInfoManager.playerNameData = playerData.playerName;
             playerCtrl.UsingSkill.SetCurrentMana(playerData.currentMana);
             playerCtrl.DamageReceiver.SetCurentHp(playerData.currentHealth);
@@ -80,7 +77,7 @@ public class SaveScripts : RPGMonoBehaviour
             levelSystem.requireXp = playerData.requireXp;
             levelSystem.SetLevel(playerData.level);
             levelSystem.UpdatePlayerStatus(levelSystem.LevelCurrent);
-
+            levelSystem.bossKill = playerData.bossKill;
             Debug.Log("<color=green>Data succesfully loaded! </color>");
         }
         catch
@@ -88,10 +85,16 @@ public class SaveScripts : RPGMonoBehaviour
             Debug.LogError("Could not load container data! Make sure you have entered a valid id and all the item scriptable objects are added to the SaveScripts item list.");
         }
     }
-    public virtual void DeleteData()
+    public void DeleteData(string id)
     {
-
+        string path = GetIDPath(id);
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+            Debug.Log("Data with id: " + id + " is deleted.");
+        }
     }
+
     protected virtual string GetIDPath(string id)
     {
         return Application.persistentDataPath + $"/playerData_{id}.json";
@@ -112,9 +115,9 @@ public class PlayerData
     public int healthMax;
     public int damage;
     public double defense;
-
     public int requireXp;
     public int currentXp;
     public int level;
     public int gold;
+    public int bossKill;
 }

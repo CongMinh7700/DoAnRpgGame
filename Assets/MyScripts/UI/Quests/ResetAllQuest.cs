@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//nên để trong quest MAnager
 public class ResetAllQuest : MonoBehaviour
 {
 

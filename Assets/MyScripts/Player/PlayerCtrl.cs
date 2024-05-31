@@ -24,7 +24,6 @@ public class PlayerCtrl : HitableObjectCtrl
     public static bool strengthOn;
     public static GameObject theTarget;
     private RaycastHit raycastHit;
-    public  bool usingPortal;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -77,7 +76,6 @@ public class PlayerCtrl : HitableObjectCtrl
 
     private void Update()
     {
-        Debug.Log("Using Portal :" + usingPortal);
         SelectionTarget();//turn outline and set target
     }
     public void SelectionTarget()

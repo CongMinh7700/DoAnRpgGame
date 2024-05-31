@@ -25,6 +25,7 @@ public class EnemyDespawn : DespawnByHp
             this.DespawnObject();
             pauseTime = false;
         }
+       
     }
     public override void DespawnObject()
     {

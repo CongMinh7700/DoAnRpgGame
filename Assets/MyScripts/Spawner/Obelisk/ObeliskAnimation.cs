@@ -8,6 +8,7 @@ public class ObeliskAnimation : RPGMonoBehaviour
     [SerializeField] protected SpawnRandom spawnRandom;
     [SerializeField] protected Animator animator;
     [SerializeField] protected GameObject effect;
+    //[SerializeField] protected GameObject fences;
     public bool canAnimation;
     protected override void LoadComponents()
     {
@@ -18,12 +19,12 @@ public class ObeliskAnimation : RPGMonoBehaviour
     protected virtual void LoadSpawnerCtrl()
     {
         if (this.spawnerCtrl != null) return;
-        this.spawnerCtrl = GetComponentInParent<SpawnerCtrl>();
+        this.spawnerCtrl = GetComponentInChildren<SpawnerCtrl>();
     }
     protected virtual void LoadSpawnerRandom()
     {
         if (this.spawnRandom != null) return;
-        this.spawnRandom = GetComponentInParent<SpawnRandom>();
+        this.spawnRandom = GetComponentInChildren<SpawnRandom>();
     }
     protected virtual void LoadAnimator()
     {
@@ -37,7 +38,7 @@ public class ObeliskAnimation : RPGMonoBehaviour
     }
     private void Update()
     {
-        if (this.spawnerCtrl.SpawnTrigger.CanSpawn)
+        if (this.spawnerCtrl.SpawnTrigger.CanSpawn && !spawnRandom.bossSpawned)
         {
             animator.SetBool("Spawn",canAnimation);
             StartCoroutine(WaitToPlay());

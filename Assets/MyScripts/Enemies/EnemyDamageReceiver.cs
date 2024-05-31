@@ -63,6 +63,10 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         Debug.LogWarning(transform.name + "đã chết");
         string enemyName = enemyCtrl.GetEnemyName();
         QuestManager.Instance.UpdateQuestProgress(enemyName);
+        if(hitableObjectCtrl.HitableObjectSO.objType == ObjectType.Boss)
+        {
+            LevelSystem.Instance.BossKilled();
+        }
     }
 
     private void SpawnMoney()

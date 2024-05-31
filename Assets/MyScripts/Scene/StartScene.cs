@@ -9,10 +9,10 @@ public class StartScene : MonoBehaviour
 {
     [SerializeField] protected TMP_InputField nameInput ;
     [SerializeField] protected GameObject tutorialUI;
-
+    public static int sceneIndex = 1;
     private void Start()
     {
-        //tutorialUI.SetActive(false);
+        tutorialUI.SetActive(false);
     }
     public void StartButton()
    {
@@ -32,7 +32,8 @@ public class StartScene : MonoBehaviour
         //Savegame.LoadData();
         //có thể không gọi usingPortal
         SaveGame.newGame = false;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(sceneIndex);
+        Debug.Log("SceneIndex : "+sceneIndex);
     }
     public void TutorialButton()
     {
@@ -43,4 +44,10 @@ public class StartScene : MonoBehaviour
         Application.Quit();
     }
     //Phải có scene loading để che load scene lâu
+
+
+
+
 }
+
+

@@ -9,12 +9,11 @@ public class SpawnRandom : RPGMonoBehaviour
     [SerializeField] protected float randomTimer = 0f;
     [SerializeField] protected float randomDelay = 3f;
     [SerializeField] protected float randomLimit = 4f;
-
-
+    public bool bossSpawned = false;
 
     protected override void LoadComponents()
     {
-        this.LoadSpawnerCtrl(); 
+        this.LoadSpawnerCtrl();
     }
     protected virtual void LoadSpawnerCtrl()
     {
@@ -30,20 +29,32 @@ public class SpawnRandom : RPGMonoBehaviour
     protected virtual void EnemySpawning()
     {
         if (RandomReachLimit()) return;
-      
         this.randomTimer += Time.fixedDeltaTime;
         if (this.randomTimer < this.randomDelay) return;
         this.randomTimer = 0;
         if (SpawnPoint.canSpawn)
         {
-        Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
-        Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
+            Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
+            Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
 
-        Vector3 position = randomPoint.position;
-        Quaternion rotation = randomPoint.rotation;
-           
-        Transform obj = this.spawnerCtrl.Spawner.Spawn(prefab, position, rotation);
-        obj.gameObject.SetActive(true);
+
+            ObjectType enemyType = prefab.GetComponent<EnemyCtrl>().HitableObjectSO.objType;
+            if (enemyType == ObjectType.Boss)
+            {
+                if (bossSpawned)
+                {
+                    Debug.LogWarning("Boss already spawned, cannot spawn another.");
+                    return;
+                }
+                else
+                {
+                    bossSpawned = true;
+                }
+            }
+            Vector3 position = randomPoint.position;
+            Quaternion rotation = randomPoint.rotation;
+            Transform obj = this.spawnerCtrl.Spawner.Spawn(prefab, position, rotation);
+            obj.gameObject.SetActive(true);
         }
         else
         {
@@ -57,5 +68,5 @@ public class SpawnRandom : RPGMonoBehaviour
         int currentObjs = this.spawnerCtrl.Spawner.spawnedCount;
         return currentObjs >= this.randomLimit;
     }
-    
+
 }
