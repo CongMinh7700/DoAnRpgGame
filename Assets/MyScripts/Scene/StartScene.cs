@@ -37,7 +37,7 @@ public class StartScene : MonoBehaviour
     }
     public void TutorialButton()
     {
-       // tutorialUI.gameObject.SetActive(true);
+        tutorialUI.gameObject.SetActive(true);
     }
     public void ExitButton()
     {

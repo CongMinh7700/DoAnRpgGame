@@ -21,7 +21,7 @@ public class StatsUpdate : RPGMonoBehaviour
     //   protected string name = "";
     private void Start()
     {
-        nameText.text = "Tên : " + "AintCming1";
+        nameText.text = "Tên : " + PlayerInfoManager.playerNameData;
     }
     private void Update()
     {

@@ -25,9 +25,7 @@ public class ForestPortal : RPGMonoBehaviour
     private void Start()
     {
 
-
         playerCtrl.transform.position = new Vector3(62, 27, 302);
-
     }
 
 
