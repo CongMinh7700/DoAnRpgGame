@@ -75,7 +75,6 @@ public class InventoryEvents : RPGMonoBehaviour
     //Sử dụng item
     public void OnUseItemClicked(ItemSlot slot, Interactor interactor)
     {
-        SFXManager.Instance.PlaySFXClick();
         ItemManager.Instance.UseItem(slot);
     }
     //Xem info

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillDamageSender : DamageSender
 {
     [SerializeField] protected AttackSkillCtrl skillCtrl;
+    public bool isFire = false;
     //true,false hoặc lấy attribute
     protected override void LoadComponents()
     {
@@ -24,12 +25,25 @@ public class SkillDamageSender : DamageSender
     {
         base.Send(damageReceiver);
         Vector3 hitPos = transform.position;
-        //CreateFx
+        CreateHitEffect();
         this.DestroySkill();
     }
     protected virtual void DestroySkill()
     {
         this.skillCtrl.SkillDespawn.DespawnObject();
     }
-    //MakeFX Like (text),Effect Impact
+    protected virtual void CreateHitEffect()
+    {
+        string fxName = "";
+        if (isFire)
+        {
+             fxName = FXSpawner.fireHitEffect;
+        }
+        else
+        {
+            fxName = FXSpawner.iceHitEffect;
+        }
+        Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
+        fxObj.gameObject.SetActive(true);
+    }
 }

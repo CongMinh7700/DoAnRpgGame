@@ -58,6 +58,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         Debug.Log(exp);
         enemyAnimation.DeathAnimation();
         //Money & Xp
+        CreateDeathEffect();
         LevelSystem.Instance.GainExperienceFlatRate(exp);
         SpawnMoney();
         Debug.LogWarning(transform.name + "đã chết");
@@ -69,17 +70,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         }
     }
 
-    private void SpawnMoney()
-    {
-        Vector3 position = transform.parent.position;
-        Quaternion rotation = transform.parent.rotation;
-
-        Transform newGold = GoldSpawner.Instance.Spawn(GoldSpawner.gold, position, rotation);
-        newGold.gameObject.SetActive(true);
-        MoneyCtrl moneyCtrl = newGold.GetComponent<MoneyCtrl>();
-        moneyCtrl.GoldPickup.SetMoney(exp);
-        moneyCtrl.SetPosition(transform);
-    }
+    
     public virtual void OutlineControl()
     {
   
@@ -102,5 +93,24 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         this.healthBar.fillAmount = (float)currentHp / hpMax;
         Debug.Log("Call SetHPUI");
+    }
+    //Spawn
+    private void SpawnMoney()
+    {
+        Vector3 position = transform.parent.position;
+        Quaternion rotation = transform.parent.rotation;
+
+        Transform newGold = GoldSpawner.Instance.Spawn(GoldSpawner.gold, position, rotation);
+        newGold.gameObject.SetActive(true);
+        MoneyCtrl moneyCtrl = newGold.GetComponent<MoneyCtrl>();
+        moneyCtrl.GoldPickup.SetMoney(exp);
+        moneyCtrl.SetPosition(transform);
+    }
+    protected virtual void CreateDeathEffect()
+    {
+        string fxName = FXSpawner.deathEffect;
+
+        Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
+        fxObj.gameObject.SetActive(true);
     }
 }

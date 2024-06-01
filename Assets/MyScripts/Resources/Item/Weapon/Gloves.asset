@@ -18,9 +18,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 43c039c3ce9d3a94eb99e8c982a7818e, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "Bao tay nh\u1EB9\nC\xF4ng : 5"
+  itemInformation: "Bao tay nh\u1EB9\nC\xF4ng : 5\nStamina : 25"
   bonusAttributes:
   - attributeName: attack
     attributeValue: 5
-  - attributeName: health
-    attributeValue: 40
+  - attributeName: stamina
+    attributeValue: 25

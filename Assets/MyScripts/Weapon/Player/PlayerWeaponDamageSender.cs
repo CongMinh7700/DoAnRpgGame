@@ -29,10 +29,6 @@ public class PlayerWeaponDamageSender : WeaponDamageSender
     }
     private void Update()
     {
-       // Debug.Log("Strength On :" + PlayerCtrl.strengthOn);
-      //  Debug.Log(LevelSystem.damageLevel);
-        //Debug.Log("Damage : " + damage);
-       // Debug.Log("Damage Base : " + baseDamage);
         UpdateBase();
         UpdateDamageSkill();
     }

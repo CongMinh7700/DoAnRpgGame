@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 296cb35835db69d4299fbe2765cf9099, type: 3}
   prefab: {fileID: 7734351087016662765, guid: 433856cd8b3f66145ba037a3877ea0c1, type: 3}
   isFood: 1
-  itemInformation: "Th\u1ECBt\nH\u1ED3i ph\u1EE5c : 20 HP"
+  itemInformation: "Th\u1ECBt\nH\u1ED3i ph\u1EE5c : 75 HP"
   bonusAttributes:
   - attributeName: health
     attributeValue: 75

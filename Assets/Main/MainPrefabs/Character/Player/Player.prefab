@@ -3349,7 +3349,6 @@ MonoBehaviour:
   usingSkill: {fileID: 1306959860}
   playerAnim: {fileID: 757482836113271219}
   playerSFX: {fileID: 866995977}
-  usingPortal: 0
 --- !u!114 &6741097169181968105
 MonoBehaviour:
   m_ObjectHideFlags: 0

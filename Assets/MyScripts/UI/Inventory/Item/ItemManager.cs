@@ -209,6 +209,8 @@ public class ItemManager : RPGMonoBehaviour
         hpMaxBonus = 0;
         bonusAttack = 0;
         bonusDefense = 0;
+        manaBonus = 0;
+        staminaBonus = 0;
         foreach (EquipSlot slot in slotCharacter.slots)
         {
             if (slot.slotItem != null)
@@ -230,6 +232,9 @@ public class ItemManager : RPGMonoBehaviour
                                 break;
                             case "mana":
                                 manaBonus += bonus.attributeValue;
+                                break;
+                            case "stamina":
+                                staminaBonus += bonus.attributeValue;
                                 break;
                         }
                     }

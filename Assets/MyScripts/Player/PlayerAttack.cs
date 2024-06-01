@@ -13,6 +13,7 @@ public class PlayerAttack : RPGMonoBehaviour
     public static bool canAttack;
     public int StaminaMax => staminaMax;
     public float CurrentStamina => currentStamina;
+    private int baseStamina;
 
 
     protected override void LoadComponents()
@@ -26,17 +27,26 @@ public class PlayerAttack : RPGMonoBehaviour
         this.staminaMax = playerCtrl.PlayerSO.stamina;
         this.currentStamina = this.staminaMax;
     }
-
+    private void Start()
+    {
+        baseStamina = playerCtrl.PlayerSO.stamina;
+    }
     void Update()
     {
+        UpdateBase();
         playerCtrl.PlayerAnim.LoadTrail();
         this.Attacking();
         StaminaRecover();
 
     }
+    protected virtual void UpdateBase()
+    {
+        baseStamina = LevelSystem.staminaLevel;
+        SetStaminaMax(baseStamina + ItemManager.staminaBonus);
+    }
     public void Attacking()
     {
-      
+
         if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost)
         {
             if (!playerCtrl.PlayerAnim.isAttacking)
@@ -75,7 +85,7 @@ public class PlayerAttack : RPGMonoBehaviour
     }
     public virtual void StaminaRecover()
     {
-        this.currentStamina += 5 * Time.deltaTime;
+        this.currentStamina += (staminaMax / 16) * Time.deltaTime;
         if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
     }
     public virtual void StaminaDeduct(int value)
@@ -104,4 +114,5 @@ public class PlayerAttack : RPGMonoBehaviour
         StaminaDeduct(staminaCost);
         playerCtrl.PlayerAnim.isAttacking = false;
     }
+
 }

@@ -106,10 +106,12 @@ public class QuickSkillSlot : ItemSlot
         {
             case "FireBall":
                 return 3f;
+            case "IceShard":
+                return 3f;
             case "Heal":
-                return 10f;
+                return 30f;
             case "Strength":
-                return 5f;
+                return 30f;
             case "Shield":
                 return 30f;
             default:

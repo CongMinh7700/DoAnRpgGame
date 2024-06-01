@@ -12,7 +12,7 @@ public class Item : ScriptableObject
     public Sprite icon;
     public GameObject prefab;
     public bool isFood;
-    [TextArea]
+    [TextArea(5,5)]
     public string itemInformation;
     public List<BonusAttribute> bonusAttributes = new List<BonusAttribute>();
 

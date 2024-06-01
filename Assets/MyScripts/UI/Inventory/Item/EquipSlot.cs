@@ -60,6 +60,8 @@ public class EquipSlot : ItemSlot
         int removedBonusAttack = 0;
         int removedBonusHealth = 0;
         int removedBonusDefense = 0;
+        int removedBonusMana = 0;
+        int removedBonusStamina = 0;
         foreach (BonusAttribute bonus in slotItem.bonusAttributes)
         {
             switch (bonus.attributeName)
@@ -73,12 +75,20 @@ public class EquipSlot : ItemSlot
                 case "attack":
                     removedBonusAttack = bonus.attributeValue;
                     break;
+                case "mana":
+                    removedBonusMana = bonus.attributeValue;
+                    break;
+                case "stamina":
+                    removedBonusStamina = bonus.attributeValue;
+                    break;
                     // Thêm các trường hợp xử lý cho các loại bonus khác nếu cần thiết
             }
         }
         ItemManager.bonusAttack -= removedBonusAttack;
         ItemManager.hpMaxBonus -= removedBonusHealth;
         ItemManager.bonusDefense -= removedBonusDefense;
+        ItemManager.manaBonus -= removedBonusMana;
+        ItemManager.staminaBonus -= removedBonusStamina;
     }
 
     //Thiết lập itemCount , UI

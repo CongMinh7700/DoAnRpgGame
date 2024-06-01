@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e473bbebd0330b24aaa5b7611c599f45, type: 3}
   prefab: {fileID: 7734351087016662765, guid: 433856cd8b3f66145ba037a3877ea0c1, type: 3}
   isFood: 1
-  itemInformation: "Thu\u1ED1c h\u1ED3i mana\nH\u1ED3i ph\u1EE5c : 100 mana"
+  itemInformation: "Thu\u1ED1c h\u1ED3i mana\nH\u1ED3i ph\u1EE5c : 300 mana"
   bonusAttributes:
   - attributeName: mana
-    attributeValue: 100
+    attributeValue: 300

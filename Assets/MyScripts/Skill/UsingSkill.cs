@@ -10,11 +10,11 @@ public class UsingSkill : RPGMonoBehaviour
     public int ManaMax => manaMax;
     public float CurrentMana => currentMana;
     public static bool manaLow;
-
+    private int baseMana;
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();
-      
+
     }
     protected virtual void LoadPlayerCtrl()
     {
@@ -23,25 +23,36 @@ public class UsingSkill : RPGMonoBehaviour
         this.manaMax = playerCtrl.PlayerSO.mana;
         this.currentMana = this.manaMax;
     }
+    private void Start()
+    {
+        baseMana = playerCtrl.PlayerSO.mana;
+    }
+    protected virtual void UpdateBase()
+    {
+        Debug.LogWarning("ManaLevel : " + LevelSystem.manaLevel + " ManaBonus : " + ItemManager.manaBonus);
+        baseMana = LevelSystem.manaLevel;
+        SetManaMax(baseMana + ItemManager.manaBonus);
+    }
     protected virtual void FixedUpdate()
     {
         // manaLow = false;
+        UpdateBase();
         Debug.Log("StrengthOn :" + PlayerCtrl.strengthOn);
         Debug.Log("ShieldOn :" + PlayerCtrl.shieldOn);
         ManaRecover();
         if (PlayerCtrl.shieldOn)
         {
-            ManaDeduct((manaMax / 10) * Time.deltaTime);
+            ManaDeduct((manaMax / 5) * Time.deltaTime);
             if (currentMana < 1f)
             {
                 PlayerCtrl.shieldOn = false;
                 manaLow = true;
             }
         }
-        
+
         if (PlayerCtrl.strengthOn)
         {
-            ManaDeduct((manaMax/10) * Time.deltaTime);
+            ManaDeduct((manaMax / 5) * Time.deltaTime);
             if (currentMana < 1f)
             {
                 PlayerCtrl.strengthOn = false;

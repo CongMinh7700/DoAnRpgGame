@@ -17,9 +17,9 @@ MonoBehaviour:
   itemPerSlot: 99
   icon: {fileID: 21300000, guid: 406e89c482e2de3499e25a3020d1e340, type: 3}
   prefab: {fileID: 0}
-  isFood: 0
+  isFood: 1
   itemInformation: "M\u1ED9t con c\xE1 n\u01B0\u1EDBng th\u01A1m ngon\nH\u1ED3i ph\u1EE5c
-    : 250Hp"
+    : 100 Hp"
   bonusAttributes:
   - attributeName: Health
-    attributeValue: 250
+    attributeValue: 100

@@ -80,11 +80,13 @@ public class SkillUI : RPGMonoBehaviour
         {
             isContainerUIOpen = false;
             StartCoroutine(Utils.TweenScaleOut(mainContainerUI.gameObject, 50, false));
+            Time.timeScale = 1;
         }
         else if (!mainContainerUI.gameObject.activeSelf && !isContainerUIOpen)
         {
             isContainerUIOpen = true;
             StartCoroutine(Utils.TweenScaleIn(mainContainerUI.gameObject, 50, Vector3.one));
+            Time.timeScale = 0;
         }
     }
     public bool AddItem(Item item)
