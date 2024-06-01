@@ -24,6 +24,7 @@ public class PlayerCtrl : HitableObjectCtrl
     public static bool strengthOn;
     public static GameObject theTarget;
     private RaycastHit raycastHit;
+    public LayerMask raycastLayerMask;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -82,22 +83,23 @@ public class PlayerCtrl : HitableObjectCtrl
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Click Mouse");
+            //Debug.Log("Click Mouse");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //Debug.DrawRay(ray.origin, ray.direction * 50, Color.red, 2f);
-            if (Physics.Raycast(ray, out raycastHit, 50))
+          //  Debug.DrawRay(ray.origin, ray.direction, Color.red, 2f);
+
+            if (Physics.Raycast(ray, out raycastHit, 100, raycastLayerMask))
             {
                 if (raycastHit.transform.gameObject.CompareTag("Enemy"))
                 {
                     theTarget = raycastHit.transform.gameObject;
                     Vector3 targetPosition = new Vector3(theTarget.transform.position.x, transform.position.y, theTarget.transform.position.z);
                     transform.LookAt(targetPosition); // Chỉ xoay theo trục Y
-                    Debug.LogWarning("Enemy Set Target: " + theTarget.name);
+                    //Debug.LogWarning("Enemy Set Target: " + theTarget.name);
                 }
                 else
                 {
                     theTarget = null;
-                    Debug.Log("No target set.");
+                    //Debug.Log("No target set.");
                 }
             }
         }

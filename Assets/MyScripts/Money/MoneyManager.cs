@@ -27,6 +27,6 @@ public class MoneyManager : RPGMonoBehaviour
     public virtual void SetGold(int value)
     {
         this.gold = value;
-        Debug.Log("SetGold :" + value);
+       // Debug.Log("SetGold :" + value);
     }
 }

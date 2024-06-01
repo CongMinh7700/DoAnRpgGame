@@ -50,7 +50,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         if (this.enemyAnimation != null) return;
         this.enemyAnimation = GetComponentInParent<EnemyAnimation>();
-        Debug.LogWarning(transform.name + "|LoadEnemyAnimation|", gameObject);
+       // Debug.LogWarning(transform.name + "|LoadEnemyAnimation|", gameObject);
     }
     protected override void OnDead()
     {
@@ -92,7 +92,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     protected virtual void SetHpUI()
     {
         this.healthBar.fillAmount = (float)currentHp / hpMax;
-        Debug.Log("Call SetHPUI");
+       // Debug.Log("Call SetHPUI");
     }
     //Spawn
     private void SpawnMoney()

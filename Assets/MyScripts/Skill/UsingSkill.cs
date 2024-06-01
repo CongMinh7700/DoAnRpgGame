@@ -29,7 +29,7 @@ public class UsingSkill : RPGMonoBehaviour
     }
     protected virtual void UpdateBase()
     {
-        Debug.LogWarning("ManaLevel : " + LevelSystem.manaLevel + " ManaBonus : " + ItemManager.manaBonus);
+       // Debug.LogWarning("ManaLevel : " + LevelSystem.manaLevel + " ManaBonus : " + ItemManager.manaBonus);
         baseMana = LevelSystem.manaLevel;
         SetManaMax(baseMana + ItemManager.manaBonus);
     }

@@ -23,7 +23,7 @@ public class PointTrigger : RPGMonoBehaviour
     {
         if (other.CompareTag("Enemy")) {
             isOccupied = true;
-            Debug.Log("ISOccupied");
+          //  Debug.Log("IsOccupied");
         }
     }
     private void OnTriggerExit(Collider other)

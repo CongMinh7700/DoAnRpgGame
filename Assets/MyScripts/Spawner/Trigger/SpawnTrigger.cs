@@ -9,11 +9,10 @@ public class SpawnTrigger : MonoBehaviour
     protected  bool canSpawn;
 
     public bool CanSpawn => canSpawn;
-    public bool isBoss = false;
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && !isBoss)
+        if (other.CompareTag("Player"))
         {
             canSpawn = true;
         }
@@ -25,11 +24,5 @@ public class SpawnTrigger : MonoBehaviour
             canSpawn = false;
         }
     }
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && isBoss)//nếu nhận nhiệm vụ thì mới spawn Boss
-        {
-            canSpawn = true;
-        }
-    }
+
 }

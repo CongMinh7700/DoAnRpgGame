@@ -15,14 +15,14 @@ public class NPCScripts : RPGMonoBehaviour
     {
         if (this.animator != null) return;
         this.animator = GetComponentInParent<Animator>();
-        Debug.LogWarning(transform.name + "|LoadNpcAnim|", gameObject);
+       // Debug.LogWarning(transform.name + "|LoadNpcAnim|", gameObject);
 
     }
     private void LoadQuestGiver()
     {
         if (this.questGiver != null) return;
         this.questGiver = GetComponent<QuestGiver>();
-        Debug.LogWarning(transform.name + "|LoadQuestGiver|", gameObject);
+        //Debug.LogWarning(transform.name + "|LoadQuestGiver|", gameObject);
 
     }
     private void Start()

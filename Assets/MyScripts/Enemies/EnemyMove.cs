@@ -50,7 +50,7 @@ public class EnemyMove : RPGMonoBehaviour
     {
         if (this.player != null) return;
         this.player = GameObject.FindGameObjectWithTag("Player");
-        Debug.LogWarning(transform.name + "|LoadPlayer|", gameObject);
+        //Debug.LogWarning(transform.name + "|LoadPlayer|", gameObject);
     }
     private void Start()
     {
