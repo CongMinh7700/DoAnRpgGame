@@ -21,14 +21,14 @@ public class MessageManager : RPGMonoBehaviour
 
     private void Start()
     {
-        if (numbShop > 2) return;
+        if (numbShop > 4) return;
         shops[numbShop].SetActive(false);
     }
     public void Message2()
     {
         SFXManager.Instance.PlaySFXClick();
         firstTalk.SetActive(false);
-        if (numbShop > 2) return;
+        if (numbShop > 4) return;
         shops[numbShop].SetActive(true);
         shopTalk.SetActive(false);
 
@@ -36,7 +36,7 @@ public class MessageManager : RPGMonoBehaviour
     public void Message1()
     {
         SFXManager.Instance.PlaySFXClick();
-        if (numbShop > 2)
+        if (numbShop > 4)
         {
             firstTalk.SetActive(false);
         }
@@ -72,7 +72,7 @@ public class MessageManager : RPGMonoBehaviour
         }
 
         questTalk.SetActive(false);
-        if (numbShop > 2)
+        if (numbShop > 4)
         {
             firstTalk.SetActive(true);
         }
@@ -85,7 +85,7 @@ public class MessageManager : RPGMonoBehaviour
     public void Refuse()
     {
         SFXManager.Instance.PlaySFXClick();
-        if (numbShop > 2)
+        if (numbShop > 4)
         {
             firstTalk.SetActive(true);
         }
@@ -98,11 +98,11 @@ public class MessageManager : RPGMonoBehaviour
     }
     private void Update()
     {
-        if (numbShop == 0)
+        if (numbShop == 0 || numbShop == 3)
         {
             ownerText.text = " Thợ Rèn";
         }
-        if (numbShop == 1)
+        if (numbShop == 1 || numbShop == 4)
         {
             ownerText.text = "Ông chủ";
         }
@@ -110,7 +110,7 @@ public class MessageManager : RPGMonoBehaviour
         {
             ownerText.text = "Phù Thủy";
         }
-        if (numbShop == 3)
+        if (numbShop == 5 || numbShop == 6)
         {
             ownerText.text = "Trưởng làng";
         }

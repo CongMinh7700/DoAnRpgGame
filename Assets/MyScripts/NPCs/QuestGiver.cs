@@ -52,16 +52,18 @@ public class QuestGiver : RPGMonoBehaviour
                 ShowDialogue();
             }
         }
-        if (quests[questIndex].questState == QuestState.Complete)
-        {
-            canNotification = true;
-            if (canNotification && !notificated && !noQuest)
+
+            if (quests[questIndex].questState == QuestState.Complete)
             {
-                notificated = true;
-                canNotification = false;
-                SpawnNotification();
-            }
-        }
+                canNotification = true;
+                if (canNotification && !notificated && !noQuest)
+                {
+                    notificated = true;
+                    canNotification = false;
+                    SpawnNotification();
+                }
+           }
+        
     }
     public void ShowDialogue()
     {

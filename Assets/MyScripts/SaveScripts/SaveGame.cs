@@ -36,23 +36,30 @@ public class SaveGame : RPGMonoBehaviour
     public virtual void Save()
     {
         equipData.SaveData("");
-        inventoryData.SaveData("");
         quickData.SaveData("");
         skillData.SaveData("");
         saveScripts.SaveData("");
         questData.SaveData("");
         loadSceneManager.SaveData("");
-
+        inventoryData.SaveData("");
     }
     public virtual void Load()
     {
         equipData.LoadData("");
-        inventoryData.LoadData("");
         quickData.LoadData("");
         skillData.LoadData("");
         saveScripts.LoadData("");
         questData.LoadData("");
-
+        inventoryData.LoadData("");
+    }
+    public virtual void Delete()
+    {
+        equipData.DeleteData("");
+        quickData.DeleteData("");
+        skillData.DeleteData("");
+        saveScripts.DeleteData("");
+        questData.DeleteData("");
+        inventoryData.DeleteData("");
     }
     protected override void LoadComponents()
     {

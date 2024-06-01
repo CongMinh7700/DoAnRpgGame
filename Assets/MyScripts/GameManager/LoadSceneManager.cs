@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
-
-
     private void Start()
     {
         LoadData("");
@@ -59,6 +57,16 @@ public class LoadSceneManager : MonoBehaviour
     {
         return Application.persistentDataPath + $"/SceneData_{id}.json";
     }
+    public void DeleteData(string id)
+    {
+        string path = GetIDPath(id);
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+            Debug.Log("Data with id: " + id + " is deleted.");
+        }
+    }
+
     [System.Serializable]
     public class SceneData
     {

@@ -539,8 +539,8 @@ MonoBehaviour:
   hitableObjectCtrl: {fileID: 2103302909}
   enemyAnimation: {fileID: 7486342036638482846}
   enemyCtrl: {fileID: 2103302909}
-  maxExp: 0
-  minExp: 0
+  maxExp: 200
+  minExp: 100
   exp: 0
   thisEnemy: {fileID: 7264427586390473165}
   healthBar: {fileID: 731882302}
@@ -1828,7 +1828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7397069795711065080
 Transform:
   m_ObjectHideFlags: 0

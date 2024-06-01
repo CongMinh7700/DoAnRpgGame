@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuickSlotDataManager : RPGMonoBehaviour
 {
+    [Header("Player Ground")]
     [SerializeField] protected QuickBar quickBar;
     public List<Item> itemList = new List<Item>();
 

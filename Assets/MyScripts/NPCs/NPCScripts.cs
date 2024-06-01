@@ -44,7 +44,7 @@ public class NPCScripts : RPGMonoBehaviour
         {
             this.questGiver.messageBox.GetComponent<MessageManager>().numbShop = questGiver.shopNumber;
 
-            if (questGiver.shopNumber > 2)
+            if (questGiver.shopNumber > 4)
             {
                 questGiver.messageBox.GetComponent<MessageManager>().firstTalk.SetActive(true);
                 questGiver.messageBox.GetComponent<MessageManager>().shopTalk.SetActive(false);
@@ -73,7 +73,7 @@ public class NPCScripts : RPGMonoBehaviour
         {
             animator.SetBool("Stay", false);
             questGiver.messageBox.SetActive(false);
-            if (questGiver.shopNumber > 2)
+            if (questGiver.shopNumber > 4)
             {
                 questGiver.messageBox.GetComponent<MessageManager>().firstTalk.SetActive(false);
             }

@@ -10,6 +10,15 @@ public class BuyWeapon : RPGMonoBehaviour
     [SerializeField] protected Item item;
     [SerializeField] protected ItemContainer inventory;
 
+    protected override void LoadComponents()
+    {
+        this.LoadInventory();
+    }
+    protected virtual void LoadInventory()
+    {
+        if (this.inventory != null) return;
+        this.inventory = FindObjectOfType<ItemContainer>();
+    }
     private void Update()
     {
         currencyText.text = MoneyManager.Instance.Gold.ToString();

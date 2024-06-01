@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryDataManager : RPGMonoBehaviour
 {
 
-    protected ItemContainer itemContainer;
+    [SerializeField]protected ItemContainer itemContainer;
     protected override void LoadComponents()
     {
 
@@ -94,7 +94,7 @@ public class InventoryDataManager : RPGMonoBehaviour
 
     protected virtual string GetIDPath(string id)
     {
-        return Application.persistentDataPath + $"/{id}.dat";
+        return Application.persistentDataPath + $"/InventoryManager{id}.dat";
     }
 
     public class SlotInfo

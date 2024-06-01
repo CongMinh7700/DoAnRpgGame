@@ -10,6 +10,16 @@ public class QuickSkillSlot : ItemSlot
     public Image fillImage;
     public UsingSkill usingSkill;
 
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadUsingSkill();
+    }
+    protected   virtual void LoadUsingSkill()
+    {
+        if (this.usingSkill != null) return;
+        this.usingSkill = FindObjectOfType<UsingSkill>();
+    }
     private void Update()
     {
         if (slotItem == null) return;

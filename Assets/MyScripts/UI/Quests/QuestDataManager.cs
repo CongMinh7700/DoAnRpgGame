@@ -81,7 +81,16 @@ public class QuestDataManager : RPGMonoBehaviour
     }
     protected virtual string GetIDPath(string id)
     {
-        return Application.persistentDataPath + $"/{id}.dat";
+        return Application.persistentDataPath + $"/QuestDataManager{id}.dat";
+    }
+    public void DeleteData(string id)
+    {
+        string path = GetIDPath(id);
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+            Debug.Log("Data with id: " + id + " is deleted.");
+        }
     }
     public class SlotInfo
     {

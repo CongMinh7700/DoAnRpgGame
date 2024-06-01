@@ -37,8 +37,8 @@ public class UsingSkill : RPGMonoBehaviour
     {
         // manaLow = false;
         UpdateBase();
-        Debug.Log("StrengthOn :" + PlayerCtrl.strengthOn);
-        Debug.Log("ShieldOn :" + PlayerCtrl.shieldOn);
+       // Debug.Log("StrengthOn :" + PlayerCtrl.strengthOn);
+       // Debug.Log("ShieldOn :" + PlayerCtrl.shieldOn);
         ManaRecover();
         if (PlayerCtrl.shieldOn)
         {

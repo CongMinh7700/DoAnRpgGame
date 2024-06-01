@@ -42,11 +42,18 @@ public class ItemContainer : RPGMonoBehaviour
         if (this.inventoryEvents != null) return;
         this.inventoryEvents = GetComponent<InventoryEvents>();
     }
+    protected virtual void LoadInteractor()
+    {
+        if (this.containerInteractor != null) return;
+        this.containerInteractor = FindObjectOfType<Interactor>();
+    }
     protected override void Awake()
     {
         //loi awake
+        
         isUIInitialized = false;
         this.LoadInventoryEvents();
+        LoadInteractor();
         InitializeContainer();
         foreach (ItemSlot slot in slots)
         {
