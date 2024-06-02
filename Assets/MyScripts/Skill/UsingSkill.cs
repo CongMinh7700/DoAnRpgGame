@@ -146,8 +146,8 @@ public class UsingSkill : RPGMonoBehaviour
         playerCtrl.PlayerSFX.SetSkillSFX();
         playerCtrl.PlaySound();
         ManaDeduct(manaCost);
-        Vector3 position = transform.parent.position;
-        Quaternion rotation = transform.parent.rotation;
+        Vector3 position = transform.position;
+        Quaternion rotation = transform.rotation;
         Transform newSkill = SkillSpawner.Instance.Spawn(prefabName, position, rotation);
         if (newSkill == null) return false;
         newSkill.gameObject.SetActive(true);

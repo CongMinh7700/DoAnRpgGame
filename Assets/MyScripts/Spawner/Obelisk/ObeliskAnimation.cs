@@ -47,7 +47,7 @@ public class ObeliskAnimation : RPGMonoBehaviour
     IEnumerator WaitToPlay()
     {
         yield return new WaitForSeconds(7f);
-        effect.SetActive(true);
+        if(canAnimation) effect.SetActive(true);
         canAnimation = false;
         yield return new WaitForSeconds(2f);
         effect.SetActive(false);

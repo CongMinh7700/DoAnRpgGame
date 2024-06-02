@@ -58,6 +58,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         Debug.Log(exp);
         enemyAnimation.DeathAnimation();
         //Money & Xp
+        PlayerCtrl.theTarget = null;
         CreateDeathEffect();
         LevelSystem.Instance.GainExperienceFlatRate(exp);
         SpawnMoney();

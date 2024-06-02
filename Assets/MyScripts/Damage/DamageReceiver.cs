@@ -53,7 +53,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     public virtual void Deduct(int value)
     {
         if (this.isDead) return;
-        this.currentHp -= value ;//* (defense * -1));
+        this.currentHp -= value - (int)(value * this.defense/100);
         isAttacked = true;
         if (this.currentHp <= 0) this.currentHp = 0;
         this.CheckIsDead();

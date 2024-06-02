@@ -51,6 +51,7 @@ public class PlayerInfoManager : RPGMonoBehaviour
     }
     private void Update()
     {
+        playerName.text = playerNameData + " - Level : " + LevelSystem.Instance.LevelCurrent;
         this.maxHp = playerCtrl.DamageReceiver.HPMax;
         this.currenHp = playerCtrl.DamageReceiver.CurrentHp;
         this.maxStamina = playerCtrl.PlayerAttack.StaminaMax;

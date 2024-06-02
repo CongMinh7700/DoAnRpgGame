@@ -13,7 +13,10 @@ public class SkillDamageSender : DamageSender
     }
     protected override void OnEnable()
     {
-        SetDamage(LevelSystem.damageLevel * 2);
+        if(isFire)
+            SetDamage(LevelSystem.damageLevel * 2);
+        else
+            SetDamage(LevelSystem.damageLevel * 3);
     }
     protected virtual void LoadSkillCtrl()
     {

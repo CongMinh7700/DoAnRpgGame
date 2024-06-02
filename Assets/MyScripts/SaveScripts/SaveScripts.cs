@@ -63,12 +63,12 @@ public class SaveScripts : RPGMonoBehaviour
             string json = System.IO.File.ReadAllText(dataPath);
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
             PlayerInfoManager.playerNameData = playerData.playerName;
-            playerCtrl.UsingSkill.SetCurrentMana(playerData.currentMana);
-            playerCtrl.DamageReceiver.SetCurentHp(playerData.currentHealth);
-            playerCtrl.PlayerAttack.SetCurrentStamina(playerData.currentStamina);
             playerCtrl.UsingSkill.SetManaMax(playerData.manaMax);
             playerCtrl.DamageReceiver.SetHpMax(playerData.healthMax);
             playerCtrl.PlayerAttack.SetStaminaMax(playerData.staminaMax);
+            playerCtrl.UsingSkill.SetCurrentMana(playerData.currentMana);
+            playerCtrl.DamageReceiver.SetCurentHp(playerData.currentHealth);
+            playerCtrl.PlayerAttack.SetCurrentStamina(playerData.currentStamina);
             LevelSystem.damageLevel = playerData.damage;
             playerCtrl.DamageReceiver.SetDefense(playerData.defense);
             playerCtrl.transform.position = playerData.position;

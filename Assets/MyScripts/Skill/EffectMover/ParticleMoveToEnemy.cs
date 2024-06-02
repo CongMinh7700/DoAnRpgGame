@@ -29,7 +29,7 @@ public class ParticleMoveToEnemy : RPGMonoBehaviour
         {
             // Tạo một điểm cao hơn trên đầu của mục tiêu
             Vector3 targetHeadPosition = target.position + Vector3.up * 1f;
-            transform.position = Vector3.LerpUnclamped(transform.position, targetHeadPosition, 5f * Time.deltaTime);
+            transform.position = Vector3.LerpUnclamped(transform.position, targetHeadPosition, 2f * Time.deltaTime);
             skillFly.gameObject.SetActive(false);
         }
         else

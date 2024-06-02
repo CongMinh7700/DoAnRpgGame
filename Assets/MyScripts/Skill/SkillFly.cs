@@ -6,6 +6,6 @@ public class SkillFly : ParentFly
 {
     protected override void ResetValue()
     {
-        this.speed = 5f;
+        this.speed = 10f;
     }
 }

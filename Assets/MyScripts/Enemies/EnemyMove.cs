@@ -27,6 +27,10 @@ public class EnemyMove : RPGMonoBehaviour
     {
         originalPosition = transform.parent.position;
     }
+    protected override void OnDisable()
+    {
+        transform.parent.position = originalPosition;
+    }
     protected override void LoadComponents()
     {
         this.LoadNavMeshAgent();
