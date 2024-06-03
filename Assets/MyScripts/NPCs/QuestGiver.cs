@@ -40,11 +40,18 @@ public class QuestGiver : RPGMonoBehaviour
         else
         {
             ResetAllQuest.Instance.ResetQuests();
+            questIndexManager.DeleteData();
         }
        
     }
     private void Update()
     {
+        Debug.LogWarning("Message Accept" + MessageManager.isAccept);
+        if (MessageManager.isAccept)
+        {
+            ShowDialogue();
+            StartCoroutine(WaitToFalse());
+        }
         if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText && !isFullText)
@@ -52,7 +59,7 @@ public class QuestGiver : RPGMonoBehaviour
                 ShowDialogue();
             }
         }
-
+        
             if (quests[questIndex].questState == QuestState.Complete)
             {
                 canNotification = true;
@@ -75,6 +82,7 @@ public class QuestGiver : RPGMonoBehaviour
 
         string[] dialogues = new string[0];
         Debug.Log("QuestState : " + quests[questIndex].questState.ToString() + "QuestName :" + quests[questIndex].questTitle);
+       
         switch (quests[questIndex].questState)
         {
             case QuestState.NotStarted:
@@ -99,23 +107,33 @@ public class QuestGiver : RPGMonoBehaviour
         if (quests[questIndex].questState == QuestState.NotStarted && isFullText)
         {
             messageBox.GetComponent<MessageManager>().ShowButton();
+            isFullText = false;
+
         }
-        NextQuest();
+       
 
         string fullText = "";
         if (noQuest)
         {
-            fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây nhé";
+            if (shopNumber > 4)
+            {
+                fullText = "Bạn đã tiêu diệt được bọn tay sai của quỷ vương rồi cảm ơn cậu. Tôi đã mở cổng dịch chuyển ở thị trấn rồi cậu hãy tới đó để giúp những người dân làng tội nghiệp khác .Chúc may mắn !";
+            }
+            else
+            {
+                fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây nhé";
+            }
             messageBox.GetComponent<MessageManager>().Refuse();
         }
         else
         {
             fullText = dialogues[dialogueIndex];
         }
-
+ 
         dialogueIndex++;
+        NextQuest();
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
-
+  
         QuestInProgress();
 
     }
@@ -135,16 +153,16 @@ public class QuestGiver : RPGMonoBehaviour
     {
         if (isFullText && quests[questIndex].questState == QuestState.Complete)
         {
-
+            questIndex++;
             MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
             LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
             Debug.Log("EXP : " + quests[questIndex].experienceReward);
             QuestManager.Instance.RemoveQuest(quests[questIndex]);
-            questIndex++;
-            questIndexManager.SaveData();//Save QuestIndex
             dialogueIndex = 0;
             notificated = false;
             isFullText = false;
+
+            questIndexManager.SaveData();//Save QuestIndex
             if (questIndex >= quests.Length)
             {
                 questIndex = quests.Length - 1;
@@ -175,7 +193,11 @@ public class QuestGiver : RPGMonoBehaviour
         Debug.Log("Quest Notification Called");
         fxObj.gameObject.SetActive(true);
     }
-
+    IEnumerator WaitToFalse()
+    {
+        yield return new WaitForSeconds(0.2f);
+        MessageManager.isAccept = false;
+    }
     protected virtual void QuestPointer()
     {
         //Hiển thị trên canvas ,

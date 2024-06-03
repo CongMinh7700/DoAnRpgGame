@@ -27,8 +27,8 @@ MonoBehaviour:
   dialoguesInProgress:
   - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
   type: 1
-  questState: 0
+  questState: 2
   targetName: Apple
   targetCount: 5
-  currentCount: 0
+  currentCount: 5
   rewardItem: []

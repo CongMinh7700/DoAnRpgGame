@@ -169,6 +169,7 @@ public class ItemSlot : RPGMonoBehaviour
                     {
                         SFXManager.Instance.PlaySFXClick();
                         quickSkillSlot.SetData(slotItem, itemCount);
+                        quickSkillSlot.currentCooldown = 0f;
                         break;
                     }
                 }

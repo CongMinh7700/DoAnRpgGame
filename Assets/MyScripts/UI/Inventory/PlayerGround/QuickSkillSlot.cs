@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class QuickSkillSlot : ItemSlot
 {
     [SerializeField] public KeyCode key;
-    protected float currentCooldown = 0f;
+    public float currentCooldown = 0f;
     public Image fillImage;
     public UsingSkill usingSkill;
 
@@ -59,7 +59,7 @@ public class QuickSkillSlot : ItemSlot
 
                 if (skillUsed)
                 {
-                    if (slotItem.itemName == "Strength")
+                    if (slotItem.itemName == "Strength" || slotItem.itemName == "Shield")
                     {
                         StartCoroutine(WaitForManaLow(skillCooldown));
                     }
@@ -82,7 +82,7 @@ public class QuickSkillSlot : ItemSlot
 
     private void UpdateCooldown()
     {
-
+        if (slotItem == null) return;
         if (currentCooldown > 0f)
         {
             currentCooldown -= Time.deltaTime;

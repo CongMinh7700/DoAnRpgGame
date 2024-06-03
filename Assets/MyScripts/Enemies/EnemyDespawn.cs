@@ -21,7 +21,7 @@ public class EnemyDespawn : DespawnByHp
         Debug.LogWarning("PauseTime : " + pauseTime);
         if (pauseTime)
         {
-            Debug.LogWarning("DespawnBoss");
+    
             this.DespawnObject();
             pauseTime = false;
         }

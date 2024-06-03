@@ -25,12 +25,12 @@ public class SaveScripts : RPGMonoBehaviour
         {
             PlayerData playerData = new PlayerData();
             playerData.playerName = PlayerInfoManager.playerNameData;
-            playerData.currentMana = playerCtrl.UsingSkill.CurrentMana;
-            playerData.currentHealth = playerCtrl.DamageReceiver.CurrentHp;
-            playerData.currentStamina = playerCtrl.PlayerAttack.CurrentStamina;
             playerData.manaMax = playerCtrl.UsingSkill.ManaMax;
             playerData.healthMax = playerCtrl.DamageReceiver.HPMax;
             playerData.staminaMax = playerCtrl.PlayerAttack.StaminaMax;
+            playerData.currentMana = playerCtrl.UsingSkill.CurrentMana;
+            playerData.currentHealth = playerCtrl.DamageReceiver.CurrentHp;
+            playerData.currentStamina = playerCtrl.PlayerAttack.CurrentStamina;
             playerData.damage = LevelSystem.damageLevel;
             playerData.defense = playerCtrl.DamageReceiver.Defense;
             playerData.position = playerCtrl.transform.position;
@@ -66,9 +66,6 @@ public class SaveScripts : RPGMonoBehaviour
             playerCtrl.UsingSkill.SetManaMax(playerData.manaMax);
             playerCtrl.DamageReceiver.SetHpMax(playerData.healthMax);
             playerCtrl.PlayerAttack.SetStaminaMax(playerData.staminaMax);
-            playerCtrl.UsingSkill.SetCurrentMana(playerData.currentMana);
-            playerCtrl.DamageReceiver.SetCurentHp(playerData.currentHealth);
-            playerCtrl.PlayerAttack.SetCurrentStamina(playerData.currentStamina);
             LevelSystem.damageLevel = playerData.damage;
             playerCtrl.DamageReceiver.SetDefense(playerData.defense);
             playerCtrl.transform.position = playerData.position;
@@ -76,6 +73,9 @@ public class SaveScripts : RPGMonoBehaviour
             levelSystem.currentXp = playerData.currentXp;
             levelSystem.requireXp = playerData.requireXp;
             levelSystem.SetLevel(playerData.level);
+            playerCtrl.UsingSkill.SetCurrentMana(playerData.currentMana);
+            playerCtrl.DamageReceiver.SetCurentHp(playerData.currentHealth);
+            playerCtrl.PlayerAttack.SetCurrentStamina(playerData.currentStamina);
             levelSystem.UpdatePlayerStatus(levelSystem.LevelCurrent);
             levelSystem.bossKill = playerData.bossKill;
             Debug.Log("<color=green>Data succesfully loaded! </color>");
@@ -110,13 +110,13 @@ public class PlayerData
 {
     public Vector3 position;
     public string playerName;
-    public float currentMana;
-    public float currentStamina;
-    public int currentHealth;
     public float currentExp;
     public int manaMax;
     public int staminaMax;
     public int healthMax;
+    public float currentMana;
+    public float currentStamina;
+    public int currentHealth;
     public int damage;
     public double defense;
     public int requireXp;

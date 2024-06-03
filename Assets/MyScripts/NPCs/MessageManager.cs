@@ -16,9 +16,10 @@ public class MessageManager : RPGMonoBehaviour
     public TextMeshProUGUI ownerText;
     public GameObject buttonRefuse;
     public GameObject buttonAccept;
+    public GameObject fText;
 
     public Quest currentQuest;
-
+    public static bool isAccept;
     private void Start()
     {
         if (numbShop > 4) return;
@@ -31,7 +32,7 @@ public class MessageManager : RPGMonoBehaviour
         if (numbShop > 4) return;
         shops[numbShop].SetActive(true);
         shopTalk.SetActive(false);
-
+        HideButton();
     }
     public void Message1()
     {
@@ -44,13 +45,15 @@ public class MessageManager : RPGMonoBehaviour
         {
             shopTalk.SetActive(false);
         }
-
+        HideButton();
+        fText.SetActive(true);
         questTalk.SetActive(true);
     }
     public void ShowButton()
     {
         buttonAccept.SetActive(true);
         buttonRefuse.SetActive(true);
+        fText.SetActive(false);
         //Debug.Log("Show");
     }
     public void HideButton()
@@ -64,6 +67,7 @@ public class MessageManager : RPGMonoBehaviour
         //Add Quest
         if (currentQuest == null) return;
         SFXManager.Instance.PlaySFXClick();
+        isAccept = true;
         if (currentQuest.questState == QuestState.NotStarted && currentQuest != null)
         {
             QuestManager.Instance.AddQuest(currentQuest);
