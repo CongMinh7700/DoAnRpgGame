@@ -24,6 +24,7 @@ public class SaveScripts : RPGMonoBehaviour
         try
         {
             PlayerData playerData = new PlayerData();
+            playerData.level = levelSystem.LevelCurrent;
             playerData.playerName = PlayerInfoManager.playerNameData;
             playerData.manaMax = playerCtrl.UsingSkill.ManaMax;
             playerData.healthMax = playerCtrl.DamageReceiver.HPMax;
@@ -37,7 +38,6 @@ public class SaveScripts : RPGMonoBehaviour
             playerData.gold = MoneyManager.Instance.Gold;
             playerData.currentXp = levelSystem.currentXp;
             playerData.requireXp = levelSystem.requireXp;
-            playerData.level = levelSystem.LevelCurrent;
             playerData.bossKill = levelSystem.bossKill;
             string jsonData = JsonUtility.ToJson(playerData);
             System.IO.File.WriteAllText(dataPath, jsonData);
@@ -62,6 +62,8 @@ public class SaveScripts : RPGMonoBehaviour
         {
             string json = System.IO.File.ReadAllText(dataPath);
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
+
+            levelSystem.SetLevel(playerData.level);
             PlayerInfoManager.playerNameData = playerData.playerName;
             playerCtrl.UsingSkill.SetManaMax(playerData.manaMax);
             playerCtrl.DamageReceiver.SetHpMax(playerData.healthMax);
@@ -72,7 +74,6 @@ public class SaveScripts : RPGMonoBehaviour
             MoneyManager.Instance.SetGold(playerData.gold);
             levelSystem.currentXp = playerData.currentXp;
             levelSystem.requireXp = playerData.requireXp;
-            levelSystem.SetLevel(playerData.level);
             playerCtrl.UsingSkill.SetCurrentMana(playerData.currentMana);
             playerCtrl.DamageReceiver.SetCurentHp(playerData.currentHealth);
             playerCtrl.PlayerAttack.SetCurrentStamina(playerData.currentStamina);

@@ -106,7 +106,7 @@ public class QuestManager : RPGMonoBehaviour
     public void QuestModify(Quest quest)
     {
         
-            if(quest.questState == QuestState.InProgress)
+            if(quest.questState == QuestState.InProgress || quest.questState == QuestState.Complete)
             {
                 GameObject questItem = Instantiate(questItemPrefab, questListContent);
                 QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();

@@ -58,11 +58,7 @@ public class NPCScripts : RPGMonoBehaviour
             questGiver.messageBox.GetComponent<MessageManager>().HideButton();
             questGiver.isAnimatingText = false;
             questGiver.isFullText = false;
-
             questGiver.ShowDialogue();
-
-            //Sound
-            //Cho 1 cái trigger building để compare tag
             AudioManager.isNpcShop = true;
             AudioManager.canPlay = true;
         }

@@ -42,10 +42,6 @@ public class LevelSystem : Level
         UpdatePlayerStatus(0);
 
     }
-    private void Start()
-    {
-        UpdatePlayerStatus(0);
-    }
     private void Update()
     {
         Debug.Log("Boss Kill Count :" + bossKill);

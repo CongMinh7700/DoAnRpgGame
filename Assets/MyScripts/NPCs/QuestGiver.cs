@@ -19,6 +19,7 @@ public class QuestGiver : RPGMonoBehaviour
     [SerializeField] private bool noQuest = false;
     [SerializeField] private bool canNotification;
     [SerializeField] private bool notificated;
+    [SerializeField] private bool nextQuest;
     //Name của npc
     [SerializeField] private QuestIndexManager questIndexManager;
 
@@ -42,7 +43,7 @@ public class QuestGiver : RPGMonoBehaviour
             ResetAllQuest.Instance.ResetQuests();
             questIndexManager.DeleteData();
         }
-       
+
     }
     private void Update()
     {
@@ -51,6 +52,7 @@ public class QuestGiver : RPGMonoBehaviour
         {
             ShowDialogue();
             StartCoroutine(WaitToFalse());
+            SaveGame.Instance.Save();
         }
         if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
         {
@@ -59,18 +61,25 @@ public class QuestGiver : RPGMonoBehaviour
                 ShowDialogue();
             }
         }
-        
-            if (quests[questIndex].questState == QuestState.Complete)
+        if (nextQuest)
+        {
+            ShowDialogue();
+            nextQuest = false;
+        }
+        Notification();
+    }
+    public void Notification()
+    {
+        if (quests[questIndex].questState == QuestState.Complete)
+        {
+            canNotification = true;
+            if (canNotification && !notificated && !noQuest)
             {
-                canNotification = true;
-                if (canNotification && !notificated && !noQuest)
-                {
-                    notificated = true;
-                    canNotification = false;
-                    SpawnNotification();
-                }
-           }
-        
+                notificated = true;
+                canNotification = false;
+                SpawnNotification();
+            }
+        }
     }
     public void ShowDialogue()
     {
@@ -82,7 +91,7 @@ public class QuestGiver : RPGMonoBehaviour
 
         string[] dialogues = new string[0];
         Debug.Log("QuestState : " + quests[questIndex].questState.ToString() + "QuestName :" + quests[questIndex].questTitle);
-       
+
         switch (quests[questIndex].questState)
         {
             case QuestState.NotStarted:
@@ -96,7 +105,7 @@ public class QuestGiver : RPGMonoBehaviour
                 break;
         }
 
-        if (dialogueIndex >= dialogues.Length)
+        if (dialogueIndex > dialogues.Length - 1)
         {
             isFullText = true;
             dialogueIndex = dialogues.Length - 1;
@@ -107,10 +116,7 @@ public class QuestGiver : RPGMonoBehaviour
         if (quests[questIndex].questState == QuestState.NotStarted && isFullText)
         {
             messageBox.GetComponent<MessageManager>().ShowButton();
-            isFullText = false;
-
         }
-       
 
         string fullText = "";
         if (noQuest)
@@ -129,11 +135,10 @@ public class QuestGiver : RPGMonoBehaviour
         {
             fullText = dialogues[dialogueIndex];
         }
- 
+
         dialogueIndex++;
         NextQuest();
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
-  
         QuestInProgress();
 
     }
@@ -161,7 +166,7 @@ public class QuestGiver : RPGMonoBehaviour
             dialogueIndex = 0;
             notificated = false;
             isFullText = false;
-
+            nextQuest = true;
             questIndexManager.SaveData();//Save QuestIndex
             if (questIndex >= quests.Length)
             {
@@ -197,13 +202,5 @@ public class QuestGiver : RPGMonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         MessageManager.isAccept = false;
-    }
-    protected virtual void QuestPointer()
-    {
-        //Hiển thị trên canvas ,
-        //Hiển thị trên map
-        //if(questComplete) => !
-        //if(haveNextQuest) => ?
-        //if(noquest) => null
     }
 }

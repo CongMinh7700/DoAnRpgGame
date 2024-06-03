@@ -9,7 +9,7 @@ public class PlayerMovement : RPGMonoBehaviour
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected bool grounded;
 
-    [SerializeField] protected float groundDrag = 5f;
+    [SerializeField] protected float groundDrag = 10f;
     [SerializeField] protected float jumpForce = 5f;
     [SerializeField] protected float jumpCoolDown = 0.24f;
     [SerializeField] protected bool readyTojump;

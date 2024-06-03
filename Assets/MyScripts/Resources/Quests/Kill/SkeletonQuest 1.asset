@@ -33,9 +33,9 @@ MonoBehaviour:
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
   - "B\u1ECDn ng\u01B0\u1EDDi x\u01B0\u01A1ng v\u1EABn \u0111ang g\xE2y h\u1EA1i
-    cho ng\u01B0\u1EDDi d\xE2n l\xE0m \u01A1n h\xE3y ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng."
-  - "R\u1ED3i quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn
-    \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
+    cho ng\u01B0\u1EDDi d\xE2n l\xE0m \u01A1n h\xE3y ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng.R\u1ED3i
+    quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn \u0111\u01B0\u1EE3c
+    m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
   type: 0
   questState: 0
   targetName: SEKELETON

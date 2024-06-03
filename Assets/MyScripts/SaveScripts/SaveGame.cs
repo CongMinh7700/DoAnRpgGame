@@ -24,8 +24,7 @@ public class SaveGame : RPGMonoBehaviour
     {
         if (!newGame)
         {
-            saveScripts.LoadData("");
-            
+            Load();
         }
         else
         {
@@ -47,12 +46,14 @@ public class SaveGame : RPGMonoBehaviour
     }
     public virtual void Load()
     {
+        Debug.LogWarning("Call Load Save Gaem");
+        saveScripts.LoadData("");
         equipData.LoadData("");
         quickData.LoadData("");
         skillData.LoadData("");
-        saveScripts.LoadData("");
         questData.LoadData("");
         inventoryData.LoadData("");
+
     }
     public virtual void DeleteData()
     {
