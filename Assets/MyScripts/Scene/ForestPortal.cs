@@ -24,8 +24,9 @@ public class ForestPortal : RPGMonoBehaviour
     }
     private void Start()
     {
-
-        playerCtrl.transform.position = new Vector3(62, 27, 302);
+        //playerCtrl.transform.position = new Vector3(62, 27, 302);
+       // SaveGame.Instance.SaveScripts.SaveData("");
+        SaveGame.Instance.Load();
     }
 
 
@@ -33,6 +34,8 @@ public class ForestPortal : RPGMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            playerCtrl.transform.position = new Vector3(103, 14, 310);//Co the bi sai
+            SaveGame.Instance.SaveScripts.SaveData("");
             SceneManager.LoadScene(2);
         }
     }

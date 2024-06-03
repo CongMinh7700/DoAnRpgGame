@@ -11,6 +11,7 @@ public class SaveGame : RPGMonoBehaviour
     [SerializeField] protected QuickSlotDataManager quickData;
     [SerializeField] protected SkillDataManager skillData;
     [SerializeField] protected SaveScripts saveScripts;
+    public SaveScripts SaveScripts => saveScripts;
     [SerializeField] protected QuestDataManager questData;
     [SerializeField] protected LoadSceneManager loadSceneManager;
     public static bool newGame = false;
@@ -28,6 +29,7 @@ public class SaveGame : RPGMonoBehaviour
         }
         else
         {
+            DeleteData();
             StartCoroutine(WaitToFalse());
             LevelSystem.Instance.bossKill = 0;
         }
@@ -52,7 +54,7 @@ public class SaveGame : RPGMonoBehaviour
         questData.LoadData("");
         inventoryData.LoadData("");
     }
-    public virtual void Delete()
+    public virtual void DeleteData()
     {
         equipData.DeleteData("");
         quickData.DeleteData("");
@@ -60,6 +62,15 @@ public class SaveGame : RPGMonoBehaviour
         saveScripts.DeleteData("");
         questData.DeleteData("");
         inventoryData.DeleteData("");
+    }
+    public static bool HasData()
+    {
+        return EquipSlotDataManager.HasData("") ||
+                QuickSlotDataManager.HasData("") ||
+                SkillDataManager.HasData("") ||
+                SaveScripts.HasData("") ||
+                QuestDataManager.HasData("") ||
+                InventoryDataManager.HasData("");
     }
     protected override void LoadComponents()
     {

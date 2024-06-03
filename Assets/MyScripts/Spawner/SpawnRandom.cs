@@ -41,15 +41,28 @@ public class SpawnRandom : RPGMonoBehaviour
             ObjectType enemyType = prefab.GetComponent<EnemyCtrl>().HitableObjectSO.objType;
             if (enemyType == ObjectType.Boss)
             {
-                if (bossSpawned)
+                if (!QuestManager.Instance.GetQuestBoss(prefab.name))
                 {
-                    Debug.LogWarning("Boss already spawned, cannot spawn another.");
+                    spawnerCtrl.canSpawnBoss = false;
                     return;
+                    
                 }
                 else
                 {
-                    bossSpawned = true;
+                    spawnerCtrl.canSpawnBoss = true;
+                    if (bossSpawned)
+                    {
+                        Debug.LogWarning("Boss already spawned, cannot spawn another.");
+                        return;
+                    }
+                    else
+                    {
+                        bossSpawned = true;
+                    }
+
                 }
+               
+                
             }
             Vector3 position = randomPoint.position;
             Quaternion rotation = randomPoint.rotation;

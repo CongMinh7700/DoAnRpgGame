@@ -66,6 +66,11 @@ public class LoadSceneManager : MonoBehaviour
             Debug.Log("Data with id: " + id + " is deleted.");
         }
     }
+    public bool HasData(string id)
+    {
+        string dataPath = GetIDPath(id);
+        return System.IO.File.Exists(dataPath);
+    }
 
     [System.Serializable]
     public class SceneData

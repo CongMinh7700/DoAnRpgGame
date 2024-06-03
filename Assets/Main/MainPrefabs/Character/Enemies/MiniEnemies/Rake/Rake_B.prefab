@@ -1189,7 +1189,7 @@ GameObject:
   - component: {fileID: 4156050411568155456}
   - component: {fileID: 4156050411568155457}
   - component: {fileID: 1186917985}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DamageReceiver
   m_TagString: Enemy
   m_Icon: {fileID: 0}

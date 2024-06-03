@@ -19386,7 +19386,7 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_Enabled
     path: Character/Character Pelvis/Character Spine/Character Spine1/Character Spine2/Character
-      R Clavicle/Character R UpperArm/Character R Forearm/Character R Hand/Axe2H_Basic/LongAxeTip
+      R Clavicle/Character R UpperArm/Character R Forearm/Character R Hand/LongAxe/LongAxeTip
     classID: 65
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -19398,7 +19398,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2122271265
+      path: 2165224740
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 65
@@ -39754,7 +39754,7 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_Enabled
     path: Character/Character Pelvis/Character Spine/Character Spine1/Character Spine2/Character
-      R Clavicle/Character R UpperArm/Character R Forearm/Character R Hand/Axe2H_Basic/LongAxeTip
+      R Clavicle/Character R UpperArm/Character R Forearm/Character R Hand/LongAxe/LongAxeTip
     classID: 65
     script: {fileID: 0}
   m_EulerEditorCurves: []

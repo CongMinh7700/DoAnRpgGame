@@ -12,7 +12,6 @@ public class ItemSlot : RPGMonoBehaviour
     public bool IsEmpty { get { return itemCount <= 0; } }
     [HideInInspector] public Image iconImage;
     private TextMeshProUGUI countText;
-
     public virtual void Initialize()
     {
         this.iconImage = transform.Find("IconImage").GetComponent<Image>();
@@ -126,6 +125,7 @@ public class ItemSlot : RPGMonoBehaviour
                 {
                     if (quickItemSlot != null)
                     {
+                        
                         quickItemSlot.BackToInventory();
                         quickItemSlot.SetData(slotItem, itemCount);
                
@@ -144,8 +144,21 @@ public class ItemSlot : RPGMonoBehaviour
 
     public void AssignSkill()
     {
-
         QuickBar quickBar = FindObjectOfType<QuickBar>();
+        bool skillAssigned = false;
+        foreach (QuickSkillSlot quickSkillSlot in quickBar.skillSlots)
+        {
+            if (quickSkillSlot.slotItem != null && quickSkillSlot.slotItem.itemName == slotItem.itemName)
+            {
+                skillAssigned = true;
+                break;
+            }
+        }
+        if (skillAssigned)
+        {
+            Debug.Log("Skill is assigned");
+            return;
+        }
         foreach (QuickSkillSlot quickSkillSlot in quickBar.skillSlots)
         {
             if (Input.GetKey(quickSkillSlot.key))
@@ -158,12 +171,9 @@ public class ItemSlot : RPGMonoBehaviour
                         quickSkillSlot.SetData(slotItem, itemCount);
                         break;
                     }
-
                 }
-
-
             }
         }
-
     }
+
 }

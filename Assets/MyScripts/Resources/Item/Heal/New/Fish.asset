@@ -21,5 +21,5 @@ MonoBehaviour:
   itemInformation: "M\u1ED9t con c\xE1 n\u01B0\u1EDBng th\u01A1m ngon\nH\u1ED3i ph\u1EE5c
     : 100 Hp"
   bonusAttributes:
-  - attributeName: Health
+  - attributeName: health
     attributeValue: 100

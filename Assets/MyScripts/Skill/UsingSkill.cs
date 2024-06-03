@@ -98,7 +98,7 @@ public class UsingSkill : RPGMonoBehaviour
     }
     public virtual void ManaDeduct(float value)
     {
-        Debug.Log("ManaDeduct");
+        //Debug.Log("ManaDeduct");
         this.currentMana -= value;
         if (currentMana < 0) currentMana = 0;
     }

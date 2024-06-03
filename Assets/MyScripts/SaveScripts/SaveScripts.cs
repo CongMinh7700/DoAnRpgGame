@@ -99,7 +99,11 @@ public class SaveScripts : RPGMonoBehaviour
     {
         return Application.persistentDataPath + $"/playerData_{id}.json";
     }
-    
+    public static bool HasData(string id)
+    {
+        string dataPath =  Application.persistentDataPath + $"/playerData_{id}.json";
+        return System.IO.File.Exists(dataPath);
+    }
 }
 [System.Serializable]
 public class PlayerData

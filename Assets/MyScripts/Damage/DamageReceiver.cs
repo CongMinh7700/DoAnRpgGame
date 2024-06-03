@@ -46,7 +46,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     {
         if (this.isDead) return;
         this.currentHp += value;
-        Debug.Log("Heal :" + value);
+       // Debug.Log("Heal :" + value);
         if (this.currentHp >= this.hpMax) this.currentHp = this.hpMax;
 
     }

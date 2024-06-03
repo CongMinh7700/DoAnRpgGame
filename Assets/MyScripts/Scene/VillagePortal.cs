@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,13 +24,18 @@ public class VillagePortal : RPGMonoBehaviour
     }
     protected  void Start()
     {
-       playerCtrl.transform.position = new Vector3(103, 14, 310);
+       //playerCtrl.transform.position = new Vector3(103, 14, 310);
+       //SaveGame.Instance.SaveScripts.SaveData("");
+       SaveGame.Instance.Load();
     }
    
+    //nếu có bug thì cho về cái ban đầu
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            playerCtrl.transform.position = new Vector3(62, 27, 302);
+            SaveGame.Instance.SaveScripts.SaveData("");
             SceneManager.LoadScene(3);
         }
     }

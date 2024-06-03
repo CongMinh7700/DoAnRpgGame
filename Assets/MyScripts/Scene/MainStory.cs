@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainStory : MonoBehaviour
 {
-    private void OnEnable()
+    private void Start()
     {
         SceneManager.LoadScene(2);
         Debug.Log("Load Scene Village");
-        //Application.Quit();
     }
 }

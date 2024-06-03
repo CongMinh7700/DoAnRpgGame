@@ -49,6 +49,18 @@ public class QuestManager : RPGMonoBehaviour
             }
         }
     }
+    public bool GetQuestBoss(string targetName)
+    {
+        foreach (Quest quest in activeQuests)
+        {
+            Debug.Log(quest.questTitle + "Name");
+            if (quest.targetName == targetName && quest.questState == QuestState.InProgress)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     private void Update()
     {
         if (!mainUI.activeSelf)
@@ -129,12 +141,4 @@ public class QuestManager : RPGMonoBehaviour
         for (int i = 0; i < questList.Count; i++) if (questList[i] == quest) return i;
         return -1;
     }
-    //public virtual void GiveReward(Quest quest)
-    //{
-    //    MoneyManager.Instance.AddGold(quest.goldReward);
-    //    LevelSystem.Instance.GainExperienceFlatRate(quest.experienceReward);
-    //    //null return;
-    //    //Add item
-    //    //Add Exp
-    //}
 }

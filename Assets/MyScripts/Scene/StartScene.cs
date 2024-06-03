@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class StartScene : MonoBehaviour
+public class StartScene : RPGMonoBehaviour
 {
     [SerializeField] protected TMP_InputField nameInput ;
     [SerializeField] protected GameObject tutorialUI;
+    [SerializeField] protected GameObject objectShow;
     public static int sceneIndex = 1;
     private void Start()
     {
@@ -27,13 +28,22 @@ public class StartScene : MonoBehaviour
     }
     public void ContinueButton()
     {
-        SFXManager.Instance.PlaySFXClick();
-        //chỉnh lại thành secneIndex khi nếu qua scene 2 thì load scene2
-        //Savegame.LoadData();
-        //có thể không gọi usingPortal
-        SaveGame.newGame = false;
-        SceneManager.LoadScene(sceneIndex);
-        Debug.Log("SceneIndex : "+sceneIndex);
+        if (SaveGame.HasData())
+        {
+            SFXManager.Instance.PlaySFXClick();
+            //chỉnh lại thành secneIndex khi nếu qua scene 2 thì load scene2
+            //Savegame.LoadData();
+            //có thể không gọi usingPortal
+            SaveGame.newGame = false;
+            SceneManager.LoadScene(sceneIndex);
+            Debug.Log("SceneIndex : " + sceneIndex);
+        }
+        else
+        {
+            Debug.Log("No data");
+            objectShow.SetActive(true);
+        }
+       
     }
     public void TutorialButton()
     {

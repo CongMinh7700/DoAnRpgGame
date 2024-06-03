@@ -38,7 +38,7 @@ public class ObeliskAnimation : RPGMonoBehaviour
     }
     private void Update()
     {
-        if (this.spawnerCtrl.SpawnTrigger.CanSpawn && !spawnRandom.bossSpawned)
+        if (this.spawnerCtrl.SpawnTrigger.CanSpawn && !spawnRandom.bossSpawned && spawnerCtrl.canSpawnBoss)
         {
             animator.SetBool("Spawn",canAnimation);
             StartCoroutine(WaitToPlay());

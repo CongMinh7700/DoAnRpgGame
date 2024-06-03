@@ -101,7 +101,11 @@ public class QuickSlotDataManager : RPGMonoBehaviour
             Debug.Log("Data with id: " + id + " is deleted.");
         }
     }
-
+    public static bool HasData(string id)
+    {
+        string dataPath = Application.persistentDataPath + $"/QuickSlot {id}.dat";
+        return System.IO.File.Exists(dataPath);
+    }
     protected virtual string GetIDPath(string id)
     {
         return Application.persistentDataPath + $"/QuickSlot {id}.dat";

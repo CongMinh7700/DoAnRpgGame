@@ -446,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &855263428107440712
 Transform:
   m_ObjectHideFlags: 0
@@ -1757,7 +1757,7 @@ GameObject:
   - component: {fileID: 4011726901576729911}
   - component: {fileID: 4011726901576729910}
   - component: {fileID: 1851310762}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DamageReceiver
   m_TagString: Enemy
   m_Icon: {fileID: 0}

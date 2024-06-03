@@ -9701,7 +9701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524a7d6f4513e2040bc5c62ba1970ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disLimit: 100
+  disLimit: 50
   distance: 0
   player: {fileID: 0}
 --- !u!1 &8980123176489102463
@@ -9941,6 +9941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   skillCtrl: {fileID: 8980123176919974825}
+  isFire: 1
 --- !u!1 &8980123177270581837
 GameObject:
   m_ObjectHideFlags: 0

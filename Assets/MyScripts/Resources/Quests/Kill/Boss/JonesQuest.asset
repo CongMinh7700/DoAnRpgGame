@@ -37,6 +37,6 @@ MonoBehaviour:
   type: 0
   questState: 0
   targetName: Jones
-  targetCount: 10
+  targetCount: 1
   currentCount: 0
   rewardItem: []

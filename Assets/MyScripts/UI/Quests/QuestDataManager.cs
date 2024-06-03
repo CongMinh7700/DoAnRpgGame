@@ -92,6 +92,11 @@ public class QuestDataManager : RPGMonoBehaviour
             Debug.Log("Data with id: " + id + " is deleted.");
         }
     }
+    public static bool HasData(string id)
+    {
+        string dataPath =  Application.persistentDataPath + $"/QuestDataManager{id}.dat";
+        return System.IO.File.Exists(dataPath);
+    }
     public class SlotInfo
     {
         public List<int> slotIndexs;

@@ -96,7 +96,11 @@ public class InventoryDataManager : RPGMonoBehaviour
     {
         return Application.persistentDataPath + $"/InventoryManager{id}.dat";
     }
-
+    public static bool HasData(string id)
+    {
+        string dataPath = Application.persistentDataPath + $"/InventoryManager{id}.dat";
+        return System.IO.File.Exists(dataPath);
+    }
     public class SlotInfo
     {
         public List<int> slotIndexs;

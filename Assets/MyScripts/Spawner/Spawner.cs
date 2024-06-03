@@ -89,7 +89,7 @@ public class Spawner : RPGMonoBehaviour
     }
     public virtual void Despawn(Transform obj)
     {
-        Debug.Log(transform.name + "Add to pool" + obj.name);
+       // Debug.Log(transform.name + "Add to pool" + obj.name);
         if (this.poolObjs.Contains(obj)) return;
         obj.gameObject.SetActive(false);
         this.poolObjs.Add(obj);

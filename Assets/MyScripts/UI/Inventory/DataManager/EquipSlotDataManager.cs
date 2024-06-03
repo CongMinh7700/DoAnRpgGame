@@ -87,6 +87,11 @@ public class EquipSlotDataManager : RPGMonoBehaviour
     {
         return Application.persistentDataPath + $"/Equip{id}.dat";
     }
+    public static bool HasData(string id)
+    {
+        string dataPath = Application.persistentDataPath + $"/Equip{id}.dat";
+        return System.IO.File.Exists(dataPath);
+    }
     public Item GetItemByIndex(int index)
     {
         return itemList[index];
