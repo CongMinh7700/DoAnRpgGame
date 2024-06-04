@@ -27,10 +27,10 @@ public class BossAttack : EnemyAttack
 
     private void Update()
     {
-        //if (attackCount >= countLimit)
-        //{
-        //    canIncreaseRange = true;
-        //}
+        if (attackCount >= countLimit)
+        {
+            canIncreaseRange = true;
+        }
     }
     public void Attack()
     {
@@ -57,7 +57,7 @@ public class BossAttack : EnemyAttack
     }
     IEnumerator ResetAttackCount()
     {
-        yield return new WaitForSeconds(1.37f);
+        yield return new WaitForSeconds(1f);
         attackCount = 0;
        // canIncreaseRange = false;
     } 

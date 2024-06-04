@@ -21,7 +21,7 @@ MonoBehaviour:
   - "Xin h\xE3y gi\xFAp ch\xFAng t\xF4i ti\xEAu di\u1EC7t l\u0169 y\xEAu tinh \u1EDF
     r\u1EEBng th\xF4ng. Ng\u01B0\u1EDDi d\xE2n qu\xE1 s\u1EE3 h\xE3i ch\xFAng n\xEAn
     kh\xF4ng d\xE1m ra ngo\xE0i. Ta s\u1EBD \u0111\u1EC1n \u01A1n x\u1EE9ng \u0111\xE1ng"
-  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 10 con y\xEAu tinh.s"
+  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 10 con y\xEAu tinh."
   dialoguesComplete:
   - "C\u1EA3m \u01A1n ch\xE0ng trai tr\u1EBB r\u1EA5t nhi\u1EC1u .Nh\u1EDD c\u1EADu
     \u0111\xE3 ti\xEAu di\u1EC7t b\u1ECDn goblin m\xE0 nh\u1EEFng ng\u01B0\u1EDDi
@@ -35,7 +35,7 @@ MonoBehaviour:
   - "R\u1ED3i quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn
     \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
   type: 0
-  questState: 0
+  questState: 1
   targetName: Goblin
   targetCount: 10
   currentCount: 0

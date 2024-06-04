@@ -6,6 +6,7 @@ public class BossMove : EnemyMove
 {
     [SerializeField] private BossAttack bossAttack;
     [SerializeField] private float speedOffset;
+    public bool warrok = false;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -24,12 +25,22 @@ public class BossMove : EnemyMove
         Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);
     }
+    public override void EnemyMovement()
+    {
+        base.EnemyMovement();
+        //Mấu chốt là ở đây
+        if (BossAttack.canMove)
+        {
+            MoveToPlayer();
+           //BossAttack.canMove = false;
+        }
+    }
     public override void MoveToPlayer()
     {
         Debug.Log("NavMesh" + navMesh.isStopped);
-        if (bossAttack.isCombo)
+        if (bossAttack.isCombo && warrok)
         {
-           navMesh.speed = 1.75f + speedOffset;
+            StartCoroutine(WaitToIncreaseSpeed());
            
         }
         else
@@ -39,19 +50,22 @@ public class BossMove : EnemyMove
         }
          
         //Warrok =5
-        if (bossAttack.canIncreaseRange)
+        if (bossAttack.canIncreaseRange && warrok)
         {
             attackRange = 20f;
+            bossAttack.canIncreaseRange = false;
         }
         else
         {
-            attackRange = 3f;
+            
+            if (warrok) attackRange = 5f;
+            else attackRange = 3f;
         }
         //  Debug.Log("AttackRange :" + attackRange);
         base.MoveToPlayer();
 
         //warrok
-        if (bossAttack.isCombo)
+        if (bossAttack.isCombo && warrok)
         {
 
             StartCoroutine(WaitToMove());
@@ -61,10 +75,15 @@ public class BossMove : EnemyMove
     //warrok
     IEnumerator WaitToMove()
     {
-
         yield return new WaitForSeconds(2.17f);
         navMesh.isStopped = true;
     }
+    IEnumerator WaitToIncreaseSpeed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        navMesh.speed = 1.75f + speedOffset;
+    }
+
 }
 
 

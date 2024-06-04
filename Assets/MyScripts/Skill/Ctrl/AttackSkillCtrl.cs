@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AttackSkillCtrl : RPGMonoBehaviour
 {
-    [SerializeField] protected SkillDespawnByDistance skillDespawn;
-    public SkillDespawnByDistance SkillDespawn => skillDespawn;
+    [SerializeField] protected Despawn skillDespawn;
+    public Despawn SkillDespawn => skillDespawn;
 
-    [SerializeField] protected SkillDamageSender skillDamageSender;
-    public SkillDamageSender SkillDamageSender => skillDamageSender;
+    [SerializeField] protected DamageSender skillDamageSender;
+    public DamageSender SkillDamageSender => skillDamageSender;
     [SerializeField] protected Transform shooter;
     public Transform Shooter => shooter;
 
@@ -23,12 +23,12 @@ public class AttackSkillCtrl : RPGMonoBehaviour
     protected virtual void LoadSkillDespawn()
     {
         if (this.skillDespawn != null) return;
-        this.skillDespawn = GetComponentInChildren<SkillDespawnByDistance>();
+        this.skillDespawn = GetComponentInChildren<Despawn>();
     }
     protected virtual void LoadSkillDamageSender()
     {
         if (this.skillDamageSender != null) return;
-        this.skillDamageSender = GetComponentInChildren<SkillDamageSender>();
+        this.skillDamageSender = GetComponentInChildren<DamageSender>();
 
     }
     public virtual void SetShooter(Transform shooter)

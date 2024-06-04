@@ -120,12 +120,7 @@ public class EnemyMove : RPGMonoBehaviour
                 this.enemyAnimation.WalkAnimation(false);
             }
         }
-        //Mấu chốt là ở đây
-        if (BossAttack.canMove)
-        {
-            MoveToPlayer();
-
-        }
+       
       //  Debug.Log("Navemesh Speed" + navMesh.speed);
     }
     public virtual void Attack()
