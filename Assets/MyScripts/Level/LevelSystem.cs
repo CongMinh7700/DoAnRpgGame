@@ -86,8 +86,6 @@ public class LevelSystem : Level
     public virtual void UpdatePlayerStatus(int level)
     {
         //nếu trang bị không có thuộc tính thì sẽ sử dụng lại 2 cái này
-        playerCtrl.PlayerAttack.SetStaminaMax(staminaLevel);
-        playerCtrl.UsingSkill.SetManaMax(manaLevel);
         hpMaxLevel = playerCtrl.PlayerSO.hpMax + (level * 10);
         staminaLevel = playerCtrl.PlayerSO.stamina + (level * 10);
         manaLevel = playerCtrl.PlayerSO.mana + (level * 10);

@@ -62,7 +62,7 @@ public class SaveScripts : RPGMonoBehaviour
         {
             string json = System.IO.File.ReadAllText(dataPath);
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
-
+            levelSystem.UpdatePlayerStatus(levelSystem.LevelCurrent);
             levelSystem.SetLevel(playerData.level);
             PlayerInfoManager.playerNameData = playerData.playerName;
             playerCtrl.UsingSkill.SetManaMax(playerData.manaMax);
@@ -77,7 +77,7 @@ public class SaveScripts : RPGMonoBehaviour
             playerCtrl.UsingSkill.SetCurrentMana(playerData.currentMana);
             playerCtrl.DamageReceiver.SetCurentHp(playerData.currentHealth);
             playerCtrl.PlayerAttack.SetCurrentStamina(playerData.currentStamina);
-            levelSystem.UpdatePlayerStatus(levelSystem.LevelCurrent);
+
             levelSystem.bossKill = playerData.bossKill;
             Debug.Log("<color=green>Data succesfully loaded! </color>");
         }

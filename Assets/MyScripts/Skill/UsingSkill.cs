@@ -111,7 +111,7 @@ public class UsingSkill : RPGMonoBehaviour
     public virtual void SetManaMax(int maxMana)
     {
         this.manaMax = maxMana;
-        //if (this.currentMana >= manaMax) currentMana = manaMax;
+        if (this.currentMana >= manaMax) currentMana = manaMax;
     }
     public virtual void SetCurrentMana(float manaValue)
     {

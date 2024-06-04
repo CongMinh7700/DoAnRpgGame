@@ -100,7 +100,7 @@ public class PlayerAttack : RPGMonoBehaviour
     public virtual void SetStaminaMax(int maxStamina)
     {
         this.staminaMax = maxStamina;
-        //if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
+        if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
     }
     public virtual void SetCurrentStamina(float staminaValue)
     {

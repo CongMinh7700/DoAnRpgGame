@@ -72,6 +72,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
     public virtual void SetHpMax(int maxHp)
     {
         this.hpMax = maxHp;
+        if (this.currentHp >= hpMax) currentHp = hpMax;//Mới thêm
     }
     public virtual void SetCurentHp(int hpValue)
     {

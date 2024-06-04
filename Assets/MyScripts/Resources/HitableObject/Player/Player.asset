@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Player
   objType: 3
-  hpMax: 500
+  hpMax: 100
   damage: 10
   defense: 10
   stamina: 100

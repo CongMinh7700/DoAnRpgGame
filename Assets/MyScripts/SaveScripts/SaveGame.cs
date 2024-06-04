@@ -22,13 +22,26 @@ public class SaveGame : RPGMonoBehaviour
     }
     private void Start()
     {
-        if (!newGame)
+        if (!newGame )
         {
-            Load();
+            if (HasData())
+            {
+                Debug.Log("Load");
+                Load();
+            }
+            else
+            {
+                saveScripts.SaveData("");
+                saveScripts.LoadData("");
+                Debug.Log("SaveScripts");
+                return;
+            }
         }
         else
         {
             DeleteData();
+            saveScripts.SaveData("");
+            saveScripts.LoadData("");
             StartCoroutine(WaitToFalse());
             LevelSystem.Instance.bossKill = 0;
         }
@@ -63,6 +76,7 @@ public class SaveGame : RPGMonoBehaviour
         saveScripts.DeleteData("");
         questData.DeleteData("");
         inventoryData.DeleteData("");
+        Debug.Log("Delete Data");
     }
     public static bool HasData()
     {
