@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class BossAttack : EnemyAttack
 {
     [SerializeField] protected BossAnimation bossAnimation;
+    public BossAnimation BossAnimation => bossAnimation;
     [SerializeField] private int attackCount = 0;
     [SerializeField] private int countLimit = 5;
     [SerializeField] public static bool canMove ;
@@ -18,12 +19,14 @@ public class BossAttack : EnemyAttack
     }
     public virtual void LoadBossAnimation()
     {
-
         if (this.bossAnimation != null) return;
         this.bossAnimation = GetComponentInParent<BossAnimation>();
         Debug.LogWarning(transform.name + "|LoadBossAnimation|", gameObject);
     }
-
+    private void Start()
+    {
+        
+    }
 
     private void Update()
     {

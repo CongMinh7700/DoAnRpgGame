@@ -7,6 +7,7 @@ public class BossMove : EnemyMove
     [SerializeField] private BossAttack bossAttack;
     [SerializeField] private float speedOffset;
     public bool warrok = false;
+    public bool isFlex = false;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -18,6 +19,15 @@ public class BossMove : EnemyMove
         this.bossAttack = transform.parent.GetComponentInChildren<BossAttack>();
         Debug.LogWarning(transform.name + "||LoadBossAttack||", gameObject);
     }
+    private void Start()
+    {
+        if (warrok)
+        {
+            bossAttack.BossAnimation.Flex();
+            isFlex = true;
+            StartCoroutine(WaitToFalse());
+        }
+    }
     public override void Attack()
     {
         this.bossAttack.Attack();
@@ -27,6 +37,7 @@ public class BossMove : EnemyMove
     }
     public override void EnemyMovement()
     {
+        if (isFlex) return;
         base.EnemyMovement();
         //Mấu chốt là ở đây
         if (BossAttack.canMove)
@@ -48,19 +59,7 @@ public class BossMove : EnemyMove
             navMesh.speed = 3.5f;
            
         }
-         
-        //Warrok =5
-        if (bossAttack.canIncreaseRange && warrok)
-        {
-            attackRange = 20f;
-            bossAttack.canIncreaseRange = false;
-        }
-        else
-        {
-            
-            if (warrok) attackRange = 5f;
-            else attackRange = 3f;
-        }
+        IncreaseAttackRange();
         //  Debug.Log("AttackRange :" + attackRange);
         base.MoveToPlayer();
 
@@ -72,6 +71,20 @@ public class BossMove : EnemyMove
         }
 
     }
+    public virtual void IncreaseAttackRange()
+    {
+        if (bossAttack.canIncreaseRange && warrok)
+        {
+            attackRange = 20f;
+            bossAttack.canIncreaseRange = false;
+        }
+        else
+        {
+
+            if (warrok) attackRange = 5f;
+            else attackRange = 3f;
+        }
+    }
     //warrok
     IEnumerator WaitToMove()
     {
@@ -80,10 +93,14 @@ public class BossMove : EnemyMove
     }
     IEnumerator WaitToIncreaseSpeed()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         navMesh.speed = 1.75f + speedOffset;
     }
-
+    IEnumerator WaitToFalse()
+    {
+        yield return new WaitForSeconds(4.67f);
+        isFlex = false;
+    }
 }
 
 

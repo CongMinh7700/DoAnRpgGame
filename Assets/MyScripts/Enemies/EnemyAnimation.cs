@@ -8,7 +8,7 @@ public class EnemyAnimation : RPGMonoBehaviour
     protected  Animator animator;
     public  Animator Animator => animator;
     public Transform shooter;
-    public bool flyEnemy;
+    public bool magicEnemy;
     protected override void LoadComponents()
     {
         this.LoadEnemyAnimator();
@@ -27,7 +27,7 @@ public class EnemyAnimation : RPGMonoBehaviour
     public virtual void AttackAnimation()
     {
         animator.SetTrigger("Attack");
-        if (flyEnemy)
+        if (magicEnemy)
         {
             SpawnFireBall();
         }

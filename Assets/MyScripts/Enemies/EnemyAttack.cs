@@ -18,9 +18,4 @@ public class EnemyAttack : RPGMonoBehaviour
         Debug.Log(transform.name + "||LoadEnemyAnimation", gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
