@@ -13,19 +13,21 @@ MonoBehaviour:
   m_Name: BuyHelm
   m_EditorClassIdentifier: 
   questTitle: "Mua m\u0169"
-  description: "H\xE3y mua v\xE0 trang b\u1ECB m\u0169"
+  description: "H\xE3y mua m\u0169 t\u1EEB th\u1EE3 r\xE8n."
   experienceReward: 10
   goldReward: 100
   dialogues:
-  - "\u0110\u1EC3 tr\u1EDF n\xEAn m\u1EA1nh m\u1EBD b\u1EA1n h\xE3y mua m\u0169 v\xE0
-    trang b\u1ECB \u1EDF th\u1EE3 r\xE8n trong th\u1ECB tr\u1EA5n."
+  - "Vi\u1EC7c b\u1EA3o v\u1EC7 c\xE1i \u0111\u1EA7u c\u0169ng r\u1EA5t quan tr\u1ECDng
+    ph\u1EA3i kh\xF4ng."
+  - "H\xE3y b\u1EAFt \u0111\u1EA7u b\u1EB1ng vi\u1EC7c mua m\u1ED9t c\xE1i m\u0169
+    t\u1EEB th\u1EE3 r\xE8n b\u1EA1n s\u1EBD th\u1EA5y an to\xE0n h\u01A1n."
   - "Nhi\u1EC7m v\u1EE5 : Mua v\xE0 trang b\u1ECB m\u0169."
   dialoguesComplete:
   - "L\xE0m t\u1ED1t l\u1EAFm ."
   - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
-  - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
+  - "H\xE3y mua m\u1ED9t c\xE1i m\u0169 v\xE0 quay l\u1EA1i \u0111\xE2y."
   type: 1
   questState: 0
   targetName: Helm

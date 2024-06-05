@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: BuyArmor
   m_EditorClassIdentifier: 
   questTitle: "Mua \xE1o gi\xE1p"
-  description: "H\xE3y mua v\xE0 trang b\u1ECB \xE1o gi\xE1p"
+  description: "Mua v\xE0 trang b\u1ECB \xE1o gi\xE1p t\u1EEB th\u1EE3 r\xE8n."
   experienceReward: 10
   goldReward: 100
   dialogues:
-  - "\u0110\u1EC3 tr\u1EDF n\xEAn m\u1EA1nh m\u1EBD b\u1EA1n h\xE3y mua \xE1o gi\xE1p
-    v\xE0 trang b\u1ECB \u1EDF th\u1EE3 r\xE8n trong th\u1ECB tr\u1EA5n."
+  - "\u0110\u1EC3 t\u0103ng t\u1EF7 l\u1EC7 sinh t\u1ED3n khi chi\u1EBFn \u0111\u1EA5u
+    v\u1EDBi b\u1ECDn qu\xE1i v\u1EADt . Th\xEC c\u1EADu c\u1EA7n c\xF3 trang b\u1ECB
+    b\u1EA3o v\u1EC7."
+  - "H\xE3y b\u1EAFt \u0111\u1EA7u v\u1EDBi vi\u1EC7c mua m\u1ED9t c\xE1i \xE1o gi\xE1p
+    t\u1EEB th\u1EE3 r\xE8n k\u1EBF b\xEAn."
   - "Nhi\u1EC7m v\u1EE5 : Mua v\xE0 trang b\u1ECB \xE1o gi\xE1p."
   dialoguesComplete:
   - "L\xE0m t\u1ED1t l\u1EAFm ."
-  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
-    l\u1EA5y nh\xE9 !"
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng d\xE0nh cho c\u1EADu"
   dialoguesInProgress:
-  - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
+  - "H\xE3y mua \xE1o gi\xE1p s\u1EAFt t\u1EEB th\u1EE3 r\xE8n b\xEAn c\u1EA1nh.R\u1ED3i
+    quay l\u1EA1i \u0111\xE2y b\xE1o c\xE1o v\u1EDBi ta."
   type: 1
   questState: 0
   targetName: Armor

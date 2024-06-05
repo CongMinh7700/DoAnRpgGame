@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
+  m_Name: Rake_AQuest_1
+  m_EditorClassIdentifier: 
+  questTitle: "Ti\xEAu di\u1EC7t th\u1EE7y qu\xE1i 1"
+  description: "Ti\xEAu di\u1EC7t b\u1ECDn th\u1EE7y qu\xE1i \u1EDF \u0111\u1EA7m
+    l\u1EA7y."
+  experienceReward: 1000
+  goldReward: 200
+  dialogues:
+  - "Ta c\xF3 m\u1ED9t nhi\u1EC7m v\u1EE5 kh\xE1c cho c\u1EADu \u0111\xE2y."
+  - "B\u1ECDn th\u1EE7y qu\xE1i \u0111ang chi\u1EBFm \u0111\u1EA7m l\u1EA7y l\xE0m
+    c\u1EE7a ri\xEAng v\xE0 t\u1EA5n c\xF4ng b\u1EA5t k\u1EF3 ai \u0111i ngang qua.H\xE3y
+    gi\xFAp ng\u01B0\u1EDDi d\xE2n t\u1ED9i nghi\u1EC7p ti\xEAu di\u1EC7t b\u1ECDn
+    ch\xFAng."
+  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 15 con th\u1EE7y qu\xE1i."
+  dialoguesComplete:
+  - "Ta thay m\u1EB7t d\xE2n l\xE0ng c\u1EA3m \u01A1n c\u1EADu."
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
+    l\u1EA5y nh\xE9 !"
+  dialoguesInProgress:
+  - "H\u1EABy c\u1EA9n th\u1EADn m\xF3ng vu\u1ED1t c\u1EE7a ch\xFAng. H\xE3y trang
+    b\u1ECB \u0111\u1EA7y \u0111\u1EE7 tr\u01B0\u1EDBc khi chi\u1EBFn \u0111\u1EA5u
+    v\xE0 b\xE1o c\xE1o v\u1EDBi ta khi c\u1EADu ho\xE0n th\xE0nh."
+  type: 0
+  questState: 0
+  targetName: Rake_A
+  targetCount: 15
+  currentCount: 0
+  rewardItem: []

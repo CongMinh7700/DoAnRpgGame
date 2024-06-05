@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
+  m_Name: BuyFireBall
+  m_EditorClassIdentifier: 
+  questTitle: "Mua K\u1EF9 n\u0103ng"
+  description: "Mua k\u1EF9 n\u0103ng c\u1EA7u l\u1EEDa"
+  experienceReward: 200
+  goldReward: 50
+  dialogues:
+  - "H\xE3y th\u1EED mua k\u1EF9 n\u0103ng c\u1EA7u l\u1EEDa t\u1EEB b\xE0 ph\xF9
+    th\u1EE7y \u1EDF khu v\u1EF1c giao nhau gi\u1EEFa \u0111\u1EA7m l\u1EA7y v\xE0
+    r\u1EEBng th\xF4ng."
+  - "K\u1EF9 n\u0103ng s\u1EBD h\u1ED7 tr\u1EE3 r\u1EA5t nhi\u1EC1u trong vi\u1EC7c
+    \u0111i\u1EC1u ch\u1EC9nh chi\u1EBFn thu\u1EADt v\xE0 chi\u1EBFn \u0111\u1EA5u."
+  - "Nhi\u1EC7m v\u1EE5 : Mua k\u1EF9 n\u0103ng c\u1EA7u l\u1EEDa."
+  dialoguesComplete:
+  - "L\xE0m t\u1ED1t l\u1EAFm."
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng c\u1EE7a c\u1EADu."
+  dialoguesInProgress:
+  - "H\xE3y mua v\xE0 k\u1EF9 n\u0103ng c\u1EA7u l\u1EEDa . R\u1ED3i quay l\u1EA1i
+    g\u1EB7p ta."
+  type: 1
+  questState: 0
+  targetName: FireBall
+  targetCount: 1
+  currentCount: 0
+  rewardItem: []

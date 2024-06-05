@@ -6,7 +6,7 @@ using UnityEngine;
 public class Quest : ScriptableObject
 {
     public string questTitle;
-    public string description;
+    [TextArea(5,5)] public string description;
     public int experienceReward;
     public int goldReward;
     [TextArea] public string[] dialogues;

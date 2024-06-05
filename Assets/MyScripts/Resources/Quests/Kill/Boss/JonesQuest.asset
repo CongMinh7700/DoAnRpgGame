@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
   m_Name: JonesQuest
   m_EditorClassIdentifier: 
-  questTitle: "Ti\xEAu di\u1EC7t t\u1EE9 thi\xEAn v\u01B0\u01A1ng"
-  description: "Ti\xEAu di\u1EC7t t\u1EE9 thi\xEAn v\u01B0\u01A1ng \u1EDF t\xE0n
-    t\xEDch"
-  experienceReward: 20
-  goldReward: 100
+  questTitle: "Ti\xEAu di\u1EC7t tam thi\xEAn v\u01B0\u01A1ng"
+  description: "Ti\xEAu di\u1EC7t tam thi\xEAn v\u01B0\u01A1ng \u1EDF t\xE0n t\xEDch
+    \u1EDF cu\u1ED1i \u0111\u1EA7m l\u1EA7y.."
+  experienceReward: 5000
+  goldReward: 300
   dialogues:
-  - "Ch\xE0o ch\xE0ng anh h\xF9ng tr\u1EBB c\u1EE7a ch\xFAng ta !"
-  - "H\xE3y ti\xEAu di\u1EC7t t\xEAn t\u1EE9 thi\xEAn v\u01B0\u01A1ng Jones .V\xE0
-    tr\u1EDF n\xEAn m\u1EA1ng m\u1EBD h\u01A1n."
-  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t Jones."
+  - "D\u01B0\u1EDDng nh\u01B0 th\u1EE7 l\u0129nh th\u1EE7y qu\xE1i \u0111ang n\u1ED5i
+    gi\u1EADn khi ch\xFAng ta ti\xEAu di\u1EC7t binh l\xEDnh c\u1EE7a h\u1EAFn .H\u1EAFn
+    l\xE0 tay sai c\u1EE7a qu\u1EF7 v\u01B0\u01A1ng Warrok."
+  - "H\xE3y ti\xEAu di\u1EC7t t\xEAn tam thi\xEAn v\u01B0\u01A1ng Jones .\u0110\xE2y
+    l\xE0 b\u01B0\u1EDBc \u0111\u1EA7u trong vi\u1EC7c ti\xEAu di\u1EC7t qu\u1EF7
+    v\u01B0\u01A1ng."
+  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t tam thi\xEAn v\u01B0\u01A1ng \u1EDF t\xE0n
+    t\xEDch."
   dialoguesComplete:
-  - "C\u1EA3m \u01A1n ch\xE0ng trai tr\u1EBB r\u1EA5t nhi\u1EC1u .Nh\u1EDD c\u1EADu
-    \u0111\xE3 ti\xEAu di\u1EC7t t\u1EE9 thi\xEAn v\u01B0\u01A1ng m\xE0 nh\u1EEFng
-    ng\u01B0\u1EDDi d\xE2n \u1EDF \u0111\xE2y \u0111\xE3 c\xF3 th\u1EC3 sinh ho\u1EA1t
-    b\xECnh th\u01B0\u1EDDng r\u1ED3i."
+  - "L\xE0m t\u1ED1t l\u1EAFm ta \u0111\xE3 th\u1EA5y c\u1EADu m\u1EA1nh m\u1EBD
+    h\u01A1n r\u1ED3i."
   - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
-  - "B\u1ECDn qu\xE1i ng\u01B0 v\u1EABn \u0111ang g\xE2y h\u1EA1i cho ng\u01B0\u1EDDi
-    d\xE2n l\xE0m \u01A1n h\xE3y ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng."
-  - "R\u1ED3i quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn
-    \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
+  - "H\xE3y c\u1EA9n th\u1EADn v\u1EDBi t\xEAn thi\xEAn v\u01B0\u01A1ng \u0111\xF3
+    \u0111\u1EB7c bi\u1EC7t l\xE0 thanh ki\u1EBFm trong tay h\u1EAFn."
   type: 0
   questState: 0
   targetName: Jones

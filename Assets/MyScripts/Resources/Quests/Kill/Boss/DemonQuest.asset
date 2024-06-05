@@ -12,32 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
   m_Name: DemonQuest
   m_EditorClassIdentifier: 
-  questTitle: "Ti\xEAu di\u1EC7t Nh\u1ECB thi\xEAn v\u01B0\u01A1ng"
-  description: "Ti\xEAu di\u1EC7t Nh\u1ECB thi\xEAn v\u01B0\u01A1ng,H\xE3y c\u1EA9n
-    th\u1EADn v\u1EDBi nh\u1EEFng qu\u1EA3 c\u1EA7u l\u1EEDa c\u1EE7a h\u1EAFn"
-  experienceReward: 20
-  goldReward: 100
+  questTitle: "Ti\xEAu di\u1EC7t \u0110\u1EA1i thi\xEAn v\u01B0\u01A1ng."
+  description: "\u0110\u1EA1i thi\xEAn v\u01B0\u01A1ng l\xE0 m\u1ED9t t\xEAn bi\u1EBFt
+    s\u1EED d\u1EE5ng ph\xE9p thu\u1EADt l\u1EABn c\u1EADn chi\u1EBFn.H\xE3y \u0111i
+    ra ph\xEDa sau nh\xE0 th\u1EE3 r\xE8n s\u1EBD g\u1EB7p h\u1EAFn."
+  experienceReward: 10000
+  goldReward: 600
   dialogues:
-  - "Ch\xE0o ch\xE0ng anh h\xF9ng tr\u1EBB c\u1EE7a ch\xFAng ta !"
-  - "Xin h\xE3y gi\xFAp ch\xFAng t\xF4i ti\xEAu di\u1EC7t nh\u1ECB thi\xEAn v\u01B0\u01A1ng.
-    Ng\u01B0\u1EDDi d\xE2n qu\xE1 s\u1EE3 h\xE3i h\u1EAFn n\xEAn kh\xF4ng d\xE1m
-    ra ngo\xE0i."
-  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t Demon."
+  - "Ch\xFAng ta c\xF3 \u0111i\u1EC1u \u0111\xE1ng lo h\u01A1n \u0111\xE2y."
+  - "T\xEAn \u0111\u1EA1i thi\xEAn v\u01B0\u01A1ng \u0111ang hi\u1EBFn t\u1EBF nh\u1EEFng
+    ng\u01B0\u1EDDi d\xE2n l\xE0ng t\u1ED9i nghi\u1EC7p \u0111\u1EC3 n\xE2ng cao
+    kh\u1EA3 n\u0103ng t\xE0 thu\u1EADt c\u1EE7a h\u1EAFn."
+  - "H\xE3y ti\xEAu di\u1EC7t h\u1EAFn \u0111\u1EC3 kh\xF4ng c\xF2n ng\u01B0\u1EDDi
+    d\xE2n v\xF4 t\u1ED9i n\xE0o ph\u1EA3i b\u1ECB hi\u1EBFn t\u1EBF n\u1EEFa."
+  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t \u0111\u1EA1i thi\xEAn v\u01B0\u01A1ng."
   dialoguesComplete:
-  - "C\u1EA3m \u01A1n ch\xE0ng trai tr\u1EBB r\u1EA5t nhi\u1EC1u .Nh\u1EDD c\u1EADu
-    \u0111\xE3 ti\xEAu di\u1EC7t nh\u1ECB thi\xEAn v\u01B0\u01A1ng m\xE0 nh\u1EEFng
-    ng\u01B0\u1EDDi d\xE2n \u1EDF \u0111\xE2y \u0111\xE3 c\xF3 th\u1EC3 sinh ho\u1EA1t
-    b\xECnh th\u01B0\u1EDDng r\u1ED3i."
+  - "\u0110\xFAng l\xE0 v\u1ECB anh h\xF9ng c\u1EE7a ch\xFAng ta."
   - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
-  - "T\xEAn tam thi\xEAn v\u01B0\u01A1ng \u0111ang g\xE2y h\u1EA1i cho ng\u01B0\u1EDDi
-    d\xE2n l\xE0m \u01A1n h\xE3y ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng."
-  - "R\u1ED3i quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn
-    \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
+  - "H\xE3y c\u1EA9n th\u1EADn v\u1EDBi qu\u1EA3 c\u1EA7u trong tay c\u1EE7a h\u1EAFn.\"H\u1EAFn
+    c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i nh\u1EEFng ng\u1ECDn l\u1EEDa xanh \u0111\u1EA5y\".
+    Ch\xFAc may m\u1EAFn."
   type: 0
   questState: 0
-  targetName: Vampire
+  targetName: Demon
   targetCount: 1
   currentCount: 0
   rewardItem: []

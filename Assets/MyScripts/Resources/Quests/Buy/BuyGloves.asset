@@ -13,19 +13,24 @@ MonoBehaviour:
   m_Name: BuyGloves
   m_EditorClassIdentifier: 
   questTitle: "Mua g\u0103ng tay"
-  description: "H\xE3y mua v\xE0 trang b\u1ECB g\u0103ng tay"
+  description: "H\xE3y mua m\u1ED9t c\u1EB7p g\u0103ng tay t\u1EEB th\u1EE3 r\xE8n
+    b\xEAn c\u1EA1nh."
   experienceReward: 10
   goldReward: 100
   dialogues:
-  - "\u0110\u1EC3 tr\u1EDF n\xEAn m\u1EA1nh m\u1EBD b\u1EA1n h\xE3y mua g\u0103ng
-    tay  \u1EDF th\u1EE3 r\xE8n trong trong l\xE0ng"
+  - "Vi\u1EC7c chi\u1EBFn \u0111\u1EA5u l\xE2u d\xE0i c\u0169ng ki\u1EBFn b\u1EA1n
+    gi\u1EA3m kh\u1EA3 n\u0103ng chi\u1EBFn \u0111\u1EA5u. "
+  - "H\xE3y b\u1EAFt \u0111\u1EA7u b\u1EB1ng c\xE1ch mua m\u1ED9t c\u1EB7p g\u0103ng
+    tay t\u1EEB th\u1EE3 r\xE9n \u0111\u1EC3 c\xF3 th\u1EC3 chi\u1EBFn \u0111\u1EA5u
+    l\xE2u h\u01A1n."
   - "Nhi\u1EC7m v\u1EE5 : Mua m\u1ED9t c\u1EB7p g\u0103ng tay"
   dialoguesComplete:
   - "L\xE0m t\u1ED1t l\u1EAFm ch\xE0ng trai tr\u1EBB."
   - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng d\xE0nh cho c\u1EADu .H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
-  - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
+  - "H\xE3y mua c\u1EB7p g\u0103ng tay t\u1EEB th\u1EE3 r\xE8n b\xEAn c\u1EA1nh.R\u1ED3i
+    quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta."
   type: 1
   questState: 0
   targetName: Gloves

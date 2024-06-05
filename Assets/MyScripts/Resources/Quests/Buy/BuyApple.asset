@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: BuyApple
   m_EditorClassIdentifier: 
   questTitle: "Mua T\xE1o"
-  description: "Mua 5 qu\u1EA3 t\xE1o "
+  description: "Mua 5 qu\u1EA3 t\xE1o \u1EDF ch\u1EE7 ti\u1EC7m \u0111\u1ED1i di\u1EC7n."
   experienceReward: 10
   goldReward: 100
   dialogues:
-  - "\u0110\u1EC3 \u0111\u1EA3m b\u1EA3o vi\u1EC7c sinh t\u1ED3n l\xE2u h\u01A1n
-    th\xEC vi\u1EC7c gi\u1EEF m\xE1u r\u1EA5t quan tr\u1ECDng."
-  - "H\xE3y mua 5 qu\u1EA3 t\xE1o v\xE0 mang theo b\xEAn ng\u01B0\u1EDDi."
+  - "\u0110\u1EC3 chi\u1EBFn \u0111\u1EA5u b\u1EC1n b\u1EC9 h\u01A1n th\xEC c\u1EADu
+    c\u1EA7n c\xF3 v\u1EADt ph\u1EA9m h\u1ED3i ph\u1EE5c b\xEAn ng\u01B0\u1EDDi ."
+  - "H\xE3y b\u1EAFt \u0111\u1EA7u n\xF3 v\u1EDBi vi\u1EC7c mua 5 qu\u1EA3 t\xE1o
+    v\xE0 mang theo b\xEAn ng\u01B0\u1EDDi."
+  - "Nhi\u1EC7m v\u1EE5 : Mua 5 qu\u1EA3 t\xE1o."
   dialoguesComplete:
   - "L\xE0m t\u1ED1t l\u1EAFm ch\xE0ng trai"
   - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
-  - "H\xE3y ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 tr\u01B0\u1EDBc \u0111\xF3"
+  - "H\xE3y mua 5 qu\u1EA3 t\xE1o \u1EDF ti\u1EC7m \u0111\u1ED1i di\u1EC7n. R\u1ED3i
+    quay l\u1EA1i \u0111\xE2y b\xE1o c\xE1o v\u1EDBi ta."
   type: 1
   questState: 2
   targetName: Apple
