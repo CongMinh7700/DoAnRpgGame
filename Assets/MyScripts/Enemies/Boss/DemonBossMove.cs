@@ -20,8 +20,8 @@ public class DemonBossMove : EnemyMove
     }
     private void Start()
     {
-       bossAttack.BossAnimation.Flex();
-       isFlex = true;
+        bossAttack.BossAnimation.Flex();
+        isFlex = true;
         StartCoroutine(WaitToFalse());
     }
     public override void Attack()
@@ -33,50 +33,46 @@ public class DemonBossMove : EnemyMove
     }
     public override void EnemyMovement()
     {
-        if (isFlex) return;
-        base.EnemyMovement();
         IncreaseAttackRange();
+        if (isFlex) return;
+
+        base.EnemyMovement();
         if (BossAttack.canMove)
         {
-            MoveToPlayer();
-            StartCoroutine(WaitToMove());
+            Vector3 pos = (player.transform.position - transform.parent.position).normalized;
+            Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
+            transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, posRotation, Time.deltaTime * (rotateSpeed/2));
+            Debug.Log("Rotate");
+            StartCoroutine(WaitToCantMove());
         }
         else
         {
+            MoveToPlayer();
             return;
         }
-
     }
     public void IncreaseAttackRange()
     {
         if (!bossAttack.isPunch)
         {
-            attackRange = 5f;
-        }
-        else if (bossAttack.canIncreaseRange)
-        {
-            Debug.LogWarning("Call InCreaseRange");
-            attackRange = 10f;
-            bossAttack.canIncreaseRange = false;
+            attackRange = 3f;
         }
         else
         {
-            attackRange = 3f;
+            attackRange = 5f;
         }
+        if (bossAttack.canIncreaseRange)
+        {
+            Debug.LogWarning("Call InCreaseRange");
+            attackRange = 10f;
+            StartCoroutine(WaitToDescreaseRange());
+        }
+
     }
     public override void MoveToPlayer()
     {
         Debug.Log("NavMesh" + navMesh.isStopped);
-        if (bossAttack.isCombo)
-        {
-            attackRange = 10f;
-            BossAttack.canMove = false;
-
-        }
-        else
-        {
-            base.MoveToPlayer();
-        }
+        base.MoveToPlayer();
 
     }
     IEnumerator WaitToFalse()
@@ -85,9 +81,14 @@ public class DemonBossMove : EnemyMove
         isFlex = false;
     }
 
-    IEnumerator WaitToMove()
+    IEnumerator WaitToCantMove()
     {
         yield return new WaitForSeconds(2.1f);
         BossAttack.canMove = false;
+    }
+    IEnumerator WaitToDescreaseRange()
+    {
+        yield return new WaitForSeconds(2.1f);
+        bossAttack.canIncreaseRange = false;
     }
 }

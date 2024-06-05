@@ -28,7 +28,19 @@ public class QuestItemUI : RPGMonoBehaviour
     public void SetQuest(Quest quest)
     {
         this.quest = quest;
-        questTitleText.text = quest.questTitle;
+        if(quest.questState == QuestState.Complete)
+        {
+            Debug.Log("Quest Complete");
+            questTitleText.text = "<s>" + quest.questTitle + "</s>\n"; ;
+            questTitleText.color = Color.yellow;
+        }
+        else
+        {
+            questTitleText.text = quest.questTitle;
+            questTitleText.color = Color.white;
+            //  questTitleText.fontStyle = FontStyles.Normal;
+        }
+
     }
     public void OnQuestItemClicked()
     {

@@ -22,17 +22,19 @@ public class SaveGame : RPGMonoBehaviour
     }
     private void Start()
     {
+        Debug.Log("New Game :" + newGame);
         if (!newGame )
         {
             if (HasData())
             {
                 Debug.Log("Load");
                 Load();
+                saveScripts.LoadData("");
             }
             else
             {
-                saveScripts.SaveData("");
-                saveScripts.LoadData("");
+               // saveScripts.SaveData("");
+                //saveScripts.LoadData("");
                 Debug.Log("SaveScripts");
                 return;
             }

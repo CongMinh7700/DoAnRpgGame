@@ -57,6 +57,12 @@ public class SettingCanvas : RPGMonoBehaviour
         Time.timeScale = 0;
         pauseUI.SetActive(true);
     }
+    public virtual void SaveAndExitButton()
+    {
+        SFXManager.Instance.PlaySFXClick();
+        SaveGame.Instance.Save();
+        Application.Quit();
+    }
     protected virtual void SaveNotification()
     {
         string fxName = FXSpawner.notification;

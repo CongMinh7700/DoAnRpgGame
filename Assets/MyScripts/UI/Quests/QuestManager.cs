@@ -96,7 +96,6 @@ public class QuestManager : RPGMonoBehaviour
         }
         foreach (Quest quest in activeQuests)
         {
-
                 GameObject questItem = Instantiate(questItemPrefab, questListContent);
                 QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
                 questItemUI.SetQuest(quest);

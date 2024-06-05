@@ -16,6 +16,6 @@ MonoBehaviour:
   objType: 3
   hpMax: 100
   damage: 10
-  defense: 10
+  defense: 20
   stamina: 100
   mana: 100

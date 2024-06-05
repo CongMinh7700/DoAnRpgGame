@@ -158,11 +158,11 @@ public class QuestGiver : RPGMonoBehaviour
     {
         if (isFullText && quests[questIndex].questState == QuestState.Complete)
         {
-            questIndex++;
             MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
             LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
             Debug.Log("EXP : " + quests[questIndex].experienceReward);
-            QuestManager.Instance.RemoveQuest(quests[questIndex]);
+            questIndex++;
+            //QuestManager.Instance.RemoveQuest(quests[questIndex]);
             dialogueIndex = 0;
             notificated = false;
             isFullText = false;

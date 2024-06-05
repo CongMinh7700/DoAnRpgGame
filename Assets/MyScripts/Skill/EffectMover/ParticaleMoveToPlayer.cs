@@ -28,8 +28,8 @@ public class ParticaleMoveToPlayer : RPGMonoBehaviour
         if (player != null)
         {
             // Tạo một điểm cao hơn trên đầu của mục tiêu
-            Vector3 targetHeadPosition = player.position + Vector3.up * Random.Range(-1,1f);
-            transform.position = Vector3.LerpUnclamped(transform.position, targetHeadPosition, 1f * Time.deltaTime);
+            Vector3 targetHeadPosition = player.position + Vector3.up * 1.25f;
+            transform.position = Vector3.Lerp(transform.position, targetHeadPosition, 2f * Time.deltaTime);
             skillFly.gameObject.SetActive(false);
         }
         else

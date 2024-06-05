@@ -48,7 +48,8 @@ public class BossMove : EnemyMove
     }
     public override void MoveToPlayer()
     {
-        Debug.Log("NavMesh" + navMesh.isStopped);
+        //Debug.Log("NavMesh" + navMesh.isStopped);
+        IncreaseAttackRange();
         if (bossAttack.isCombo && warrok)
         {
             StartCoroutine(WaitToIncreaseSpeed());
@@ -59,7 +60,7 @@ public class BossMove : EnemyMove
             navMesh.speed = 3.5f;
            
         }
-        IncreaseAttackRange();
+
         //  Debug.Log("AttackRange :" + attackRange);
         base.MoveToPlayer();
 

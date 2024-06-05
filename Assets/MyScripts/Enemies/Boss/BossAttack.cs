@@ -23,11 +23,6 @@ public class BossAttack : EnemyAttack
         this.bossAnimation = GetComponentInParent<BossAnimation>();
         Debug.LogWarning(transform.name + "|LoadBossAnimation|", gameObject);
     }
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         if (attackCount >= countLimit)
@@ -38,7 +33,7 @@ public class BossAttack : EnemyAttack
     public void Attack()
     {
         canMove = false;
-        isPunch = Random.value > 0.2f;
+        isPunch = Random.value > 0.4f;
         bossAnimation.Animator.SetBool("IsPunch", isPunch);
         if (attackCount < countLimit)
         {
@@ -64,17 +59,10 @@ public class BossAttack : EnemyAttack
         attackCount = 0;
        // canIncreaseRange = false;
     } 
-  
-    //5
-    //warrok 1.25
     IEnumerator ResetSpeed()
     {
-        
-        yield return new WaitForSeconds(2f);
-  
+        yield return new WaitForSeconds(2f); 
         isCombo = false;
-       
-
     }
 
 }
