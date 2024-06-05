@@ -104,7 +104,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         Transform newGold = GoldSpawner.Instance.Spawn(GoldSpawner.gold, position, rotation);
         newGold.gameObject.SetActive(true);
         MoneyCtrl moneyCtrl = newGold.GetComponent<MoneyCtrl>();
-        moneyCtrl.GoldPickup.SetMoney(exp);
+        moneyCtrl.GoldPickup.SetMoney((int)exp/10);
         moneyCtrl.SetPosition(transform);
     }
     protected virtual void CreateDeathEffect()

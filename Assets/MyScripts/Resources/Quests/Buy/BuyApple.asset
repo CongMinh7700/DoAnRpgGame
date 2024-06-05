@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
   m_Name: BuyApple
   m_EditorClassIdentifier: 
-  questTitle: "Mua \u0111\u1ED3"
+  questTitle: "Mua T\xE1o"
   description: "Mua 5 qu\u1EA3 t\xE1o "
   experienceReward: 10
   goldReward: 100

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
   m_Name: BuyGloves
   m_EditorClassIdentifier: 
-  questTitle: "Mua \u0111\u1ED3"
+  questTitle: "Mua g\u0103ng tay"
   description: "H\xE3y mua v\xE0 trang b\u1ECB g\u0103ng tay"
   experienceReward: 10
   goldReward: 100

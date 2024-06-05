@@ -62,12 +62,14 @@ public class QuestDataManager : RPGMonoBehaviour
         {
             string jsonData = System.IO.File.ReadAllText(dataPath);
             SlotInfo info = JsonUtility.FromJson<SlotInfo>(jsonData);
-
+           
             Transform questListContent = questManager.questListContent.transform;
+         
             for (int i = 0; i < info.slotIndexs.Count; i++)
             {
                 Quest quest = questManager.GetQuestByIndex(info.itemIndexs[i]);
-                questManager.QuestModify(quest);
+
+                questManager.LoadQuest(quest);
                 questListContent.GetChild(info.slotIndexs[i]).GetComponent<QuestItemUI>().SetQuest(quest);
 
             }

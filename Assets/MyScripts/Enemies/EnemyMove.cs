@@ -126,10 +126,10 @@ public class EnemyMove : RPGMonoBehaviour
     public virtual void Attack()
     {
         this.enemyAnimation.AttackAnimation();
-        Vector3 pos = (player.transform.position - transform.position).normalized;
-        Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);
-   
+        //Vector3 pos = (player.transform.position - transform.parent.position).normalized;
+        //Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
+        //transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, posRotation, Time.deltaTime * rotateSpeed);
+
     }
     public virtual void MoveToPlayer()
     {

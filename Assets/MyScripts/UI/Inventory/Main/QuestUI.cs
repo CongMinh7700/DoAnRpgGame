@@ -51,7 +51,6 @@ public class QuestUI : RPGMonoBehaviour
         if (Input.GetKeyDown(UIToggleKey))
         {
             ToggleUI();
-            Debug.Log("Q");
         }
     }
     public void ToggleUI()

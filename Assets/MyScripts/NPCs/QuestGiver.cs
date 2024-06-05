@@ -70,6 +70,7 @@ public class QuestGiver : RPGMonoBehaviour
     }
     public void Notification()
     {
+        if (quests.Length <= 0) return;
         if (quests[questIndex].questState == QuestState.Complete)
         {
             canNotification = true;
@@ -84,6 +85,7 @@ public class QuestGiver : RPGMonoBehaviour
     public void ShowDialogue()
     {
         if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
+        if (quests.Length <= 0) return;
         messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
         Debug.Log("Title :" + quests[questIndex]);
         if (quests[questIndex] == null) Debug.Log("No Quest");

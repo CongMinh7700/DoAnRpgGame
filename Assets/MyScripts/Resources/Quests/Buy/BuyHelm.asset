@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
   m_Name: BuyHelm
   m_EditorClassIdentifier: 
-  questTitle: "Mua \u0111\u1ED3"
+  questTitle: "Mua m\u0169"
   description: "H\xE3y mua v\xE0 trang b\u1ECB m\u0169"
   experienceReward: 10
   goldReward: 100

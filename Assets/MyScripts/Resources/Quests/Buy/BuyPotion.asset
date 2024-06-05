@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
   m_Name: BuyPotion
   m_EditorClassIdentifier: 
-  questTitle: "Mua \u0111\u1ED3"
+  questTitle: "Mua b\xECnh thu\u1ED1c"
   description: "Mua 1 b\xECnh h\u1ED3i m\xE1u"
   experienceReward: 50
   goldReward: 100

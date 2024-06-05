@@ -26,7 +26,7 @@ public class VillagePortal : RPGMonoBehaviour
     {
        //playerCtrl.transform.position = new Vector3(103, 14, 310);
        //SaveGame.Instance.SaveScripts.SaveData("");
-       SaveGame.Instance.Load();
+      // SaveGame.Instance.Load();
     }
    
     //nếu có bug thì cho về cái ban đầu

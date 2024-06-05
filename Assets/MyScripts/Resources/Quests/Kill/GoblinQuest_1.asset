@@ -35,8 +35,8 @@ MonoBehaviour:
   - "R\u1ED3i quay l\u1EA1i b\xE1o c\xE1o v\u1EDBi ta c\u1EADu s\u1EBD nh\u1EADn
     \u0111\u01B0\u1EE3c m\u1ED9t ph\u1EA7n th\u01B0\u1EDFng x\u1EE9ng \u0111\xE1ng."
   type: 0
-  questState: 1
+  questState: 2
   targetName: Goblin
   targetCount: 10
-  currentCount: 0
+  currentCount: 10
   rewardItem: []

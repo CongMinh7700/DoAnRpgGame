@@ -36,7 +36,7 @@ public class QuestManager : RPGMonoBehaviour
         //Debug.Log("call OnEnemyKilled");
         foreach (Quest quest in activeQuests)
         {
-            Debug.Log(quest.questTitle +"Name");
+            Debug.Log(quest.questTitle + "Name");
             if (quest.targetName == targetName && quest.questState != QuestState.Complete)
             {
                 quest.currentCount++;
@@ -44,7 +44,7 @@ public class QuestManager : RPGMonoBehaviour
                 if (quest.currentCount >= quest.targetCount)
                 {
                     CompleteQuest(quest);
-                    
+                    UpdateQuestLog();
                 }
             }
         }
@@ -66,10 +66,10 @@ public class QuestManager : RPGMonoBehaviour
         if (!mainUI.activeSelf)
         {
             HideQuestDetails();
-         //   Debug.Log("Call Active");
+            //   Debug.Log("Call Active");
         }
     }
-    public void AddQuest( Quest newQuest)
+    public void AddQuest(Quest newQuest)
     {
         newQuest.questState = QuestState.InProgress;
         activeQuests.Add(newQuest);
@@ -79,13 +79,13 @@ public class QuestManager : RPGMonoBehaviour
 
     public void RemoveQuest(Quest quest)
     {
-        if(quest.questState == QuestState.Complete)
+        if (quest.questState == QuestState.Complete)
         {
             activeQuests.Remove(quest);
             UpdateQuestLog();
             Debug.Log("Remove Quest");
         }
-       
+
     }
 
     public void UpdateQuestLog()
@@ -96,31 +96,40 @@ public class QuestManager : RPGMonoBehaviour
         }
         foreach (Quest quest in activeQuests)
         {
-                GameObject questItem = Instantiate(questItemPrefab, questListContent);
-                QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
-                questItemUI.SetQuest(quest);
+            GameObject questItem = Instantiate(questItemPrefab, questListContent);
+            QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
+            questItemUI.SetQuest(quest);
         }
-        
+
     }
-    public void QuestModify(Quest quest)
+    public void LoadQuest(Quest quest)
     {
-        
-            if(quest.questState == QuestState.InProgress || quest.questState == QuestState.Complete)
+        foreach (Quest activeQuest in activeQuests)
+        {
+            if (activeQuest.questTitle == quest.questTitle)
             {
-                GameObject questItem = Instantiate(questItemPrefab, questListContent);
-                QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
-                questItemUI.SetQuest(quest);
+                Debug.Log("Quest already in activeQuests");
+                return; // Exit the method if the quest already exists
             }
+        }
+        if (quest.questState == QuestState.InProgress || quest.questState == QuestState.Complete)
+        {
+            GameObject questItem = Instantiate(questItemPrefab, questListContent);
+            QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
+            questItemUI.SetQuest(quest);
+
+        }
         activeQuests.Add(quest);
+
     }
     public void DisplayQuestDetails(Quest quest)
     {
         if (quest == null) return;
-        detailQuestTitleText.text =   quest.questTitle;
-        detailQuestDescriptionText.text = "Mô tả : \n"+ quest.description;
+        detailQuestTitleText.text = quest.questTitle;
+        detailQuestDescriptionText.text = "Mô tả : \n" + quest.description;
         detailQuestStateText.text = quest.questState.ToString();
         detailQuestKillCountText.text = $"Tiến độ: {quest.currentCount}/{quest.targetCount}";
-        detailRewardText.text = "Phần Thưởng \nKinh Nghiệm : "+quest.experienceReward+" Exp" +"\nTiền : "+quest.goldReward +" $" ;
+        detailRewardText.text = "Phần Thưởng \nKinh Nghiệm : " + quest.experienceReward + " Exp" + "\nTiền : " + quest.goldReward + " $";
     }
     public void HideQuestDetails()
     {
@@ -130,7 +139,7 @@ public class QuestManager : RPGMonoBehaviour
         detailQuestKillCountText.text = "";
         detailRewardText.text = "";
     }
-   
+
     public Quest GetQuestByIndex(int index)
     {
         return questList[index];

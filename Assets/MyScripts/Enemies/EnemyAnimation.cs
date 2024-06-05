@@ -6,17 +6,26 @@ public class EnemyAnimation : RPGMonoBehaviour
 {
  
     protected  Animator animator;
+    protected  Transform player;
     public  Animator Animator => animator;
     public Transform shooter;
     public bool magicEnemy;
     protected override void LoadComponents()
     {
         this.LoadEnemyAnimator();
+        LoadPlayerTarget();
     }
     public  virtual void LoadEnemyAnimator()
     {
         if (this.animator != null) return;
         this.animator = GetComponent<Animator>();
+        //Debug.LogWarning(transform.name + "||LoadEnemyAnimator||", gameObject);
+
+    }
+    public virtual void LoadPlayerTarget()
+    {
+        if (this.player != null) return;
+        this.player = FindObjectOfType<PlayerCtrl>().transform;
         //Debug.LogWarning(transform.name + "||LoadEnemyAnimator||", gameObject);
 
     }
@@ -29,6 +38,7 @@ public class EnemyAnimation : RPGMonoBehaviour
         animator.SetTrigger("Attack");
         if (magicEnemy)
         {
+            transform.LookAt(player.transform);
             SpawnFireBall();
         }
     }

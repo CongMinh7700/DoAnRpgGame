@@ -26,7 +26,7 @@ public class ForestPortal : RPGMonoBehaviour
     {
         //playerCtrl.transform.position = new Vector3(62, 27, 302);
        // SaveGame.Instance.SaveScripts.SaveData("");
-        SaveGame.Instance.Load();
+        //SaveGame.Instance.Load();
     }
 
 

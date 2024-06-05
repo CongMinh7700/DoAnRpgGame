@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
   m_Name: BuySword
   m_EditorClassIdentifier: 
-  questTitle: "Mua \u0111\u1ED3"
+  questTitle: "Mua v\u0169 kh\xED"
   description: "H\xE3y mua v\xE0 trang b\u1ECB m\u1ED9t thanh ki\u1EBFm"
   experienceReward: 10
   goldReward: 50
