@@ -6,9 +6,8 @@ using TMPro;
 
 public class QuestUI : RPGMonoBehaviour
 {
-    [Header("Charater Stats")]
-    [SerializeField] private SlotOptions[] customOptionsMenuConfig;
-    public KeyCode UIToggleKey = KeyCode.Q;
+    [Header("Quest UI")]
+    public KeyCode UIToggleKey = KeyCode.N;
     public Transform mainContainerUI; //MainUI
     [HideInInspector] public bool isContainerUIOpen = false;
     protected Transform containerPanel;

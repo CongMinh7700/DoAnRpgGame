@@ -37,7 +37,7 @@ public class QuestDataManager : RPGMonoBehaviour
                 QuestItemUI slot = questListContent.GetChild(i).GetComponent<QuestItemUI>();
                 info.AddInfo(i, questManager.GetQuestIndex(slot.quest));
             }
-            Debug.Log(questListContent.childCount);
+           // Debug.Log(questListContent.childCount);
             string jsonData = JsonUtility.ToJson(info);
             System.IO.File.WriteAllText(dataPath, jsonData);
             Debug.Log("<color=green>Data Quest succesfully saved! </color>");

@@ -22,8 +22,10 @@ public class MessageManager : RPGMonoBehaviour
     public static bool isAccept;
     private void Start()
     {
-        if (numbShop > 4) return;
-        shops[numbShop].SetActive(false);
+        foreach(GameObject shop in shops)
+        {
+            shop.SetActive(false);
+        }
     }
     public void Message2()
     {
@@ -98,7 +100,7 @@ public class MessageManager : RPGMonoBehaviour
             shopTalk.SetActive(true);
         }
         questTalk.SetActive(false);
-
+        Debug.Log("Call Refuse");
     }
     private void Update()
     {

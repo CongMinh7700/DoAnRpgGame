@@ -47,6 +47,7 @@ public class QuestGiver : RPGMonoBehaviour
     }
     private void Update()
     {
+        if (quests.Length <= 0) noQuest = true;
         Debug.LogWarning("Message Accept" + MessageManager.isAccept);
         if (MessageManager.isAccept)
         {
@@ -56,7 +57,7 @@ public class QuestGiver : RPGMonoBehaviour
         }
         if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText && !isFullText)
+            if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText )//&& !isFullText)
             {
                 ShowDialogue();
             }
@@ -84,30 +85,38 @@ public class QuestGiver : RPGMonoBehaviour
     }
     public void ShowDialogue()
     {
-        if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
-        if (quests.Length <= 0) return;
-        messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
-        Debug.Log("Title :" + quests[questIndex]);
-        if (quests[questIndex] == null) Debug.Log("No Quest");
-
-
         string[] dialogues = new string[0];
-        Debug.Log("QuestState : " + quests[questIndex].questState.ToString() + "QuestName :" + quests[questIndex].questTitle);
-
-        switch (quests[questIndex].questState)
+        if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
+        if (quests.Length <= 0)
         {
-            case QuestState.NotStarted:
-                dialogues = quests[questIndex].dialogues;
-                break;
-            case QuestState.InProgress:
-                dialogues = quests[questIndex].dialoguesInProgress;
-                break;
-            case QuestState.Complete:
-                dialogues = quests[questIndex].dialoguesComplete;
-                break;
+            messageBox.GetComponent<MessageManager>().currentQuest = null;
+            Debug.Log("No Quest");
+            noQuest = true;
         }
+        else
+        {
+            messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
+            Debug.Log("Title :" + quests[questIndex]);
+            Debug.Log("QuestState : " + quests[questIndex].questState.ToString() + "QuestName :" + quests[questIndex].questTitle);
+            switch (quests[questIndex].questState)
+            {
+                case QuestState.NotStarted:
+                    dialogues = quests[questIndex].dialogues;
+                    break;
+                case QuestState.InProgress:
+                    dialogues = quests[questIndex].dialoguesInProgress;
+                    break;
+                case QuestState.Complete:
+                    dialogues = quests[questIndex].dialoguesComplete;
+                    break;
+            }
+            if (quests[questIndex].questState == QuestState.NotStarted && isFullText)
+            {
+                messageBox.GetComponent<MessageManager>().ShowButton();
+            }
 
-        if (dialogueIndex > dialogues.Length - 1)
+        }
+        if (dialogueIndex >= dialogues.Length -1)
         {
             isFullText = true;
             dialogueIndex = dialogues.Length - 1;
@@ -115,10 +124,7 @@ public class QuestGiver : RPGMonoBehaviour
         }
         if (textAnimationCoroutine != null)
             StopCoroutine(textAnimationCoroutine);
-        if (quests[questIndex].questState == QuestState.NotStarted && isFullText)
-        {
-            messageBox.GetComponent<MessageManager>().ShowButton();
-        }
+       
 
         string fullText = "";
         if (noQuest)
@@ -129,7 +135,9 @@ public class QuestGiver : RPGMonoBehaviour
             }
             else
             {
+
                 fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây nhé";
+                Debug.Log("Call this no quest");
             }
             messageBox.GetComponent<MessageManager>().Refuse();
         }
@@ -158,7 +166,8 @@ public class QuestGiver : RPGMonoBehaviour
     }
     public virtual void NextQuest()
     {
-        if (isFullText && quests[questIndex].questState == QuestState.Complete)
+        if (noQuest) return;
+        if (isFullText && quests[questIndex].questState == QuestState.Complete )
         {
             MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
             LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
@@ -182,6 +191,7 @@ public class QuestGiver : RPGMonoBehaviour
     }
     public virtual void QuestInProgress()
     {
+        if (noQuest) return;
         if (quests[questIndex].questState == QuestState.InProgress && isFullText)
         {
             dialogueIndex = 0;

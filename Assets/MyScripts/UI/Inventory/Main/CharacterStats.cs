@@ -7,8 +7,7 @@ using TMPro;
 public class CharacterStats : RPGMonoBehaviour
 {
     [Header("Charater Stats")]
-    [SerializeField] private SlotOptions[] customOptionsMenuConfig;
-    public KeyCode UIToggleKey = KeyCode.C;
+    public KeyCode UIToggleKey = KeyCode.T;
     public EquipSlot[] slots;
     public Transform mainContainerUI; //MainUI
     [HideInInspector] public Interactor containerInteractor;

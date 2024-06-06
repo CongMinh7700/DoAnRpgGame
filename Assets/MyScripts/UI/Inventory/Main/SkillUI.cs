@@ -6,12 +6,10 @@ using TMPro;
 
 public class SkillUI : RPGMonoBehaviour
 {
-    [Header("Charater Stats")]
-    [SerializeField] private SlotOptions[] customOptionsMenuConfig;
-    public KeyCode UIToggleKey = KeyCode.C;
+    [Header("Skill UI")]
+    public KeyCode UIToggleKey = KeyCode.K;
     public SkillSlot[] slots;
     public Transform mainContainerUI; //MainUI
-    [HideInInspector] public Interactor containerInteractor;
     [HideInInspector] public bool isContainerUIOpen = false;
     protected Transform containerPanel;
     protected bool isUIInitialized;
