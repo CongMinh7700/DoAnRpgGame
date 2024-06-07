@@ -11,6 +11,8 @@ public class SFXManager : RPGMonoBehaviour
     [SerializeField] protected AudioClip pickUp;
     [SerializeField] protected AudioClip click;
     [SerializeField] protected AudioClip impact;
+    [SerializeField] protected AudioClip fireImpact;
+    [SerializeField] protected AudioClip iceImpact;
     protected override void LoadComponents()
     {
         LoadSingleton();
@@ -40,6 +42,16 @@ public class SFXManager : RPGMonoBehaviour
     public void PlaySFXImpact()
     {
         audioSource.clip = impact;
+        audioSource.Play();
+    }
+    public void PlayFireImpact()
+    {
+        audioSource.clip = fireImpact;
+        audioSource.Play();
+    }
+    public void PlayIceImpact()
+    {
+        audioSource.clip = iceImpact;
         audioSource.Play();
     }
 }

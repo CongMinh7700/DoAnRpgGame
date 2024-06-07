@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Vampire
   objType: 2
-  hpMax: 300
+  hpMax: 750
+  damage: 20
+  defense: 2

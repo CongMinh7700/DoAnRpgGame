@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Rake_B
   objType: 1
-  hpMax: 100
-  damage: 2
+  hpMax: 125
+  damage: 25
   defense: 2

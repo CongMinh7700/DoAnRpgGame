@@ -570,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &461790848359002522
 Transform:
   m_ObjectHideFlags: 0
@@ -2358,9 +2358,9 @@ MonoBehaviour:
   defense: 10
   isDead: 0
   isAttacked: 0
-  hitableObjectCtrl: {fileID: 0}
-  enemyAnimation: {fileID: 0}
-  enemyCtrl: {fileID: 0}
+  hitableObjectCtrl: {fileID: 946684978711145250}
+  enemyAnimation: {fileID: 946684978711145277}
+  enemyCtrl: {fileID: 946684978711145250}
   maxExp: 0
   minExp: 0
   exp: 0

@@ -29,6 +29,8 @@ public class SkillDamageSender : DamageSender
         base.Send(damageReceiver);
         Vector3 hitPos = transform.position;
         CreateHitEffect();
+        if (isFire) SFXManager.Instance.PlayFireImpact();
+        else SFXManager.Instance.PlayIceImpact();
         this.DestroySkill();
     }
     protected virtual void DestroySkill()

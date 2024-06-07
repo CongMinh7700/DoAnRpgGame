@@ -199,7 +199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2146458782404456299
 Transform:
   m_ObjectHideFlags: 0
@@ -1218,8 +1218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 8935186388413513503}
-  currentHp: 200
-  hpMax: 200
+  currentHp: 100
+  hpMax: 100
   defense: 2
   isDead: 0
   isAttacked: 0

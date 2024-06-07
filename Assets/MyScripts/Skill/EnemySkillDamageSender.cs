@@ -21,6 +21,7 @@ public class EnemySkillDamageSender : DamageSender
     {
         base.Send(damageReceiver);
         Vector3 hitPos = transform.position;
+        SFXManager.Instance.PlayFireImpact();
         CreateHitEffect();
         this.DestroySkill();
     }
