@@ -108,8 +108,17 @@ public class ItemSlot : RPGMonoBehaviour
     //Thiết lập data, UI cho slot
     public void SetData(Item item, int count)
     {
-        slotItem = item;
-        itemCount = count;
+
+        if(slotItem == item)
+        {
+            itemCount += count;
+        }
+        else
+        {
+            slotItem = item;
+            itemCount = count;
+        }
+
         OnSlotModified();
     }
 

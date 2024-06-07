@@ -42,6 +42,11 @@ public class QuestGiver : RPGMonoBehaviour
         {
             ResetAllQuest.Instance.ResetQuests();
             questIndexManager.DeleteData();
+            for(int i= 0; i < 6; i++)
+            {
+                questIndexManager.DeleteDataByID(i.ToString());
+            }
+          
         }
 
     }
@@ -193,7 +198,7 @@ public class QuestGiver : RPGMonoBehaviour
             isFullText = false;
             nextQuest = true;
             questIndexManager.SaveData();//Save QuestIndex
-            if (questIndex >= quests.Length - 1)
+            if (questIndex >= quests.Length)
             {
                 questIndex = quests.Length - 1;
                 noQuest = true;

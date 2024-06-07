@@ -90,7 +90,15 @@ public class QuestIndexManager : RPGMonoBehaviour
             Debug.LogError("Could not load data! Error: " + ex.Message);
         }
     }
-
+    public void DeleteDataByID(string id)
+    {
+        string path = GetIDPath(id);
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+            Debug.Log("Data quest Index Manager with id : " + id + " is deleted.");
+        }
+    }
     public void DeleteData()
     {
         string id = questGiver.shopNumber.ToString();

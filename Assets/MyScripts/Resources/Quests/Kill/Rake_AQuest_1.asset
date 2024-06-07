@@ -33,8 +33,8 @@ MonoBehaviour:
     b\u1ECB \u0111\u1EA7y \u0111\u1EE7 tr\u01B0\u1EDBc khi chi\u1EBFn \u0111\u1EA5u
     v\xE0 b\xE1o c\xE1o v\u1EDBi ta khi c\u1EADu ho\xE0n th\xE0nh."
   type: 0
-  questState: 2
+  questState: 0
   targetName: Rake_A
-  targetCount: 15
+  targetCount: 10
   currentCount: 0
   rewardItem: []
