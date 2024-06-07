@@ -35,7 +35,7 @@ MonoBehaviour:
     h\u1EAFn. Nh\u1EDB trang b\u1ECB \u0111\u1EA7y \u0111\u1EE7 nh\xE9. C\u1EA9n
     tr\u1ECDng!"
   type: 0
-  questState: 0
+  questState: 2
   targetName: Vampire
   targetCount: 1
   currentCount: 0

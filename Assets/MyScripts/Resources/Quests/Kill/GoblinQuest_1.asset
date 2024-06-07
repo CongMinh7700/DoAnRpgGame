@@ -35,5 +35,5 @@ MonoBehaviour:
   questState: 2
   targetName: Goblin
   targetCount: 10
-  currentCount: 10
+  currentCount: 0
   rewardItem: []

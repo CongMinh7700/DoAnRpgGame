@@ -21,7 +21,15 @@ public class StartScene : RPGMonoBehaviour
         //ResetQuest
         //Không load game = new Game
         Debug.Log("Name player is : " + nameInput.text);
-        PlayerInfoManager.playerNameData = nameInput.text;
+        if(nameInput.text == "")
+        {
+            PlayerInfoManager.playerNameData = "Minh";
+        }
+        else
+        {
+            PlayerInfoManager.playerNameData = nameInput.text;
+        }
+   
         Debug.Log("Main Story Scene Start"); 
         SceneManager.LoadScene(1);
         SaveGame.newGame = true;
@@ -56,7 +64,7 @@ public class StartScene : RPGMonoBehaviour
     //Phải có scene loading để che load scene lâu
 
 
-
+  
 
 }
 

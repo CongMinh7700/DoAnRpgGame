@@ -48,7 +48,7 @@ public class QuestGiver : RPGMonoBehaviour
     private void Update()
     {
         if (quests.Length <= 0) noQuest = true;
-        Debug.LogWarning("Message Accept" + MessageManager.isAccept);
+       // Debug.LogWarning("Message Accept" + MessageManager.isAccept);
         if (MessageManager.isAccept)
         {
             ShowDialogue();
@@ -57,7 +57,7 @@ public class QuestGiver : RPGMonoBehaviour
         }
         if (messageBox.GetComponent<MessageManager>().questTalk.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText )//&& !isFullText)
+            if (Input.GetKeyDown(KeyCode.F) && !isAnimatingText)//&& !isFullText)
             {
                 ShowDialogue();
             }
@@ -66,6 +66,12 @@ public class QuestGiver : RPGMonoBehaviour
         {
             ShowDialogue();
             nextQuest = false;
+            Debug.Log("Cal Next Quest Update");
+        }
+        if (quests[questIndex].questState == QuestState.NotStarted && isFullText)
+        {
+            messageBox.GetComponent<MessageManager>().ShowButton();
+            isFullText = false;
         }
         Notification();
     }
@@ -85,6 +91,7 @@ public class QuestGiver : RPGMonoBehaviour
     }
     public void ShowDialogue()
     {
+
         string[] dialogues = new string[0];
         if (this.shopNumber != messageBox.GetComponent<MessageManager>().numbShop) return;
         if (quests.Length <= 0)
@@ -98,6 +105,7 @@ public class QuestGiver : RPGMonoBehaviour
             messageBox.GetComponent<MessageManager>().currentQuest = quests[questIndex];
             Debug.Log("Title :" + quests[questIndex]);
             Debug.Log("QuestState : " + quests[questIndex].questState.ToString() + "QuestName :" + quests[questIndex].questTitle);
+
             switch (quests[questIndex].questState)
             {
                 case QuestState.NotStarted:
@@ -108,23 +116,15 @@ public class QuestGiver : RPGMonoBehaviour
                     break;
                 case QuestState.Complete:
                     dialogues = quests[questIndex].dialoguesComplete;
+                  //  Debug.LogWarning("DialoguesLength" + dialogues.Length);
                     break;
             }
-            if (quests[questIndex].questState == QuestState.NotStarted && isFullText)
-            {
-                messageBox.GetComponent<MessageManager>().ShowButton();
-            }
-
         }
-        if (dialogueIndex >= dialogues.Length -1)
-        {
-            isFullText = true;
-            dialogueIndex = dialogues.Length - 1;
+        FullTextCheck(dialogues);
 
-        }
         if (textAnimationCoroutine != null)
             StopCoroutine(textAnimationCoroutine);
-       
+
 
         string fullText = "";
         if (noQuest)
@@ -135,9 +135,7 @@ public class QuestGiver : RPGMonoBehaviour
             }
             else
             {
-
                 fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây nhé";
-                Debug.Log("Call this no quest");
             }
             messageBox.GetComponent<MessageManager>().Refuse();
         }
@@ -147,10 +145,25 @@ public class QuestGiver : RPGMonoBehaviour
         }
 
         dialogueIndex++;
-        NextQuest();
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
+        NextQuest();
         QuestInProgress();
 
+    }
+    public void FullTextCheck(string[] dialogues)
+    {
+        if (dialogueIndex >= dialogues.Length - 1 && (quests[questIndex].questState == QuestState.NotStarted || quests[questIndex].questState == QuestState.InProgress))
+        {
+            //Debug.LogWarning("Length -1 :" + (dialogues.Length - 1));
+            dialogueIndex = dialogues.Length - 1;
+            isFullText = true;
+        }
+        if (dialogueIndex >= dialogues.Length && quests[questIndex].questState == QuestState.Complete)
+        {
+          //  Debug.LogWarning("Length -1 :" + (dialogues.Length - 1));
+            dialogueIndex = dialogues.Length - 1;
+            isFullText = true;
+        }
     }
     IEnumerator AnimateText(string fullText)
     {
@@ -167,8 +180,9 @@ public class QuestGiver : RPGMonoBehaviour
     public virtual void NextQuest()
     {
         if (noQuest) return;
-        if (isFullText && quests[questIndex].questState == QuestState.Complete )
+        if (isFullText && quests[questIndex].questState == QuestState.Complete)
         {
+
             MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
             LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
             Debug.Log("EXP : " + quests[questIndex].experienceReward);
@@ -179,11 +193,10 @@ public class QuestGiver : RPGMonoBehaviour
             isFullText = false;
             nextQuest = true;
             questIndexManager.SaveData();//Save QuestIndex
-            if (questIndex >= quests.Length)
+            if (questIndex >= quests.Length - 1)
             {
                 questIndex = quests.Length - 1;
                 noQuest = true;
-                // notificated = true;
             }
 
             messageBox.GetComponent<MessageManager>().Refuse();
@@ -207,7 +220,7 @@ public class QuestGiver : RPGMonoBehaviour
         Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
         NotificationText nofText = fxObj.GetComponentInChildren<NotificationText>();
         nofText.SetText("Hoàn thành nhiệm vụ");
-        Debug.Log("Quest Notification Called");
+       // Debug.Log("Quest Notification Called" + transform.parent.name);
         fxObj.gameObject.SetActive(true);
     }
     IEnumerator WaitToFalse()

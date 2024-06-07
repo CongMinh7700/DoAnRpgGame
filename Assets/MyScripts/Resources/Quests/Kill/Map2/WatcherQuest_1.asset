@@ -32,7 +32,7 @@ MonoBehaviour:
     di\u1EC7t ch\xFAng.C\u1EA9n th\u1EADn v\u1EDBi nh\u1EEFng \u0111\xF2n t\u1EA5n
     c\xF4ng l\u1EEDa c\u1EE7a ch\xFAng."
   type: 0
-  questState: 0
+  questState: 2
   targetName: Watcher
   targetCount: 10
   currentCount: 0

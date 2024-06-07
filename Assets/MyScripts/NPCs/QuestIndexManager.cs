@@ -98,7 +98,7 @@ public class QuestIndexManager : RPGMonoBehaviour
         if (System.IO.File.Exists(path))
         {
             System.IO.File.Delete(path);
-            Debug.Log("Data with id: " + id + " is deleted.");
+            Debug.Log("Data quest Index Manager with id : " + id + " is deleted.");
         }
     }
 

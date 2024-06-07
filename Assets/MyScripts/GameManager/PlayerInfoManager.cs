@@ -20,6 +20,7 @@ public class PlayerInfoManager : RPGMonoBehaviour
     [SerializeField] protected TextMeshProUGUI manaText;
     [SerializeField] protected Image xpBar;
     [SerializeField] protected TextMeshProUGUI xpText;
+    [SerializeField] protected TextMeshProUGUI levelText;
     [Header("Attributes")]
     [SerializeField] protected int maxHp;
     [SerializeField] protected int currenHp;
@@ -37,8 +38,9 @@ public class PlayerInfoManager : RPGMonoBehaviour
     private void Start()
     {
         //playerNameData = "AintCming";//Text
-        playerName.text = playerNameData + " - Level : " + LevelSystem.Instance.LevelCurrent;//Bỏ vô Update
+        playerName.text = playerNameData ;//Bỏ vô Update
     }
+    
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();
@@ -51,7 +53,7 @@ public class PlayerInfoManager : RPGMonoBehaviour
     }
     private void Update()
     {
-        playerName.text = playerNameData + " - Level : " + LevelSystem.Instance.LevelCurrent;
+        levelText.text = "Level : " + LevelSystem.Instance.LevelCurrent;
         this.maxHp = playerCtrl.DamageReceiver.HPMax;
         this.currenHp = playerCtrl.DamageReceiver.CurrentHp;
         this.maxStamina = playerCtrl.PlayerAttack.StaminaMax;

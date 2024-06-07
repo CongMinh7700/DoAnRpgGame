@@ -35,7 +35,7 @@ MonoBehaviour:
   - "H\xE3y c\u1EA9n th\u1EADn v\u1EDBi t\xEAn thi\xEAn v\u01B0\u01A1ng \u0111\xF3
     \u0111\u1EB7c bi\u1EC7t l\xE0 thanh ki\u1EBFm trong tay h\u1EAFn."
   type: 0
-  questState: 0
+  questState: 2
   targetName: Jones
   targetCount: 1
   currentCount: 0

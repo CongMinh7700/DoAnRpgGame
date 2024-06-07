@@ -35,7 +35,7 @@ public class VillagePortal : RPGMonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerCtrl.transform.position = new Vector3(62, 27, 302);
-            SaveGame.Instance.SaveScripts.SaveData("");
+            SaveGame.Instance.Save();
             SceneManager.LoadScene(3);
         }
     }

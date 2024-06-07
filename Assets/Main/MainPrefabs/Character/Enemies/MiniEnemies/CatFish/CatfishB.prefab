@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf9069c8e125f548b86ee18ab8a59a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   weaponCtrl: {fileID: 1754387871}
   hitableObjectCtrl: {fileID: 0}
 --- !u!1 &1235683824
@@ -1972,7 +1972,7 @@ MonoBehaviour:
   z: 0
   velocitySpeed: 0
   attackRange: 3
-  runRange: 50
+  runRange: 10
   rotateSpeed: 50
   distance: 0
   isAttacking: 0

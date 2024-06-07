@@ -15,5 +15,5 @@ MonoBehaviour:
   objName: Jones
   objType: 2
   hpMax: 500
-  damage: 30
+  damage: 40
   defense: 2

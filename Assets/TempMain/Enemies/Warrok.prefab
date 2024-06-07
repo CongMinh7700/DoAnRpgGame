@@ -2050,7 +2050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf9069c8e125f548b86ee18ab8a59a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 60
   weaponCtrl: {fileID: 4204649967286549503}
   hitableObjectCtrl: {fileID: 0}
 --- !u!1 &4204649967093740810
@@ -2097,7 +2097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf9069c8e125f548b86ee18ab8a59a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 60
   weaponCtrl: {fileID: 4204649967387533230}
   hitableObjectCtrl: {fileID: 0}
 --- !u!1 &4204649967251555051

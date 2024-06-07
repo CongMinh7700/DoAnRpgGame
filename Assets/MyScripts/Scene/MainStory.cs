@@ -7,7 +7,12 @@ public class MainStory : MonoBehaviour
 {
     private void Start()
     {
-        SceneManager.LoadScene(2);
+        StartCoroutine(WaitToLoadScene());
         Debug.Log("Load Scene Village");
+    }
+    IEnumerator WaitToLoadScene()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(2);
     }
 }

@@ -31,7 +31,7 @@ MonoBehaviour:
     kh\u1ED5ng l\u1ED3.V\xE0 nh\u1EEFng \u0111\xF2n t\u1EA5n c\xF4ng tr\xF4ng c\xF3
     v\u1EBB r\u1EA5t h\u01B0ng h\u1EAFn."
   type: 0
-  questState: 0
+  questState: 2
   targetName: Vampire
   targetCount: 1
   currentCount: 0

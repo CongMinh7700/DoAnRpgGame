@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf9069c8e125f548b86ee18ab8a59a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 50
   weaponCtrl: {fileID: 8152599887008380436}
   hitableObjectCtrl: {fileID: 0}
 --- !u!1 &1662727022
@@ -2493,7 +2493,7 @@ MonoBehaviour:
   z: 0
   velocitySpeed: 0
   attackRange: 5
-  runRange: 50
+  runRange: 20
   rotateSpeed: 50
   distance: 0
   isAttacking: 0
