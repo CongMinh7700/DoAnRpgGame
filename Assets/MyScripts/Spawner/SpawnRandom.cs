@@ -39,8 +39,10 @@ public class SpawnRandom : RPGMonoBehaviour
 
 
             ObjectType enemyType = prefab.GetComponent<EnemyCtrl>().HitableObjectSO.objType;
+            Debug.Log("EnemyType :" +enemyType);
             if (enemyType == ObjectType.Boss)
             {
+                Debug.Log(QuestManager.Instance.GetQuestBoss(prefab.name));
                 if (!QuestManager.Instance.GetQuestBoss(prefab.name))
                 {
                     spawnerCtrl.canSpawnBoss = false;
@@ -50,6 +52,7 @@ public class SpawnRandom : RPGMonoBehaviour
                 else
                 {
                     spawnerCtrl.canSpawnBoss = true;
+                    Debug.Log("SpawnRandom : Can spawn Bosss");
                     if (bossSpawned)
                     {
                         Debug.LogWarning("Boss already spawned, cannot spawn another.");

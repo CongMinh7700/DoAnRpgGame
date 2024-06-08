@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Save Quest Index đi :V
 public class QuestGiver : RPGMonoBehaviour
 {
     [SerializeField] public int shopNumber;
     public GameObject messageBox;
     //Dialogues
     [Header("Talk & Quest")]
-    [SerializeField] protected Quest[] quests;
+    public Quest[] quests;
     [SerializeField] public int questIndex = 0;
     public int dialogueIndex;
     public bool isAnimatingText = false;
@@ -22,7 +21,7 @@ public class QuestGiver : RPGMonoBehaviour
     [SerializeField] private bool nextQuest;
     //Name của npc
     [SerializeField] private QuestIndexManager questIndexManager;
-
+    //Quest Marker
     protected override void LoadComponents()
     {
         LoadIndexQuestManager();
@@ -42,18 +41,16 @@ public class QuestGiver : RPGMonoBehaviour
         {
             ResetAllQuest.Instance.ResetQuests();
             questIndexManager.DeleteData();
-            for(int i= 0; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 questIndexManager.DeleteDataByID(i.ToString());
             }
-          
         }
-
     }
     private void Update()
     {
         if (quests.Length <= 0) noQuest = true;
-       // Debug.LogWarning("Message Accept" + MessageManager.isAccept);
+        // Debug.LogWarning("Message Accept" + MessageManager.isAccept);
         if (MessageManager.isAccept)
         {
             ShowDialogue();
@@ -80,6 +77,7 @@ public class QuestGiver : RPGMonoBehaviour
         }
         Notification();
     }
+
     public void Notification()
     {
         if (quests.Length <= 0) return;
@@ -121,16 +119,13 @@ public class QuestGiver : RPGMonoBehaviour
                     break;
                 case QuestState.Complete:
                     dialogues = quests[questIndex].dialoguesComplete;
-                  //  Debug.LogWarning("DialoguesLength" + dialogues.Length);
+                    //  Debug.LogWarning("DialoguesLength" + dialogues.Length);
                     break;
             }
         }
         FullTextCheck(dialogues);
-
         if (textAnimationCoroutine != null)
             StopCoroutine(textAnimationCoroutine);
-
-
         string fullText = "";
         if (noQuest)
         {
@@ -148,7 +143,6 @@ public class QuestGiver : RPGMonoBehaviour
         {
             fullText = dialogues[dialogueIndex];
         }
-
         dialogueIndex++;
         textAnimationCoroutine = StartCoroutine(AnimateText(fullText));
         NextQuest();
@@ -159,13 +153,11 @@ public class QuestGiver : RPGMonoBehaviour
     {
         if (dialogueIndex >= dialogues.Length - 1 && (quests[questIndex].questState == QuestState.NotStarted || quests[questIndex].questState == QuestState.InProgress))
         {
-            //Debug.LogWarning("Length -1 :" + (dialogues.Length - 1));
             dialogueIndex = dialogues.Length - 1;
             isFullText = true;
         }
         if (dialogueIndex >= dialogues.Length && quests[questIndex].questState == QuestState.Complete)
         {
-          //  Debug.LogWarning("Length -1 :" + (dialogues.Length - 1));
             dialogueIndex = dialogues.Length - 1;
             isFullText = true;
         }
@@ -187,25 +179,30 @@ public class QuestGiver : RPGMonoBehaviour
         if (noQuest) return;
         if (isFullText && quests[questIndex].questState == QuestState.Complete)
         {
-
-            MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
-            LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
-            Debug.Log("EXP : " + quests[questIndex].experienceReward);
-            questIndex++;
+            GiveReward();
+            if (questIndex >= quests.Length)
+            {
+                questIndex = quests.Length - 1;
+                noQuest = true;
+            }
+            else
+            {
+                questIndex++;
+            }
             //QuestManager.Instance.RemoveQuest(quests[questIndex]);
             dialogueIndex = 0;
             notificated = false;
             isFullText = false;
             nextQuest = true;
             questIndexManager.SaveData();//Save QuestIndex
-            if (questIndex >= quests.Length)
-            {
-                questIndex = quests.Length - 1;
-                noQuest = true;
-            }
-
             messageBox.GetComponent<MessageManager>().Refuse();
         }
+    }
+    public virtual void GiveReward()
+    {
+        MoneyManager.Instance.AddGold(quests[questIndex].goldReward);
+        LevelSystem.Instance.GainExperienceFlatRate(quests[questIndex].experienceReward);
+        Debug.Log("EXP : " + quests[questIndex].experienceReward);
     }
     public virtual void QuestInProgress()
     {
@@ -215,8 +212,6 @@ public class QuestGiver : RPGMonoBehaviour
             dialogueIndex = 0;
             isFullText = false;
             messageBox.GetComponent<MessageManager>().Refuse();
-            Debug.Log("Call Check");
-
         }
     }
     protected virtual void SpawnNotification()
@@ -225,7 +220,6 @@ public class QuestGiver : RPGMonoBehaviour
         Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
         NotificationText nofText = fxObj.GetComponentInChildren<NotificationText>();
         nofText.SetText("Hoàn thành nhiệm vụ");
-       // Debug.Log("Quest Notification Called" + transform.parent.name);
         fxObj.gameObject.SetActive(true);
     }
     IEnumerator WaitToFalse()

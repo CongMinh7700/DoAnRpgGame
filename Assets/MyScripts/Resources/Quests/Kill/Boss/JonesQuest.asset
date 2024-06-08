@@ -38,5 +38,5 @@ MonoBehaviour:
   questState: 2
   targetName: Jones
   targetCount: 1
-  currentCount: 0
+  currentCount: 1
   rewardItem: []

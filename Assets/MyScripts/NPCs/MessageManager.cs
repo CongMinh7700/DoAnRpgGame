@@ -110,7 +110,7 @@ public class MessageManager : RPGMonoBehaviour
         }
         if (numbShop == 1 || numbShop == 4)
         {
-            ownerText.text = "Ông chủ";
+            ownerText.text = "Chủ tiệm";
         }
         if (numbShop == 2)
         {

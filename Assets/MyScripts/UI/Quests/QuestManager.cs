@@ -46,6 +46,10 @@ public class QuestManager : RPGMonoBehaviour
                     CompleteQuest(quest);
                     UpdateQuestLog();
                 }
+                else
+                {
+                    return;
+                }
             }
         }
     }
@@ -56,6 +60,7 @@ public class QuestManager : RPGMonoBehaviour
             Debug.Log(quest.questTitle + "Name");
             if (quest.targetName == targetName && quest.questState == QuestState.InProgress)
             {
+                Debug.Log("Call this");
                 return true;
             }
         }

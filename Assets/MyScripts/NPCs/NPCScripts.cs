@@ -6,6 +6,7 @@ public class NPCScripts : RPGMonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private QuestGiver questGiver;
+
     protected override void LoadComponents()
     {
         this.LoadAnimator();
@@ -28,6 +29,7 @@ public class NPCScripts : RPGMonoBehaviour
     private void Start()
     {
         questGiver.messageBox.SetActive(false);
+
     }
     private void OnTriggerStay(Collider other)
     {
