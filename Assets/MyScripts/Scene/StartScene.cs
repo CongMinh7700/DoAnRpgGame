@@ -59,9 +59,9 @@ public class StartScene : RPGMonoBehaviour
     }
     public void ExitButton()
     {
+        Debug.Log("Exit");
         Application.Quit();
     }
-    //Phải có scene loading để che load scene lâu
 
 
   

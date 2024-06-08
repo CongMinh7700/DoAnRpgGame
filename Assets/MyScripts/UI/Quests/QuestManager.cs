@@ -76,9 +76,13 @@ public class QuestManager : RPGMonoBehaviour
     }
     public void AddQuest(Quest newQuest)
     {
-        newQuest.questState = QuestState.InProgress;
-        activeQuests.Add(newQuest);
-        Debug.Log("Add complete Quest");
+        if(newQuest.questState == QuestState.NotStarted)
+        {
+            newQuest.questState = QuestState.InProgress;
+            activeQuests.Add(newQuest);
+            Debug.Log("Add complete Quest");
+        }
+       
 
     }
 

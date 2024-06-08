@@ -7,11 +7,20 @@ public class SettingCanvas : RPGMonoBehaviour
 {
     [SerializeField] protected GameObject settingUI;
     [SerializeField] protected GameObject pauseUI;
+    [SerializeField] protected GameObject deathScreen;
 
+    private void Update()
+    {
+        if (PlayerDamageReceiver.isDeath)
+        {
+            deathScreen.SetActive(true);
+        }
+    }
     private void Start()
     {
         settingUI.SetActive(false);
         pauseUI.SetActive(false);
+        deathScreen.SetActive(false);
     }
     protected override void LoadComponents()
     {
@@ -61,7 +70,7 @@ public class SettingCanvas : RPGMonoBehaviour
     {
         SFXManager.Instance.PlaySFXClick();
         SaveGame.Instance.Save();
-        Application.Quit();
+        StartCoroutine(WaitToExit());
     }
     protected virtual void SaveNotification()
     {
@@ -70,5 +79,10 @@ public class SettingCanvas : RPGMonoBehaviour
         NotificationText nofText = fxObj.GetComponentInChildren<NotificationText>();
         nofText.SetText("Lưu game thành công");
         fxObj.gameObject.SetActive(true);
+    }
+  IEnumerator WaitToExit()
+    {
+        yield return new WaitForSeconds(2f);
+        Application.Quit();
     }
 }
