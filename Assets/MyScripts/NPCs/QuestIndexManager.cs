@@ -46,7 +46,7 @@ public class QuestIndexManager : RPGMonoBehaviour
         try
         {
             QuestInfo currentQuest = new QuestInfo();
-            currentQuest.AddQuestInfo(questGiver.shopNumber, questGiver.questIndex);
+            currentQuest.AddQuestInfo(questGiver.shopNumber, questGiver.questIndex,questGiver.quests[questGiver.questIndex].questState);
             string jsonData = JsonUtility.ToJson(currentQuest);
             System.IO.File.WriteAllText(dataPath, jsonData);
             Debug.Log("<color=green>Data successfully saved!</color>");
@@ -78,6 +78,7 @@ public class QuestIndexManager : RPGMonoBehaviour
             if (info.shopNumber == questGiver.shopNumber)
             {
                 questGiver.questIndex = info.questIndex;
+                questGiver.quests[questGiver.questIndex].questState = info.questState;
                 Debug.Log("<color=green>Data successfully loaded!</color>");
             }
             else
@@ -112,23 +113,26 @@ public class QuestIndexManager : RPGMonoBehaviour
 
     protected virtual string GetIDPath(string id)
     {
-        return Application.persistentDataPath + $"/QuestIndex {id}.dat";
+        return Application.persistentDataPath + $"/QuestIndex{id}.dat";
     }
 
     public class QuestInfo
     {
         public int shopNumber;
         public int questIndex;
+        public QuestState questState;
 
         public QuestInfo()
         {
             shopNumber = new int();
             questIndex = new int();
+            questState = new QuestState();
         }
-        public void AddQuestInfo(int id, int index)
+        public void AddQuestInfo(int id, int index,QuestState state)
         {
             shopNumber = id;
             questIndex = index;
+            questState = state;
         }
     }
     #endregion

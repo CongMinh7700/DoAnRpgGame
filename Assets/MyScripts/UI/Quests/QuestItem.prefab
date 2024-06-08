@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mua \u0111\u1ED3 \u1EDF th\u1EE3 r\xE8n"
+  m_text: QuestItem
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2d85f333073d5e419049a59c1ab5238, type: 2}
   m_sharedMaterial: {fileID: 8776792336963638351, guid: e2d85f333073d5e419049a59c1ab5238, type: 2}
@@ -283,3 +283,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questTitleText: {fileID: 3991238770997556454}
+  quest: {fileID: 0}

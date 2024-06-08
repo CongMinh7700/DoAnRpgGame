@@ -31,7 +31,7 @@ public class StartScene : RPGMonoBehaviour
         }
    
         Debug.Log("Main Story Scene Start"); 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         SaveGame.newGame = true;
     }
     public void ContinueButton()

@@ -39,12 +39,13 @@ public class QuestGiver : RPGMonoBehaviour
         }
         else
         {
-            ResetAllQuest.Instance.ResetQuests();
-            questIndexManager.DeleteData();
+           // questIndexManager.DeleteData();
+            
             for (int i = 0; i < 6; i++)
             {
                 questIndexManager.DeleteDataByID(i.ToString());
             }
+            ResetAllQuest.Instance.ResetQuests();
         }
     }
     private void Update()
@@ -90,6 +91,10 @@ public class QuestGiver : RPGMonoBehaviour
                 canNotification = false;
                 SpawnNotification();
             }
+        }
+        else
+        {
+            return;
         }
     }
     public void ShowDialogue()

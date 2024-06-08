@@ -17,7 +17,7 @@ public class Quest : ScriptableObject
     public string targetName;
     public int targetCount;
     public int currentCount;
-    public List<Item> rewardItem;
+    //public List<Item> rewardItem;
 }
 public enum QuestType {
     KillQuest = 0,

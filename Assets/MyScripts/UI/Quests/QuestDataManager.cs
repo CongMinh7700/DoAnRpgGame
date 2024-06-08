@@ -19,7 +19,7 @@ public class QuestDataManager : RPGMonoBehaviour
     }
     public void SaveData(string id)
     {
-   
+
         string dataPath = GetIDPath(id);
 
         if (System.IO.File.Exists(dataPath))
@@ -37,7 +37,7 @@ public class QuestDataManager : RPGMonoBehaviour
                 QuestItemUI slot = questListContent.GetChild(i).GetComponent<QuestItemUI>();
                 info.AddInfo(i, questManager.GetQuestIndex(slot.quest));
             }
-           // Debug.Log(questListContent.childCount);
+            // Debug.Log(questListContent.childCount);
             string jsonData = JsonUtility.ToJson(info);
             System.IO.File.WriteAllText(dataPath, jsonData);
             Debug.Log("<color=green>Data Quest succesfully saved! </color>");
@@ -62,9 +62,9 @@ public class QuestDataManager : RPGMonoBehaviour
         {
             string jsonData = System.IO.File.ReadAllText(dataPath);
             SlotInfo info = JsonUtility.FromJson<SlotInfo>(jsonData);
-           
+
             Transform questListContent = questManager.questListContent.transform;
-         
+
             for (int i = 0; i < info.slotIndexs.Count; i++)
             {
                 Quest quest = questManager.GetQuestByIndex(info.itemIndexs[i]);
@@ -96,7 +96,7 @@ public class QuestDataManager : RPGMonoBehaviour
     }
     public static bool HasData(string id)
     {
-        string dataPath =  Application.persistentDataPath + $"/QuestDataManager{id}.dat";
+        string dataPath = Application.persistentDataPath + $"/QuestDataManager{id}.dat";
         return System.IO.File.Exists(dataPath);
     }
     public class SlotInfo

@@ -47,7 +47,7 @@ public class SaveGame : RPGMonoBehaviour
             StartCoroutine(WaitToFalse());
             LevelSystem.Instance.bossKill = 0;
         }
-       
+        Time.timeScale = 1;
     }
     public virtual void Save()
     {

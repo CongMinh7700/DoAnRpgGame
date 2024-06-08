@@ -34,11 +34,16 @@ public class QuestItemUI : RPGMonoBehaviour
             questTitleText.text = "<s>" + quest.questTitle + "</s>\n"; ;
             questTitleText.color = Color.yellow;
         }
-        else
+        else if(quest.questState == QuestState.InProgress)
         {
             questTitleText.text = quest.questTitle;
             questTitleText.color = Color.white;
             //  questTitleText.fontStyle = FontStyles.Normal;
+        }
+        else
+        {
+            questTitleText.text = quest.questTitle;
+            questTitleText.color = Color.white;
         }
 
     }
