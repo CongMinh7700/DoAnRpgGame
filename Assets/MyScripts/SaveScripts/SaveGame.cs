@@ -33,8 +33,6 @@ public class SaveGame : RPGMonoBehaviour
             }
             else
             {
-               // saveScripts.SaveData("");
-                //saveScripts.LoadData("");
                 Debug.Log("SaveScripts");
                 return;
             }

@@ -29,6 +29,7 @@ public class QuestItemUI : RPGMonoBehaviour
     {
        // Debug.Log($"Quest {quest.questTitle} set with state {questState}" + " Quest State :" + quest.questState);
         this.quest = quest;
+
        // this.quest.questState = questState;
         
        // Debug.Log($"BeLow Quest {quest.questTitle} set with state {questState}" + " Quest State :"+ quest.questState);
@@ -45,6 +46,29 @@ public class QuestItemUI : RPGMonoBehaviour
             //  questTitleText.fontStyle = FontStyles.Normal;
         }
      
+
+    }
+    public void LoadSetQuest(Quest quest,int currentCount)//,QuestState questState)
+    {
+        // Debug.Log($"Quest {quest.questTitle} set with state {questState}" + " Quest State :" + quest.questState);
+        this.quest = quest;
+        this.quest.currentCount = currentCount;
+        // this.quest.questState = questState;
+
+        // Debug.Log($"BeLow Quest {quest.questTitle} set with state {questState}" + " Quest State :"+ quest.questState);
+        if (quest.questState == QuestState.Complete)
+        {
+            Debug.Log("Quest Complete");
+            questTitleText.text = "<s>" + quest.questTitle + "</s>\n"; ;
+            questTitleText.color = Color.yellow;
+        }
+        else
+        {
+            questTitleText.text = quest.questTitle;
+            questTitleText.color = Color.white;
+            //  questTitleText.fontStyle = FontStyles.Normal;
+        }
+
 
     }
     public void OnQuestItemClicked()

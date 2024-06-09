@@ -101,11 +101,10 @@ public class QuestManager : RPGMonoBehaviour
         }
         foreach (Quest quest in activeQuests)
         {
-            if (quest.currentCount < quest.targetCount) quest.questState = QuestState.InProgress;//mới sửa
             GameObject questItem = Instantiate(questItemPrefab, questListContent);
             QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
             Debug.Log("Quest State Update Quest :" + quest.questState);
-            questItemUI.SetQuest(quest);//,quest.questState);
+            questItemUI.LoadSetQuest(quest,quest.currentCount);//,quest.questState);
         }
 
     }

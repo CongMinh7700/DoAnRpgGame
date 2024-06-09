@@ -43,7 +43,7 @@ public class QuestDataManager : RPGMonoBehaviour
                     if (i < questManager.activeQuests.Count)
                     {
                         QuestState questState = questManager.activeQuests[i].questState;
-                        info.AddInfo(i, questIndex, questState,slot.quest.currentCount);
+                        info.AddInfo(i, questIndex, questState, questManager.activeQuests[i].currentCount);
                         Debug.Log($"Slot {i}: QuestIndex = {questIndex}, QuestState = {questState}, QuestTitle = {slot.quest.questTitle}");
                         Debug.Log($"Quest Manager Quest State: {questManager.activeQuests[i].questState}");
                     }
@@ -92,12 +92,13 @@ public class QuestDataManager : RPGMonoBehaviour
             for (int i = 0; i < info.slotIndexs.Count; i++)
             {
                 Quest quest = questManager.GetQuestByIndex(info.itemIndexs[i]);
+                quest.currentCount = info.currentCounts[i];
                 if (quest.currentCount < quest.targetCount) quest.questState = QuestState.InProgress;
                 else if (quest.currentCount >= quest.targetCount) quest.questState = QuestState.Complete;
                 questManager.LoadQuest(quest);
                 Debug.Log("Quest State Load Quest(Load Data) :" + info.questStates[i]);
                 Debug.Log("Number : " + i + "QuestIndex : " + questManager.GetQuestByIndex(info.itemIndexs[i]) +info.itemIndexs[i] + "Quest State :" + quest.questState + "Slot :" + quest.questTitle);
-                questListContent.GetChild(info.slotIndexs[i]).GetComponent<QuestItemUI>().SetQuest(quest);//,info.questStates[i]);
+                questListContent.GetChild(info.slotIndexs[i]).GetComponent<QuestItemUI>().LoadSetQuest(quest, quest.currentCount);//SetQuest(quest);//,info.questStates[i]);
 
             }
 
