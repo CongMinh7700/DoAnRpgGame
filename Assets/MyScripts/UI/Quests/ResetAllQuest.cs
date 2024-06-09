@@ -8,7 +8,7 @@ public class ResetAllQuest : MonoBehaviour
     // Singleton pattern
     protected static ResetAllQuest instance;
     public static ResetAllQuest Instance => instance;
-
+    public List<Quest> allQuests = new List<Quest>();
     private void Awake()
     {
         if (ResetAllQuest.instance != null) Debug.LogWarning("Only 1 ResetAllQuest Allow to exits");
@@ -28,6 +28,12 @@ public class ResetAllQuest : MonoBehaviour
             }
 
             Debug.Log("Quests have been reset.");
+            //if (allQuests.Count <= 0) return;
+            //foreach(Quest quest in allQuests)
+            //{
+            //    quest.currentCount = 0;
+            //    quest.questState = QuestState.NotStarted;
+            //}
         }
         catch
         {

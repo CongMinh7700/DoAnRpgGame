@@ -22,7 +22,7 @@ public class ItemSlot : RPGMonoBehaviour
     }
     private void Update()
     {
-   
+
     }
     //Add Item
     public virtual bool Add(Item item)
@@ -108,8 +108,13 @@ public class ItemSlot : RPGMonoBehaviour
     //Thiết lập data, UI cho slot
     public void SetData(Item item, int count)
     {
-
-        if(slotItem == item)
+        slotItem = item;
+        itemCount = count;
+        OnSlotModified();
+    }
+    public void UnEQuip(Item item, int count)
+    {
+        if (slotItem == item)
         {
             itemCount += count;
         }
@@ -121,30 +126,29 @@ public class ItemSlot : RPGMonoBehaviour
 
         OnSlotModified();
     }
-
-    public  void AssignItem()
+    public void AssignItem()
     {
 
-            QuickBar quickBar = FindObjectOfType<QuickBar>();
-            foreach (QuickItemSlot quickItemSlot in quickBar.itemSlots)
+        QuickBar quickBar = FindObjectOfType<QuickBar>();
+        foreach (QuickItemSlot quickItemSlot in quickBar.itemSlots)
+        {
+            if (Input.GetKey(quickItemSlot.key))
             {
-                if (Input.GetKey(quickItemSlot.key))
-                {
                 if (!IsEmpty && slotItem.isFood)
                 {
                     if (quickItemSlot != null)
                     {
-                        
+
                         quickItemSlot.BackToInventory();
-                        quickItemSlot.SetData(slotItem, itemCount);
-               
+                        quickItemSlot.UnEQuip(slotItem, itemCount);
+
                         Clear();
                         break;
                     }
-                   
+
                 }
 
-       
+
             }
         }
 

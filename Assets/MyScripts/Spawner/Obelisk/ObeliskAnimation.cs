@@ -41,7 +41,7 @@ public class ObeliskAnimation : RPGMonoBehaviour
         }
         else
         {
-            Debug.LogError("Nofences");
+            Debug.LogWarning("Nofences");
         }
  
     }

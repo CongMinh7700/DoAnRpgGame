@@ -36,4 +36,3 @@ MonoBehaviour:
   targetName: Gloves
   targetCount: 1
   currentCount: 0
-  rewardItem: []

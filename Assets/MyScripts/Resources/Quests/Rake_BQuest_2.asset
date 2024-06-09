@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
-  m_Name: Rake_BQuest_1
+  m_Name: Rake_BQuest_2
   m_EditorClassIdentifier: 
-  questTitle: "Th\u1EE7y qu\xE1i \u0111\u1ED9t bi\u1EBFn 1"
+  questTitle: "Th\u1EE7y qu\xE1i \u0111\u1ED9t bi\u1EBFn 2"
   description: "B\u1ECDn th\u1EE7y qu\xE1i d\u01B0\u1EDDng nh\u01B0 \u0111\xE3 ti\u1EBFn
     h\xF3a h\xE3y ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng.\nCh\xFAng s\u1ED1ng \u1EDF
     khu v\u1EF1c ven s\xF4ng."
   experienceReward: 5000
-  goldReward: 200
+  goldReward: 300
   dialogues:
   - "Ch\xE0o anh h\xF9ng tr\u1EBB !"
-  - "L\u0169 th\u1EE7y qu\xE1i d\u01B0\u1EDDng nh\u01B0 \u0111\xE3 ti\u1EBFn h\xF3a
-    l\xEAn m\u1ED9t d\u1EA1ng m\u1EDBi v\xE0 \u0111ang l\xE0 m\u1ED1i nguy h\u1EA1i 
-    v\u1EDBi ng\u01B0\u1EDDi d\xE2n. Xin h\xE3y ti\xEAu di\u1EC7t ch\xFAng."
-  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 10 con th\u1EE7y qu\xE1i \u0111\u1ED9t
+  - "B\u1ECDn th\u1EE7y qu\xE1i \u0111ang c\u1EA3n tr\u1EDF c\xF4ng vi\u1EC7c khai
+    th\xE1c c\u1EE7a ta. H\xE3y gi\xFAp ta ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng.Ta
+    s\u1EBD tr\u1EA3 c\xF4ng cho."
+  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 20 con th\u1EE7y qu\xE1i \u0111\u1ED9t
     bi\u1EBFn."
   dialoguesComplete:
   - "C\u1EA3m \u01A1n c\u1EADu r\u1EA5t  nhi\u1EC1u !"
@@ -33,8 +33,7 @@ MonoBehaviour:
   - "B\u1ECDn ch\xFAng \u0111\xE3 b\u1ECB \u0111\u1ED9t bi\u1EBFn. Ta khuy\xEAn ng\u01B0\u1EDDi
     n\xEAn c\u1EA9n th\u1EADn th\xEC h\u01A1n.Ch\xFAc may m\u1EAFn !"
   type: 0
-  questState: 2
+  questState: 0
   targetName: Rake_B
-  targetCount: 10
+  targetCount: 20
   currentCount: 0
-  rewardItem: []

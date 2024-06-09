@@ -37,4 +37,3 @@ MonoBehaviour:
   targetName: Rake_A
   targetCount: 10
   currentCount: 0
-  rewardItem: []

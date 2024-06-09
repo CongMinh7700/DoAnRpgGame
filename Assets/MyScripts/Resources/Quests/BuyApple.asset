@@ -30,8 +30,7 @@ MonoBehaviour:
   - "H\xE3y mua 5 qu\u1EA3 t\xE1o \u1EDF ti\u1EC7m \u0111\u1ED1i di\u1EC7n. R\u1ED3i
     quay l\u1EA1i \u0111\xE2y b\xE1o c\xE1o v\u1EDBi ta."
   type: 1
-  questState: 2
+  questState: 0
   targetName: Apple
   targetCount: 5
-  currentCount: 5
-  rewardItem: []
+  currentCount: 0

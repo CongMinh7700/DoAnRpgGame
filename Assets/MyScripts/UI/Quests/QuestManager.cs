@@ -101,9 +101,11 @@ public class QuestManager : RPGMonoBehaviour
         }
         foreach (Quest quest in activeQuests)
         {
+            if (quest.currentCount < quest.targetCount) quest.questState = QuestState.InProgress;//mới sửa
             GameObject questItem = Instantiate(questItemPrefab, questListContent);
             QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
-            questItemUI.SetQuest(quest);
+            Debug.Log("Quest State Update Quest :" + quest.questState);
+            questItemUI.SetQuest(quest);//,quest.questState);
         }
 
     }
@@ -121,7 +123,8 @@ public class QuestManager : RPGMonoBehaviour
         {
             GameObject questItem = Instantiate(questItemPrefab, questListContent);
             QuestItemUI questItemUI = questItem.GetComponent<QuestItemUI>();
-            questItemUI.SetQuest(quest);
+            Debug.Log("Quest State Load Quest :" + quest.questState);
+            questItemUI.SetQuest(quest);//, quest.questState);
 
         }
         activeQuests.Add(quest);
@@ -147,11 +150,19 @@ public class QuestManager : RPGMonoBehaviour
 
     public Quest GetQuestByIndex(int index)
     {
-        return questList[index];
+        if (index >= 0 && index < questList.Count)
+        {
+            return questList[index];
+        }
+        return null;
     }
     public int GetQuestIndex(Quest quest)
     {
-        for (int i = 0; i < questList.Count; i++) if (questList[i] == quest) return i;
+        for (int i = 0; i < questList.Count; i++)
+        {
+            if (questList[i] == quest) return i;
+            Debug.Log("Index :" + i);
+        }
         return -1;
     }
 }

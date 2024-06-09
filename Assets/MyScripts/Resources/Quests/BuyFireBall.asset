@@ -34,4 +34,3 @@ MonoBehaviour:
   targetName: FireBall
   targetCount: 1
   currentCount: 0
-  rewardItem: []

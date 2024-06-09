@@ -31,8 +31,7 @@ MonoBehaviour:
     vi\u1EC7c c\u1EE7a ta.H\xE3y ti\xEAu di\u1EC7t b\u1ECDn ch\xFAng v\xE0 b\xE1o
     c\xE1o l\u1EA1i v\u1EDBi ta nh\xE9."
   type: 0
-  questState: 2
+  questState: 0
   targetName: Rake_A
   targetCount: 30
   currentCount: 0
-  rewardItem: []

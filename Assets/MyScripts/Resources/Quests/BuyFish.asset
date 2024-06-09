@@ -34,4 +34,3 @@ MonoBehaviour:
   targetName: Fish
   targetCount: 5
   currentCount: 0
-  rewardItem: []

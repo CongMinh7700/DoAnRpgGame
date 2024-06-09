@@ -29,7 +29,7 @@ public class SaveGame : RPGMonoBehaviour
             {
                 Debug.Log("Load");
                 Load();
-                saveScripts.LoadData("");
+                //saveScripts.LoadData("");
             }
             else
             {
@@ -46,6 +46,7 @@ public class SaveGame : RPGMonoBehaviour
             saveScripts.LoadData("");
             StartCoroutine(WaitToFalse());
             LevelSystem.Instance.bossKill = 0;
+
         }
         Time.timeScale = 1;
     }
@@ -63,10 +64,10 @@ public class SaveGame : RPGMonoBehaviour
     {
         Debug.LogWarning("Call Load Save Gaem");
         saveScripts.LoadData("");
+        questData.LoadData("");
         equipData.LoadData("");
         quickData.LoadData("");
         skillData.LoadData("");
-        questData.LoadData("");
         inventoryData.LoadData("");
 
     }
@@ -136,8 +137,7 @@ public class SaveGame : RPGMonoBehaviour
     }
     IEnumerator WaitToFalse()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         newGame = false;
     }
-
 }

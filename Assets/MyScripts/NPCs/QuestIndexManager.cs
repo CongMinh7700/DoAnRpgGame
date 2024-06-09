@@ -46,7 +46,7 @@ public class QuestIndexManager : RPGMonoBehaviour
         try
         {
             QuestInfo currentQuest = new QuestInfo();
-            currentQuest.AddQuestInfo(questGiver.shopNumber, questGiver.questIndex,questGiver.quests[questGiver.questIndex].questState);
+            currentQuest.AddQuestInfo(questGiver.shopNumber, questGiver.questIndex);//,questGiver.quests[questGiver.questIndex].questState);
             string jsonData = JsonUtility.ToJson(currentQuest);
             System.IO.File.WriteAllText(dataPath, jsonData);
             Debug.Log("<color=green>Data successfully saved!</color>");
@@ -74,11 +74,12 @@ public class QuestIndexManager : RPGMonoBehaviour
         {
             string jsonData = System.IO.File.ReadAllText(dataPath);
             QuestInfo info = JsonUtility.FromJson<QuestInfo>(jsonData);
-            Debug.Log("Number : " + info.shopNumber + "QuestIndex : " + info.questIndex);
+            Debug.Log("Number : " + info.shopNumber + "QuestIndex : " + info.questIndex + "Quest State :");//+ info.questState);
             if (info.shopNumber == questGiver.shopNumber)
             {
                 questGiver.questIndex = info.questIndex;
-                questGiver.quests[questGiver.questIndex].questState = info.questState;
+                //questGiver.quests[questGiver.questIndex].questState = info.questState;
+               // Debug.Log("IN Site Number : " + info.shopNumber + "QuestIndex : " + info.questIndex + "Quest State :" + info.questState);
                 Debug.Log("<color=green>Data successfully loaded!</color>");
             }
             else
@@ -120,19 +121,19 @@ public class QuestIndexManager : RPGMonoBehaviour
     {
         public int shopNumber;
         public int questIndex;
-        public QuestState questState;
+       // public QuestState questState;
 
         public QuestInfo()
         {
             shopNumber = new int();
             questIndex = new int();
-            questState = new QuestState();
+           // questState = new QuestState();
         }
-        public void AddQuestInfo(int id, int index,QuestState state)
+        public void AddQuestInfo(int id, int index)//,QuestState state)
         {
             shopNumber = id;
             questIndex = index;
-            questState = state;
+           // questState = state;
         }
     }
     #endregion

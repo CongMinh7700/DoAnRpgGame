@@ -19,32 +19,56 @@ public class QuestDataManager : RPGMonoBehaviour
     }
     public void SaveData(string id)
     {
-
         string dataPath = GetIDPath(id);
 
         if (System.IO.File.Exists(dataPath))
         {
             System.IO.File.Delete(dataPath);
-            Debug.Log("Exisiting Quest data with id: " + id + "  is overwritten.");
+            Debug.Log("Existing Quest data with id: " + id + " is overwritten.");
         }
 
         try
         {
             Transform questListContent = questManager.questListContent.transform;
             SlotInfo info = new SlotInfo();
+
             for (int i = 0; i < questListContent.childCount; i++)
             {
                 QuestItemUI slot = questListContent.GetChild(i).GetComponent<QuestItemUI>();
-                info.AddInfo(i, questManager.GetQuestIndex(slot.quest));
+                if (slot != null && slot.quest != null)
+                {
+                    int questIndex = questManager.GetQuestIndex(slot.quest);
+
+                    // Ensure index is within range
+                    if (i < questManager.activeQuests.Count)
+                    {
+                        QuestState questState = questManager.activeQuests[i].questState;
+                        info.AddInfo(i, questIndex, questState,slot.quest.currentCount);
+                        Debug.Log($"Slot {i}: QuestIndex = {questIndex}, QuestState = {questState}, QuestTitle = {slot.quest.questTitle}");
+                        Debug.Log($"Quest Manager Quest State: {questManager.activeQuests[i].questState}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Index {i} is out of range for activeQuests. Skipping this slot.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"QuestItemUI or Quest is null for slot {i}. Skipping this slot.");
+                }
             }
-            // Debug.Log(questListContent.childCount);
-            string jsonData = JsonUtility.ToJson(info);
+
+            // Convert to JSON
+            string jsonData = JsonUtility.ToJson(info, true);
+            Debug.Log($"JSON Data: {jsonData}");
+
+            // Save to file
             System.IO.File.WriteAllText(dataPath, jsonData);
-            Debug.Log("<color=green>Data Quest succesfully saved! </color>");
+            Debug.Log("<color=green>Data Quest successfully saved! </color>");
         }
-        catch
+        catch (System.Exception ex)
         {
-            Debug.LogError("Could not save container data! Make sure you have entered a valid id and all the item scriptable objects are added to the QuestDataManager item list");
+            Debug.LogError($"Could not save container data: {ex.Message}");
         }
     }
 
@@ -57,7 +81,7 @@ public class QuestDataManager : RPGMonoBehaviour
             Debug.LogWarning("No saved data exists for the provided id: " + id);
             return;
         }
-
+        //Check current và set quest
         try
         {
             string jsonData = System.IO.File.ReadAllText(dataPath);
@@ -68,9 +92,12 @@ public class QuestDataManager : RPGMonoBehaviour
             for (int i = 0; i < info.slotIndexs.Count; i++)
             {
                 Quest quest = questManager.GetQuestByIndex(info.itemIndexs[i]);
-
+                if (quest.currentCount < quest.targetCount) quest.questState = QuestState.InProgress;
+                else if (quest.currentCount >= quest.targetCount) quest.questState = QuestState.Complete;
                 questManager.LoadQuest(quest);
-                questListContent.GetChild(info.slotIndexs[i]).GetComponent<QuestItemUI>().SetQuest(quest);
+                Debug.Log("Quest State Load Quest(Load Data) :" + info.questStates[i]);
+                Debug.Log("Number : " + i + "QuestIndex : " + questManager.GetQuestByIndex(info.itemIndexs[i]) +info.itemIndexs[i] + "Quest State :" + quest.questState + "Slot :" + quest.questTitle);
+                questListContent.GetChild(info.slotIndexs[i]).GetComponent<QuestItemUI>().SetQuest(quest);//,info.questStates[i]);
 
             }
 
@@ -103,18 +130,23 @@ public class QuestDataManager : RPGMonoBehaviour
     {
         public List<int> slotIndexs;
         public List<int> itemIndexs;
-
+        public List<QuestState> questStates;
+        public List<int> currentCounts;
 
         public SlotInfo()
         {
             slotIndexs = new List<int>();
             itemIndexs = new List<int>();
+            questStates = new List<QuestState>();
+            currentCounts = new List<int>();
         }
 
-        public void AddInfo(int slotInex, int itemIndex)
+        public void AddInfo(int slotInex, int itemIndex,QuestState questState,int currentCount)
         {
             slotIndexs.Add(slotInex);
             itemIndexs.Add(itemIndex);
+            questStates.Add(questState);
+            currentCounts.Add(currentCount);
         }
 
     }

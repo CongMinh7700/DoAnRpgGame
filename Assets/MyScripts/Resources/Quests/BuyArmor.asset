@@ -34,4 +34,3 @@ MonoBehaviour:
   targetName: Armor
   targetCount: 1
   currentCount: 0
-  rewardItem: []
