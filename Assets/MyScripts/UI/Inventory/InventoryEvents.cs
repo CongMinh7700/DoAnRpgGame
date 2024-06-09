@@ -116,4 +116,16 @@ public class InventoryEvents : RPGMonoBehaviour
         
         }
     }
+    public void UnEquipAllItem(Item item, int count)
+    {
+        for (int i = 0; i < itemContainer.slots.Length; i++)
+        {
+            if (itemContainer.slots[i].IsAddable(item))
+            {
+                itemContainer.slots[i].UnEQuip(item, count);
+                break;
+            }
+
+        }
+    }
 }

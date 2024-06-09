@@ -30,7 +30,7 @@ MonoBehaviour:
   dialoguesInProgress:
   - "H\xE3y mua 5 con c\xE1 n\u01B0\u1EDBng r\u1ED1i quay l\u1EA1i \u0111\xE2y."
   type: 1
-  questState: 0
+  questState: 2
   targetName: Fish
   targetCount: 5
   currentCount: 0

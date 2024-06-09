@@ -30,7 +30,7 @@ MonoBehaviour:
   - "H\xE3y mua \xE1o gi\xE1p s\u1EAFt t\u1EEB th\u1EE3 r\xE8n b\xEAn c\u1EA1nh.R\u1ED3i
     quay l\u1EA1i \u0111\xE2y b\xE1o c\xE1o v\u1EDBi ta."
   type: 1
-  questState: 0
+  questState: 2
   targetName: Armor
   targetCount: 1
   currentCount: 0

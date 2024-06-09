@@ -33,7 +33,7 @@ MonoBehaviour:
   - "B\u1ECDn ch\xFAng \u0111\xE3 b\u1ECB \u0111\u1ED9t bi\u1EBFn. Ta khuy\xEAn ng\u01B0\u1EDDi
     n\xEAn c\u1EA9n th\u1EADn th\xEC h\u01A1n.Ch\xFAc may m\u1EAFn !"
   type: 0
-  questState: 0
+  questState: 2
   targetName: Rake_B
   targetCount: 20
   currentCount: 0

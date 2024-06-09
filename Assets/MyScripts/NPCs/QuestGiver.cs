@@ -185,7 +185,7 @@ public class QuestGiver : RPGMonoBehaviour
         if (isFullText && quests[questIndex].questState == QuestState.Complete)
         {
             GiveReward();
-            if (questIndex >= quests.Length)
+            if (questIndex >= quests.Length-1)
             {
                 questIndex = quests.Length - 1;
                 noQuest = true;

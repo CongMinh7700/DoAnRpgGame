@@ -33,7 +33,7 @@ MonoBehaviour:
     t\u1EEB x\u01B0\u01A1ng ng\u01B0\u1EDDi, ch\xFAng th\u1EADt gh\xEA t\u1EDFm v\xE0
     \u0111\xE1ng s\u1EE3.Ch\xFAc may m\u1EAFn !"
   type: 0
-  questState: 0
+  questState: 2
   targetName: CastFishA
   targetCount: 20
   currentCount: 0

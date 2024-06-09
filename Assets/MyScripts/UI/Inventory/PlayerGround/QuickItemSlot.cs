@@ -88,7 +88,7 @@ public class QuickItemSlot : ItemSlot
         {
             if (slotItem.isFood)
             {
-                inventory.inventoryEvents.AddAll(slotItem,itemCount);
+                inventory.inventoryEvents.UnEquipAllItem(slotItem,itemCount);
                 Clear();
             }
            

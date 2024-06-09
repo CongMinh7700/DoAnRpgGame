@@ -32,7 +32,7 @@ MonoBehaviour:
   - "H\xE3y c\u1EA9n th\u1EADn v\u1EDBi b\u1ECDn nh\xF3c \"xanh l\xE8\" \u0111\xF3.
     H\xE3y b\xE1o c\xE1o v\u1EDBi ta khi c\u1EADu ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5"
   type: 0
-  questState: 0
+  questState: 2
   targetName: Goblin
   targetCount: 10
   currentCount: 0

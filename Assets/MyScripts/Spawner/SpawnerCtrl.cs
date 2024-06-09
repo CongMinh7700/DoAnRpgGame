@@ -12,7 +12,6 @@ public class SpawnerCtrl : RPGMonoBehaviour
     public Spawner Spawner => spawner;
     public SpawnPoint SpawnPoint => spawnPoints;
     public SpawnTrigger SpawnTrigger => spawnTrigger;
-    public bool canSpawnBoss = false;
     protected override void LoadComponents()
     {
         this.LoadSpawner();

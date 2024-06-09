@@ -123,7 +123,6 @@ public class ItemSlot : RPGMonoBehaviour
             slotItem = item;
             itemCount = count;
         }
-
         OnSlotModified();
     }
     public void AssignItem()
@@ -140,7 +139,7 @@ public class ItemSlot : RPGMonoBehaviour
                     {
 
                         quickItemSlot.BackToInventory();
-                        quickItemSlot.UnEQuip(slotItem, itemCount);
+                        quickItemSlot.SetData(slotItem, itemCount);
 
                         Clear();
                         break;

@@ -32,7 +32,7 @@ MonoBehaviour:
     khi c\u1EADu ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 nh\xE9 . Ch\xFAc may m\u1EAFn
     !"
   type: 0
-  questState: 0
+  questState: 2
   targetName: Goblin
   targetCount: 25
   currentCount: 0

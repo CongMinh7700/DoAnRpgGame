@@ -45,13 +45,10 @@ public class SpawnRandom : RPGMonoBehaviour
                 Debug.Log(QuestManager.Instance.GetQuestBoss(prefab.name));
                 if (!QuestManager.Instance.GetQuestBoss(prefab.name))
                 {
-                    spawnerCtrl.canSpawnBoss = false;
                     return;
-                    
                 }
                 else
                 {
-                    spawnerCtrl.canSpawnBoss = true;
                     Debug.Log("SpawnRandom : Can spawn Bosss");
                     if (bossSpawned)
                     {
