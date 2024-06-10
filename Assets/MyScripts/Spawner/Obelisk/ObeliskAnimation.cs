@@ -86,6 +86,6 @@ public class ObeliskAnimation : RPGMonoBehaviour
 
         yield return new WaitForSeconds(2f);
         effect.SetActive(false);
-
+        spawnRandom.bossSpawned = true;
     }
 }

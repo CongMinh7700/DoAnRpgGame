@@ -23,7 +23,10 @@ public class ForestPortal : RPGMonoBehaviour
         this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
     }
 
-
+    private void Start()
+    {
+        SaveGame.Instance.LoadSceneManager.SaveData("");
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

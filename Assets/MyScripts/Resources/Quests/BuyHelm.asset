@@ -32,4 +32,4 @@ MonoBehaviour:
   questState: 2
   targetName: Helm
   targetCount: 1
-  currentCount: 0
+  currentCount: 1

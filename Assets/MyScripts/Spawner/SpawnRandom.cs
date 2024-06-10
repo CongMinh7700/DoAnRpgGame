@@ -29,50 +29,41 @@ public class SpawnRandom : RPGMonoBehaviour
     protected virtual void EnemySpawning()
     {
         if (RandomReachLimit()) return;
-
-
         this.randomTimer += Time.fixedDeltaTime;
-        Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
-        Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
-        if (QuestManager.Instance.GetQuestBoss(prefab.name)) GetComponentInParent<ObeliskAnimation>().questBossCanSpawn = true;
-
-        if (this.randomTimer < this.randomDelay) return;
-        this.randomTimer = 0;
         if (SpawnPoint.canSpawn)
         {
-
-
-
+            Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
+            Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
             ObjectType enemyType = prefab.GetComponent<EnemyCtrl>().HitableObjectSO.objType;
             Debug.Log("EnemyType :" +enemyType);
-
             if (enemyType == ObjectType.Boss)
             {
+                if (QuestManager.Instance.GetQuestBoss(prefab.name)) GetComponentInParent<ObeliskAnimation>().questBossCanSpawn = true;
                 Debug.Log("Boss Quest : "+QuestManager.Instance.GetQuestBoss(prefab.name)+"Bosss Name :"+prefab.name);
-                Debug.Log("PrefabName Boss :"+prefab.name);
                 if (!QuestManager.Instance.GetQuestBoss(prefab.name))
                 {
                     return;
                 }
                 else
                 {
-            
                     Debug.Log("SpawnRandom : Can spawn Bosss");
                     if (bossSpawned)
                     {
                         Debug.LogWarning("Boss already spawned, cannot spawn another.");
                         return;
                     }
-                    else
-                    {
-                        bossSpawned = true;
+                    //else
+                    //{
+                    //    bossSpawned = true;
 
-                    }
+                    //}
 
                 }
                
                 
             }
+            if (this.randomTimer < this.randomDelay) return;
+            this.randomTimer = 0;
             Vector3 position = randomPoint.position;
             Quaternion rotation = randomPoint.rotation;
             Transform obj = this.spawnerCtrl.Spawner.Spawn(prefab, position, rotation);

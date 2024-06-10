@@ -30,7 +30,7 @@ MonoBehaviour:
   - "B\u1EA1n \u0111\u1ECBnh \u0111\xE1nh tay \u0111\xF4i v\u1EDBi b\u1ECDn qu\xE1i
     v\u1EADt \xE0. H\xE3y mua m\u1ED9t thanh ki\u1EBFm v\xE0 quay l\u1EA1i \u0111\xE2y."
   type: 1
-  questState: 2
+  questState: 1
   targetName: LongSword
   targetCount: 1
   currentCount: 0

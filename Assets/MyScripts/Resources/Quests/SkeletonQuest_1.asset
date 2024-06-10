@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
+  m_Name: SkeletonQuest_1
+  m_EditorClassIdentifier: 
+  questTitle: "Ti\xEAu di\u1EC7t ng\u01B0\u1EDDi x\u01B0\u01A1ng"
+  description: "Ti\xEAu di\u1EC7t b\u1ECDn ng\u01B0\u1EDDi x\u01B0\u01A1ng g\u1EA7n
+    t\xE0ng t\xEDch"
+  experienceReward: 2000
+  goldReward: 500
+  dialogues:
+  - "Ch\xFAng ta c\xF3 m\u1ED9t r\u1EAFc r\u1ED1i kh\xE1c !"
+  - "D\u01B0\u1EDDng nh\u01B0 ai \u0111\xF3 \u0111\xE3 thi tri\u1EC3n t\xE0 thu\u1EADt
+    l\xEAn nh\u1EEFng chi\u1EBFn binh \u0111\xE3 m\u1EA5t. H\xE3y gi\xFAp ta gi\u1EA3i
+    tho\xE1t cho h\u1ECD."
+  - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 30  ng\u01B0\u1EDDi x\u01B0\u01A1ng."
+  dialoguesComplete:
+  - "C\u1EA3m \u01A1n c\u1EADu r\u1EA5t nhi\u1EC1u nh\u1EDD c\u1EADu m\xE0 nh\u1EEFng
+    chi\u1EBFn binh \u0111\xE1ng th\u01B0\u01A1ng \u0111\xE3 \u0111\u01B0\u1EE3c
+    gi\u1EA3i tho\xE1t."
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
+    l\u1EA5y nh\xE9 !"
+  dialoguesInProgress:
+  - "V\u1EABn c\xF2n nh\u1EEFng chi\u1EBFn binh t\u1ED9i nghi\u1EC7p ch\u01B0a \u0111\u01B0\u1EE3c
+    gi\u1EA3i tho\xE1t. H\xE3y b\xE1o c\xE1o v\u1EDBi ta khi c\u1EADu xong vi\u1EC7c
+    nh\xE9."
+  type: 0
+  questState: 1
+  targetName: SKELETON
+  targetCount: 10
+  currentCount: 0

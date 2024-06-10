@@ -35,4 +35,4 @@ MonoBehaviour:
   questState: 2
   targetName: Gloves
   targetCount: 1
-  currentCount: 0
+  currentCount: 1

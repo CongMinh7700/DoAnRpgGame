@@ -14,6 +14,7 @@ public class SaveGame : RPGMonoBehaviour
     public SaveScripts SaveScripts => saveScripts;
     [SerializeField] protected QuestDataManager questData;
     [SerializeField] protected LoadSceneManager loadSceneManager;
+    public LoadSceneManager LoadSceneManager => loadSceneManager;
     public static bool newGame = false;
     protected override void Awake()
     {
@@ -96,7 +97,7 @@ public class SaveGame : RPGMonoBehaviour
         LoadSkillData();
         LoadPLayerSave();
         LoadQuestData();
-        LoadSceneManager();
+        LoadSceneManagerData();
     }
     protected virtual void LoadEquipData()
     {
@@ -128,7 +129,7 @@ public class SaveGame : RPGMonoBehaviour
         if (this.questData != null) return;
         this.questData = GetComponentInChildren<QuestDataManager>();
     }
-    protected virtual void LoadSceneManager()
+    protected virtual void LoadSceneManagerData()
     {
         if (this.loadSceneManager != null) return;
         this.loadSceneManager = GetComponentInChildren<LoadSceneManager>();

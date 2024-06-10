@@ -22,8 +22,11 @@ public class VillagePortal : RPGMonoBehaviour
         if (playerCtrl != null) return;
         this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
     }
+    private void Start()
+    {
+        SaveGame.Instance.LoadSceneManager.SaveData("");
+    }
 
-   
     //nếu có bug thì cho về cái ban đầu
     private void OnTriggerEnter(Collider other)
     {

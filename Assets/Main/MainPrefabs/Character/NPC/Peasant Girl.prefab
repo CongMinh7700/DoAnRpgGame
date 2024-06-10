@@ -77,7 +77,7 @@ MonoBehaviour:
   shopNumber: 2
   messageBox: {fileID: 0}
   quests:
-  - {fileID: 11400000, guid: c566ecc07df74754eab2acf6edc0b4ba, type: 2}
+  - {fileID: 11400000, guid: e5d25ccc3d9486e4e8f89d0a3cb77df7, type: 2}
   questIndex: 0
   dialogueIndex: 0
   isAnimatingText: 0
@@ -85,6 +85,7 @@ MonoBehaviour:
   noQuest: 0
   canNotification: 0
   notificated: 0
+  nextQuest: 0
   questIndexManager: {fileID: 0}
 --- !u!114 &262329793
 MonoBehaviour:
@@ -1807,7 +1808,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5962859180612843818}
-  m_LocalRotation: {x: 0.021418748, y: -0.0064114723, z: -0.014095108, w: 0.99965066}
+  m_LocalRotation: {x: 0.02141875, y: -0.0064114723, z: -0.014095109, w: 0.99965066}
   m_LocalPosition: {x: -0.00000012523657, y: 0.07244537, z: 0.006334071}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
