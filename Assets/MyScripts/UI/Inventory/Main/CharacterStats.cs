@@ -69,7 +69,6 @@ public class CharacterStats : RPGMonoBehaviour
             ToggleUI();
         }
     }
-
     public void ToggleUI()
     {
         //Close

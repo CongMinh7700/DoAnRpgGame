@@ -9,7 +9,8 @@ public class ObeliskAnimation : RPGMonoBehaviour
     [SerializeField] protected Animator animator;
     [SerializeField] protected GameObject effect;
     [SerializeField] protected GameObject fences;
-    public static bool canAnimation;
+    public  bool canAnimation;
+    public  bool questBossCanSpawn;
     protected override void LoadComponents()
     {
         LoadSpawnerCtrl();
@@ -35,7 +36,8 @@ public class ObeliskAnimation : RPGMonoBehaviour
     {
         effect.SetActive(false);
         canAnimation = true;
-        if(fences != null)
+        questBossCanSpawn = false;
+        if (fences != null)
         {
             fences.SetActive(false);
         }
@@ -43,19 +45,20 @@ public class ObeliskAnimation : RPGMonoBehaviour
         {
             Debug.LogWarning("Nofences");
         }
- 
+
     }
     private void Update()
     {
-        Debug.Log("Spawn Random Spawned"+spawnRandom.bossSpawned);
-        if (this.spawnerCtrl.SpawnTrigger.CanSpawn  && !spawnRandom.bossSpawned)
+        Debug.Log("Spawn Random Spawned" + spawnRandom.bossSpawned);
+        if (this.spawnerCtrl.SpawnTrigger.CanSpawn && !spawnRandom.bossSpawned && questBossCanSpawn)
         {
-            animator.SetBool("Spawn",canAnimation);
+           // canAnimation = true;
+            animator.SetBool("Spawn", canAnimation);
             StartCoroutine(WaitToPlay());
         }
-        if(this.spawnerCtrl.Spawner.spawnedCount <= 0)
+        if (this.spawnerCtrl.Spawner.spawnedCount <= 0)
         {
-            if(fences != null)
+            if (fences != null)
             {
                 fences.SetActive(false);
             }
@@ -70,9 +73,9 @@ public class ObeliskAnimation : RPGMonoBehaviour
     {
         Debug.Log("Call Wait to play");
         yield return new WaitForSeconds(7f);
-        if(canAnimation) effect.SetActive(true);
+        if (canAnimation) effect.SetActive(true);
         canAnimation = false;
-        if(fences != null)
+        if (fences != null)
         {
             fences.SetActive(true);
         }

@@ -29,7 +29,7 @@ public class SaveGame : RPGMonoBehaviour
             {
                 Debug.Log("Load");
                 Load();
-                //saveScripts.LoadData("");
+                saveScripts.LoadData("");
             }
             else
             {

@@ -15,19 +15,14 @@ public class VillagePortal : RPGMonoBehaviour
     protected virtual void LoadSaveScripts()
     {
         if (saveScripts != null) return;
-        this.saveScripts = FindObjectOfType<SaveScripts>(); ;
+        this.saveScripts = FindObjectOfType<SaveScripts>(); 
     }
     protected virtual void LoadPlayerCtrl()
     {
         if (playerCtrl != null) return;
         this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
     }
-    protected  void Start()
-    {
-       //playerCtrl.transform.position = new Vector3(103, 14, 310);
-       //SaveGame.Instance.SaveScripts.SaveData("");
-      // SaveGame.Instance.Load();
-    }
+
    
     //nếu có bug thì cho về cái ban đầu
     private void OnTriggerEnter(Collider other)
@@ -39,6 +34,5 @@ public class VillagePortal : RPGMonoBehaviour
             SceneManager.LoadScene(3);
         }
     }
-
   
 }

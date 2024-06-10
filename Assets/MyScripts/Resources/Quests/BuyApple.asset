@@ -33,4 +33,4 @@ MonoBehaviour:
   questState: 2
   targetName: Apple
   targetCount: 5
-  currentCount: 0
+  currentCount: 5

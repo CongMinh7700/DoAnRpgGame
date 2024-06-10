@@ -46,6 +46,8 @@ public class QuestGiver : RPGMonoBehaviour
                 questIndexManager.DeleteDataByID(i.ToString());
             }
             ResetAllQuest.Instance.ResetQuests();
+
+
         }
     }
     private void Update()

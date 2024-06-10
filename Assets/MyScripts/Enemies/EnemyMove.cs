@@ -30,6 +30,7 @@ public class EnemyMove : RPGMonoBehaviour
     protected override void OnDisable()
     {
         transform.parent.position = originalPosition;
+        isAttacking = false;
     }
     protected override void LoadComponents()
     {

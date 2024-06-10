@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuySword
   m_EditorClassIdentifier: 
   questTitle: "Mua v\u0169 kh\xED"
-  description: "Mua m\u1ED9t thanh ki\u1EBFm t\u1EEB th\u1EE3 r\xE8n b\xEAn sc\u1EA1nh."
+  description: "Mua m\u1ED9t thanh ki\u1EBFm t\u1EEB th\u1EE3 r\xE8n b\xEAn c\u1EA1nh."
   experienceReward: 10
   goldReward: 50
   dialogues:

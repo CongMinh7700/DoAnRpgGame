@@ -22,12 +22,6 @@ public class ForestPortal : RPGMonoBehaviour
         if (playerCtrl != null) return;
         this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
     }
-    private void Start()
-    {
-        //playerCtrl.transform.position = new Vector3(62, 27, 302);
-       // SaveGame.Instance.SaveScripts.SaveData("");
-        //SaveGame.Instance.Load();
-    }
 
 
     private void OnTriggerEnter(Collider other)

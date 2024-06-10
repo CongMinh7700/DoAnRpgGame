@@ -10,11 +10,11 @@ public class SpawnRandom : RPGMonoBehaviour
     [SerializeField] protected float randomDelay = 3f;
     [SerializeField] protected float randomLimit = 4f;
     public bool bossSpawned = false;
-
     protected override void LoadComponents()
     {
         this.LoadSpawnerCtrl();
     }
+
     protected virtual void LoadSpawnerCtrl()
     {
         if (this.spawnerCtrl != null) return;
@@ -29,26 +29,34 @@ public class SpawnRandom : RPGMonoBehaviour
     protected virtual void EnemySpawning()
     {
         if (RandomReachLimit()) return;
+
+
         this.randomTimer += Time.fixedDeltaTime;
+        Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
+        Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
+        if (QuestManager.Instance.GetQuestBoss(prefab.name)) GetComponentInParent<ObeliskAnimation>().questBossCanSpawn = true;
+
         if (this.randomTimer < this.randomDelay) return;
         this.randomTimer = 0;
         if (SpawnPoint.canSpawn)
         {
-            Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
-            Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
+
 
 
             ObjectType enemyType = prefab.GetComponent<EnemyCtrl>().HitableObjectSO.objType;
             Debug.Log("EnemyType :" +enemyType);
+
             if (enemyType == ObjectType.Boss)
             {
-                Debug.Log(QuestManager.Instance.GetQuestBoss(prefab.name));
+                Debug.Log("Boss Quest : "+QuestManager.Instance.GetQuestBoss(prefab.name)+"Bosss Name :"+prefab.name);
+                Debug.Log("PrefabName Boss :"+prefab.name);
                 if (!QuestManager.Instance.GetQuestBoss(prefab.name))
                 {
                     return;
                 }
                 else
                 {
+            
                     Debug.Log("SpawnRandom : Can spawn Bosss");
                     if (bossSpawned)
                     {
@@ -58,6 +66,7 @@ public class SpawnRandom : RPGMonoBehaviour
                     else
                     {
                         bossSpawned = true;
+
                     }
 
                 }
