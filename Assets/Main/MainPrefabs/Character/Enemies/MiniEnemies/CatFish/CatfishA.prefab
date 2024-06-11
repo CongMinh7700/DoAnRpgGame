@@ -2470,8 +2470,8 @@ MonoBehaviour:
   hitableObjectCtrl: {fileID: 1942345171}
   enemyAnimation: {fileID: 4361132247268431163}
   enemyCtrl: {fileID: 1942345171}
-  maxExp: 0
-  minExp: 0
+  maxExp: 1485
+  minExp: 1180
   exp: 0
   thisEnemy: {fileID: 6206333876141954105}
   healthBar: {fileID: 1020693145}

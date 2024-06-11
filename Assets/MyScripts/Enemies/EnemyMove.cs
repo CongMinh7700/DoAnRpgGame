@@ -87,7 +87,7 @@ public class EnemyMove : RPGMonoBehaviour
         if (distance < attackRange)
         {
             navMesh.isStopped = true;
-
+            //Debug.LogWarning("Current State Tag: " + enemyInfo.tagHash);
             if (enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
             {
                 if (!isAttacking)

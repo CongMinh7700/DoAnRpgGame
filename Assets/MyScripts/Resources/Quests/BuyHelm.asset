@@ -29,7 +29,7 @@ MonoBehaviour:
   dialoguesInProgress:
   - "H\xE3y mua m\u1ED9t c\xE1i m\u0169 v\xE0 quay l\u1EA1i \u0111\xE2y."
   type: 1
-  questState: 2
+  questState: 0
   targetName: Helm
   targetCount: 1
-  currentCount: 1
+  currentCount: 0

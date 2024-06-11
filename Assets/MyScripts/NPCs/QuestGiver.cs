@@ -39,9 +39,10 @@ public class QuestGiver : RPGMonoBehaviour
         }
         else
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i <= 6; i++)
             {
                 questIndexManager.DeleteDataByID(i.ToString());
+               // Debug.LogError("NPC INdex :" + i);
             }
             ResetAllQuest.Instance.ResetQuests();
         }

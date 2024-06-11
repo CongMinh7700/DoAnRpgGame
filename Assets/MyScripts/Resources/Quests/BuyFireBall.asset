@@ -30,7 +30,7 @@ MonoBehaviour:
   - "H\xE3y mua v\xE0 k\u1EF9 n\u0103ng c\u1EA7u l\u1EEDa . R\u1ED3i quay l\u1EA1i
     g\u1EB7p ta."
   type: 1
-  questState: 1
+  questState: 0
   targetName: FireBall
   targetCount: 1
   currentCount: 0
