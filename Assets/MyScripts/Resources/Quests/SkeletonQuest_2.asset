@@ -33,7 +33,7 @@ MonoBehaviour:
   - "L\xE0m \u01A1n h\xE3y gi\xFAp ta gi\u1EA3i tho\xE1t cho h\u1ECD. Ta s\u1EBD
     tr\u1EA3 c\xF4ng x\u1EE9ng \u0111\xE1ng."
   type: 0
-  questState: 2
+  questState: 0
   targetName: SKELETON
   targetCount: 30
   currentCount: 0

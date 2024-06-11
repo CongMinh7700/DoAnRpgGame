@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,9 +38,10 @@ public class EnemyAnimation : RPGMonoBehaviour
         animator.SetTrigger("Attack");
         if (magicEnemy)
         {
-            transform.LookAt(player.transform);
+          //  transform.LookAt(player.transform);
             SpawnFireBall();
         }
+        transform.LookAt(player.transform);//cứu tinh cho sự chuẩn sát :)))
     }
     public virtual void HitAnimation()
     {

@@ -81,6 +81,7 @@ public class CharacterStats : RPGMonoBehaviour
         }
         else if (!mainContainerUI.gameObject.activeSelf && !isContainerUIOpen)
         {
+            mainContainerUI.transform.localPosition = Vector3.zero;
             isContainerUIOpen = true;
             StartCoroutine(Utils.TweenScaleIn(mainContainerUI.gameObject, 50, Vector3.one));
             Time.timeScale = 0;

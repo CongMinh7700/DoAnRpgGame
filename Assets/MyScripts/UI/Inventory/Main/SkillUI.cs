@@ -15,7 +15,6 @@ public class SkillUI : RPGMonoBehaviour
     protected bool isUIInitialized;
     protected override void Awake()
     {
-        //loi awake
         isUIInitialized = false;
         InitializeContainer();
         foreach (SkillSlot slot in slots)
@@ -66,7 +65,6 @@ public class SkillUI : RPGMonoBehaviour
         if (Input.GetKeyDown(UIToggleKey))
         {
             ToggleUI();
-            Debug.Log("C");
         }
     }
 
@@ -82,6 +80,7 @@ public class SkillUI : RPGMonoBehaviour
         }
         else if (!mainContainerUI.gameObject.activeSelf && !isContainerUIOpen)
         {
+            mainContainerUI.transform.localPosition = Vector3.zero;
             isContainerUIOpen = true;
             StartCoroutine(Utils.TweenScaleIn(mainContainerUI.gameObject, 50, Vector3.one));
             Time.timeScale = 0;

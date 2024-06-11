@@ -51,7 +51,6 @@ public class MapUI : RPGMonoBehaviour
         if (Input.GetKeyDown(UIToggleKey))
         {
             ToggleUI();
-            Debug.Log("C");
         }
     }
 
@@ -68,6 +67,7 @@ public class MapUI : RPGMonoBehaviour
         }
         else if (!mainContainerUI.gameObject.activeSelf && !isContainerUIOpen)
         {
+            mainContainerUI.transform.localPosition = Vector3.zero;
             isContainerUIOpen = true;
             StartCoroutine(Utils.TweenScaleIn(mainContainerUI.gameObject, 50, Vector3.one));
             Time.timeScale = 0;

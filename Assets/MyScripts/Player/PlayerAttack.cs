@@ -10,7 +10,7 @@ public class PlayerAttack : RPGMonoBehaviour
     [SerializeField] protected float currentStamina;
     [SerializeField] protected int staminaCost;
     [SerializeField] protected int weaponIndex;
-    public static bool canAttack;
+   // public static bool canAttack = true;
     public int StaminaMax => staminaMax;
     public float CurrentStamina => currentStamina;
     private int baseStamina;
@@ -46,13 +46,12 @@ public class PlayerAttack : RPGMonoBehaviour
     }
     public void Attacking()
     {
-
-        if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost)
+        Debug.Log("Can't Attack :" + MouseOverUI.IsPointerOverUIElement());
+        if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost && !MouseOverUI.IsPointerOverUIElement())
         {
             if (!playerCtrl.PlayerAnim.isAttacking)
             {
                 StartAttack();
-
             }
         }
     }
