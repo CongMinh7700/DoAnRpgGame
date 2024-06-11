@@ -17,8 +17,6 @@ public class StatsUpdate : RPGMonoBehaviour
     [SerializeField] protected TextMeshProUGUI currencyText;
 
     [SerializeField] protected PlayerCtrl playerCtrl;
-    //[SerializeField] protected WeaponCtrl weaponCtrl;
-    //   protected string name = "";
     private void Start()
     {
         nameText.text = "Tên : " + PlayerInfoManager.playerNameData;
@@ -29,10 +27,8 @@ public class StatsUpdate : RPGMonoBehaviour
         hpText.text = "Máu : " + playerCtrl.DamageReceiver.HPMax.ToString() + "(" + ItemManager.hpMaxBonus + ")";
         attackText.text = "Công : " + (LevelSystem.damageLevel + ItemManager.bonusAttack).ToString() + "(" + ItemManager.bonusAttack + ")";
         defendText.text = "Thủ : " + playerCtrl.DamageReceiver.Defense.ToString() + "(" + ItemManager.bonusDefense + ")";
-
-        //Tạm thời chưa dùng
-        manaText.text = "Mana : " + playerCtrl.PlayerSO.mana.ToString();
-        staminaText.text = "Stamina : " + playerCtrl.PlayerSO.stamina.ToString();
+        manaText.text = "Mana : " + playerCtrl.UsingSkill.ManaMax.ToString()+"("+ItemManager.manaBonus+")";
+        staminaText.text = "Stamina : " + playerCtrl.PlayerAttack.StaminaMax.ToString()+"("+ItemManager.staminaBonus+")";
         currencyText.text = MoneyManager.Instance.Gold.ToString() + " $";
 
     }

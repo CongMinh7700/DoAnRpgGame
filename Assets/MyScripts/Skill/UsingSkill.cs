@@ -93,7 +93,7 @@ public class UsingSkill : RPGMonoBehaviour
 
     public virtual void ManaRecover()
     {
-        this.currentMana += 5 * Time.deltaTime;//Time.deltaTime
+        this.currentMana += (manaMax/16) * Time.deltaTime;//Time.deltaTime
         if (this.currentMana >= manaMax) currentMana = manaMax;
     }
     public virtual void ManaDeduct(float value)

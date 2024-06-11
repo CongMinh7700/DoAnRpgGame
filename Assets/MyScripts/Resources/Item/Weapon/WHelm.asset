@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WHelm
   m_EditorClassIdentifier: 
   type: 3
-  itemName: Helm
+  itemName: WHelm
   itemPerSlot: 1
   icon: {fileID: 21300000, guid: 3253ad9deab97584d9f92d6a2fad17b4, type: 3}
   prefab: {fileID: 0}
