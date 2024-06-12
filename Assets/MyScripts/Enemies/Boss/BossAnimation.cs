@@ -37,7 +37,5 @@ public class BossAnimation : EnemyAnimation
         SpawnFireBall();
         yield return new WaitForSeconds(0.6f);
         SpawnFireBall();
-      
-       
     }
 }

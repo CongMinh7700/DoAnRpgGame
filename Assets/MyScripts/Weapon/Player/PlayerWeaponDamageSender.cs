@@ -9,19 +9,19 @@ public class PlayerWeaponDamageSender : WeaponDamageSender
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadHitableObjectCtrl();
+        //this.LoadHitableObjectCtrl();
     }
 
     private void Start()
     {
         this.damage = hitableObjectCtrl.HitableObjectSO.damage;
     }
-    public virtual void LoadHitableObjectCtrl()
-    {
-        if (this.hitableObjectCtrl != null) return;
-        this.hitableObjectCtrl = transform.root.GetComponent<HitableObjectCtrl>();
-        Debug.LogWarning(transform.name + "|LoadHitableObjectCtrl|", gameObject);
-    }
+    //public override void LoadHitableObjectCtrl()
+    //{
+    //    if (this.hitableObjectCtrl != null) return;
+    //    this.hitableObjectCtrl = transform.root.GetComponent<HitableObjectCtrl>();
+    //    Debug.LogWarning(transform.name + "|LoadHitableObjectCtrl|", gameObject);
+    //}
 
     protected virtual void UpdateBase()
     {

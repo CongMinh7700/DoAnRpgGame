@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Jones
   objType: 2
-  hpMax: 500
-  damage: 40
-  defense: 2
+  hpMax: 1000
+  damage: 35
+  defense: 25

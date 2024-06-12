@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba32028be1acd5e429cac4eaff3e7356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 10
   weaponCtrl: {fileID: 920594870}
   hitableObjectCtrl: {fileID: 6741097169181968110}
 --- !u!1 &866995974
@@ -5113,7 +5113,7 @@ BoxCollider:
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 1.2}
-  m_Center: {x: -0.00000003700311, y: 0, z: -0.2}
+  m_Center: {x: -0.00000003700311, y: 0, z: -0.1}
 --- !u!54 &6876148839739272202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5189,7 +5189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba32028be1acd5e429cac4eaff3e7356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 10
   weaponCtrl: {fileID: 1032720347223584245}
   hitableObjectCtrl: {fileID: 6741097169181968110}
 --- !u!1 &6276401918494423865
@@ -5497,9 +5497,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1893325208}
-  currentHp: 500
-  hpMax: 500
-  defense: 5
+  currentHp: 100
+  hpMax: 100
+  defense: 2
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 6741097169181968110}
