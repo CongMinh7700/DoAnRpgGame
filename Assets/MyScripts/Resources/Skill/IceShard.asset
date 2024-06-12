@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 6
   itemName: IceShard
   itemPerSlot: 1
-  icon: {fileID: 21300000, guid: 4184495d79c523148bd19006e6e88b2d, type: 3}
+  icon: {fileID: 21300000, guid: 8a5c89e9684cb764e9484b8dd65679c6, type: 3}
   prefab: {fileID: 0}
   isFood: 0
   itemInformation: "B\u1EAFn m\u1ED9t m\u0169i b\u0103ng v\u1EC1 ph\xEDa k\u1EBB

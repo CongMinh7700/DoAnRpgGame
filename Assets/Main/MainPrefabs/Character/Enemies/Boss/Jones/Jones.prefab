@@ -885,7 +885,7 @@ MonoBehaviour:
   z: 0
   velocitySpeed: 0
   attackRange: 3
-  runRange: 10
+  runRange: 15
   rotateSpeed: 50
   distance: 0
   isAttacking: 0
@@ -2191,8 +2191,8 @@ MonoBehaviour:
   hitableObjectCtrl: {fileID: 1036634371371112267}
   enemyAnimation: {fileID: 1036634371371112266}
   enemyCtrl: {fileID: 1036634371371112267}
-  maxExp: 0
-  minExp: 0
+  maxExp: 1485
+  minExp: 1180
   exp: 0
   thisEnemy: {fileID: 1036634371097635094}
   healthBar: {fileID: 0}
@@ -2438,7 +2438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1036634370098784186
 Transform:
   m_ObjectHideFlags: 0

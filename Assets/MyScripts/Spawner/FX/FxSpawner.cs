@@ -15,6 +15,7 @@ public class FXSpawner : Spawner
     public static string fireHitEffect = "FHitEffect";
     public static string iceHitEffect = "IHitEffect";
     public static string deathEffect = "DeathEffect";
+    public static string dEffect = "DEffect";
 
 
     protected override void Awake()

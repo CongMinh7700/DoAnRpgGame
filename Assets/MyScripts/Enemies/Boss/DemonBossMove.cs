@@ -6,17 +6,24 @@ public class DemonBossMove : EnemyMove
 {
 
     [SerializeField] private BossAttack bossAttack;
+    [SerializeField] private BossCtrl bossCtrl;
     [SerializeField] private float speedOffset;
     public bool isFlex = false;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadBossAttack();
+        this.LoadBossCtrl();
     }
     public virtual void LoadBossAttack()
     {
         if (this.bossAttack != null) return;
         this.bossAttack = transform.parent.GetComponentInChildren<BossAttack>();
+    }
+    public virtual void LoadBossCtrl()
+    {
+        if (this.bossCtrl != null) return;
+        this.bossCtrl = GetComponentInParent<BossCtrl>();
     }
     private void Start()
     {
@@ -26,6 +33,7 @@ public class DemonBossMove : EnemyMove
     }
     public override void Attack()
     {
+        if (bossCtrl.DamageReceiver.IsDead()) return;
         this.bossAttack.Attack();
         Vector3 pos = (player.transform.position - transform.position).normalized;
         Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));

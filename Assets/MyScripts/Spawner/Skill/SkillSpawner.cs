@@ -11,6 +11,7 @@ public class SkillSpawner : Spawner
     public static string iceShard = "IceShard";
     public static string enemyFireBall = "EnemyFireBall";
     public static string demonFireBall = "DemonFireBall";
+    public static string dimenBoom = "DimenBoom";
 
 
     protected override void Awake()

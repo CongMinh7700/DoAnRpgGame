@@ -7,5 +7,6 @@ public class SkillDespawnByTime : DespawnByTime
     public override void DespawnObject()
     {
         FXSpawner.Instance.Despawn(transform.parent);
+     
     }
 }

@@ -21,6 +21,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         this.LoadEnemyAnimation();
         this.LoadEnemyCtrl();
         LoadThisEnemy();
+        LoadFill();
     }
 
 
@@ -33,6 +34,11 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         if (this.enemyCtrl != null) return;
         this.enemyCtrl = GetComponentInParent<EnemyCtrl>();
+    }
+    protected virtual void LoadFill()
+    {
+        if (this.healthBar != null) return;
+        this.healthBar = transform.parent.Find("HpBarCanvas").Find("Fill").GetComponent<Image>();
     }
     private void Update()
     {

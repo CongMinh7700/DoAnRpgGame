@@ -112,7 +112,7 @@ public class ItemManager : RPGMonoBehaviour
                 case "Shield":
                     slotIndex = 3;
                     break;
-                case "Flash":
+                case "DimenBoom":
                     slotIndex = 4;
                     break;
                 case "IceShard":

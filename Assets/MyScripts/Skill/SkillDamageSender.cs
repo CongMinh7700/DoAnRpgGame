@@ -6,6 +6,8 @@ public class SkillDamageSender : DamageSender
 {
     [SerializeField] protected AttackSkillCtrl skillCtrl;
     public bool isFire = false;
+    public bool isDimenBoom = false;
+    
     //true,false hoặc lấy attribute
     protected override void LoadComponents()
     {
@@ -31,7 +33,9 @@ public class SkillDamageSender : DamageSender
         CreateHitEffect();
         if (isFire) SFXManager.Instance.PlayFireImpact();
         else SFXManager.Instance.PlayIceImpact();
-        this.DestroySkill();
+        if (!isDimenBoom) this.DestroySkill();
+        else StartCoroutine(WaitToDespawn());
+        
     }
     protected virtual void DestroySkill()
     {
@@ -43,6 +47,9 @@ public class SkillDamageSender : DamageSender
         if (isFire)
         {
              fxName = FXSpawner.fireHitEffect;
+        }else if (isDimenBoom)
+        {
+            fxName = FXSpawner.dEffect;
         }
         else
         {
@@ -50,5 +57,10 @@ public class SkillDamageSender : DamageSender
         }
         Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
         fxObj.gameObject.SetActive(true);
+    }
+    IEnumerator WaitToDespawn()
+    {
+        yield return new WaitForSeconds(2f);
+        this.DestroySkill();
     }
 }

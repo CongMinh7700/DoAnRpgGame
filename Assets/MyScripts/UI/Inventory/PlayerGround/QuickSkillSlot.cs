@@ -49,14 +49,15 @@ public class QuickSkillSlot : ItemSlot
                         skillUsed = usingSkill.Strength();
                         break;
                     case "Shield":
-                        
                         skillUsed = usingSkill.Shield();
                         break;
                     case "IceShard":
                         skillUsed = usingSkill.IceShard();
                         break;
+                    case "DimenBoom":
+                        skillUsed = usingSkill.DimenBoom();
+                        break;
                 }
-
                 if (skillUsed)
                 {
                     if (slotItem.itemName == "Strength" || slotItem.itemName == "Shield")
@@ -115,15 +116,17 @@ public class QuickSkillSlot : ItemSlot
         switch (skillName)
         {
             case "FireBall":
-                return 3f;
+                return 5f;
             case "IceShard":
-                return 3f;
+                return 5f;
             case "Heal":
-                return 30f;
+                return 45f;
+            case "DimenBoom":
+                return 7f;
             case "Strength":
-                return 30f;
+                return 60f;
             case "Shield":
-                return 30f;
+                return 75f;
             default:
                 return 0f;
         }

@@ -31,11 +31,11 @@ public class BossAnimation : EnemyAnimation
     }
     IEnumerator WaitToShoot()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.7f);
         SpawnFireBall();
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.7f);
         SpawnFireBall();
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.7f);
         SpawnFireBall();
     }
 }

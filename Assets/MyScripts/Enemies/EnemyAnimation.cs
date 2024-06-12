@@ -38,7 +38,7 @@ public class EnemyAnimation : RPGMonoBehaviour
         animator.SetTrigger("Attack");
         if (magicEnemy)
         {
-          //  transform.LookAt(player.transform);
+            shooter.LookAt(player.transform);
             SpawnFireBall();
         }
         transform.LookAt(player.transform);//cứu tinh cho sự chuẩn sát :)))
