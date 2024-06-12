@@ -71,7 +71,7 @@ public class DemonBossMove : EnemyMove
         }
         if (bossAttack.canIncreaseRange)
         {
-            Debug.LogWarning("Call InCreaseRange");
+            //Debug.LogWarning("Call InCreaseRange");
             attackRange = 10f;
             StartCoroutine(WaitToDescreaseRange());
         }
@@ -79,7 +79,7 @@ public class DemonBossMove : EnemyMove
     }
     public override void MoveToPlayer()
     {
-        Debug.Log("NavMesh" + navMesh.isStopped);
+       // Debug.Log("NavMesh" + navMesh.isStopped);
         base.MoveToPlayer();
 
     }

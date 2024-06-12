@@ -44,7 +44,7 @@ public class LevelSystem : Level
     }
     private void Update()
     {
-        Debug.Log("Boss Kill Count :" + bossKill);
+       //    Debug.Log("Boss Kill Count :" + bossKill);
         if (Input.GetKeyDown(KeyCode.V))
         {
             GainExperienceFlatRate(100);

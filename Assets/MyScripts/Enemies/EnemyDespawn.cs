@@ -18,7 +18,6 @@ public class EnemyDespawn : DespawnByHp
 
         if (!CanDespawn()) return;
         StartCoroutine(WaitToDespawn());
-        Debug.LogWarning("PauseTime : " + pauseTime);
         if (pauseTime)
         {
     

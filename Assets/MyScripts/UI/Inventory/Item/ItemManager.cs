@@ -30,7 +30,8 @@ public class ItemManager : RPGMonoBehaviour
     public List<Item> itemList = new List<Item>();
     public List<GameObject> weapons = new List<GameObject>();
 
-    public static ItemManager Instance { get; private set; }
+    protected static ItemManager instance;
+    public static ItemManager Instance => instance;
 
     private void Update()
     {
@@ -38,18 +39,8 @@ public class ItemManager : RPGMonoBehaviour
     }
     protected override void Awake()
     {
-        #region Singleton
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        #endregion
+        if (ItemManager.instance != null) Debug.Log("Only 1 Item Manager Allow To Exist");
+        ItemManager.instance = this;
     }
     //UseItem
     public void UseItem(ItemSlot slot)

@@ -17,14 +17,16 @@ MonoBehaviour:
   experienceReward: 10
   goldReward: 100
   dialogues:
-  - "\u0110\u1EC3 chi\u1EBFn \u0111\u1EA5u b\u1EC1n b\u1EC9 h\u01A1n th\xEC c\u1EADu
-    c\u1EA7n c\xF3 v\u1EADt ph\u1EA9m h\u1ED3i ph\u1EE5c b\xEAn ng\u01B0\u1EDDi ."
+  - "Ch\xE0o ch\xE0ng trai tr\u1EBB ta s\u1EBD l\xE0 ng\u01B0\u1EDDi h\u01B0\u1EDBng
+    d\u1EABn c\u1EADu \u1EDF th\u1EBF gi\u1EDBi n\xE0y."
+  - "H\xE3y b\u1EAFt \u0111\u1EA7u v\u1EDBi nhi\u1EC7m v\u1EE5 d\u1EC5 nh\u1EA5t.
+    \u0110\xF3 l\xE0 vi\u1EC7c h\u1ED3i ph\u1EE5c."
   - "H\xE3y b\u1EAFt \u0111\u1EA7u n\xF3 v\u1EDBi vi\u1EC7c mua 5 qu\u1EA3 t\xE1o
     v\xE0 mang theo b\xEAn ng\u01B0\u1EDDi."
   - "Nhi\u1EC7m v\u1EE5 : Mua 5 qu\u1EA3 t\xE1o."
   dialoguesComplete:
   - "L\xE0m t\u1ED1t l\u1EAFm ch\xE0ng trai"
-  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu .H\xE3y nh\u1EADn
+  - "\u0110\xE2y l\xE0 ph\u1EA7n th\u01B0\u1EDFng danh cho c\u1EADu . H\xE3y nh\u1EADn
     l\u1EA5y nh\xE9 !"
   dialoguesInProgress:
   - "H\xE3y mua 5 qu\u1EA3 t\xE1o \u1EDF ti\u1EC7m \u0111\u1ED1i di\u1EC7n. R\u1ED3i

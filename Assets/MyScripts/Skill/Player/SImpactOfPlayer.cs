@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +21,15 @@ public class SImpactOfPlayer : SkillImpact
     }
     IEnumerator WaitTurnOn()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         sphereCollider.enabled = true;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, sphereCollider.radius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy"))
+            {
+                this.skillCtrl.SkillDamageSender.Send(hitCollider.transform);
+            }
+        }
     }
 }

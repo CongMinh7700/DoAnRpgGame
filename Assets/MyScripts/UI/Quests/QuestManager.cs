@@ -36,11 +36,11 @@ public class QuestManager : RPGMonoBehaviour
         //Debug.Log("call OnEnemyKilled");
         foreach (Quest quest in activeQuests)
         {
-            Debug.Log(quest.questTitle + "Name");
+          //  Debug.Log(quest.questTitle + "Name");
             if (quest.targetName == targetName && quest.questState != QuestState.Complete)
             {
                 quest.currentCount++;
-                Debug.Log($"Progress: {quest.currentCount}/{quest.targetCount} {quest.targetName}");
+               // Debug.Log($"Progress: {quest.currentCount}/{quest.targetCount} {quest.targetName}");
                 if (quest.currentCount >= quest.targetCount)
                 {
                     CompleteQuest(quest);
@@ -160,7 +160,7 @@ public class QuestManager : RPGMonoBehaviour
         for (int i = 0; i < questList.Count; i++)
         {
             if (questList[i] == quest) return i;
-            Debug.Log("Index :" + i);
+           // Debug.Log("Index :" + i);
         }
         return -1;
     }

@@ -55,7 +55,7 @@ public abstract class DamageReceiver : RPGMonoBehaviour
         if (this.isDead) return;
         float damageReduce = (float)(1 - (1 / (1 + (this.defense / 50.0f))));
         if (damageReduce < 0) damageReduce = 0;
-        Debug.Log("Damage Reduce : " + damageReduce);
+      //  Debug.Log("Damage Reduce : " + damageReduce);
         this.currentHp -= (int)(value - (value* damageReduce));
         isAttacked = true;
         if (this.currentHp <= 0) this.currentHp = 0;

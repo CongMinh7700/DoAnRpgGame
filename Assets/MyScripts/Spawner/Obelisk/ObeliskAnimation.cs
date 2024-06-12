@@ -49,7 +49,7 @@ public class ObeliskAnimation : RPGMonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Spawn Random Spawned" + spawnRandom.bossSpawned);
+        //Debug.Log("Spawn Random Spawned" + spawnRandom.bossSpawned);
         if (this.spawnerCtrl.SpawnTrigger.CanSpawn && !spawnRandom.bossSpawned && questBossCanSpawn)
         {
            // canAnimation = true;
@@ -64,7 +64,8 @@ public class ObeliskAnimation : RPGMonoBehaviour
             }
             else
             {
-                Debug.LogWarning("NoFences nè cha nội");
+                //  Debug.LogWarning("NoFences nè cha nội");
+                
             }
 
         }
@@ -81,7 +82,7 @@ public class ObeliskAnimation : RPGMonoBehaviour
         }
         else
         {
-            Debug.Log("NoFences");
+           // Debug.Log("NoFences");
         }
 
         yield return new WaitForSeconds(2f);

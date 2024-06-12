@@ -44,8 +44,8 @@ public class QuestDataManager : RPGMonoBehaviour
                     {
                         QuestState questState = questManager.activeQuests[i].questState;
                         info.AddInfo(i, questIndex, questState, questManager.activeQuests[i].currentCount);
-                        Debug.Log($"Slot {i}: QuestIndex = {questIndex}, QuestState = {questState}, QuestTitle = {slot.quest.questTitle}");
-                        Debug.Log($"Quest Manager Quest State: {questManager.activeQuests[i].questState}");
+                      //  Debug.Log($"Slot {i}: QuestIndex = {questIndex}, QuestState = {questState}, QuestTitle = {slot.quest.questTitle}");
+                       // Debug.Log($"Quest Manager Quest State: {questManager.activeQuests[i].questState}");
                     }
                     else
                     {
@@ -60,7 +60,7 @@ public class QuestDataManager : RPGMonoBehaviour
 
             // Convert to JSON
             string jsonData = JsonUtility.ToJson(info, true);
-            Debug.Log($"JSON Data: {jsonData}");
+           // Debug.Log($"JSON Data: {jsonData}");
 
             // Save to file
             System.IO.File.WriteAllText(dataPath, jsonData);

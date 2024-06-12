@@ -35,18 +35,18 @@ public class SpawnRandom : RPGMonoBehaviour
             Transform randomPoint = spawnerCtrl.SpawnPoint.GetRandomPoint();
             Transform prefab = spawnerCtrl.Spawner.GetRandomPrefabs();
             ObjectType enemyType = prefab.GetComponent<EnemyCtrl>().HitableObjectSO.objType;
-            Debug.Log("EnemyType :" +enemyType);
+         //   Debug.Log("EnemyType :" +enemyType);
             if (enemyType == ObjectType.Boss)
             {
                 if (QuestManager.Instance.GetQuestBoss(prefab.name)) GetComponentInParent<ObeliskAnimation>().questBossCanSpawn = true;
-                Debug.Log("Boss Quest : "+QuestManager.Instance.GetQuestBoss(prefab.name)+"Bosss Name :"+prefab.name);
+             //   Debug.Log("Boss Quest : "+QuestManager.Instance.GetQuestBoss(prefab.name)+"Bosss Name :"+prefab.name);
                 if (!QuestManager.Instance.GetQuestBoss(prefab.name))
                 {
                     return;
                 }
                 else
                 {
-                    Debug.Log("SpawnRandom : Can spawn Bosss");
+                    //Debug.Log("SpawnRandom : Can spawn Bosss");
                     if (bossSpawned)
                     {
                         Debug.LogWarning("Boss already spawned, cannot spawn another.");

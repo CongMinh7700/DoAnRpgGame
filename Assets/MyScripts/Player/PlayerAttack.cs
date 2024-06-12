@@ -46,7 +46,7 @@ public class PlayerAttack : RPGMonoBehaviour
     }
     public void Attacking()
     {
-        Debug.Log("Can't Attack :" + MouseOverUI.IsPointerOverUIElement());
+       // Debug.Log("Can't Attack :" + MouseOverUI.IsPointerOverUIElement());
         if (Input.GetMouseButtonDown(0) && currentStamina >= staminaCost && !MouseOverUI.IsPointerOverUIElement())
         {
             if (!playerCtrl.PlayerAnim.isAttacking)

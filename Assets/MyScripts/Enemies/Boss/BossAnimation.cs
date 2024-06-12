@@ -12,7 +12,6 @@ public class BossAnimation : EnemyAnimation
         {
             StartCoroutine(WaitToShoot());
         }
-     
     }
     public virtual void Flex()
     {
@@ -31,11 +30,12 @@ public class BossAnimation : EnemyAnimation
     }
     IEnumerator WaitToShoot()
     {
-        yield return new WaitForSeconds(0.7f);
-        SpawnFireBall();
-        yield return new WaitForSeconds(0.7f);
-        SpawnFireBall();
-        yield return new WaitForSeconds(0.7f);
-        SpawnFireBall();
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(0.7f);
+            SpawnFireBall();
+          
+        }
+       
     }
 }
