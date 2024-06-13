@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf9069c8e125f548b86ee18ab8a59a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 35
+  damage: 30
   weaponCtrl: {fileID: 1036634370237061729}
   hitableObjectCtrl: {fileID: 1036634371371112267}
 --- !u!1 &1036634370071544661
@@ -2183,19 +2183,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1036634371097635080}
-  currentHp: 1000
-  hpMax: 1000
-  defense: 25
+  currentHp: 800
+  hpMax: 800
+  defense: 20
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 1036634371371112267}
   enemyAnimation: {fileID: 1036634371371112266}
   enemyCtrl: {fileID: 1036634371371112267}
-  maxExp: 1485
-  minExp: 1180
+  maxExp: 2000
+  minExp: 1000
   exp: 0
   thisEnemy: {fileID: 1036634371097635094}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1036634370555899139}
 --- !u!1 &1036634371110914283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1036634370098784186
 Transform:
   m_ObjectHideFlags: 0

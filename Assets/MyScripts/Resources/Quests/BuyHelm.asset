@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Mua m\u0169"
   description: "H\xE3y mua m\u0169 t\u1EEB th\u1EE3 r\xE8n."
-  experienceReward: 10
+  experienceReward: 300
   goldReward: 100
   dialogues:
   - "Vi\u1EC7c b\u1EA3o v\u1EC7 c\xE1i \u0111\u1EA7u c\u0169ng r\u1EA5t quan tr\u1ECDng

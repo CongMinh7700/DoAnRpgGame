@@ -15,5 +15,5 @@ MonoBehaviour:
   objName: CatfishA
   objType: 1
   hpMax: 400
-  damage: 30
-  defense: 15
+  damage: 20
+  defense: 8

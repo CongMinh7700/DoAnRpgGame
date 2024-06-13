@@ -897,7 +897,7 @@ MonoBehaviour:
   z: 0
   velocitySpeed: 0
   attackRange: 10
-  runRange: 10
+  runRange: 15
   rotateSpeed: 200
   distance: 0
   isAttacking: 0
@@ -1218,16 +1218,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 8935186388413513503}
-  currentHp: 200
-  hpMax: 200
-  defense: 10
+  currentHp: 150
+  hpMax: 150
+  defense: 3
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 1621876749317731799}
   enemyAnimation: {fileID: 1621876749317731797}
   enemyCtrl: {fileID: 1621876749317731799}
-  maxExp: 695
-  minExp: 329
+  maxExp: 700
+  minExp: 300
   exp: 0
   thisEnemy: {fileID: 8935186388413513497}
   healthBar: {fileID: 8935186388173785201}

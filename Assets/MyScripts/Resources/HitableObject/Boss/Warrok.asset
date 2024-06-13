@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: HitableObject
   objType: 2
-  hpMax: 4000
+  hpMax: 2500
   damage: 30
-  defense: 50
+  defense: 35

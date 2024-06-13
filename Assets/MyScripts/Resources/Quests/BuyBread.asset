@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
-  m_Name: BuyFish
+  m_Name: BuyBread
   m_EditorClassIdentifier: 
   questTitle: "H\u1ED3i Ph\u1EE5c T\u1ED1t H\u01A1n"
   description: "Mua 5  \u1ED5 b\xE1nh m\xEC t\u1EEB c\u1EE7a h\xE0ng \u0111\u1ED1i
     di\u1EC7n."
-  experienceReward: 50
-  goldReward: 100
+  experienceReward: 400
+  goldReward: 250
   dialogues:
   - "T\xE1o l\xE0 ch\u01B0a \u0111\u1EE7 b\u1EA1n c\u1EA7n th\u1EE9 g\xEC \u0111\xF3
     h\u1ED3i ph\u1EE5c m\u1EA1nh m\u1EBD h\u01A1n."

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Demo
   objType: 2
-  hpMax: 3000
-  damage: 50
-  defense: 40
+  hpMax: 1800
+  damage: 35
+  defense: 25

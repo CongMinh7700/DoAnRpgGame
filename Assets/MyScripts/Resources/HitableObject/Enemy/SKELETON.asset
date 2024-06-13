@@ -15,5 +15,5 @@ MonoBehaviour:
   objName: SKELETON
   objType: 1
   hpMax: 200
-  damage: 20
-  defense: 10
+  damage: 15
+  defense: 5

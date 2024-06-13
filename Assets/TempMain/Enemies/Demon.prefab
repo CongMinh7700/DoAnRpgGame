@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf9069c8e125f548b86ee18ab8a59a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 35
   weaponCtrl: {fileID: 8152599887008380436}
   hitableObjectCtrl: {fileID: 946684978711145250}
 --- !u!1 &1662727022
@@ -2401,16 +2401,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 8136594672566374595}
-  currentHp: 3000
-  hpMax: 3000
-  defense: 40
+  currentHp: 1800
+  hpMax: 1800
+  defense: 25
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 946684978711145250}
   enemyAnimation: {fileID: 946684978711145277}
   enemyCtrl: {fileID: 946684978711145250}
-  maxExp: 0
-  minExp: 0
+  maxExp: 3000
+  minExp: 2000
   exp: 0
   thisEnemy: {fileID: 8136594672566374598}
   healthBar: {fileID: 8136594672091237656}
@@ -2547,6 +2547,7 @@ MonoBehaviour:
   isAttacking: 0
   originalPosition: {x: 0, y: 0, z: 0}
   bossAttack: {fileID: 8136594672372750443}
+  bossCtrl: {fileID: 0}
   speedOffset: 0
   isFlex: 0
 --- !u!1 &8279525205212540862

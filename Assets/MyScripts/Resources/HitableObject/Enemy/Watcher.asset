@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Watcher
   objType: 1
-  hpMax: 200
-  damage: 30
-  defense: 10
+  hpMax: 150
+  damage: 25
+  defense: 3

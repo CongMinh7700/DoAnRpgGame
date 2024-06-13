@@ -614,7 +614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1617606521110135597
 Transform:
   m_ObjectHideFlags: 0
@@ -2309,19 +2309,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1617606520056252265}
-  currentHp: 1500
-  hpMax: 1500
-  defense: 30
+  currentHp: 1200
+  hpMax: 1200
+  defense: 20
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 1617606519204915873}
   enemyAnimation: {fileID: 1617606519204915872}
   enemyCtrl: {fileID: 1617606519204915873}
-  maxExp: 1852
-  minExp: 1672
+  maxExp: 3000
+  minExp: 2000
   exp: 0
   thisEnemy: {fileID: 1617606520056252271}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1617606519867921665}
 --- !u!1 &1617606520067389664
 GameObject:
   m_ObjectHideFlags: 0

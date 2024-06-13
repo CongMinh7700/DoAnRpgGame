@@ -1102,16 +1102,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 2312811032899409356}
-  currentHp: 4000
-  hpMax: 4000
-  defense: 50
+  currentHp: 2500
+  hpMax: 2500
+  defense: 35
   isDead: 0
   isAttacked: 0
   hitableObjectCtrl: {fileID: 2312811032488220722}
   enemyAnimation: {fileID: 2312811032488220724}
   enemyCtrl: {fileID: 2312811032488220722}
-  maxExp: 0
-  minExp: 0
+  maxExp: 3000
+  minExp: 2000
   exp: 0
   thisEnemy: {fileID: 2312811032899409345}
   healthBar: {fileID: 4204649967251555045}

@@ -15,5 +15,5 @@ MonoBehaviour:
   objName: Rake_B
   objType: 1
   hpMax: 400
-  damage: 15
-  defense: 20
+  damage: 10
+  defense: 10

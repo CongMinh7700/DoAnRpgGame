@@ -15,7 +15,7 @@ MonoBehaviour:
   questTitle: "Mua g\u0103ng tay"
   description: "H\xE3y mua m\u1ED9t c\u1EB7p g\u0103ng tay t\u1EEB th\u1EE3 r\xE8n
     b\xEAn c\u1EA1nh."
-  experienceReward: 10
+  experienceReward: 300
   goldReward: 100
   dialogues:
   - "Vi\u1EC7c chi\u1EBFn \u0111\u1EA5u l\xE2u d\xE0i c\u0169ng ki\u1EBFn b\u1EA1n

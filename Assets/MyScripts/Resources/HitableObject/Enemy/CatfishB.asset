@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: CatfishB
   objType: 1
-  hpMax: 500
-  damage: 40
-  defense: 25
+  hpMax: 400
+  damage: 35
+  defense: 15
