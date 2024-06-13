@@ -21,14 +21,11 @@ public class LevelSystem : Level
     public static int staminaLevel;
     public static double defenseLevel;
     public static int manaLevel;
-    protected override void Awake()
-    {
-        if (LevelSystem.instance != null) Debug.Log("Only 1 Level System Allow to exits");
-        LevelSystem.instance = this;
-    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        if (LevelSystem.instance != null) Debug.Log("Only 1 Level System Allow to exits");
+        LevelSystem.instance = this;
         LoadPlayerCtrl();
     }
     public virtual void LoadPlayerCtrl()
@@ -39,6 +36,7 @@ public class LevelSystem : Level
     protected override void ResetValue()
     {
         base.ResetValue();
+        requireXp = 50;
         UpdatePlayerStatus(0);
 
     }

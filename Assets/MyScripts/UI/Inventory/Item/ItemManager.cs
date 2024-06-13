@@ -138,7 +138,6 @@ public class ItemManager : RPGMonoBehaviour
             case ItemType.Weapon:
                 slotIndex = 3;
                 isEquippedWeapon = true;
-
                 break;
             default:
                 break;

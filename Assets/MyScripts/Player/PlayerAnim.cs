@@ -58,11 +58,28 @@ public class PlayerAnim : RPGMonoBehaviour
     }
     public virtual void AttackAnimation(string attackString)
     {
-        if (attackString == "") return;
-        animator.SetTrigger(attackString);
+        string newName = RenameAnimation(attackString);
+        if (newName == "") return;
+        animator.SetTrigger(newName);
         isAttacking = true;
     }
-
+    public string RenameAnimation(string name)
+    {
+        if (name == "Spear" || name == "WSpear")
+        {
+            name = "Spear";
+        }
+        else if (name == "LongSword" || name == "WSword")
+        {
+            name = "LongSword";
+        }
+        else if (name == "LongAxe" || name == "WAxe")
+        {
+            name = "LongAxe";
+        }
+        else name = "";
+        return name;
+    }
     public void TrailOn()
     {
         if (trailObject == null) return;

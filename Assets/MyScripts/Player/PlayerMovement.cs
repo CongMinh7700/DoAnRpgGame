@@ -49,6 +49,7 @@ public class PlayerMovement : RPGMonoBehaviour
 
     void Update()
     {
+        Debug.Log("Grounded : "+grounded);
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f - 0.7f, whatIsGround);
         if (grounded)
             rb.drag = groundDrag;

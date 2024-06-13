@@ -17,6 +17,15 @@ public class StatsUpdate : RPGMonoBehaviour
     [SerializeField] protected TextMeshProUGUI currencyText;
 
     [SerializeField] protected PlayerCtrl playerCtrl;
+    protected override void LoadComponents()
+    {
+        LoadPlayerCtrl();
+    }
+    public virtual void LoadPlayerCtrl()
+    {
+        if (this.playerCtrl != null) return;
+        this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
+    }
     private void Start()
     {
         nameText.text = "Tên : " + PlayerInfoManager.playerNameData;

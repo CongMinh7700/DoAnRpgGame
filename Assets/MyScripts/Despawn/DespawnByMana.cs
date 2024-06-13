@@ -17,6 +17,10 @@ public class DespawnByMana : Despawn
             UsingSkill.manaLow = false;
         }
     }
+    public override void DespawnObject()
+    {
+        FXSpawner.Instance.Despawn(transform.parent);
+    }
     protected override bool CanDespawn()
     {
         Debug.Log("ManaLow : " + UsingSkill.manaLow);

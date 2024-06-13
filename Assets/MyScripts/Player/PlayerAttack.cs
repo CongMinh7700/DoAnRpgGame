@@ -73,6 +73,18 @@ public class PlayerAttack : RPGMonoBehaviour
                 staminaCost = 25;
                 weaponIndex = 2;
                 break;
+            case "WSpear":
+                staminaCost = 30;
+                weaponIndex = 0;
+                break;
+            case "WSword":
+                staminaCost = 25;
+                weaponIndex = 1;
+                break;
+            case "WAxe":
+                staminaCost = 35;
+                weaponIndex = 2;
+                break;
             default:
                 return;
 
@@ -82,6 +94,7 @@ public class PlayerAttack : RPGMonoBehaviour
         StartCoroutine(ApplyStaminaAfterAnimation(staminaCost));
 
     }
+  
     public virtual void StaminaRecover()
     {
         this.currentStamina += (staminaMax / 16) * Time.deltaTime;

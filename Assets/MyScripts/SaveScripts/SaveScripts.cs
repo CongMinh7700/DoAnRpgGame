@@ -13,6 +13,15 @@ public class SaveScripts : RPGMonoBehaviour
     public LevelSystem levelSystem;
     //[Header("In Game")]
     // public static int instance = 0;
+    protected override void LoadComponents()
+    {
+        LoadPlayerCtrl();
+    }
+    public virtual void LoadPlayerCtrl()
+    {
+        if (this.playerCtrl != null) return;
+        this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
+    }
     public virtual void SaveData(string id)
     {
         string dataPath = GetIDPath(id);
