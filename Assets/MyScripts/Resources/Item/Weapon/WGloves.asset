@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 86ecd0e7d75363342a60b7e042cff71a, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "Bao tay chi\u1EBFn binh\nC\xF4ng : 15\nStamina : 100"
+  itemInformation: "Bao tay chi\u1EBFn binh\nC\xF4ng : 15\nStamina : 50"
   bonusAttributes:
   - attributeName: attack
     attributeValue: 15

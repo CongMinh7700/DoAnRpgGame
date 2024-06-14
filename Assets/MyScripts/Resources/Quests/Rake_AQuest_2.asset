@@ -15,8 +15,8 @@ MonoBehaviour:
   questTitle: "Ti\xEAu di\u1EC7t th\u1EE7y qu\xE1i 2"
   description: "Ti\xEAu di\u1EC7t b\u1ECDn th\u1EE7y qu\xE1i \u1EDF \u0111\u1EA7m
     l\u1EA7y."
-  experienceReward: 1500
-  goldReward: 300
+  experienceReward: 2500
+  goldReward: 400
   dialogues:
   - "Ch\xE0o ch\xE0ng trai tr\u1EBB."
   - "Ta \u0111ang g\u1EB7p r\u1EAFc r\u1ED1i v\u1EDBi b\u1ECDn th\u1EE7y qu\xE1i

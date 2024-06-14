@@ -15,8 +15,8 @@ MonoBehaviour:
   questTitle: "Ti\xEAu di\u1EC7t ng\u01B0\u1EDDi x\u01B0\u01A1ng"
   description: "Ti\xEAu di\u1EC7t b\u1ECDn ng\u01B0\u1EDDi x\u01B0\u01A1ng g\u1EA7n
     t\xE0ng t\xEDch"
-  experienceReward: 2000
-  goldReward: 500
+  experienceReward: 4000
+  goldReward: 1000
   dialogues:
   - "Ch\xFAng ta c\xF3 m\u1ED9t r\u1EAFc r\u1ED1i kh\xE1c !"
   - "D\u01B0\u1EDDng nh\u01B0 ai \u0111\xF3 \u0111\xE3 thi tri\u1EC3n t\xE0 thu\u1EADt
@@ -34,7 +34,7 @@ MonoBehaviour:
     gi\u1EA3i tho\xE1t. H\xE3y b\xE1o c\xE1o v\u1EDBi ta khi c\u1EADu xong vi\u1EC7c
     nh\xE9."
   type: 0
-  questState: 0
+  questState: 2
   targetName: SKELETON
   targetCount: 30
-  currentCount: 0
+  currentCount: 30

@@ -17,7 +17,7 @@ MonoBehaviour:
     v\u01B0\u01A1ng ch\u1EE9. H\u1EAFn l\xE0 k\u1EBB \u0111\u1EE9ng sau t\u1EA5t
     c\u1EA3.H\u1EAFn s\u1ED1ng g\u1EA7n khu v\u1EF1c n\xFAi l\u1EEDa."
   experienceReward: 15000
-  goldReward: 1000
+  goldReward: 4000
   dialogues:
   - "H\xE3y ti\xEAu di\u1EC7t m\u1ED1i nguy h\u1EA1i cu\u1ED1i c\xF9ng n\xE0o."
   - "H\u1EAFn l\xE0 k\u1EBB \u0111\u1EE9ng sau t\u1EA5t c\u1EA3 h\xE3y ti\xEAu di\u1EC7t

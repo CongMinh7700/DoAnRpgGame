@@ -17,8 +17,8 @@ MonoBehaviour:
     ng\u01B0 d\xE2n \u0111ang \u0111\xE1nh b\u1EAFt c\xE1.\nV\xE0 \u0111ang mai ph\u1EE5c
     \u1EDF khu v\u1EF1c c\u1EA7u \u0111\u1EC3 t\u1EA5n c\xF4ng nh\u1EEFng ng\u01B0\u1EDDi
     d\xE2n v\xF4 t\u1ED9i."
-  experienceReward: 3000
-  goldReward: 100
+  experienceReward: 7000
+  goldReward: 1000
   dialogues:
   - "Ch\xE0o anh h\xF9ng tr\u1EBB !"
   - "B\u1ECDn qu\xE1i ng\u01B0 \u0111ang mai ph\u1EE5c \u0111\u1EC3 t\u1EA5n c\xF4ng
@@ -33,7 +33,7 @@ MonoBehaviour:
     t\u1EEB x\u01B0\u01A1ng ng\u01B0\u1EDDi, ch\xFAng th\u1EADt gh\xEA t\u1EDFm v\xE0
     \u0111\xE1ng s\u1EE3.Ch\xFAc may m\u1EAFn !"
   type: 0
-  questState: 0
+  questState: 2
   targetName: CatfishA
   targetCount: 20
-  currentCount: 0
+  currentCount: 20

@@ -15,8 +15,8 @@ MonoBehaviour:
   questTitle: "Ti\xEAu di\u1EC7t ng\u01B0\u1EDDi x\u01B0\u01A1ng"
   description: "Ti\xEAu di\u1EC7t ngu\u1EDDi x\u01B0\u01A1ng \u0111\u1EB1ng sau khu
     v\u1EF1c ng\xF4i l\xE0ng."
-  experienceReward: 2000
-  goldReward: 500
+  experienceReward: 5000
+  goldReward: 1500
   dialogues:
   - "D\u01B0\u1EDDng nh\u01B0 b\u1ECDn ng\u01B0\u1EDDi x\u01B0\u01A1ng l\xE0 do ta
     \u0111\xE3 v\xF4 t\xECnh t\u1EA1o ra khi th\xED nghi\u1EC7m tr\xEAn ng\u01B0\u1EDDi

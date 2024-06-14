@@ -15,7 +15,7 @@ MonoBehaviour:
   questTitle: "H\u1ED3i Ph\u1EE5c T\u1ED1t H\u01A1n"
   description: "Mua 5  \u1ED5 b\xE1nh m\xEC t\u1EEB c\u1EE7a h\xE0ng \u0111\u1ED1i
     di\u1EC7n."
-  experienceReward: 400
+  experienceReward: 500
   goldReward: 250
   dialogues:
   - "T\xE1o l\xE0 ch\u01B0a \u0111\u1EE7 b\u1EA1n c\u1EA7n th\u1EE9 g\xEC \u0111\xF3
@@ -30,7 +30,7 @@ MonoBehaviour:
   dialoguesInProgress:
   - "H\xE3y mua 5 \u1EDF b\xE1nh m\xEC r\u1ED3i quay l\u1EA1i \u0111\xE2y."
   type: 1
-  questState: 0
+  questState: 2
   targetName: Bread
   targetCount: 5
-  currentCount: 0
+  currentCount: 5

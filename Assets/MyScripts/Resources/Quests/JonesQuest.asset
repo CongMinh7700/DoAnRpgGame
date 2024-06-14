@@ -15,8 +15,8 @@ MonoBehaviour:
   questTitle: "Ti\xEAu di\u1EC7t tam thi\xEAn v\u01B0\u01A1ng"
   description: "Ti\xEAu di\u1EC7t tam thi\xEAn v\u01B0\u01A1ng \u1EDF t\xE0n t\xEDch
     \u1EDF cu\u1ED1i \u0111\u1EA7m l\u1EA7y.."
-  experienceReward: 5000
-  goldReward: 300
+  experienceReward: 7000
+  goldReward: 1200
   dialogues:
   - "D\u01B0\u1EDDng nh\u01B0 th\u1EE7 l\u0129nh th\u1EE7y qu\xE1i \u0111ang n\u1ED5i
     gi\u1EADn khi ch\xFAng ta ti\xEAu di\u1EC7t binh l\xEDnh c\u1EE7a h\u1EAFn .H\u1EAFn
@@ -35,7 +35,7 @@ MonoBehaviour:
   - "H\xE3y c\u1EA9n th\u1EADn v\u1EDBi t\xEAn thi\xEAn v\u01B0\u01A1ng \u0111\xF3
     \u0111\u1EB7c bi\u1EC7t l\xE0 thanh ki\u1EBFm trong tay h\u1EAFn."
   type: 0
-  questState: 0
+  questState: 2
   targetName: Jones
   targetCount: 1
-  currentCount: 0
+  currentCount: 1

@@ -18,5 +18,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2e350bcef09f70943ba03de78d8c063a, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "H\u1ED3i 30% m\xE1u"
+  itemInformation: "H\u1ED3i l\u1EA1i 20% m\xE1u.\nH\u1ED3i chi\xEAu 45s."
   bonusAttributes: []

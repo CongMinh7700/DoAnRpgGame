@@ -16,8 +16,8 @@ MonoBehaviour:
   description: "Ti\xEAu di\u1EC7t Nh\u1ECB thi\xEAn v\u01B0\u01A1ng \u1EDF ng\u1ECDn
     n\xFAi \u0111\u1ED1i di\u1EC7n.\nH\xE3y c\u1EA9n th\u1EADn v\u1EDBi song \u0111ao
     c\u1EE7a h\u1EAFn."
-  experienceReward: 7000
-  goldReward: 500
+  experienceReward: 10000
+  goldReward: 1500
   dialogues:
   - "D\u01B0\u1EDDng nh\u01B0 m\u1ED1i nguy h\u1EA1i kh\xE1c \u0111\xE3 xu\u1EA5t
     hi\u1EC7n."
@@ -35,7 +35,7 @@ MonoBehaviour:
     h\u1EAFn. Nh\u1EDB trang b\u1ECB \u0111\u1EA7y \u0111\u1EE7 nh\xE9. C\u1EA9n
     tr\u1ECDng!"
   type: 0
-  questState: 0
+  questState: 2
   targetName: Vampire
   targetCount: 1
-  currentCount: 0
+  currentCount: 1

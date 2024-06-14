@@ -18,10 +18,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9c8101d479c60d34185259c220494c61, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "Gi\xE1p s\u1EAFt h\u1EA1ng n\u1EB7ng\nTh\u1EE7 : 10\nM\xE1u :
-    100"
+  itemInformation: "Gi\xE1p chi\u1EBFn binh\nTh\u1EE7 : 20\nM\xE1u : 100"
   bonusAttributes:
   - attributeName: defense
-    attributeValue: 10
+    attributeValue: 20
   - attributeName: health
     attributeValue: 100

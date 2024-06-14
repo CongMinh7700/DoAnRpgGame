@@ -18,6 +18,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a2563f2b8dbc4044b9a50537d3a29962, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "T\u0103ng g\u1EA5p \u0111\xF4i c\xF4ng v\xE0 kh\xF4ng ti\xEAu
-    t\u1ED1n stamina  trong 10 gi\xE2y"
+  itemInformation: "T\u0103ng g\u1EA5p \u0111\xF4i c\xF4ng cho t\u1EDBi khi h\u1EBFt
+    mana.\nH\u1ED3i chi\xEAu 60s."
   bonusAttributes: []

@@ -19,7 +19,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   isFood: 1
   itemInformation: "M\u1ED9t con c\xE1 n\u01B0\u1EDBng th\u01A1m ngon\nH\u1ED3i ph\u1EE5c
-    : 100 Hp"
+    : 100 HP"
   bonusAttributes:
   - attributeName: health
     attributeValue: 100

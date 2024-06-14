@@ -19,5 +19,6 @@ MonoBehaviour:
   prefab: {fileID: 0}
   isFood: 0
   itemInformation: "B\u1EAFn m\u1ED9t qu\u1EA3 c\u1EA7u l\u1EEDa v\u1EC1 ph\xEDa
-    k\u1EBB \u0111\u1ECBch"
+    k\u1EBB \u0111\u1ECBch g\xE2y x2 s\xE1t th\u01B0\u01A1ng g\u1ED1c.\nH\u1ED3i
+    chi\xEAu 5s."
   bonusAttributes: []

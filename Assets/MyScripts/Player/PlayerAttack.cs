@@ -74,15 +74,15 @@ public class PlayerAttack : RPGMonoBehaviour
                 weaponIndex = 2;
                 break;
             case "WSpear":
-                staminaCost = 30;
+                staminaCost = 40;
                 weaponIndex = 0;
                 break;
             case "WSword":
-                staminaCost = 25;
+                staminaCost = 30;
                 weaponIndex = 1;
                 break;
             case "WAxe":
-                staminaCost = 35;
+                staminaCost = 50;
                 weaponIndex = 2;
                 break;
             default:

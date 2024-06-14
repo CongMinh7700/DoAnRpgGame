@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Ti\xEAu di\u1EC7t qu\u1EF7 bay 2"
   description: "Ti\xEAu di\u1EC7t b\u1ECDn qu\u1EF7 bay \u1EDF s\u01B0\u1EDDn n\xFAi"
-  experienceReward: 2000
-  goldReward: 100
+  experienceReward: 7000
+  goldReward: 800
   dialogues:
   - "Ch\xE0o v\u1ECB c\u1EE9u tinh."
   - "Ta c\u1EA7n b\u1ECDn qu\u1EF7 bay \u0111\u1EC3 nghi\xEAn c\u1EE9u ph\xE9p thu\u1EADt

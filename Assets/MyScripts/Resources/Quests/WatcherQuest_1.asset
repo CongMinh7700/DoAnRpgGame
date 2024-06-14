@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Ti\xEAu di\u1EC7t qu\u1EF7 bay 1"
   description: "Ti\xEAu di\u1EC7t b\u1ECDn qu\u1EF7 bay \u1EDF s\u01B0\u1EDDn n\xFAi"
-  experienceReward: 2000
-  goldReward: 100
+  experienceReward: 5000
+  goldReward: 400
   dialogues:
   - "Ch\xE0o v\u1ECB c\u1EE9u tinh."
   - "Xin h\xE3y gi\xFAp ch\xFAng t\xF4i ti\xEAu di\u1EC7t b\u1ECDn qu\xE1i bay \u1EDF
@@ -32,7 +32,7 @@ MonoBehaviour:
     di\u1EC7t ch\xFAng.C\u1EA9n th\u1EADn v\u1EDBi nh\u1EEFng \u0111\xF2n t\u1EA5n
     c\xF4ng l\u1EEDa c\u1EE7a ch\xFAng."
   type: 0
-  questState: 0
+  questState: 2
   targetName: Watcher
   targetCount: 10
-  currentCount: 0
+  currentCount: 10

@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c6edec43464ef8f40aced2dba17ef088, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "M\u1ED9t c\xE2y th\u01B0\u01A1ng c\u0169 k\u0129\nC\xF4ng : 15"
+  itemInformation: "Th\u01B0\u01A1ng\nC\xF4ng : 20"
   bonusAttributes:
   - attributeName: attack
-    attributeValue: 15
+    attributeValue: 20

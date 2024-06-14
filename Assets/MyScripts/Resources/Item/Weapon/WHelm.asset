@@ -18,12 +18,12 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 3253ad9deab97584d9f92d6a2fad17b4, type: 3}
   prefab: {fileID: 0}
   isFood: 0
-  itemInformation: "M\u0169 s\u1EAFt kh\xE1 n\u1EB7ng\nM\xE1u : 100\nMana : 100\nTh\u1EE7
-    : 5"
+  itemInformation: "M\u0169 chi\u1EBFn binh\nM\xE1u : 100\nMana : 50\nTh\u1EE7 :
+    5"
   bonusAttributes:
   - attributeName: mana
     attributeValue: 100
   - attributeName: health
-    attributeValue: 100
+    attributeValue: 50
   - attributeName: defense
-    attributeValue: 5
+    attributeValue: 10

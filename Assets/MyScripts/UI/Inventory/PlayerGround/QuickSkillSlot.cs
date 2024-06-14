@@ -46,10 +46,10 @@ public class QuickSkillSlot : ItemSlot
                         skillUsed = usingSkill.Heal();
                         break;
                     case "Strength":
-                        skillUsed = usingSkill.Strength();
+                        if(!PlayerCtrl.strengthOn) skillUsed = usingSkill.Strength();
                         break;
                     case "Shield":
-                        skillUsed = usingSkill.Shield();
+                        if (!PlayerCtrl.shieldOn)  skillUsed = usingSkill.Shield();
                         break;
                     case "IceShard":
                         skillUsed = usingSkill.IceShard();
@@ -60,7 +60,7 @@ public class QuickSkillSlot : ItemSlot
                 }
                 if (skillUsed)
                 {
-                    if (slotItem.itemName == "Strength" || slotItem.itemName == "Shield")
+                    if (slotItem.itemName == "Strength"  || slotItem.itemName == "Shield")
                     {
                         StartCoroutine(WaitForManaLow(skillCooldown));
                     }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: "Ti\xEAu di\u1EC7t Goblin 1"
   description: "Ti\xEAu di\u1EC7t l\u0169 goblin \u1EDF r\u1EEBng th\xF4ng"
-  experienceReward: 500
-  goldReward: 100
+  experienceReward: 1000
+  goldReward: 200
   dialogues:
   - "Ch\xE0o ch\xE0ng anh h\xF9ng tr\u1EBB c\u1EE7a ch\xFAng ta !"
   - "H\xE3y gi\xFAp \u0111\u1EE1 nh\u1EEFng ng\u01B0\u1EDDi d\xE2n l\xE0ng t\u1ED9i
@@ -32,7 +32,7 @@ MonoBehaviour:
   - "H\xE3y c\u1EA9n th\u1EADn v\u1EDBi b\u1ECDn nh\xF3c \"xanh l\xE8\" \u0111\xF3.
     H\xE3y b\xE1o c\xE1o v\u1EDBi ta khi c\u1EADu ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5"
   type: 0
-  questState: 0
+  questState: 2
   targetName: Goblin
   targetCount: 10
-  currentCount: 0
+  currentCount: 10
