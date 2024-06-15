@@ -7,6 +7,7 @@ public class EnemyMove : RPGMonoBehaviour
 {
 
     [SerializeField] protected EnemyAnimation enemyAnimation;
+    [SerializeField] protected EnemyCtrl enemyCtrl;
     [SerializeField] public NavMeshAgent navMesh;
 
     [Header("Enemy Move")]
@@ -37,21 +38,27 @@ public class EnemyMove : RPGMonoBehaviour
         this.LoadNavMeshAgent();
         this.LoadEnemyAnimation();
         this.LoadPlayer();
-
+        this.LoadEnemyCtrl();
     }
-
+          
     public virtual void LoadNavMeshAgent()
     {
         if (this.navMesh != null) return;
         this.navMesh = GetComponentInParent<NavMeshAgent>();
-        Debug.LogWarning(transform.name + "|LoadNavMeshAgent|", gameObject);
+       // Debug.LogWarning(transform.name + "|LoadNavMeshAgent|", gameObject);
+    }
+    public virtual void LoadEnemyCtrl()
+    {
+        if (this.enemyCtrl != null) return;
+        this.enemyCtrl = GetComponentInParent<EnemyCtrl>();
+        //Debug.LogWarning(transform.name + "|LoadNavMeshAgent|", gameObject);
     }
     public virtual void LoadEnemyAnimation()
     {
 
         if (this.enemyAnimation != null) return;
         this.enemyAnimation = GetComponentInParent<EnemyAnimation>();
-        Debug.LogWarning(transform.name + "|LoadEnemyAnimation|", gameObject);
+       // Debug.LogWarning(transform.name + "|LoadEnemyAnimation|", gameObject);
     }
     public virtual void LoadPlayer()
     {
@@ -70,7 +77,7 @@ public class EnemyMove : RPGMonoBehaviour
     }
     public virtual void EnemyMovement()
     {
-
+      
         x = navMesh.velocity.x;
         z = navMesh.velocity.z;
         velocitySpeed = x + z;
@@ -138,8 +145,13 @@ public class EnemyMove : RPGMonoBehaviour
     }
     public virtual void MoveToPlayer()
     {
-            navMesh.isStopped = false;
-            navMesh.destination = player.transform.position;
+        if (enemyCtrl.DamageReceiver.IsDead())
+        {
+            navMesh.isStopped = true;
+            return;
+        }
+        navMesh.isStopped = false;
+        navMesh.destination = player.transform.position;
     }
     public virtual void MoveToPosition(Vector3 targetPosition)
     {

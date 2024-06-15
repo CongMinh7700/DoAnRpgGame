@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DemonBossMove : EnemyMove
 {
-
     [SerializeField] private BossAttack bossAttack;
     [SerializeField] private BossCtrl bossCtrl;
     [SerializeField] private float speedOffset;
@@ -43,7 +42,7 @@ public class DemonBossMove : EnemyMove
     {
         IncreaseAttackRange();
         if (isFlex) return;
-
+       
         base.EnemyMovement();
         if (BossAttack.canMove)
         {
@@ -55,6 +54,7 @@ public class DemonBossMove : EnemyMove
         }
         else
         {
+          
             MoveToPlayer();
             return;
         }
@@ -85,7 +85,7 @@ public class DemonBossMove : EnemyMove
     }
     IEnumerator WaitToFalse()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         isFlex = false;
     }
 

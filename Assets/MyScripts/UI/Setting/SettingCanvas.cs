@@ -8,12 +8,18 @@ public class SettingCanvas : RPGMonoBehaviour
     [SerializeField] protected GameObject settingUI;
     [SerializeField] protected GameObject pauseUI;
     [SerializeField] protected GameObject deathScreen;
-
+    [SerializeField] protected GameObject winScreen;
+    public bool isShow = false;
     private void Update()
     {
         if (PlayerDamageReceiver.isDeath)
         {
             deathScreen.SetActive(true);
+        }
+        if(LevelSystem.Instance.bossKill >= 4 && !isShow)
+        {
+            winScreen.SetActive(true);
+          //  Debug.LogError("SettingCanva");
         }
     }
     private void Start()
@@ -21,7 +27,9 @@ public class SettingCanvas : RPGMonoBehaviour
         settingUI.SetActive(false);
         pauseUI.SetActive(false);
         deathScreen.SetActive(false);
+        winScreen.SetActive(false);
     }
+   
     protected override void LoadComponents()
     {
         LoadPauseUI();
