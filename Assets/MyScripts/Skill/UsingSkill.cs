@@ -57,7 +57,7 @@ public class UsingSkill : RPGMonoBehaviour
     }
     public virtual bool FireBall()
     {
-        return SpawnAtackSkill(20, SkillSpawner.fireBall);
+        return SpawnAtackSkill(30, SkillSpawner.fireBall);
     }
     public virtual bool IceShard()
     {
@@ -92,7 +92,7 @@ public class UsingSkill : RPGMonoBehaviour
 
     public virtual void ManaRecover()
     {
-        this.currentMana += (manaMax/16) * Time.deltaTime;//Time.deltaTime
+        this.currentMana += (manaMax/20) * Time.deltaTime;//Time.deltaTime
         if (this.currentMana >= manaMax) currentMana = manaMax;
     }
     public virtual void ManaDeduct(float value)

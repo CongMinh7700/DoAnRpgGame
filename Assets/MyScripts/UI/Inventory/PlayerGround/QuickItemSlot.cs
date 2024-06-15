@@ -13,18 +13,23 @@ public class QuickItemSlot : ItemSlot
     [SerializeField] protected float useDelay = 2f;
     [SerializeField] protected bool isUse ;
     [SerializeField] protected PlayerCtrl playerCtrl ;
-
+    public Image fillImage;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadPlayerCtrl();
+        LoadInventory();
     }
     protected virtual void LoadPlayerCtrl()
     {
         if (this.playerCtrl != null) return;
         this.playerCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
     }
-    public Image fillImage;
+    protected virtual void LoadInventory()
+    {
+        if (this.inventory != null) return;
+        this.inventory = FindObjectOfType<ItemContainer>();
+    }
     private void Update()
     {
         UseItem();

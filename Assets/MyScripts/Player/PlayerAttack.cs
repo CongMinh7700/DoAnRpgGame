@@ -97,7 +97,7 @@ public class PlayerAttack : RPGMonoBehaviour
   
     public virtual void StaminaRecover()
     {
-        this.currentStamina += (staminaMax / 16) * Time.deltaTime;
+        this.currentStamina += (staminaMax / 20) * Time.deltaTime;
         if (this.currentStamina >= staminaMax) currentStamina = staminaMax;
     }
     public virtual void StaminaDeduct(int value)

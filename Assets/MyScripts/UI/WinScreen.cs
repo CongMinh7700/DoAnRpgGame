@@ -41,14 +41,13 @@ public class WinScreen : RPGMonoBehaviour
     }
     IEnumerator AnimateText(string fullText)
     {
-        yield return new WaitForSeconds(1f);
         isAnimatingText = true;
         for (int i = 0; i <= fullText.Length; i++)
         {
            completeText.text = fullText.Substring(0, i);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.03f);
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         isAnimatingText = false;
         winScreen.SetActive(false);
         settingCanvas.isShow = true;
