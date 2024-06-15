@@ -19698,7 +19698,7 @@ MonoBehaviour:
   damage: 10
   skillCtrl: {fileID: 8773005224939521550}
   isFire: 0
-  isDimenBoom: 0
+  isDimenBoom: 1
 --- !u!1 &8773005225176826087
 GameObject:
   m_ObjectHideFlags: 0

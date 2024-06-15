@@ -11,7 +11,6 @@ public class ItemManager : RPGMonoBehaviour
     public static bool isEquippedArmor;
     public static bool isEquippedHelmet;
     public static bool isEquippedGloves;
-    public static bool isChange;
     //bonusValue
     public static int hpMaxBonus;
     public static int healBonus;
@@ -42,6 +41,18 @@ public class ItemManager : RPGMonoBehaviour
         if (ItemManager.instance != null) Debug.Log("Only 1 Item Manager Allow To Exist");
         ItemManager.instance = this;
     }
+    private void Start()
+    {
+        if (SaveGame.newGame)
+        {
+            isEquippedWeapon = false;
+            isEquippedArmor = false;
+            isEquippedHelmet = false;
+            isEquippedGloves = false;
+        }
+        UpdateStats();
+
+    }
     //UseItem
     public void UseItem(ItemSlot slot)
     {
@@ -70,11 +81,11 @@ public class ItemManager : RPGMonoBehaviour
         {
             BonusAttribute heal = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "health");
             BonusAttribute mana = slot.slotItem.bonusAttributes.FirstOrDefault(bonus => bonus.attributeName == "mana");
-            if(heal != null)
+            if (heal != null)
             {
                 playerCtrl.DamageReceiver.Health(heal.attributeValue);
             }
-            if(mana != null)
+            if (mana != null)
             {
                 playerCtrl.UsingSkill.ManaAdd(mana.attributeValue);
             }
@@ -85,7 +96,7 @@ public class ItemManager : RPGMonoBehaviour
     private void UsingSkill(ItemSlot slot)
     {
 
-        if(slot.slotItem.type == ItemType.Skill)
+        if (slot.slotItem.type == ItemType.Skill)
         {
             string name = slot.slotItem.itemName;
             int slotIndex = -1;
@@ -109,13 +120,13 @@ public class ItemManager : RPGMonoBehaviour
                 case "IceShard":
                     slotIndex = 5;
                     break;
-            
+
             }
             skillUI.slots[slotIndex].Add(slot.slotItem);
             Debug.Log("Learn Skill " + slot.slotItem.itemName);
             slot.Remove(1);
         }
-      
+
     }
     private void EquipItem(ItemSlot slot)
     {
@@ -168,8 +179,8 @@ public class ItemManager : RPGMonoBehaviour
                     weapon.SetActive(false);
                 }
             }
-            
-            else if(!isEquippedWeapon)
+
+            else if (!isEquippedWeapon)
             {
                 weapon.SetActive(false);
                 weaponName = "";
@@ -233,7 +244,7 @@ public class ItemManager : RPGMonoBehaviour
     {
         return itemList[index];
     }
-    
+
     public int GetItemIndex(Item item)
     {
         for (int i = 0; i < itemList.Count; i++) if (itemList[i] == item) return i;

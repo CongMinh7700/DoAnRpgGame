@@ -6,7 +6,7 @@ public class Level : RPGMonoBehaviour
 {
     [Header("Level")]
     [SerializeField] protected int levelCurrent = 0;
-    [SerializeField] protected int levelMax = 1000;
+    [SerializeField] protected int levelMax = 100;
     public int LevelCurrent => levelCurrent;
     public int LevelMax => levelMax;
    

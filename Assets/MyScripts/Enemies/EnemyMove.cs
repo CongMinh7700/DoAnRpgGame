@@ -37,7 +37,9 @@ public class EnemyMove : RPGMonoBehaviour
         this.LoadNavMeshAgent();
         this.LoadEnemyAnimation();
         this.LoadPlayer();
+
     }
+
     public virtual void LoadNavMeshAgent()
     {
         if (this.navMesh != null) return;
@@ -63,10 +65,12 @@ public class EnemyMove : RPGMonoBehaviour
     }
     private void Update()
     {
+
         this.EnemyMovement();
     }
     public virtual void EnemyMovement()
     {
+
         x = navMesh.velocity.x;
         z = navMesh.velocity.z;
         velocitySpeed = x + z;

@@ -132,9 +132,13 @@ public class QuestGiver : RPGMonoBehaviour
         string fullText = "";
         if (noQuest)
         {
-            if (shopNumber > 4)
+            if (shopNumber == 5)
             {
                 fullText = "Bạn đã tiêu diệt được bọn tay sai của quỷ vương rồi cảm ơn cậu. Tôi đã mở cổng dịch chuyển ở thị trấn rồi cậu hãy tới đó để giúp những người dân làng tội nghiệp khác .Chúc may mắn !";
+            }
+            else if(shopNumber == 6)
+            {
+                fullText = "Cảm ơn cậu rất nhiều nhờ cậu mà thế giới đã trở lại bình thường rồi. Cảm ơn bạn đã dành thời gian ra chơi con game này :))";
             }
             else
             {

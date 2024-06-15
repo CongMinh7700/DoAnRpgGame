@@ -1034,7 +1034,7 @@ MonoBehaviour:
   z: 0
   velocitySpeed: 0
   attackRange: 5
-  runRange: 15
+  runRange: 30
   rotateSpeed: 50
   distance: 0
   isAttacking: 0
@@ -1263,7 +1263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3447816020676079328
 Transform:
   m_ObjectHideFlags: 0

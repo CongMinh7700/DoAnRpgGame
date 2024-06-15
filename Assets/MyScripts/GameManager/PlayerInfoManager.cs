@@ -72,10 +72,10 @@ public class PlayerInfoManager : RPGMonoBehaviour
         this.healText.text = currenHp.ToString() + "/" + maxHp.ToString();
 
         this.staminaBar.fillAmount = (float)currentStamina / maxStamina;
-        this.staminaText.text = currentStamina.ToString() + "/" + maxStamina.ToString();
+        this.staminaText.text = ((int)currentStamina).ToString() + "/" + maxStamina.ToString();
 
         this.manaBar.fillAmount = (float)currentMana / maxMana;
-        this.manaText.text = currentMana.ToString() + "/" + maxMana.ToString();
+        this.manaText.text = ((int)currentMana).ToString() + "/" + maxMana.ToString();
 
         this.xpBar.fillAmount = (float)currentXP / requireXP;
         this.xpText.text = currentXP.ToString() + "/" + requireXP.ToString();

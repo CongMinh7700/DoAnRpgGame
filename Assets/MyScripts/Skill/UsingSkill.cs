@@ -14,7 +14,6 @@ public class UsingSkill : RPGMonoBehaviour
     protected override void LoadComponents()
     {
         this.LoadPlayerCtrl();
-
     }
     protected virtual void LoadPlayerCtrl()
     {
@@ -29,16 +28,12 @@ public class UsingSkill : RPGMonoBehaviour
     }
     protected virtual void UpdateBase()
     {
-       // Debug.LogWarning("ManaLevel : " + LevelSystem.manaLevel + " ManaBonus : " + ItemManager.manaBonus);
         baseMana = LevelSystem.manaLevel;
         SetManaMax(baseMana + ItemManager.manaBonus);
     }
     protected virtual void FixedUpdate()
     {
-        // manaLow = false;
         UpdateBase();
-       // Debug.Log("StrengthOn :" + PlayerCtrl.strengthOn);
-       // Debug.Log("ShieldOn :" + PlayerCtrl.shieldOn);
         ManaRecover();
         if (PlayerCtrl.shieldOn)
         {
@@ -66,17 +61,17 @@ public class UsingSkill : RPGMonoBehaviour
     }
     public virtual bool IceShard()
     {
-        return SpawnAtackSkill(20, SkillSpawner.iceShard);
+        return SpawnAtackSkill(50, SkillSpawner.iceShard);
     }
     public virtual bool DimenBoom()
     {
-        return SpawnAtackSkill(30, SkillSpawner.dimenBoom);
+        return SpawnAtackSkill(100, SkillSpawner.dimenBoom);
     }
     public virtual bool Heal()
     {
-        if (currentMana < 30) return false;
+        if (currentMana < 50) return false;
         playerCtrl.DamageReceiver.Health((playerCtrl.DamageReceiver.HPMax * 20) / 100);//Tính toán cho được 20% hp
-        return SpawnEffectSkill(30, FXSpawner.heal);
+        return SpawnEffectSkill(50, FXSpawner.heal);
 
     }
     public virtual bool Strength()

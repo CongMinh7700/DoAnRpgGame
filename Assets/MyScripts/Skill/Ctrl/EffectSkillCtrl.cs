@@ -6,8 +6,8 @@ public class EffectSkillCtrl : RPGMonoBehaviour
 {
     [SerializeField] protected Transform position;
     public Transform Position => position;
-    [SerializeField] protected DespawnByMana despawnByMana;
-    public DespawnByMana DespawnByMana => despawnByMana;
+    [SerializeField] protected Despawn despawn;
+    public Despawn Despawn => despawn;
 
     protected override void LoadComponents()
     {
@@ -15,8 +15,8 @@ public class EffectSkillCtrl : RPGMonoBehaviour
     }
     protected virtual void LoadDespawn()
     {
-        if (despawnByMana != null) return;
-        this.despawnByMana = GetComponentInChildren<DespawnByMana>();
+        if (despawn != null) return;
+        this.despawn = GetComponentInChildren<Despawn>();
     }
 
     public virtual void SetPositionEF(Transform position)

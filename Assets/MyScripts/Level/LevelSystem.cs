@@ -40,6 +40,13 @@ public class LevelSystem : Level
         UpdatePlayerStatus(0);
 
     }
+    private void Start()
+    {
+        if (SaveGame.newGame)
+        {
+            UpdatePlayerStatus(0);
+        }
+    }
     private void Update()
     {
        //    Debug.Log("Boss Kill Count :" + bossKill);
@@ -88,6 +95,7 @@ public class LevelSystem : Level
         staminaLevel = playerCtrl.PlayerSO.stamina + (level * 10);
         manaLevel = playerCtrl.PlayerSO.mana + (level * 10);
         defenseLevel = playerCtrl.PlayerSO.defense + (level * 0.1);
+        Debug.Log("Damage Player :" + playerCtrl.PlayerSO.damage);
         damageLevel = playerCtrl.PlayerSO.damage + level;
         playerCtrl.PlayerAttack.SetStaminaMax(staminaLevel);
         playerCtrl.UsingSkill.SetManaMax(manaLevel);

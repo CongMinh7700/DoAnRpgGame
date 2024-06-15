@@ -14,14 +14,6 @@ public class EquipSlot : ItemSlot
         this.iconImage = transform.Find("IconImage").GetComponent<Image>();
         iconImage.gameObject.SetActive(true);
     }
-    //Add Item
-    private void Start()
-    {
-        if (SaveGame.newGame)
-        {
-            UnEquip();
-        }
-    }
     public override bool Add(Item item)
     {
         if (IsAddable(item))

@@ -12,6 +12,10 @@ public class ObjectMoveByDirection : MonoBehaviour
     {
         GetMovePosition();
     }
+    private void OnEnable()
+    {
+        targetPosition = Vector3.zero;
+    }
     protected virtual void GetMovePosition()
     {
         Vector3 pos = transform.position;
