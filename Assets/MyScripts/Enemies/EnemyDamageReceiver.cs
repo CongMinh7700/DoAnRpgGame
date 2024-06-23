@@ -14,7 +14,8 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     [SerializeField] protected int exp;
     [SerializeField] GameObject thisEnemy;
     [SerializeField] protected Image healthBar;
-   
+    [SerializeField] protected Image easer;
+    [SerializeField] protected float lerpSpeed = 0.05f;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -22,6 +23,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         this.LoadEnemyCtrl();
         LoadThisEnemy();
         LoadFill();
+        LoadEaser();
     }
 
 
@@ -39,6 +41,11 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         if (this.healthBar != null) return;
         this.healthBar = transform.parent.Find("HpBarCanvas").Find("Fill").GetComponent<Image>();
+    }
+    protected virtual void LoadEaser()
+    {
+        if (this.easer != null) return;
+        this.easer = transform.parent.Find("HpBarCanvas").Find("Easer").GetComponent<Image>();
     }
     private void Update()
     {
@@ -99,7 +106,8 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     protected virtual void SetHpUI()
     {
         this.healthBar.fillAmount = (float)currentHp / hpMax;
-       // Debug.Log("Call SetHPUI");
+        if (healthBar.fillAmount != easer.fillAmount) easer.fillAmount = Mathf.Lerp(easer.fillAmount, (float)currentHp / hpMax, lerpSpeed);
+        // Debug.Log("Call SetHPUI");
     }
     //Spawn
     private void SpawnMoney()

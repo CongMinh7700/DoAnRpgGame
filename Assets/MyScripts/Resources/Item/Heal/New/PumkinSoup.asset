@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7e219cba5ed75439fc1f0294a52539, type: 3}
   m_Name: PumkinSoup
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   itemName: PumkinSoup
   itemPerSlot: 99
   icon: {fileID: 21300000, guid: 5b7e6a8e07235dd4d9869f37745e73dd, type: 3}
