@@ -30,7 +30,6 @@ public class EnemyDespawn : DespawnByHp
     {
 
         EnemySpawner.Instance.Despawn(transform.parent);
-
     }
     IEnumerator WaitToDespawn()
     {

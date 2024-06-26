@@ -91,13 +91,10 @@ public class PlayerAnim : RPGMonoBehaviour
         trailObject.GetComponent<Renderer>().enabled = false;
 
     }
-    //Sử dụng cho đổi vũ khí
-
     public bool IsPlayingAttackAnimation()
     {
-
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        bool isPlayingAttack = stateInfo.IsTag("Attack") && stateInfo.normalizedTime < 1f;
+        bool isPlayingAttack = stateInfo.IsTag("Attack") && stateInfo.normalizedTime < 1f;//o là bắt đầu ,1 là kết thúc trạng thái đang pháts
         return isPlayingAttack;
 
     }

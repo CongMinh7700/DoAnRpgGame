@@ -1,7 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Không sử dụng 
 public class MouseLook : MonoBehaviour
 {
 
@@ -26,8 +26,6 @@ public class MouseLook : MonoBehaviour
 
         Vector3 viewDirection = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDirection.normalized;
-
-
         //rotate playerObj
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -37,9 +35,5 @@ public class MouseLook : MonoBehaviour
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDirection.normalized, Time.deltaTime * rotationSpeed);
         }
-
-
-    
-
 }
 }

@@ -92,9 +92,7 @@ public class PlayerAttack : RPGMonoBehaviour
         playerCtrl.PlayerSFX.SetWeaponSFX(weaponIndex);
         playerCtrl.PlayerAnim.AttackAnimation(name);
         StartCoroutine(ApplyStaminaAfterAnimation(staminaCost));
-
     }
-  
     public virtual void StaminaRecover()
     {
         this.currentStamina += (staminaMax / 20) * Time.deltaTime;

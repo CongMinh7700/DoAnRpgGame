@@ -7,6 +7,7 @@ using TMPro;
 
 public class PlayerInfoManager : RPGMonoBehaviour
 {
+    //PlayerGround
     [SerializeField] protected static PlayerInfoManager instance;
     public static PlayerInfoManager Instance => instance;
     [SerializeField] protected PlayerCtrl playerCtrl;

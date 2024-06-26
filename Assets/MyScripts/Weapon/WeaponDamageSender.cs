@@ -36,7 +36,7 @@ public class WeaponDamageSender : DamageSender
             if (hitableObjectCtrl != null)
             {
                 this.damage = hitableObjectCtrl.HitableObjectSO.damage;
-                break; // Nếu tìm thấy thì thoát khỏi vòng lặp
+                break; 
             }
             currentTransform = currentTransform.parent; // Đi lên cấp cha tiếp theo
         }

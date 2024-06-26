@@ -34,7 +34,7 @@ MonoBehaviour:
     chu\u1EA9n b\u1ECB k\u1EF9 c\xE0ng tr\u01B0\u1EDBc khi chi\u1EBFn \u0111\u1EA5u
     nh\xE9.Ch\xFAc may m\u1EAFn."
   type: 0
-  questState: 2
+  questState: 0
   targetName: CatfishB
   targetCount: 20
-  currentCount: 20
+  currentCount: 0

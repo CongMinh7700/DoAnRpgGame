@@ -31,6 +31,7 @@ public class BossMove : EnemyMove
     public override void Attack()
     {
         this.bossAttack.Attack();
+        //
         Vector3 pos = (player.transform.position - transform.position).normalized;
         Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, posRotation, Time.deltaTime * rotateSpeed);

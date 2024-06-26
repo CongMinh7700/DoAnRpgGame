@@ -25,8 +25,6 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
         LoadFill();
         LoadEaser();
     }
-
-
     protected virtual void LoadThisEnemy()
     {
         if (thisEnemy != null) return;
@@ -68,7 +66,7 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     protected override void OnDead()
     {
         exp = Random.Range(minExp, maxExp);
-        Debug.Log(exp);
+      //  Debug.Log(exp);
         enemyAnimation.DeathAnimation();
         //Money & Xp
         PlayerCtrl.theTarget = null;
@@ -87,10 +85,8 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     
     public virtual void OutlineControl()
     {
-  
         if (!IsDead())
         {
-           
             if (PlayerCtrl.theTarget == thisEnemy)
             {
                 transform.parent.GetComponent<Outline>().enabled = true;
@@ -114,7 +110,6 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     {
         Vector3 position = transform.parent.position;
         Quaternion rotation = transform.parent.rotation;
-
         Transform newGold = GoldSpawner.Instance.Spawn(GoldSpawner.gold, position, rotation);
         newGold.gameObject.SetActive(true);
         MoneyCtrl moneyCtrl = newGold.GetComponent<MoneyCtrl>();
@@ -124,7 +119,6 @@ public class EnemyDamageReceiver : HitableObjectDamageReceiver
     protected virtual void CreateDeathEffect()
     {
         string fxName = FXSpawner.deathEffect;
-
         Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
         fxObj.gameObject.SetActive(true);
     }

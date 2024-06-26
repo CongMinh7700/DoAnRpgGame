@@ -6,6 +6,7 @@ using TMPro;
 
 public class MesageScripts : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    //Đổi màu text khi hover
 
     public TextMeshProUGUI buttonText;
     public Color32 messageOn;

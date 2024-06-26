@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -24,27 +24,27 @@ public class InteractionSettings : ScriptableObject
             return current;
         }
     }
-    public ItemCollectorMode itemCollectorMode;
-    public Color highlightColor;
-    public float itemDropHeightOffset = 0.3f;
-    public float interactionRange = 5f;
-    public bool autoCloseExternalContainer = true;
-    public bool forceAddRequiredComponents = true;
+    public ItemCollectorMode itemCollectorMode;//Không dung
+    public Color highlightColor;//Không dung
+    public float itemDropHeightOffset = 0.3f;//Không dung
+    public float interactionRange = 5f;//Không dung
+    public bool autoCloseExternalContainer = true;//Không dung
+    public bool forceAddRequiredComponents = true;//Không dung
 
     public GameObject optionsMenuButtonPrefabs;
     public SlotOptions[] internalSlotOptions;
-    public SlotOptions[] externalSlotOptions;
+    public SlotOptions[] externalSlotOptions;//Không dung(du dinh dung cho rương do ben ngoài)
 
-    public KeyCode transferSingleItem = KeyCode.Mouse1;
-    public KeyCode transferHalfStack = KeyCode.LeftShift;
+    public KeyCode transferSingleItem = KeyCode.Mouse1;//Không dung(chuyen ruong đo)
+    public KeyCode transferHalfStack = KeyCode.LeftShift;//Không dung
 
-    public bool drawRangeIndicators = false;
+    public bool drawRangeIndicators = false;//Không dung
 
 
-   
+
 }
 [Serializable]
-public enum ItemCollectorMode
+public enum ItemCollectorMode//Không dung
 {
     Static = 0,
     PhysicsBody = 1

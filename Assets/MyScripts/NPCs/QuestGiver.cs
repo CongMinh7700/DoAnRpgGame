@@ -142,7 +142,7 @@ public class QuestGiver : RPGMonoBehaviour
             }
             else
             {
-                fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa .Hãy thường xuyên ghé qua đây nhé";
+                fullText = "Tôi không còn nhiệm vụ nào cho bạn nữa. Hãy thường xuyên ghé qua đây nhé";
             }
             messageBox.GetComponent<MessageManager>().Refuse();
         }

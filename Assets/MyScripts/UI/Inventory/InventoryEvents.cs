@@ -18,8 +18,6 @@ public class InventoryEvents : RPGMonoBehaviour
     public void ToggleUI()
     {
         CloseSlotOptionMenu();
-
-        //Tweens in/out the UI.
         if (itemContainer.mainContainerUI.gameObject.activeSelf && itemContainer.isContainerUIOpen)
         {
             itemContainer.isContainerUIOpen = false;
@@ -30,7 +28,6 @@ public class InventoryEvents : RPGMonoBehaviour
         {
             itemContainer.isContainerUIOpen = true;
             Time.timeScale = 0;
-         
             StartCoroutine(Utils.TweenScaleIn(itemContainer.mainContainerUI.gameObject, 50, Vector3.one));
         }
     }
@@ -38,12 +35,11 @@ public class InventoryEvents : RPGMonoBehaviour
     public void OnRemoveItemClicked(ItemSlot slot, Interactor interactor)
     {
         SFXManager.Instance.PlaySFXClick();
-        if (itemContainer.dropItemGameObjects) slot.RemoveAndDrop(1, itemContainer.containerInteractor.ItemDropPosition);
+        if (itemContainer.dropItemGameObjects) slot.RemoveAndDrop(1, itemContainer.containerInteractor.ItemDropPosition);//không sử dụng drop
         else slot.Remove(1);
     }
     //mới Thêm
-  
-    public void OnTransferToInventoryClicked(ItemSlot slot, Interactor interactor)
+    public void OnTransferToInventoryClicked(ItemSlot slot, Interactor interactor)//Không sử dụng chuyển(dành cho rương đồ)
     {
         SFXManager.Instance.PlaySFXClick();
         Utils.TransferItemQuantity(slot, interactor.inventory, slot.itemCount);
@@ -51,10 +47,9 @@ public class InventoryEvents : RPGMonoBehaviour
     //Mở slotOption
     public void OpenSlotOptionMenu()
     {
-
         itemContainer.slotOptionMenu.SetActive(false);
         itemContainer.slotOptionMenu.transform.position = Input.mousePosition;
-        StartCoroutine(Utils.TweenScaleIn(itemContainer.slotOptionMenu, 50, Vector3.one));
+        StartCoroutine(Utils.TweenScaleIn(itemContainer.slotOptionMenu, 50, Vector3.one));//chứa set tf.active
 
     }
     //Đóng slotOption
@@ -84,7 +79,7 @@ public class InventoryEvents : RPGMonoBehaviour
         itemContainer.itemInfoPanel.GetComponentInChildren<TextMeshProUGUI>().text = slot.slotItem.itemInformation;
         itemContainer.itemInfoPanel.SetActive(!itemContainer.itemInfoPanel.activeSelf);
     }
-    //Tạo slot Option
+    //slot = null thì tắt option
     public void OnSlotButtonEventFinished(ItemSlot slot)
     {
         if (slot.IsEmpty)
@@ -92,6 +87,7 @@ public class InventoryEvents : RPGMonoBehaviour
             CloseSlotOptionMenu();
         }
     }
+    //key ở đây là I
     public void CheckForUIToggleInput()
     {
         if (Input.GetKeyDown(itemContainer.UIToggleKey)) ToggleUI();
@@ -104,7 +100,7 @@ public class InventoryEvents : RPGMonoBehaviour
         for (int i = 0; i < itemContainer.slots.Length; i++) if (itemContainer.slots[i].Add(item)) return true;
         return false;
     }
-    public void AddAll(Item item,int count)
+    public void AddAll(Item item,int count) //Tạm thời chưa sử dụng
     {
         for (int i = 0; i < itemContainer.slots.Length; i++)
         {

@@ -17,7 +17,6 @@ public class DamageSender : RPGMonoBehaviour
     public virtual void Send(DamageReceiver damageReceiver)
     {
         damageReceiver.Deduct(this.damage);
-       
     }
     public virtual void SetDamage(int damage)
     {

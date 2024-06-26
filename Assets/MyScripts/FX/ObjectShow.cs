@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectShow : MonoBehaviour
+public class ObjectShow : MonoBehaviour // Không dùng
 {
     private void Start()
     {

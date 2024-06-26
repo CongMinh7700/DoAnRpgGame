@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d43a57ab6d81b246b30117f7817d315, type: 3}
-  m_Name: WatcherQuest_1
+  m_Name: WatcherQuest_2 1
   m_EditorClassIdentifier: 
-  questTitle: "Ti\xEAu di\u1EC7t qu\u1EF7 bay 1"
+  questTitle: "Ti\xEAu di\u1EC7t qu\u1EF7 bay 2"
   description: "Ti\xEAu di\u1EC7t b\u1ECDn qu\u1EF7 bay \u1EDF s\u01B0\u1EDDn n\xFAi"
-  experienceReward: 5000
-  goldReward: 400
+  experienceReward: 7000
+  goldReward: 800
   dialogues:
   - "Ch\xE0o v\u1ECB c\u1EE9u tinh."
-  - "Xin h\xE3y gi\xFAp ch\xFAng t\xF4i ti\xEAu di\u1EC7t b\u1ECDn qu\xE1i bay \u1EDF
-    s\u01B0\u1EDDn n\xFAi. Ch\xFAng \u0111ang l\xE0 m\u1ED1i nguy h\u1ECDa \u0111e
-    d\u1ECDa t\u1EDBi cu\u1ED9c s\u1ED1ng c\u1EE7a ng\u01B0\u1EDDi d\xE2n."
+  - "Ta c\u1EA7n b\u1ECDn qu\u1EF7 bay \u0111\u1EC3 nghi\xEAn c\u1EE9u ph\xE9p thu\u1EADt
+    m\u1EDBi. H\xE3y thu th\u1EADp b\u1ECDn ch\xFAng v\u1EC1 \u0111\u1EA7y ta s\u1EBD
+    tr\u1EA3 c\xF4ng cho."
   - "Nhi\u1EC7m v\u1EE5 : Ti\xEAu di\u1EC7t 10 con qu\u1EF7 bay."
   dialoguesComplete:
   - "C\u1EA3m \u01A1n c\xE2u r\u1EA5t nhi\u1EC1u nh\u1EDD c\u1EADu m\xE0 ng\u01B0\u1EDDi

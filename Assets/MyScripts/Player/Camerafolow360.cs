@@ -16,27 +16,23 @@ public class Camerafolow360 : MonoBehaviour
 	[SerializeField] protected float rotSpeed = 100;
 	[SerializeField] protected float smoothFactor = 0.1f;
 	private bool isRotate;
-
 	//Test
-	[SerializeField] protected LayerMask collisionLayers; // Các lớp để kiểm tra va chạm
-	[SerializeField] protected float minDistance = 1.0f; // Khoảng cách tối thiểu của camera từ người chơi
-	[SerializeField] protected float collisionSmooth = 0.1f; // Tốc độ chuyển động mượt mà khi va chạm
+	[SerializeField] protected LayerMask collisionLayers; // layer va chạm
+	[SerializeField] protected float minDistance = 1.0f; // kc tối thiểu giữ cam và người chơi
+	[SerializeField] protected float collisionSmooth = 0.1f; // di chuyển cam mượt hơn khi va chạm với layer
 
 	void Update()
 	{
 		float mouseX = Input.GetAxis("Mouse X");
 		float mouseY = Input.GetAxis("Mouse Y");
-            if (player)
+            if (player != null)
             {
-                Vector3 lookPosition = orientation.position + lookOffset;
+                Vector3 lookPosition = orientation.position + lookOffset;//vị trí cam sẽ được đặt
                 Vector3 relativePos = lookPosition - transform.position;
                 Quaternion rot = Quaternion.LookRotation(relativePos);
-
                 transform.rotation = Quaternion.Slerp(this.transform.rotation, rot, Time.deltaTime * rotSpeed * 0.1f);
-
                 Vector3 desiredCameraPos = orientation.transform.position + orientation.transform.up * height - orientation.transform.forward * distance;
-
-                // Kiểm tra va chạm vật thể
+                // kiểm tra va chạm vật thể thì di chuyển camera len trươc
                 RaycastHit hit;
                 if (Physics.Linecast(orientation.position, desiredCameraPos, out hit, collisionLayers))
                 {
@@ -51,7 +47,6 @@ public class Camerafolow360 : MonoBehaviour
             {
                 player.transform.Rotate(Vector3.up * mouseX * rotSpeed * Time.deltaTime);
                 orientation.transform.Rotate(Vector3.left * mouseY * rotSpeed * Time.deltaTime);
-
                 // giới hạn xoay cam trục x ở -80 và 40
                 Vector3 currentRotation = orientation.transform.localEulerAngles;
                 float currentXRotation = currentRotation.x > 180 ? currentRotation.x - 360 : currentRotation.x;

@@ -13,6 +13,7 @@ public class BossAnimation : EnemyAnimation
             StartCoroutine(WaitToShoot());
         }
     }
+   
     public virtual void Flex()
     {
         animator.SetTrigger("Flex");

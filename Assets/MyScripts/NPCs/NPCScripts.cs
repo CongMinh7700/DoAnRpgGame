@@ -84,8 +84,6 @@ public class NPCScripts : RPGMonoBehaviour
             AudioManager.isNpcShop = false;
             AudioManager.canPlay = true;
             questGiver.dialogueIndex = 0;
-
-
         }
     }
 

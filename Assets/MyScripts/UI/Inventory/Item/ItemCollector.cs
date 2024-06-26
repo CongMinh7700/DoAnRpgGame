@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemCollector : RPGMonoBehaviour
+public class ItemCollector : RPGMonoBehaviour// chưa dung
 {
     //public cai nay roi add item vao
     public Item item;

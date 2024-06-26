@@ -29,13 +29,10 @@ public class HintSkillMessage : RPGMonoBehaviour,IPointerEnterHandler,IPointerEx
             Info.SetActive(true);
             Info.GetComponentInChildren<TextMeshProUGUI>().text = skillSlot.slotItem.itemInformation;
             screenPoint.x = Input.mousePosition.x + 100f;
-
-
         }
         screenPoint.y = Input.mousePosition.y;
         screenPoint.z = 1f;
         Info.transform.position = screenPoint;
-
     }
 
     public void OnPointerExit(PointerEventData eventData)

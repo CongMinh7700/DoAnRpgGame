@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,8 +23,7 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         mySlot = GetComponent<ItemSlot>();
         slotUI = GetComponent<Image>();
-        originalSiblingIndex = transform.GetSiblingIndex();
-
+        originalSiblingIndex = transform.GetSiblingIndex();//xác định vị trí các đối tượng cùng cấp
         origin = transform.localPosition;
         regularColor = slotUI.color;
         dragColor = new Color(regularColor.r, regularColor.g, regularColor.b, 0.3f);
@@ -32,17 +31,17 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void Update()
     {
-        if (isBeingDragged && hoveredSlot != null)
-        {
-            if (Input.GetKeyDown(InteractionSettings.Current.transferSingleItem))
-            {
-                Utils.TransferItemQuantity(mySlot, hoveredSlot, 1);
-            }
-            else if (Input.GetKeyDown(InteractionSettings.Current.transferHalfStack))
-            {
-                Utils.TransferItemQuantity(mySlot, hoveredSlot, mySlot.itemCount / 2);
-            }
-        }
+        //if (isBeingDragged && hoveredSlot != null)
+        //{
+        //    if (Input.GetKeyDown(InteractionSettings.Current.transferSingleItem))
+        //    {
+        //        Utils.TransferItemQuantity(mySlot, hoveredSlot, 1);
+        //    }
+        //    else if (Input.GetKeyDown(InteractionSettings.Current.transferHalfStack))
+        //    {
+        //        Utils.TransferItemQuantity(mySlot, hoveredSlot, mySlot.itemCount / 2);
+        //    }
+        //}
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -70,13 +69,11 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
         mySlot.AssignItem();
         transform.position = Input.mousePosition - dragOffset;
         OnSlotDrag?.Invoke();
-  
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if (hoveredSlot != null) OnDropToSlot();
-
         transform.SetSiblingIndex(originalSiblingIndex);
         transform.localPosition = origin;
         slotUI.color = regularColor;
@@ -87,6 +84,5 @@ public class ItemSlotUIEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private void OnDropToSlot()
     {
         Utils.TransferItem(mySlot, hoveredSlot);
-      
     }
 }

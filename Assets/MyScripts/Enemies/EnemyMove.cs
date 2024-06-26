@@ -99,7 +99,7 @@ public class EnemyMove : RPGMonoBehaviour
         {
             navMesh.isStopped = true;
             //Debug.LogWarning("Current State Tag: " + enemyInfo.tagHash);
-            if (enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))
+            if (enemyInfo.IsTag("NonAttack") && !enemyAnimation.Animator.IsInTransition(0))//trạng thái chuyển tiếp
             {
                 if (!isAttacking)
                 {
@@ -138,9 +138,6 @@ public class EnemyMove : RPGMonoBehaviour
     public virtual void Attack()
     {
         this.enemyAnimation.AttackAnimation();
-        //Vector3 pos = (player.transform.position - transform.parent.position).normalized;
-        //Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
-        //transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, posRotation, Time.deltaTime * rotateSpeed);
 
     }
     public virtual void MoveToPlayer()

@@ -7,12 +7,10 @@ public class SaveScripts : RPGMonoBehaviour
 
     public static bool saving = false;
     public static bool continueData = false;
-    //private bool checkForLoad = false;
     [Header("Save")]
     public PlayerCtrl playerCtrl;
     public LevelSystem levelSystem;
     //[Header("In Game")]
-    // public static int instance = 0;
     protected override void LoadComponents()
     {
         LoadPlayerCtrl();
@@ -56,8 +54,6 @@ public class SaveScripts : RPGMonoBehaviour
         {
             Debug.LogError("Could not load container data! Make sure you have entered a valid id and all the item scriptable objects are added to the SaveScripts item list.");
         }
-
-
     }
     public virtual void LoadData(string id)
     {

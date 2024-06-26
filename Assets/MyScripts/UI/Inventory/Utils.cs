@@ -17,7 +17,7 @@ public readonly struct Utils
 
         if (!trigger.IsEmpty)
         {
-            if (target.IsEmpty || targetItem == triggerItem)
+            if (target.IsEmpty || targetItem == triggerItem)//target rỗng hoặc trùng item với slot trigger
             {
                 for (int i = 0; i < triggerItemCount; i++)
                 {
@@ -25,18 +25,17 @@ public readonly struct Utils
                     else return;
                 }
             }
-            else
+            else// trường hợp cả 2 có item
             {
                 int targetItemCount = target.itemCount;
-
                 target.Clear();
                 for (int i = 0; i < triggerItemCount; i++) target.Add(triggerItem);
-
                 trigger.Clear();
                 for (int i = 0; i < targetItemCount; i++) trigger.Add(targetItem);
             }
         }
     }
+    #region NotUse
     public static void TransferItemQuantity(ItemSlot trigger, ItemSlot target, int amount)
     {
         if (!trigger.IsEmpty)
@@ -53,7 +52,7 @@ public readonly struct Utils
         }
     }
 
-    public static void TransferItemQuantity(ItemSlot trigger, ItemContainer targetContainer, int amount)
+    public static void TransferItemQuantity(ItemSlot trigger, ItemContainer targetContainer, int amount)//add vào inventory
     {
         if (!trigger.IsEmpty)
         {
@@ -68,10 +67,10 @@ public readonly struct Utils
             }
         }
     }
-   
+    #endregion
 
 
-    //Đang sử dụng cho việc In Out
+    //Đang sử dụng cho việc In Out cho các UI main
     public static IEnumerator TweenScaleIn(GameObject obj, float durationInFrames, Vector3 maxScale)
     {
         Transform tf = obj.transform;
@@ -109,14 +108,14 @@ public readonly struct Utils
     {
         InteractionSettings settings = null;
 
-        if (Application.isPlaying == false)
+        if (Application.isPlaying == false)//kiểm tra chương trình có đang chạy hay không
         {
 #if UNITY_EDITOR
             var settingsAssets = AssetDatabase.FindAssets($"t:{nameof(InteractionSettings)}");
             if (settingsAssets?.Length > 0)
             {
-                string assetPath = AssetDatabase.GUIDToAssetPath(settingsAssets[0]);
-                settings = AssetDatabase.LoadAssetAtPath(assetPath, typeof(InteractionSettings)) as InteractionSettings;
+                string assetPath = AssetDatabase.GUIDToAssetPath(settingsAssets[0]);//lấy đường dẫn đầu tiên trong list Interaction
+                settings = AssetDatabase.LoadAssetAtPath(assetPath, typeof(InteractionSettings)) as InteractionSettings;//gán cho settings
             }
 #endif
         }

@@ -17,7 +17,6 @@ public class WImpactForEnemy : WeaponImpact
     protected virtual void CreateHitEffect()
     {
         string fxName = FXSpawner.hitEffect;
-        
         Transform fxObj = FXSpawner.Instance.Spawn(fxName, transform.position, Quaternion.identity);
         fxObj.gameObject.SetActive(true);
     }

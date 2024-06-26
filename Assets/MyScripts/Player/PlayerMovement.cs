@@ -13,7 +13,6 @@ public class PlayerMovement : RPGMonoBehaviour
     [SerializeField] protected float jumpForce = 5f;
     [SerializeField] protected float jumpCoolDown = 0.24f;
     [SerializeField] protected bool readyTojump;
-  //  [SerializeField] protected RaycastHit raycastHit; Sử dụng cho outline
     private Rigidbody rb;
     [SerializeField] private float speed = 5.0f;
     private float rotationSpeed = 50.0f;
@@ -45,7 +44,6 @@ public class PlayerMovement : RPGMonoBehaviour
         readyTojump = true;
         rb.freezeRotation = true;
     }
-
 
     void Update()
     {

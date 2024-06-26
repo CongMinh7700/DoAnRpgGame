@@ -23,7 +23,6 @@ public class Level : RPGMonoBehaviour
     {
         if (newLevel > this.levelMax) return false;
         if (newLevel < 1) return false;
-
         this.levelCurrent = newLevel;
         return true;
     }

@@ -36,7 +36,7 @@ public class SpawnPoint : RPGMonoBehaviour
     //thêm vào danh sách
     public virtual Transform GetRandomPoint()
     {
-        List<int> availableIndices = new List<int>();
+        List<int> availableIndices = new List<int>();//point sẵn
         for (int i = 0; i < points.Count; i++)
         {
             PointTrigger trigger = points[i].GetComponentInChildren<PointTrigger>();
@@ -51,7 +51,7 @@ public class SpawnPoint : RPGMonoBehaviour
 
         if (availableIndices.Count == 0)
         {
-            Debug.LogWarning("All spawn points are currently occupied.");
+            Debug.LogWarning("All spawn points are occupied.");
             return null;
         }
 

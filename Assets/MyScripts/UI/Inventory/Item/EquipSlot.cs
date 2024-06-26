@@ -79,7 +79,6 @@ public class EquipSlot : ItemSlot
                 case "stamina":
                     removedBonusStamina = bonus.attributeValue;
                     break;
-                    // Thêm các trường hợp xử lý cho các loại bonus khác nếu cần thiết
             }
         }
         ItemManager.bonusAttack -= removedBonusAttack;

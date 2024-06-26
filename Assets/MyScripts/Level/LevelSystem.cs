@@ -85,7 +85,6 @@ public class LevelSystem : Level
         {
             number += (int)Mathf.Floor(i + additionMultiple * Mathf.Pow(powerMultiple, i / divisionMultiple));
         }
-
         return number / 4;
     }
     public virtual void UpdatePlayerStatus(int level)

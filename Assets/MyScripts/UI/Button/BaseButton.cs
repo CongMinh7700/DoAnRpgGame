@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class BaseButton : RPGMonoBehaviour
+public abstract class BaseButton : RPGMonoBehaviour //Khong dung
 {
     [Header("Base Button")]
     [SerializeField] protected Button button;

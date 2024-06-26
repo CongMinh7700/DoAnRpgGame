@@ -19,9 +19,13 @@ public class BuyWeapon : RPGMonoBehaviour
         if (this.inventory != null) return;
         this.inventory = FindObjectOfType<ItemContainer>();
     }
-    private void Update()
+    //private void Update()
+    //{
+    //    //currencyText.text = MoneyManager.Instance.Gold.ToString();
+    //}
+    private void Start()
     {
-        currencyText.text = MoneyManager.Instance.Gold.ToString();
+        currencyText.text = MoneyManager.Instance.Gold.ToString() + " $";
     }
     public void BuyWeaponButton()
     {
@@ -29,10 +33,12 @@ public class BuyWeapon : RPGMonoBehaviour
         if (MoneyManager.Instance.Gold >= cost)
         {
             SFXManager.Instance.PlaySFXPickUp();
-            inventory.inventoryEvents.AddItem(item);
-            MoneyManager.Instance.MinusGold(cost);
+            if(inventory.inventoryEvents.AddItem(item))
+            {
+                MoneyManager.Instance.MinusGold(cost);
+            }
             currencyText.text = MoneyManager.Instance.Gold.ToString() +" $";
-            Debug.Log(transform.name + " Cost = " + cost);
+           // Debug.Log(transform.name + " Cost = " + cost);
             QuestManager.Instance.UpdateQuestProgress(item.itemName);
         }
      
